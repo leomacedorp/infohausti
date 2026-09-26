@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infohaus TI | Sites Rápidos, Presença no Google & Suporte de TI em Ribeirão Preto</title>
-    <meta name="description" content="Criação de sites de alta conversão, presença no Google Maps e suporte ágil de computadores e redes para clínicas e escritórios em Ribeirão Preto e região. Mais de 20 anos de experiência.">
+    <title>Infohaus TI | Tecnologia que vira faturamento, não dor de cabeça</title>
+    <meta name="description" content="Mais de 20 anos transformando tecnologia em resultado real para clínicas e empresas em Ribeirão Preto e todo o Brasil. Sites rápidos, presença no Google e suporte direto.">
     <meta name="keywords" content="suporte ti ribeirão preto, criação de sites ribeirão preto, landing page ribeirão preto, google meu negócio ribeirão preto, manutenção computadores clínicas ribeirão preto, infohaus ti">
     <link rel="canonical" href="https://infohausti.com.br">
 
     <!-- Open Graph / WhatsApp / Redes Sociais -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://infohausti.com.br">
-    <meta property="og:title" content="Infohaus TI | Soluções em Tecnologia & Presença Digital">
-    <meta property="og:description" content="Sites rápidos para celular, posicionamento no Google e computadores sem travar. Mais de 20 anos de experiência em Ribeirão Preto.">
+    <meta property="og:title" content="Infohaus TI | Tecnologia que vira faturamento, não dor de cabeça">
+    <meta property="og:description" content="Mais de 20 anos transformando tecnologia em resultado real para clínicas e empresas. Sites rápidos, Google Maps e suporte direto sem tickets.">
     <meta property="og:image" content="https://infohausti.com.br/og-image.jpg">
     <link rel="icon" type="image/jpeg" href="https://infohausti.com.br/logo.jpg">
 
@@ -50,14 +50,13 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            50: '#f0f7ff',
-                            100: '#e0effe',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
-                            950: '#082f49'
+                        cyber: {
+                            cyan: '#00f0ff',
+                            blue: '#0070f3',
+                            dark: '#030712',
+                            darker: '#02040a',
+                            card: '#080d1a',
+                            border: '#13233a'
                         }
                     }
                 }
@@ -66,211 +65,310 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Animação dos anéis orbitais */
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes spin-reverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+        .animate-orbit {
+            animation: spin-slow 25s linear infinite;
+        }
+        .animate-orbit-reverse {
+            animation: spin-reverse 35s linear infinite;
+        }
+
+        /* Efeito de brilho neon */
+        .neon-glow-cyan {
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4), inset 0 0 15px rgba(0, 240, 255, 0.2);
+        }
+        .text-glow-cyan {
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+        }
+
+        /* Letreiro Marquee infinito */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 22s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white">
+<body class="bg-cyber-darker text-slate-100 antialiased selection:bg-cyan-500 selection:text-black relative overflow-x-hidden">
 
-    <!-- Topbar Informativa -->
-    <div class="bg-brand-950 border-b border-sky-900/40 text-xs py-2 px-4 text-center text-sky-300">
-        🚀 <span class="font-bold">Infohaus TI:</span> Mais de 20 anos transformando tecnologia em faturamento e tranquilidade para empresas em Ribeirão Preto e todo o Brasil.
+    <!-- Canvas de Fundo Interativo: Trilhas de Circuito e Pulsos de Luz -->
+    <canvas id="circuitCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- Marca d'água de Fundo INFOHAUS -->
+    <div class="fixed inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden opacity-[0.03]">
+        <span class="text-[20vw] font-black tracking-tighter text-white select-none">INFOHAUS</span>
     </div>
 
-    <!-- Header / Navbar -->
-    <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80 transition-all">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-3 group">
-                <img src="logo.jpg" alt="Infohaus TI" class="w-10 h-10 rounded-xl object-cover border border-sky-500/40 shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
+    <!-- Header / Navbar Superior -->
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-cyber-darker/80 border-b border-cyber-border transition-all">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center relative z-10">
+            <a href="#" class="flex items-center gap-3.5 group">
+                <img src="logo.jpg" alt="Infohaus TI" class="w-10 h-10 rounded-xl object-cover border border-cyan-500/40 shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
                 <div>
-                    <span class="text-xl font-extrabold tracking-tight text-white">INFOHAUS<span class="text-sky-400">TI</span></span>
+                    <span class="text-xl font-black tracking-tight text-white">INFOHAUS<span class="text-cyan-400">TI</span></span>
                     <span class="block text-[10px] uppercase tracking-widest text-slate-400 font-semibold">Tecnologia & Presença Digital</span>
                 </div>
             </a>
 
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#solucoes" class="hover:text-sky-400 transition">Soluções</a>
-                <a href="#case" class="hover:text-sky-400 transition">Case em Destaque</a>
-                <a href="#diferenciais" class="hover:text-sky-400 transition">Por que a Infohaus?</a>
-                <a href="#contato" class="hover:text-sky-400 transition">Contato</a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+                <a href="#solucoes" class="hover:text-cyan-400 transition">Soluções</a>
+                <a href="#case" class="hover:text-cyan-400 transition">Case em Destaque</a>
+                <a href="#diferenciais" class="hover:text-cyan-400 transition">Por que a Infohaus?</a>
+                <a href="#contato" class="hover:text-cyan-400 transition">Contato</a>
             </div>
 
-            <a href="https://wa.me/5516981469121?text=Olá,%20gostaria%20de%20um%20diagnóstico%20digital%20para%20minha%20empresa." target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 hover:-translate-y-0.5">
+            <a href="https://wa.me/5516981469121?text=Olá,%20gostaria%20de%20um%20diagnóstico%20digital%20para%20minha%20empresa." target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-950 px-5 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5">
                 <span>Falar no WhatsApp</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative pt-24 pb-20 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(14,165,233,0.15),rgba(255,255,255,0))]"></div>
+    <!-- Hero Section (Inspirada no Layout Futurista) -->
+    <header class="relative pt-20 pb-20 overflow-hidden z-10">
         <div class="max-w-7xl mx-auto px-6 relative text-center">
             
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-950/70 border border-sky-800/60 text-sky-300 text-xs font-semibold mb-8">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                Presença no Google · Sites Rápidos · Suporte Descomplicado
+            <!-- Emblema da Casa Futurista com Anéis Orbitais -->
+            <div class="relative w-40 h-40 mx-auto mb-10 flex items-center justify-center">
+                <!-- Anel Orbital 1 -->
+                <div class="absolute inset-0 rounded-full border border-dashed border-cyan-500/30 animate-orbit"></div>
+                <!-- Anel Orbital 2 (Invertido) -->
+                <div class="absolute -inset-3 rounded-full border border-dotted border-blue-500/20 animate-orbit-reverse"></div>
+                <!-- Brilho Central -->
+                <div class="absolute inset-4 rounded-3xl bg-cyan-500/10 blur-xl"></div>
+                
+                <!-- Card do Logo Central -->
+                <div class="relative z-10 w-28 h-28 rounded-2xl bg-cyber-card border border-cyan-500/40 flex items-center justify-center p-3 shadow-2xl neon-glow-cyan">
+                    <img src="logo.jpg" alt="Infohaus Emblem" class="w-full h-full object-contain rounded-xl">
+                </div>
             </div>
 
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight md:leading-none mb-6">
-                A tecnologia do seu negócio funcionando <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-400">sem dores de cabeça.</span>
+            <!-- Headline Matadora -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white max-w-4xl mx-auto leading-[1.15] mb-6">
+                Tecnologia que vira <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-amber-300">faturamento</span>,<br class="hidden sm:inline"> não dor de cabeça.
             </h1>
 
-            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-                Criamos sites rápidos que colocam sua clínica ou escritório no topo das buscas do Google, e cuidamos dos computadores e do Wi-Fi para sua equipe trabalhar sem travar.
+            <p class="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+                Mais de 20 anos transformando tecnologia em resultado real para clínicas e empresas — em Ribeirão Preto e em todo o Brasil.
             </p>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="https://wa.me/5516981469121?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20com%20a%20Infohaus%20TI." target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-bold text-base transition-all shadow-xl shadow-sky-500/25 hover:shadow-sky-500/40 hover:-translate-y-0.5">
-                    Solicitar Diagnóstico Gratuito
+            <!-- Botões de Ação -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto sm:max-w-none">
+                <a href="https://wa.me/5516981469121?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20com%20a%20Infohaus%20TI." target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-base transition-all shadow-xl shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                    <span>⚡ Chamar no WhatsApp</span>
                 </a>
-                <a href="#solucoes" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-semibold text-base transition-all">
-                    Conhecer as Soluções
+                <a href="#solucoes" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-cyber-card/80 hover:bg-cyber-card border border-cyber-border hover:border-cyan-500/50 text-slate-300 font-semibold text-base transition-all">
+                    Explorar serviços
                 </a>
             </div>
 
-            <!-- Badges de Autoridade -->
-            <div class="mt-16 pt-12 border-t border-slate-900 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-left">
-                <div>
-                    <div class="text-3xl font-extrabold text-white mb-1">+20 Anos</div>
-                    <div class="text-xs text-slate-400">De experiência sólida em TI e suporte prático</div>
+            <!-- Grid de Métricas de Alta Autoridade (Screenshot 1) -->
+            <div class="mt-20 pt-12 border-t border-cyber-border/80 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <div class="p-4 rounded-xl bg-cyber-card/40 border border-cyber-border/50">
+                    <div class="text-3xl sm:text-4xl font-black text-cyan-400 mb-1">20+</div>
+                    <div class="text-xs text-slate-400 font-medium">anos de estrada</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-extrabold text-sky-400 mb-1">100%</div>
-                    <div class="text-xs text-slate-400">Velocidade máxima no celular (Core Web Vitals)</div>
+                <div class="p-4 rounded-xl bg-cyber-card/40 border border-cyber-border/50">
+                    <div class="text-3xl sm:text-4xl font-black text-white mb-1">&lt;1s</div>
+                    <div class="text-xs text-slate-400 font-medium">site no celular</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-extrabold text-white mb-1">Zero Atrito</div>
-                    <div class="text-xs text-slate-400">Atendimento direto com especialista, sem tickets</div>
+                <div class="p-4 rounded-xl bg-cyber-card/40 border border-cyber-border/50">
+                    <div class="text-3xl sm:text-4xl font-black text-cyan-400 mb-1">100%</div>
+                    <div class="text-xs text-slate-400 font-medium">Core Web Vitals</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-extrabold text-cyan-400 mb-1">Ribeirão Preto</div>
-                    <div class="text-xs text-slate-400">Atendimento presencial e suporte remoto ágil</div>
+                <div class="p-4 rounded-xl bg-cyber-card/40 border border-cyber-border/50">
+                    <div class="text-3xl sm:text-4xl font-black text-white mb-1">24/7</div>
+                    <div class="text-xs text-slate-400 font-medium">WhatsApp ativo</div>
                 </div>
             </div>
 
         </div>
     </header>
 
-    <!-- Seção de Soluções (4 Pilares Práticos e Escaláveis) -->
-    <section id="solucoes" class="py-24 bg-slate-900/50 border-t border-slate-900">
+    <!-- Letreiro / Ticker Rolante Infinito -->
+    <div class="relative py-4 border-y border-cyber-border bg-cyber-card/60 backdrop-blur-md overflow-hidden z-10">
+        <div class="animate-marquee whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center gap-12">
+            <span>✦ SUPORTE DIRETO SEM TICKETS</span>
+            <span class="text-cyan-400">✦ SITES RÁPIDOS NO CELULAR</span>
+            <span>✦ GOOGLE MEU NEGÓCIO OTIMIZADO</span>
+            <span class="text-cyan-400">✦ WI-FI ESTÁVEL PARA RECEPÇÃO</span>
+            <span>✦ ATENDIMENTO NO WHATSAPP 24/7</span>
+            <span class="text-cyan-400">✦ MAIS DE 20 ANOS DE EXPERIÊNCIA</span>
+            <span>✦ RIBEIRÃO PRETO & REGIÃO</span>
+            <!-- Repetição para loop contínuo -->
+            <span>✦ SUPORTE DIRETO SEM TICKETS</span>
+            <span class="text-cyan-400">✦ SITES RÁPIDOS NO CELULAR</span>
+            <span>✦ GOOGLE MEU NEGÓCIO OTIMIZADO</span>
+            <span class="text-cyan-400">✦ WI-FI ESTÁVEL PARA RECEPÇÃO</span>
+            <span>✦ ATENDIMENTO NO WHATSAPP 24/7</span>
+            <span class="text-cyan-400">✦ MAIS DE 20 ANOS DE EXPERIÊNCIA</span>
+            <span>✦ RIBEIRÃO PRETO & REGIÃO</span>
+        </div>
+    </div>
+
+    <!-- Seção: Quatro frentes. Um só parceiro. -->
+    <section id="solucoes" class="py-24 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs uppercase tracking-widest text-sky-400 font-bold mb-3">Soluções Diretas ao Ponto</h2>
-                <p class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Serviços pensados para atrair clientes e manter sua operação rodando leve</p>
+            
+            <div class="mb-16 text-center md:text-left max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-800/60 text-cyan-300 text-xs font-mono mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                    // o que fazemos
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+                    Quatro frentes.<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-300">Um só parceiro.</span>
+                </h2>
+                <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+                    Do site que abre em menos de 1 segundo ao computador que nunca trava — tudo resolvido com quem entende, sem tickets, sem espera.
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Card 1: Sites & Landing Pages -->
-                <div class="p-8 rounded-2xl bg-slate-950 border border-slate-800/80 hover:border-sky-500/50 transition-all group hover:-translate-y-1">
-                    <div class="w-12 h-12 rounded-xl bg-sky-950 border border-sky-800/60 flex items-center justify-center text-sky-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        🌐
+            <!-- Cards Numerados 01, 02, 03, 04 -->
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <!-- Card 01 -->
+                <div class="p-8 rounded-2xl bg-cyber-card border border-cyber-border hover:border-cyan-500/50 transition-all group relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-cyan-400 font-bold text-sm tracking-widest">0 1</span>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-950/80 border border-cyan-800/60 flex items-center justify-center text-cyan-400 text-2xl group-hover:scale-110 transition-transform">
+                            🌐
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Criação de Sites & Landing Pages de Alta Conversão</h3>
+                    <h3 class="text-xl font-bold text-white mb-3">Presença Digital & Sites Soberanos</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Construímos a presença digital oficial da sua clínica ou empresa: sites modernos que abrem em menos de 1 segundo no celular, transmitem autoridade e transformam visitantes em agendamentos reais no seu WhatsApp.
+                        Construímos a sua casa própria na internet: sites institucionais e páginas de alta conversão, desenhados para abrir instantaneamente no celular e colocar sua empresa no topo das buscas.
                     </p>
-                    <ul class="text-xs text-slate-300 space-y-2.5 font-medium border-t border-slate-900 pt-6">
-                        <li class="flex items-center gap-2">✓ Carregamento instantâneo no celular (sem lentidão)</li>
+                    <ul class="text-xs text-slate-300 space-y-2.5 font-medium border-t border-cyber-border/80 pt-6">
+                        <li class="flex items-center gap-2 text-cyan-300 font-semibold">✓ Carregamento em menos de 1 segundo no celular</li>
                         <li class="flex items-center gap-2">✓ Botões estratégicos direto para o WhatsApp de atendimento</li>
                         <li class="flex items-center gap-2">✓ Domínio próprio .com.br, cadeado HTTPS e hospedagem inclusa</li>
                     </ul>
                 </div>
 
-                <!-- Card 2: Google Meu Negócio & Busca Local -->
-                <div class="p-8 rounded-2xl bg-slate-950 border border-slate-800/80 hover:border-sky-500/50 transition-all group hover:-translate-y-1">
-                    <div class="w-12 h-12 rounded-xl bg-sky-950 border border-sky-800/60 flex items-center justify-center text-sky-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        📍
+                <!-- Card 02 -->
+                <div class="p-8 rounded-2xl bg-cyber-card border border-cyber-border hover:border-cyan-500/50 transition-all group relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-cyan-400 font-bold text-sm tracking-widest">0 2</span>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-950/80 border border-cyan-800/60 flex items-center justify-center text-cyan-400 text-2xl group-hover:scale-110 transition-transform">
+                            📍
+                        </div>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Presença no Google Maps & Busca Local (SEO)</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
                         Seja encontrado por quem procura seus serviços no seu bairro e em Ribeirão Preto. Configuramos e otimizamos o seu Google Perfil de Empresas para sua clínica aparecer no topo quando o cliente pesquisar no mapa.
                     </p>
-                    <ul class="text-xs text-slate-300 space-y-2.5 font-medium border-t border-slate-900 pt-6">
-                        <li class="flex items-center gap-2">✓ Configuração completa do Google Meu Negócio</li>
+                    <ul class="text-xs text-slate-300 space-y-2.5 font-medium border-t border-cyber-border/80 pt-6">
+                        <li class="flex items-center gap-2 text-cyan-300 font-semibold">✓ Configuração completa do Google Meu Negócio</li>
                         <li class="flex items-center gap-2">✓ Integração de rota, horários, fotos e ligação direta</li>
                         <li class="flex items-center gap-2">✓ Otimização de palavras-chave para sua cidade e região</li>
                     </ul>
                 </div>
 
-                <!-- Card 3: Otimização de Computadores & Wi-Fi -->
-                <div class="p-8 rounded-2xl bg-slate-950 border border-slate-800/80 hover:border-sky-500/50 transition-all group hover:-translate-y-1">
-                    <div class="w-12 h-12 rounded-xl bg-sky-950 border border-sky-800/60 flex items-center justify-center text-sky-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        💻
+                <!-- Card 03 -->
+                <div class="p-8 rounded-2xl bg-cyber-card border border-cyber-border hover:border-cyan-500/50 transition-all group relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-cyan-400 font-bold text-sm tracking-widest">0 3</span>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-950/80 border border-cyan-800/60 flex items-center justify-center text-cyan-400 text-2xl group-hover:scale-110 transition-transform">
+                            💻
+                        </div>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Otimização de Computadores & Redes Wi-Fi</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
                         Eliminamos o estresse de máquinas lentas que travam na hora de atender. Fazemos limpeza preventiva, upgrades de SSD, formatação limpa do Windows e deixamos o Wi-Fi da sua recepção rápido e estável.
                     </p>
-                    <ul class="text-xs text-slate-300 space-y-2.5 font-medium border-t border-slate-900 pt-6">
-                        <li class="flex items-center gap-2">✓ Upgrade de velocidade: máquinas ligando em segundos</li>
-                        <li class="flex items-center gap-2">✓ Remoção de vírus, lentidões e programas que travam a rotina</li>
+                    <ul class="text-xs text-slate-300 space-y-2.5 font-medium border-t border-cyber-border/80 pt-6">
+                        <li class="flex items-center gap-2 text-cyan-300 font-semibold">✓ Upgrade de velocidade: máquinas ligando em segundos</li>
+                        <li class="flex items-center gap-2">✓ Remoção de vírus, lentidões e programas pesados</li>
                         <li class="flex items-center gap-2">✓ Configuração de roteadores Wi-Fi sem quedas de sinal</li>
                     </ul>
                 </div>
 
-                <!-- Card 4: Triagem Automática no WhatsApp -->
-                <div class="p-8 rounded-2xl bg-slate-950 border border-slate-800/80 hover:border-sky-500/50 transition-all group hover:-translate-y-1">
-                    <div class="w-12 h-12 rounded-xl bg-sky-950 border border-sky-800/60 flex items-center justify-center text-sky-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        💬
+                <!-- Card 04 -->
+                <div class="p-8 rounded-2xl bg-cyber-card border border-cyber-border hover:border-cyan-500/50 transition-all group relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-cyan-400 font-bold text-sm tracking-widest">0 4</span>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-950/80 border border-cyan-800/60 flex items-center justify-center text-cyan-400 text-2xl group-hover:scale-110 transition-transform">
+                            💬
+                        </div>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Triagem & Atendimento Automático no WhatsApp</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
                         Nunca deixe um paciente ou cliente no vácuo fora do horário comercial. Criamos rotinas automáticas de mensagens que respondem horários, localização e tiram as principais dúvidas antes do atendimento humano.
                     </p>
-                    <ul class="text-xs text-slate-300 space-y-2.5 font-medium border-t border-slate-900 pt-6">
-                        <li class="flex items-center gap-2">✓ Respostas automáticas educadas à noite e fins de semana</li>
+                    <ul class="text-xs text-slate-300 space-y-2.5 font-medium border-t border-cyber-border/80 pt-6">
+                        <li class="flex items-center gap-2 text-cyan-300 font-semibold">✓ Respostas automáticas educadas à noite e fins de semana</li>
                         <li class="flex items-center gap-2">✓ Encaminhamento organizado para a recepção no dia seguinte</li>
                         <li class="flex items-center gap-2">✓ Sem complicação: funciona direto no seu número de WhatsApp</li>
                     </ul>
                 </div>
+
             </div>
+
         </div>
     </section>
 
     <!-- Case em Destaque: Ouro nas Estrelas -->
-    <section id="case" class="py-24 border-t border-slate-900 bg-gradient-to-b from-slate-950 via-slate-900/40 to-slate-950">
+    <section id="case" class="py-24 relative z-10 border-t border-cyber-border bg-gradient-to-b from-cyber-darker via-cyber-card/40 to-cyber-darker">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="p-8 md:p-12 rounded-3xl bg-slate-900/80 border border-sky-900/50 relative overflow-hidden shadow-2xl">
-                <div class="absolute -right-16 -top-16 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="p-8 md:p-12 rounded-3xl bg-cyber-card border border-cyan-900/50 relative overflow-hidden shadow-2xl">
+                <div class="absolute -right-16 -top-16 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950 border border-sky-800 text-sky-300 text-xs font-semibold mb-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950 border border-cyan-800 text-cyan-300 text-xs font-semibold mb-6">
                     ⭐ Case de Engenharia Web em Produção
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-10 items-center">
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4">
+                        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight mb-4">
                             Ouro nas Estrelas: Plataforma Web de Alta Escala & Cálculos em Tempo Real
                         </h2>
                         <p class="text-slate-300 text-base leading-relaxed mb-6">
                             Desenvolvido e operado pela <strong>Infohaus TI</strong>, o <em>Ouro nas Estrelas</em> é um exemplo de sistema web de alta complexidade: processa dados astronômicos em tempo real, entrega laudos personalizados e gerencia pagamentos digitais com máxima velocidade.
                         </p>
 
-                        <div class="grid grid-cols-2 gap-4 text-xs font-medium text-slate-300 border-t border-slate-800 pt-6">
+                        <div class="grid grid-cols-2 gap-4 text-xs font-medium text-slate-300 border-t border-cyber-border pt-6">
                             <div class="flex items-center gap-2">
-                                <span class="text-sky-400 font-bold">⚡ Next.js & TypeScript</span>
+                                <span class="text-cyan-400 font-bold">⚡ Next.js & TypeScript</span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <span class="text-emerald-400 font-bold">🔒 Checkout Stripe Integrado</span>
                             </div>
                             <div class="flex items-center gap-2">
-                                <span class="text-cyan-400 font-bold">🚀 100% Core Web Vitals</span>
+                                <span class="text-sky-400 font-bold">🚀 100% Core Web Vitals</span>
                             </div>
                             <div class="flex items-center gap-2">
-                                <span class="text-sky-400 font-bold">☁️ Arquitetura Segura em Nuvem</span>
+                                <span class="text-cyan-400 font-bold">☁️ Arquitetura Segura em Nuvem</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="p-6 rounded-2xl bg-slate-950 border border-slate-800 text-center">
+                    <div class="p-6 rounded-2xl bg-cyber-darker border border-cyber-border text-center">
                         <div class="text-4xl mb-3">🌌</div>
                         <h4 class="text-lg font-bold text-white mb-2">Engenharia Sob Medida</h4>
                         <p class="text-slate-400 text-xs leading-relaxed mb-6">
                             A mesma tecnologia e rigor de arquitetura que sustentam o Ouro nas Estrelas são aplicados em cada site e infraestrutura que entregamos para nossos clientes.
                         </p>
-                        <a href="https://wa.me/5516981469121?text=Olá,%20vi%20o%20case%20do%20Ouro%20nas%20Estrelas%20e%20gostaria%20de%20um%20site%20para%20minha%20empresa." target="_blank" class="inline-block w-full py-3 px-6 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-bold text-sm transition-all shadow-lg shadow-sky-500/20">
+                        <a href="https://wa.me/5516981469121?text=Olá,%20vi%20o%20case%20do%20Ouro%20nas%20Estrelas%20e%20gostaria%20de%20um%20site%20para%20minha%20empresa." target="_blank" class="inline-block w-full py-3 px-6 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-sm transition-all shadow-lg shadow-cyan-500/25">
                             Quero um Projeto nesse Padrão
                         </a>
                     </div>
@@ -280,12 +378,12 @@
     </section>
 
     <!-- Por que a Infohaus Section -->
-    <section id="diferenciais" class="py-24 border-t border-slate-900">
+    <section id="diferenciais" class="py-24 border-t border-cyber-border relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-xs uppercase tracking-widest text-sky-400 font-bold mb-3">O Diferencial Infohaus</h2>
-                    <h3 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-6 leading-snug">
+                    <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-mono font-bold mb-3">// o diferencial</h2>
+                    <h3 class="text-3xl md:text-4xl font-black text-white tracking-tight mb-6 leading-snug">
                         Nós não vendemos "pacotes genéricos". Nós entregamos paz de espírito para o seu negócio.
                     </h3>
                     <p class="text-slate-300 text-base leading-relaxed mb-8">
@@ -294,7 +392,7 @@
                     <div class="space-y-4 text-sm text-slate-300">
                         <div class="flex items-start gap-3">
                             <div class="w-6 h-6 rounded-full bg-emerald-950 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">✓</div>
-                            <div><strong class="text-white">Atendimento Direto com o Especialista:</strong> Você fala diretamente com quem resolve, sem passar por robôs de tickets de espera.</div>
+                            <div><strong class="text-white">Atendimento Direto com o Especialista:</strong> Você fala diretamente com quem resolve, sem passar por robôs burocráticos de tickets de espera.</div>
                         </div>
                         <div class="flex items-start gap-3">
                             <div class="w-6 h-6 rounded-full bg-emerald-950 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">✓</div>
@@ -307,13 +405,13 @@
                     </div>
                 </div>
 
-                <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 text-center relative overflow-hidden shadow-2xl">
+                <div class="p-8 rounded-3xl bg-cyber-card border border-cyber-border text-center relative overflow-hidden shadow-2xl">
                     <div class="text-5xl mb-4">🛡️</div>
                     <h4 class="text-2xl font-bold text-white mb-2">Pronto para dar o próximo passo?</h4>
                     <p class="text-slate-400 text-sm max-w-md mx-auto mb-8">
                         Solicite uma análise preliminar gratuita da presença digital da sua empresa ou da infraestrutura dos computadores do seu consultório.
                     </p>
-                    <a href="https://wa.me/5516981469121?text=Olá,%20quero%20um%20diagnóstico%20gratuito%20da%20Infohaus%20TI%20para%20minha%20empresa." target="_blank" class="inline-block w-full py-4 px-6 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-base transition-all shadow-lg shadow-emerald-500/20">
+                    <a href="https://wa.me/5516981469121?text=Olá,%20quero%20um%20diagnóstico%20gratuito%20da%20Infohaus%20TI%20para%20minha%20empresa." target="_blank" class="inline-block w-full py-4 px-6 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-base transition-all shadow-lg shadow-cyan-500/30">
                         Chamar Leonardo no WhatsApp
                     </a>
                     <div class="mt-4 text-[11px] text-slate-500">Atendimento prioritário para Ribeirão Preto e Região</div>
@@ -323,12 +421,12 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contato" class="py-12 border-t border-slate-900 bg-slate-950 text-slate-500 text-xs">
+    <footer id="contato" class="py-12 border-t border-cyber-border bg-cyber-darker text-slate-500 text-xs relative z-10">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3 text-center md:text-left">
-                <div class="w-8 h-8 rounded-lg bg-sky-600 flex items-center justify-center font-bold text-white text-sm">IH</div>
+                <img src="logo.jpg" alt="Infohaus TI" class="w-8 h-8 rounded-lg object-cover border border-cyan-500/40">
                 <div>
-                    <span class="font-bold text-slate-300 text-sm">INFOHAUS TI</span>
+                    <span class="font-black text-slate-300 text-sm tracking-tight">INFOHAUS<span class="text-cyan-400">TI</span></span>
                     <span class="block text-[11px] text-slate-500">Tecnologia, Presença Digital & Suporte Descomplicado</span>
                 </div>
             </div>
@@ -341,10 +439,99 @@
             <div class="flex flex-col sm:flex-row gap-4 items-center text-center">
                 <a href="mailto:infohausti@gmail.com" class="hover:text-slate-300 transition">infohausti@gmail.com</a>
                 <span class="hidden sm:inline text-slate-700">•</span>
-                <a href="https://wa.me/5516981469121" class="hover:text-sky-400 font-semibold transition">WhatsApp: (16) 98146-9121</a>
+                <a href="https://wa.me/5516981469121" class="hover:text-cyan-400 font-semibold transition">WhatsApp: (16) 98146-9121</a>
             </div>
         </div>
     </footer>
+
+    <!-- Script de Animação do Canvas (Trilhas de Circuito Eletrônico) -->
+    <script>
+        const canvas = document.getElementById('circuitCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initNodes();
+        });
+
+        // Nós e conexões simulando circuitos integrados
+        const nodes = [];
+        const numNodes = Math.floor(width < 768 ? 20 : 45);
+
+        function initNodes() {
+            nodes.length = 0;
+            for (let i = 0; i < numNodes; i++) {
+                nodes.push({
+                    x: Math.floor(Math.random() * (width / 40)) * 40,
+                    y: Math.floor(Math.random() * (height / 40)) * 40,
+                    vx: (Math.random() > 0.5 ? 1 : -1) * (Math.random() > 0.5 ? 0.8 : 0),
+                    vy: (Math.random() > 0.5 ? 1 : -1) * (Math.random() > 0.5 ? 0.8 : 0),
+                    size: Math.random() > 0.7 ? 3 : 2,
+                    pulse: Math.random() * Math.PI,
+                    speed: 0.03 + Math.random() * 0.04
+                });
+            }
+        }
+        initNodes();
+
+        function drawCircuits() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Linhas de circuito retangulares / ortogonais (estilo PCB)
+            for (let i = 0; i < nodes.length; i++) {
+                const a = nodes[i];
+
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const b = nodes[j];
+                    const dx = Math.abs(a.x - b.x);
+                    const dy = Math.abs(a.y - b.y);
+
+                    // Conecta se estiver próximo o suficiente
+                    if (dx + dy < 220) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = 'rgba(0, 240, 255, 0.12)';
+                        ctx.lineWidth = 1;
+
+                        // Traçado ortogonal em 90 graus (como trilha de circuito)
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(a.x, b.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Nós de circuito com brilho pulsante
+            for (let i = 0; i < nodes.length; i++) {
+                const node = nodes[i];
+                node.pulse += node.speed;
+                const glow = (Math.sin(node.pulse) + 1) / 2;
+
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 240, 255, ${0.3 + glow * 0.7})`;
+                ctx.shadowColor = '#00f0ff';
+                ctx.shadowBlur = 8 * glow;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                // Movimento sutil em grid
+                node.x += node.vx;
+                node.y += node.vy;
+
+                if (node.x < 0 || node.x > width) node.vx *= -1;
+                if (node.y < 0 || node.y > height) node.vy *= -1;
+            }
+
+            requestAnimationFrame(drawCircuits);
+        }
+
+        drawCircuits();
+    </script>
 
 </body>
 </html>
