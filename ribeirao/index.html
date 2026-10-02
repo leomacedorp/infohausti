@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ribeirão Vivo | O Guia das Ruas, Comércios e Vida de Ribeirão Preto</title>
+    <meta name="description" content="Explore as ruas comerciais, restaurantes, pontos turísticos e a mobilidade em tempo real de Ribeirão Preto. O portal vivo da nossa cidade.">
+    <link rel="canonical" href="https://infohausti.com.br/ribeirao/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://infohausti.com.br/ribeirao/">
+    <meta property="og:title" content="Ribeirão Vivo | A Cidade Digital em Suas Mãos">
+    <meta property="og:description" content="Descubra o que fazer, onde comprar e como se locomover nas ruas de Ribeirão Preto.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rp: {
+                            blue: '#1a15f0',
+                            orange: '#ff6600',
+                            dark: '#0f172a',
+                            light: '#f8fafc',
+                            card: '#ffffff'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .adsense-box {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            border: 2px dashed #cbd5e1;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- TOP HEADER -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">🏙️</span>
+                <div>
+                    <h1 class="text-lg font-black tracking-tight text-slate-900 flex items-center gap-1.5">
+                        RIBEIRÃO <span class="text-blue-600">VIVO</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full">Cidade Digital</span>
+                    </h1>
+                </div>
+            </div>
+            <a href="#anunciar" class="text-xs font-bold bg-slate-900 text-white px-3 py-1.5 rounded-lg hover:bg-blue-600 transition">
+                Anunciar Loja
+            </a>
+        </div>
+    </header>
+
+    <!-- BANNER TOPO (ADSENSE ESPAÇO) -->
+    <div class="max-w-4xl mx-auto px-4 mt-3 w-full">
+        <div class="adsense-box rounded-xl p-2.5 text-center flex flex-col items-center justify-center min-h-[60px]">
+            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Espaço Publicitário • Google AdSense</span>
+            <p class="text-xs text-slate-500 font-medium mt-0.5">Anúncios contextualizados para o público de Ribeirão Preto</p>
+        </div>
+    </div>
+
+    <main class="max-w-4xl mx-auto px-4 py-5 flex-1 w-full space-y-6">
+
+        <!-- HERO SECTION -->
+        <section class="bg-gradient-to-br from-blue-600 via-indigo-700 to-blue-900 rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
+            <div class="relative z-10">
+                <span class="inline-block text-xs font-semibold bg-white/20 backdrop-blur-md px-3 py-1 rounded-full mb-3">
+                    📍 Explore Ribeirão Preto pelas Ruas
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-black leading-tight">
+                    O que você quer viver na cidade hoje?
+                </h2>
+                <p class="text-sm text-blue-100 mt-2 max-w-lg">
+                    Comércio local, restaurantes, eventos e o trajeto em tempo real para chegar sem estresse.
+                </p>
+
+                <!-- BUSCADOR -->
+                <div class="mt-5 flex gap-2">
+                    <input type="text" id="inputBusca" placeholder="Ex: Duque de Caxias, Chock Doce, Linha 303..." 
+                           class="w-full px-4 py-3 rounded-xl text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 shadow-md">
+                    <button class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-5 py-3 rounded-xl text-sm transition shadow-md whitespace-nowrap">
+                        Buscar
+                    </button>
+                </div>
+
+                <!-- TAGS RÁPIDAS -->
+                <div class="flex flex-wrap gap-1.5 mt-3 text-xs">
+                    <span class="text-blue-200 py-0.5">Sugestões:</span>
+                    <a href="#rua-duque" class="bg-white/10 hover:bg-white/20 px-2.5 py-0.5 rounded-full transition">Duque de Caxias</a>
+                    <a href="#rua-bananal" class="bg-white/10 hover:bg-white/20 px-2.5 py-0.5 rounded-full transition">Barão do Bananal</a>
+                    <a href="#rota-chopp" class="bg-white/10 hover:bg-white/20 px-2.5 py-0.5 rounded-full transition">Rota do Chopp</a>
+                    <a href="#transporte" class="bg-white/10 hover:bg-white/20 px-2.5 py-0.5 rounded-full transition">Linha 303 Ao Vivo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 1: RUAS COMERCIAIS & VIDA LOCAL -->
+        <section class="space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-black text-slate-900 flex items-center gap-2">
+                        🛍️ Ruas Comerciais em Destaque
+                    </h3>
+                    <p class="text-xs text-slate-500">O que está aberto, onde comprar e como chegar.</p>
+                </div>
+                <span class="text-xs font-bold text-blue-600 hover:underline cursor-pointer">Ver todas</span>
+            </div>
+
+            <!-- CARD RUA DUQUE DE CAXIAS -->
+            <div id="rua-duque" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 hover:border-blue-400 transition">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full">Centro Histórico</span>
+                            <span class="text-xs text-slate-400">• Corredor Principal</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 mt-1">Rua Duque de Caxias</h4>
+                        <p class="text-xs text-slate-500">Ponto comercial nobre de Ribeirão Preto. Cruzamento da cultura, cafés e bombonieres.</p>
+                    </div>
+                    <span class="text-2xl">🏛️</span>
+                </div>
+
+                <!-- VITRINE COMERCIAL DA RUA (AQUI ENTRA A MONETIZAÇÃO LOCAL!) -->
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-3.5 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-amber-200 rounded-lg flex items-center justify-center text-2xl shadow-inner">
+                            🍫
+                        </div>
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-amber-800 tracking-wider bg-amber-100 px-1.5 py-0.5 rounded">Comércio em Destaque</span>
+                            <h5 class="text-sm font-bold text-slate-900">Chock Doce — Trufas & Chocolates</h5>
+                            <p class="text-xs text-slate-600">A 50m da parada Duque. Apresente o código <strong class="text-amber-900">VIVORP</strong> para 15% OFF.</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5516981469121?text=Olá,%20vi%20a%20Chock%20Doce%20no%20Ribeirão%20Vivo!" target="_blank"
+                       class="text-xs bg-amber-600 hover:bg-amber-700 text-white font-bold px-3 py-2 rounded-lg transition whitespace-nowrap shadow-sm">
+                        Ver Oferta
+                    </a>
+                </div>
+
+                <!-- TRANSPORTE QUE LEVA NA RUA -->
+                <div class="border-t border-slate-100 pt-3 flex flex-wrap items-center justify-between gap-2 text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-slate-700">🚌 Linhas que passam aqui:</span>
+                        <span class="bg-blue-600 text-white font-black px-2 py-0.5 rounded text-[11px]">303</span>
+                        <span class="bg-blue-600 text-white font-black px-2 py-0.5 rounded text-[11px]">337</span>
+                        <span class="bg-blue-600 text-white font-black px-2 py-0.5 rounded text-[11px]">730</span>
+                        <span class="bg-blue-600 text-white font-black px-2 py-0.5 rounded text-[11px]">236</span>
+                    </div>
+                    <span class="text-blue-600 font-bold hover:underline cursor-pointer">Ver horários e mapa →</span>
+                </div>
+            </div>
+
+            <!-- CARD AV. BARÃO DO BANANAL -->
+            <div id="rua-bananal" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 hover:border-blue-400 transition">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold bg-green-100 text-green-700 px-2.5 py-0.5 rounded-full">Zona Leste</span>
+                            <span class="text-xs text-slate-400">• Jardim Paulista / Zara</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 mt-1">Av. Barão do Bananal</h4>
+                        <p class="text-xs text-slate-500">Forte corredor de conveniência, padarias tradicionais, mercados e feiras de bairro.</p>
+                    </div>
+                    <span class="text-2xl">🥖</span>
+                </div>
+
+                <!-- COMÉRCIOS DA BARÃO -->
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
+                        <span class="font-bold text-slate-800 block">Panificadora Braghetto</span>
+                        <span class="text-slate-500">Pães especiais e café colonial</span>
+                    </div>
+                    <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
+                        <span class="font-bold text-slate-800 block">Supermercado Mialich</span>
+                        <span class="text-slate-500">Hortifrúti e açougue completo</span>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-100 pt-3 flex flex-wrap items-center justify-between gap-2 text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-slate-700">🚌 Como chegar:</span>
+                        <span class="bg-blue-600 text-white font-black px-2 py-0.5 rounded text-[11px]">337</span>
+                        <span class="bg-blue-600 text-white font-black px-2 py-0.5 rounded text-[11px]">630</span>
+                        <span class="bg-blue-600 text-white font-black px-2 py-0.5 rounded text-[11px]">303 (Arigó)</span>
+                    </div>
+                    <span class="text-blue-600 font-bold hover:underline cursor-pointer">Ver paradas da avenida →</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- BANNER ADSENSE MEIO DO CONTEÚDO -->
+        <div class="adsense-box rounded-xl p-3 text-center flex flex-col items-center justify-center min-h-[90px]">
+            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Publicidade Programática • Google AdSense</span>
+            <p class="text-xs text-slate-500 font-medium mt-1">Anúncio responsivo de alta relevância (Restaurantes, Universidades, Saúde)</p>
+        </div>
+
+        <!-- SEÇÃO 2: TURISMO & O QUE FAZER EM RIBEIRÃO -->
+        <section id="rota-chopp" class="space-y-4">
+            <div>
+                <h3 class="text-lg font-black text-slate-900 flex items-center gap-2">
+                    🍻 Turismo & Gastronomia
+                </h3>
+                <p class="text-xs text-slate-500">Ribeirão Preto além do trabalho. Onde comer, brindar e passear.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <!-- ROTA DO CHOPP -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm hover:shadow-md transition">
+                    <div class="text-2xl mb-2">🍺</div>
+                    <h4 class="font-bold text-slate-900 text-base">A Lendária Rota do Chopp</h4>
+                    <p class="text-xs text-slate-600 mt-1">Do clássico Pinguim no Quarteirão Paulista até as cervejarias Colorado, Invicta e Lund.</p>
+                    <div class="mt-3 flex items-center justify-between text-xs font-bold text-blue-600">
+                        <span>Ver mapa das cervejarias</span>
+                        <span>→</span>
+                    </div>
+                </div>
+
+                <!-- CULTURA & PARQUES -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm hover:shadow-md transition">
+                    <div class="text-2xl mb-2">🎭</div>
+                    <h4 class="font-bold text-slate-900 text-base">Theatro Pedro II & Parques</h4>
+                    <p class="text-xs text-slate-600 mt-1">Programação cultural do centro, Parque Curupira e o Parque Raya para caminhadas ao ar livre.</p>
+                    <div class="mt-3 flex items-center justify-between text-xs font-bold text-blue-600">
+                        <span>Ver programação do fim de semana</span>
+                        <span>→</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: MOBILIDADE VIVA (A ISCA) -->
+        <section id="transporte" class="bg-slate-900 text-white rounded-2xl p-6 shadow-xl space-y-4">
+            <div class="flex items-start justify-between">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-orange-400">Tempo Real</span>
+                    <h3 class="text-xl font-black mt-0.5">🚌 O Pulso da Frota de Ribeirão</h3>
+                    <p class="text-xs text-slate-400 mt-1">Acompanhe onde o seu ônibus está andando na rua neste exato momento.</p>
+                </div>
+                <span class="text-2xl">📡</span>
+            </div>
+
+            <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="text-xs">
+                    <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Radar Ativo: 120 Linhas Conectadas
+                    </span>
+                    <p class="text-slate-300 mt-1">Linhas populares: <strong>303 (Bom Pastor)</strong>, <strong>337 (Lagoinha)</strong>, <strong>730 (Portinari)</strong>.</p>
+                </div>
+                <a href="https://infohausti.com.br" class="w-full sm:w-auto text-center text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white px-4 py-2.5 rounded-lg transition shadow-md whitespace-nowrap">
+                    Abrir Radar no Mapa
+                </a>
+            </div>
+        </section>
+
+        <!-- SEÇÃO B2B: CADASTRE SUA LOJA (MONETIZAÇÃO DIRETA) -->
+        <section id="anunciar" class="bg-gradient-to-r from-orange-500 to-amber-600 rounded-2xl p-6 text-white text-center shadow-lg space-y-3">
+            <h3 class="text-xl font-black">Você tem comércio ou serviço em Ribeirão Preto?</h3>
+            <p class="text-xs text-orange-100 max-w-md mx-auto">
+                Coloque sua loja em destaque na página da sua rua. As pessoas que passam na sua calçada vão te encontrar direto no celular.
+            </p>
+            <div class="pt-2">
+                <a href="https://wa.me/5516981469121?text=Olá,%20tenho%20uma%20loja%20em%20Ribeirão%20e%20quero%20anunciar%20no%20Ribeirão%20Vivo!" target="_blank"
+                   class="inline-block bg-slate-900 hover:bg-black text-white font-bold text-xs px-6 py-3 rounded-xl transition shadow-xl">
+                    Cadastrar Minha Loja por R$ 99/mês
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 mt-8 py-6 text-center text-xs text-slate-500 space-y-2">
+        <p class="font-bold text-slate-800">Ribeirão Vivo • A Cidade Digital de Ribeirão Preto</p>
+        <p>Desenvolvido e mantido por <a href="https://infohausti.com.br" class="text-blue-600 hover:underline font-semibold">Infohaus TI</a></p>
+        <p class="text-[11px] text-slate-400">© 2026 Todos os direitos reservados. Dados de trânsito e mobilidade de domínio público.</p>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE DA SECRETÁRIA URBANA NO WHATSAPP -->
+    <div class="fixed bottom-4 right-4 z-50">
+        <a href="https://wa.me/5516981469121?text=Oi%20Secretária,%20estou%20em%20Ribeirão%20Preto%20e%20preciso%20de%20ajuda!" target="_blank"
+           class="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-4 py-3 rounded-full shadow-2xl transition hover:scale-105">
+            <span class="text-lg">💬</span>
+            <span class="text-xs">Falar com a Secretária</span>
+        </a>
+    </div>
+
+</body>
+</html>
