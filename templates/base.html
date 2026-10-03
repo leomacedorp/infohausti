@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ titulo }} | {{ site_nome | default('Ribeirão Preto | Cidade Viva') }}</title>
+  <meta name="description" content="{{ descricao }}">
+  {% if keywords %}<meta name="keywords" content="{{ keywords }}">{% endif %}
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <!-- Trilha de Auditoria Editorial -->
+  <!-- TRILHA DE AUDITORIA: autor="{{ autor_nome }}", revisor="{{ revisor_nome }}", publicado="{{ publicado_em }}", atualizado="{{ atualizado_em }}", proxima_revisao="{{ proxima_revisao }}", versao="{{ versao }}" -->
+
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="{{ og_type | default('article') }}">
+  <meta property="og:title" content="{{ titulo }}">
+  <meta property="og:description" content="{{ descricao }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:site_name" content="{{ site_nome | default('Ribeirão Preto | Cidade Viva') }}">
+  {% if og_image %}<meta property="og:image" content="{{ og_image }}">{% endif %}
+  {% if publicado_em %}<meta property="article:published_time" content="{{ publicado_em }}">{% endif %}
+  {% if atualizado_em %}<meta property="article:modified_time" content="{{ atualizado_em }}">{% endif %}
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ titulo }}">
+  <meta name="twitter:description" content="{{ descricao }}">
+  {% if og_image %}<meta name="twitter:image" content="{{ og_image }}">{% endif %}
+
+  <!-- CSS Base & Tailwind -->
+  <link rel="stylesheet" href="{{ base_url }}/assets/css/base.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Schema.org JSON-LD -->
+  {% if schema_json %}
+  <script type="application/ld+json">
+  {{ schema_json | safe }}
+  </script>
+  {% endif %}
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen">
+
+  {% include 'partials/skip_link.html' %}
+  {% include 'partials/cabecalho.html' %}
+  {% include 'partials/anuncio_topo.html' %}
+  {% include 'partials/breadcrumb.html' %}
+
+  <main id="conteudo-principal" class="flex-grow">
+    {% if correcoes_pagina and correcoes_pagina | length > 0 %}
+      <div class="container mx-auto px-4 max-w-4xl mt-6">
+        <aside class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg text-xs text-amber-900" role="note" aria-label="Histórico de Correções">
+          <p class="font-bold mb-1">Nota de Correção Editorial:</p>
+          {% for c in correcoes_pagina %}
+            <p>Corrigido em {{ c.data }}. Versão anterior continha {{ c.descricao_erro }}.</p>
+          {% endfor %}
+        </aside>
+      </div>
+    {% endif %}
+
+    <div class="container mx-auto px-4 max-w-5xl py-8">
+      {% block content %}{% endblock %}
+
+      {% include 'partials/anuncio_meio.html' %}
+      {% include 'partials/bloco_autoria.html' %}
+      {% include 'partials/bloco_fontes.html' %}
+    </div>
+  </main>
+
+  {% include 'partials/anuncio_rodape.html' %}
+  {% include 'partials/rodape.html' %}
+  {% include 'partials/lgpd_banner.html' %}
+
+  <!-- Botão Voltar ao Topo -->
+  <button type="button" class="btn-back-to-top" data-back-to-top aria-label="Voltar ao topo da página">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+
+  <script src="{{ base_url }}/assets/js/base.js"></script>
+</body>
+</html>

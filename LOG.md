@@ -53,3 +53,18 @@
 * **Resultado da auditoria:** `scripts/audit_a3.py` aprovado sem links `#` e com variáveis documentadas.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** A4 — Gerador de páginas (scripts/build.py).
+
+---
+
+## Bloco A4 — Gerador de Páginas (scripts/build.py)
+* **Data/Hora:** 2026-10-03 13:28
+* **STATUS:** OK
+* **Arquivos criados:**
+  - `scripts/build.py` (motor de compilação Jinja2 com canonical absoluto, microdados Schema.org @graph com BreadcrumbList e FAQPage condicional, sitemap.xml e search-index.json).
+  - `templates/base.html` (template base com Open Graph, Twitter Cards, trilha de auditoria e integração de partials).
+  - `content/config.json` (metadados do portal, domínio base e e-mail oficial `infohausti@gmail.com`).
+  - `content/correcoes.json` (registro de erratas editoriais inicializado).
+  - `scripts/audit_a4.py` (script de validação do gerador e JSON-LD).
+* **Resultado da auditoria:** `scripts/audit_a4.py` aprovado: HTML gerado com canonical absoluto, JSON-LD com parse 100% válido, sitemap e busca compilados.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** A5 — Scripts de auditoria.
