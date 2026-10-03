@@ -68,3 +68,22 @@
 * **Resultado da auditoria:** `scripts/audit_a4.py` aprovado: HTML gerado com canonical absoluto, JSON-LD com parse 100% válido, sitemap e busca compilados.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** A5 — Scripts de auditoria.
+
+---
+
+## Bloco A5 — Scripts de Auditoria
+* **Data/Hora:** 2026-10-03 13:33
+* **STATUS:** OK
+* **Arquivos criados:**
+  - `scripts/check_links.py` (proibição de href="#" e detecção de links quebrados).
+  - `scripts/check_seo.py` (validação de title, description e canonical absoluto).
+  - `scripts/check_schema.py` (validação sintática de JSON-LD e regra de 3+ perguntas no FAQ).
+  - `scripts/check_a11y.py` (acessibilidade WCAG 2.1 AA, alt-texts e skip link).
+  - `scripts/check_similaridade.py` (análise em duas passadas com TF-IDF e similaridade cosseno).
+  - `scripts/check_pendentes.py` (bloqueio de publicação de dados pendentes).
+  - `scripts/check_palavras.py` (mínimos de contagem de palavras narrativas por template).
+  - `scripts/audit_all.py` (orquestrador principal com classificação FATAL/AVISO e relatórios em reports/).
+  - `scripts/test_audit_failure.py` (teste unitário comprovando falha impeditiva diante de links proibidos).
+* **Resultado da auditoria:** `scripts/audit_all.py` roda em página correta e passa; roda com link '#' injetado e falha como FATAL (código != 0), comprovando 100% dos critérios do manual.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** A6 — Arquivos da raiz.

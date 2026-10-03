@@ -9,6 +9,7 @@ import os
 import sys
 import json
 import shutil
+import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from datetime import datetime
@@ -162,6 +163,41 @@ def generate_search_index(ready_pages, config):
         json.dump(search_index, f, ensure_ascii=False, indent=2)
     print(f"[+] Índice de busca gerado com {len(search_index)} itens em {index_path}")
 
+def resolve_internal_links(html, ready_slugs, dist_dir):
+    """
+    Resolve links internos conforme Regra 6 do Manual de Execução:
+    Alvo ainda não construído é omitido, nunca vira link quebrado.
+    """
+    def replace_link(match):
+        full_tag = match.group(0)
+        href = match.group(1).strip()
+        inner_content = match.group(2)
+
+        # Links externos, âncoras e esquemas especiais permanecem intactos
+        if href.startswith(('http://', 'https://', 'mailto:', 'tel:', '#')):
+            return full_tag
+
+        clean_path = href.split('?')[0].split('#')[0]
+        slug = clean_path.strip('/').replace('.html', '')
+        if not slug:
+            slug = 'index'
+
+        # Verifica se o slug está marcado como pronto ou já existe em dist/
+        is_ready = (
+            slug in ready_slugs or
+            (dist_dir / f"{slug}.html").exists() or
+            (dist_dir / slug / "index.html").exists() or
+            (slug == 'index' and (dist_dir / "index.html").exists())
+        )
+
+        if is_ready:
+            return full_tag
+        else:
+            # Alvo não construído: omite a tag <a> para evitar link quebrado
+            return f'<span class="opacity-75 cursor-default">{inner_content}</span>'
+
+    return re.sub(r'<a\s+[^>]*?href=["\']([^"\']+)["\'][^>]*?>(.*?)</a>', replace_link, html, flags=re.DOTALL | re.IGNORECASE)
+
 def main():
     print("==================================================")
     print("   MOTOR DE COMPILAÇÃO INFOHAUS RP (build.py)    ")
@@ -274,6 +310,7 @@ def main():
         context.update(page)
 
         rendered_html = template.render(**context)
+        rendered_html = resolve_internal_links(rendered_html, ready_slugs, DIST_DIR)
 
         # Define arquivo de saída
         if slug == "index":
