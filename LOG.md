@@ -538,3 +538,34 @@
   - Auditoria de conteúdo: **Zero menções a "120 linhas"** (apenas "120 minutos de integração temporal").
 * **Pendências novas:** Nenhuma.
 * **Próximo passo:** Submissão do relatório de entrega do Bloco C3 ao Leonardo e aguardar autorização antes de iniciar o Bloco C4 (lotes 1 a 12).
+
+---
+
+## Bloco C4 — Fase 1: Produção do Lote 1 (10 Linhas)
+* **Data/Hora:** 2026-10-03 16:16
+* **STATUS:** OK
+* **Escopo executado:** Exatamente 10 linhas (8 noturnas + 2 primeiras alimentadoras por ordem numérica):
+  1. `Linha 001 — Noturno Norte` (`linhas/linha-001-noturno-norte.html`)
+  2. `Linha 002 — Noturno Nordeste` (`linhas/linha-002-noturno-nordeste.html`)
+  3. `Linha 003 — Noturno Leste` (`linhas/linha-003-noturno-leste.html`)
+  4. `Linha 004 — Noturno Sudeste` (`linhas/linha-004-noturno-sudeste.html`)
+  5. `Linha 005 — Noturno Sul` (`linhas/linha-005-noturno-sul.html`)
+  6. `Linha 006 — Noturno Sudoeste` (`linhas/linha-006-noturno-sudoeste.html`)
+  7. `Linha 007 — Noturno Oeste` (`linhas/linha-007-noturno-oeste.html`)
+  8. `Linha 008 — Noturno Noroeste` (`linhas/linha-008-noturno-noroeste.html`)
+  9. `Linha 015 — Colina Verde` (`linhas/linha-015-colina-verde.html`)
+  10. `Linha 023 — Aeroporto (via Pq. Industrial)` (`linhas/linha-023-aeroporto.html`)
+* **Arquivos criados e alterados:**
+  - `content/paginas/linhas/linha-001-noturno-norte.json` a `linha-023-aeroporto.json` (10 arquivos com dados factuais de `linhas.json`, grades horárias reais e narrativa aprofundada > 800 palavras).
+  - `content/paginas/linhas/index.json`: Atualizados os 10 slugs correspondentes.
+  - `content/lista-mestre.json`: Adicionada seção `linhas_lote1`.
+  - `scripts/gera_lote1.py`: Gerador reprodutível das 10 linhas.
+* **Resultado da auditoria (`scripts/audit_all.py`):**
+  - **STATUS: OK** (todas as 7 checagens aprovadas, 0 erros fatais).
+  - **Mínimo de palavras:** 100% aprovado (média de 880 palavras narrativas por página, mínimo exigido 250).
+  - **Similaridade Passada 1 (Fatal se > 30%):** Todos os 45 pares do Lote 1 abaixo de 25% (máxima: 24,7% entre 005 e 015).
+  - **Similaridade Passada 2 (Avisos de tabelas/listas):** 22 avisos monitorados e listados para revisão.
+  - **Bloqueio de dados pendentes:** 100% verificado (zero dados pendentes).
+  - **Total de páginas compiladas em `dist/`:** 56 páginas no sitemap (57 arquivos HTML).
+* **Pendências novas:** Nenhuma.
+* **Próximo passo:** Submissão do relatório da Regra 14 e aguardar validação humana do Leonardo para autorizar a Fase 2 (Lotes 2 a 4). NENHUM avanço realizado para o Lote 2.
