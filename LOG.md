@@ -257,3 +257,15 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 17 páginas prontas compiladas com sucesso em `dist/`, sem links quebrados, com canonical absoluto, microdados Schema.org GovernmentService + FAQPage e inclusão automática no `mapa-do-site.html`.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** G5 — Páginas de serviço 5 e 6.
+
+---
+
+## Bloco G5 — Páginas de Serviço 5 e 6
+* **Data/Hora:** 2026-10-03 14:13
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/servicos/matriculas-e-escolas-municipais.json` (página de matrículas escolares, creches, pré-escola e EMEFs com regras da Central de Vagas e documentos).
+  - `content/paginas/servicos/rodovias-e-acessos-viarios.json` (guia rodoviário completo com SP-330 Anhanguera, SP-322 Attílio Balbo, Anel Viário Norte SP-328, Anel Viário Sul e acesso ao Aeroporto Leite Lopes).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 19 páginas prontas compiladas com sucesso em `dist/`, sem links quebrados, com canonical absoluto, microdados Schema.org GovernmentService + FAQPage e inclusão automática no `mapa-do-site.html`.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** G6 — Hub de Serviços (servicos/index).
