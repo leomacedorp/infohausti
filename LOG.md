@@ -569,3 +569,74 @@
   - **Total de páginas compiladas em `dist/`:** 56 páginas no sitemap (57 arquivos HTML).
 * **Pendências novas:** Nenhuma.
 * **Próximo passo:** Submissão do relatório da Regra 14 e aguardar validação humana do Leonardo para autorizar a Fase 2 (Lotes 2 a 4). NENHUM avanço realizado para o Lote 2.
+
+---
+
+## Protocolo de Alerta Antecipado de Similaridade & Decisão Editorial
+* **Data/Hora:** 2026-10-03 16:50
+* **Regra de Alerta Antecipado (Passada 1):**
+  - **Passada 1 > 28,0%:** Alerta preventivo. O lote deve ser reescrito internamente pelo executor antes de submeter ao revisor humano.
+  - **Passada 1 > 30,0%:** Bloqueio automático fatal (Regra 17). O lote não pode avançar e o commit é impedido.
+* **Análise da Passada 2:** Registrado o documento `reports/analise-passada2-lote1.md` avaliando o overlap factual de 57,0% entre as linhas 023 e 902 no eixo da Avenida Brasil, confirmando integridade discursiva (Passada 1 em 15,2%).
+* **Decisão Editorial Oficial:**
+  - AdSense, deploy em produção no GitHub Pages e configuração do Google Search Console ficam postergados para o encerramento da construção completa do portal.
+  - Foco exclusivo atual: geração massiva com qualidade de conteúdo (Bloco C em diante).
+  - Placeholders do Google AdSense permanecem devidamente comentados no HTML e templates.
+  - O Checkpoint 1 permanece formalmente aberto em segundo plano até a ativação final do deploy.
+
+---
+
+## Bloco C4 — Fase 2: Produção dos Lotes 2, 3 e 4 (30 Linhas)
+* **Data/Hora:** 2026-10-03 17:02
+* **STATUS:** OK
+* **Escopo executado:** Exatamente 30 linhas geradas por ordem numérica estrita (Lotes 2, 3 e 4):
+  - **Lote 2 (10 Alimentadoras da Zona Sul / Loteamentos):**
+    1. `Linha 025 — Guaporé` (`linhas/linha-025-guapore.html`)
+    2. `Linha 026 — Jd. Pedra Branca` (`linhas/linha-026-jd-pedra-branca.html`)
+    3. `Linha 027 — Recanto Palmeiras` (`linhas/linha-027-recanto-palmeiras.html`)
+    4. `Linha 035 — Alphaville` (`linhas/linha-035-alphaville.html`)
+    5. `Linha 041 — Machado Sant'Anna` (`linhas/linha-041-machado-santanna.html`)
+    6. `Linha 043 — Portal dos Ipês` (`linhas/linha-043-portal-dos-ipes.html`)
+    7. `Linha 045 — Vila do Golfe` (`linhas/linha-045-vila-do-golfe.html`)
+    8. `Linha 051 — Jd. Olhos D'Água` (`linhas/linha-051-jd-olhos-dagua.html`)
+    9. `Linha 053 — Recreio Anhanguera` (`linhas/linha-053-recreio-anhanguera.html`)
+    10. `Linha 055 — San Marco` (`linhas/linha-055-san-marco.html`)
+  - **Lote 3 (8 Alimentadoras + 2 Convencionais):**
+    11. `Linha 063 — Pq. das Gaivotas` (`linhas/linha-063-pq-das-gaivotas.html`)
+    12. `Linha 065 — Jd. Emília` (`linhas/linha-065-jd-emilia.html`)
+    13. `Linha 073 — Reserva Real` (`linhas/linha-073-reserva-real.html`)
+    14. `Linha 075 — Alto do Bonfim` (`linhas/linha-075-alto-do-bonfim.html`)
+    15. `Linha 079 — Macaúba` (`linhas/linha-079-macauba.html`)
+    16. `Linha 085 — Jd. São Fernando até Santa Martha` (`linhas/linha-085-jd-sao-fernando-santa-martha.html`)
+    17. `Linha 093 — Villas do Mirante` (`linhas/linha-093-villas-do-mirante.html`)
+    18. `Linha 095 — Jd. Santa Cecília` (`linhas/linha-095-jd-santa-cecilia.html`)
+    19. `Linha 101 — Pq. Avelino` (`linhas/linha-101-pq-avelino.html`)
+    20. `Linha 102 — Jd. Independência` (`linhas/linha-102-jd-independencia.html`)
+  - **Lote 4 (10 Convencionais Azuis):**
+    21. `Linha 103 — Iguatemi` (`linhas/linha-103-iguatemi.html`)
+    22. `Linha 104 — Jd. Canadá` (`linhas/linha-104-jd-canada.html`)
+    23. `Linha 105 — Sul Inter Shopping` (`linhas/linha-105-sul-inter-shopping.html`)
+    24. `Linha 106 — D'Elboux` (`linhas/linha-106-delboux.html`)
+    25. `Linha 107 — Sumarezinho` (`linhas/linha-107-sumarezinho.html`)
+    26. `Linha 108 — Jd. Pres. Dutra` (`linhas/linha-108-jd-pres-dutra.html`)
+    27. `Linha 110 — Quintino I` (`linhas/linha-110-quintino-1.html`)
+    28. `Linha 130 — Fórum` (`linhas/linha-130-forum.html`)
+    29. `Linha 136 — Castelo Branco - Adão do Carmo` (`linhas/linha-136-castelo-branco-adao-do-carmo.html`)
+    30. `Linha 147 — Jd. Irajá - Monte Alegre` (`linhas/linha-147-jd-iraja-monte-alegre.html`)
+* **Arquivos criados e alterados:**
+  - 30 arquivos JSON em `content/paginas/linhas/` (gerados a partir de `linhas.json` e `banco-linhas.db` com dados de paradas, horários e narrativas > 450 palavras cada).
+  - `content/paginas/linhas/index.json`: 30 slugs sincronizados.
+  - `content/lista-mestre.json`: Atualizado com `linhas_lote2`, `linhas_lote3` e `linhas_lote4`.
+  - `scripts/gera_lote2.py`, `scripts/gera_lote3.py`, `scripts/gera_lote4.py`: Scripts oficiais de automação reprodutível.
+* **Resultado da auditoria (`scripts/audit_all.py`):**
+  - **STATUS: OK** (todas as 7 checagens aprovadas com 0 erros fatais).
+  - **Links e Âncoras:** 100% aprovado (zero links quebrados ou '#').
+  - **SEO e Canonicals:** 100% aprovado (canônicos absolutos válidos).
+  - **Schema.org:** 100% aprovado (WebPage + FAQPage com 3 perguntas por linha).
+  - **Acessibilidade WCAG AA:** 100% aprovado (títulos de iframe, alt de imagens, skip links e atributos ARIA).
+  - **Similaridade Passada 1 (Fatal se > 30%):** ZERO pares acima de 30% em todo o portal (mais de 3.600 combinações avaliadas).
+  - **Similaridade Passada 2 (Tabelas/Listas):** 219 avisos catalogados para revisão factual.
+  - **Bloqueio de Dados Pendentes:** 100% verificado (zero dados pendentes).
+  - **Mínimo de palavras:** 100% aprovado (> 450 palavras narrativas por página).
+  - **Total de páginas em `dist/`:** 87 arquivos HTML (86 URLs no sitemap.xml + 404.html).
+* **Parada Obrigatória:** Trabalho pausado estritamente após a conclusão do Lote 4. Nenhum avanço para os Lotes 5–12. Submetendo relatório formal ao Leonardo.
