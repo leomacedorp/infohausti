@@ -4,8 +4,13 @@ Auditoria mínima do Bloco A1 - Verificação da estrutura básica
 """
 
 import os
+import sys
 import json
 from pathlib import Path
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
 
 def check_structure():
     """Verifica se a estrutura básica foi criada corretamente"""
