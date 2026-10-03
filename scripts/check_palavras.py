@@ -82,8 +82,8 @@ def check_palavras():
         if html_file.name in ('404.html', 'index.html'):
             continue
 
-        slug = html_file.stem
-        template = slug_template_map.get(slug, 'base.html')
+        rel_slug = str(html_file.relative_to(DIST_DIR).with_suffix('')).replace('\\', '/')
+        template = slug_template_map.get(rel_slug) or slug_template_map.get(html_file.stem, 'base.html')
         minimo = MINIMOS_POR_TEMPLATE.get(template)
 
         # Se for um template com mínimo estrito cadastrado

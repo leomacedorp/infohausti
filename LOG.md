@@ -397,4 +397,17 @@
   - `content/paginas/ribeirao-preto/pontos-turisticos/index.json` (hub central com categorização dos 12 pontos turísticos: Centro Histórico e Arquitetura do Café, Museus e Literatura, Parques Ecológicos e Preservação, Patrimônio Sacro e Mirantes, integrado ao transporte da RP Mobi).
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 33 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema CollectionPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`. Conclusão formal de todo o **Bloco B (Turismo — 13 páginas)**!
 * **Pendências novas:** Nenhuma.
-* **Próximo bloco sugerido:** BLOCO H — Roteiros Temáticos (H0 — Definir os 5 roteiros temáticos em lista-mestre.json).
+* **Próximo bloco sugerido:** H0 — Definir os 5 roteiros temáticos em lista-mestre.json.
+
+---
+
+## Bloco H0 e H1 — Lista Mestre de Roteiros e Template de Roteiro
+* **Data/Hora:** 2026-10-03 14:27
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/lista-mestre.json` (adicionado campo roteiros com os 5 roteiros confirmados utilizando exclusivamente os pontos já verificados do Bloco B).
+  - `templates/roteiro.html` (template oficial estruturado: cabeçalho com badges de duração/modalidade, visão geral, ficha técnica de 4 colunas, etapas sequenciais com dicas do editor, passo a passo, dicas práticas, transporte integrado RP Mobi e FAQ estruturado).
+  - `scripts/check_palavras.py` (aprimorada resolução de slugs com subdiretórios para auditoria de contagem mínima de 500 palavras).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Nenhuma quebra de link, sem canonical relativo, schema íntegro.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** H2 — Roteiros 1 e 2 (Centro Histórico a Pé e Rota do Café).
