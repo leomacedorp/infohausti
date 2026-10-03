@@ -518,3 +518,23 @@
   - Divergências de ID: 0. Divergências de Nomes: 0. 100% de paridade factual confirmada.
   - Confirmado que o banco já incorpora todas as alterações de rede pós-setembro/2025 e março/2026 (045 Vila do Golfe, 055 San Marco, 105 Sul Inter Shopping, 256 Iguatemi; e exclusão prévia das extintas 19, 33 e 501).
 * **Próximo passo:** Confirmação da política de linhas descontinuadas e início do Bloco C3.
+
+---
+
+## Bloco C3 — Hubs de Linhas de Ônibus & Páginas Institucionais de Mobilidade
+* **Data/Hora:** 2026-10-03 16:01
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/linhas/index.json` e `templates/linhas_hub.html`: Hub master oficial listando 112 linhas ativas + 1 card de transparência da Linha 407 (pendente de shape de itinerário na concessionária). Filtros dinâmicos por categoria (BRT/Troncal, Convencional/Radial, Alimentadora, Noturna), campo de busca inteligente instantânea, regras tarifárias de R$ 5,00 e integração de 120 minutos. Cabeçalho rigoroso: *"113 linhas da malha RP Mobi"* (zero menções a 120 linhas).
+  - `content/paginas/linhas/mapa.json` e `templates/linhas_mapa.html`: Panorama territorial e funcional dos 5 setores geográficos de Ribeirão Preto (Norte, Sul, Leste, Oeste e Centro), eixos estruturais e terminais de integração. Box de aviso transparente: *"Camada Cartográfica Interativa em Preparação"* (sem Leaflet ativo, aguardando padronização vetorial da malha viária).
+  - `content/paginas/linhas/alteracoes.json` e `templates/linhas_alteracoes.html`: Central oficial de esclarecimento sobre alterações operacionais e desvios viários por obras do Ribeirão Mobilidade. Divulgação transparente dos canais diretos da RP Mobi (0800 77 10 118, Rua Tibiriçá 636 e app Bus2) sem invenção de dados em tempo real.
+  - `content/paginas/linhas/descontinuadas.json` e `templates/linhas_descontinuadas.html`: Diretório oficial e memória operacional de linhas descontinuadas e fundidas (Linha 19, Linha 33, Linha 501, Linhas D 402 e D 420), informando datas oficiais de encerramento, justificativas da RP Mobi/Prefeitura e rotas substitutas ativas.
+  - `reports/revisao-humana-piloto-linhas.md`: Dossiê de validação humana factual do Piloto C2 (Regra 18).
+  - `content/lista-mestre.json`: Atualizado com a seção `linhas_institucionais`.
+* **Resultado da auditoria:**
+  - `scripts/build.py`: 100% de sucesso. Total de 46 páginas compiladas em `dist/`, sitemap.xml e search-index.json gerados.
+  - `scripts/audit_all.py`: **STATUS: OK** (todas as 7 checagens aprovadas com 0 erros fatais).
+  - Similaridade Passada 1 estritamente abaixo do teto de 30% em todos os pares.
+  - Auditoria de conteúdo: **Zero menções a "120 linhas"** (apenas "120 minutos de integração temporal").
+* **Pendências novas:** Nenhuma.
+* **Próximo passo:** Submissão do relatório de entrega do Bloco C3 ao Leonardo e aguardar autorização antes de iniciar o Bloco C4 (lotes 1 a 12).
