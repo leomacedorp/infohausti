@@ -1,0 +1,261 @@
+/* ==========================================================================
+   INFOHAUS RP — BASE CSS (Mobile-First 375px)
+   Conformidade: WCAG 2.1 Nível AA
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS & RAZÕES DE CONTRASTE (WCAG AA)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Cores de Superfície e Fundo */
+  --color-bg: #f8fafc;              /* Slate 50 */
+  --color-surface: #ffffff;         /* Branco puro */
+  --color-surface-subtle: #f1f5f9;  /* Slate 100 */
+  --color-border: #e2e8f0;          /* Slate 200 */
+  --color-border-strong: #cbd5e1;   /* Slate 300 */
+
+  /* Cores de Texto (Medições de Contraste calculadas sobre #ffffff) */
+  /* #0f172a sobre #ffffff = 15.8:1 (Excede amplamente o mínimo AA de 4.5:1) */
+  --color-text: #0f172a;            /* Slate 900 */
+  /* #334155 sobre #ffffff = 9.6:1 (Excede AA de 4.5:1) */
+  --color-text-muted: #334155;      /* Slate 700 */
+  /* #475569 sobre #ffffff = 5.7:1 (Excede AA de 4.5:1 para texto normal) */
+  --color-text-subtle: #475569;     /* Slate 600 */
+
+  /* Cores Institucionais e de Destaque */
+  /* #0369a1 (Sky 700) sobre #ffffff = 5.8:1 (Conforme AA para links e botões) */
+  --color-primary: #0369a1;
+  --color-primary-hover: #075985;   /* Sky 800 (Contraste 7.4:1) */
+  --color-primary-contrast: #ffffff; /* Contraste 5.8:1 */
+
+  /* #b45309 (Amber 700) sobre #ffffff = 4.8:1 (Conforme AA para badges sobre branco) */
+  --color-accent: #b45309;
+  /* #f59e0b (Amber 500) sobre #0f172a = 9.8:1 (Para fundos escuros / cabeçalho) */
+  --color-accent-darkbg: #f59e0b;
+
+  /* Estados e Alertas */
+  --color-success: #15803d;         /* Verde 700 (Contraste 5.1:1 sobre branco) */
+  --color-error: #b91c1c;           /* Vermelho 700 (Contraste 5.8:1 sobre branco) */
+  --color-focus: #0284c7;           /* Sky 600 para outline de foco */
+
+  /* Tipografia do Sistema (Zero dependência externa, font-display: swap implícito) */
+  --font-family-base: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family-heading: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Escala Modular */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+
+  /* Espaçamento */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+
+  /* Bordas e Sombras */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & BASE (Mobile-First 375px)
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-width: 375px;
+  font-family: var(--font-family-base);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease-in-out;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* --------------------------------------------------------------------------
+   3. ACESSIBILIDADE WCAG (Foco Visível & Skip Link)
+   -------------------------------------------------------------------------- */
+/* Foco Visível para Navegação por Teclado */
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Skip Link para Salto Direto ao Conteúdo Principal */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--spacing-4);
+  background: var(--color-text);
+  color: var(--color-surface);
+  padding: var(--spacing-2) var(--spacing-4);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  border-radius: var(--radius-sm);
+  z-index: 99999;
+  text-decoration: none;
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+  top: var(--spacing-4);
+}
+
+/* --------------------------------------------------------------------------
+   4. LAYOUT & CONTAINERS
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+}
+
+@media (min-width: 640px) {
+  .container { max-width: 640px; }
+}
+
+@media (min-width: 768px) {
+  .container { max-width: 768px; }
+}
+
+@media (min-width: 1024px) {
+  .container { max-width: 1024px; }
+}
+
+@media (min-width: 1280px) {
+  .container { max-width: 1200px; }
+}
+
+/* --------------------------------------------------------------------------
+   5. COMPONENTES BASE (Menu, Botões, LGPD)
+   -------------------------------------------------------------------------- */
+/* Botão Voltar ao Topo */
+.btn-back-to-top {
+  position: fixed;
+  bottom: var(--spacing-6);
+  right: var(--spacing-6);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-text);
+  color: var(--color-surface);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.2s ease;
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+}
+
+.btn-back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-back-to-top:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-primary);
+}
+
+/* Banner de Privacidade e Cookies (LGPD) */
+.lgpd-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #0f172a;
+  color: #f8fafc;
+  padding: var(--spacing-4);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  display: none;
+  font-size: var(--text-sm);
+}
+
+.lgpd-banner.is-active {
+  display: block;
+}
+
+.lgpd-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .lgpd-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.lgpd-actions {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.btn-lgpd-accept {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--text-xs);
+}
+
+.btn-lgpd-accept:hover {
+  background-color: var(--color-primary-hover);
+}

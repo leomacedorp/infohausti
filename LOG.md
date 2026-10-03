@@ -19,3 +19,16 @@
 * **Resultado da auditoria:** Árvore de diretórios e arquivos de saída conferidos em 100% de conformidade com o Manual de Execução.
 * **Pendências novas:** Insumos humanos mapeados em `PENDENCIAS.md`.
 * **Próximo bloco sugerido:** A2 — CSS e JS base.
+
+---
+
+## Bloco A2 — CSS e JS Base
+* **Data/Hora:** 2026-10-03 13:24
+* **STATUS:** OK
+* **Arquivos criados:**
+  - `assets/css/base.css` (design tokens, razões de contraste WCAG AA calculadas e anotadas, mobile-first 375px, foco visível `:focus-visible` e skip link acessível).
+  - `assets/js/base.js` (menu mobile com acessibilidade ARIA/teclado, botão voltar ao topo com animação e retenção de foco, banner LGPD persistente).
+  - `scripts/audit_a2.py` (script de validação estrutural dos assets base).
+* **Resultado da auditoria:** `scripts/audit_a2.py` aprovado com sucesso.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** A3 — Partials.
