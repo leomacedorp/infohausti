@@ -154,3 +154,15 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as checagens (links, canonical, schema JSON-LD AboutPage, a11y WCAG AA e similaridade narrativa) 100% aprovadas.
 * **Pendências novas:** Foto oficial em alta resolução para substituir avatar de iniciais LM.
 * **Próximo bloco sugerido:** A10 — Política editorial e Acessibilidade.
+
+---
+
+## Bloco A10 — Política Editorial e Acessibilidade
+* **Data/Hora:** 2026-10-03 13:46
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/politica-editorial.json` (política de apuração em fontes primárias, acuse de erro em até 24h e retificação no ar em até 72h com bloco visível, ética de IA e independência de patrocínio).
+  - `content/paginas/acessibilidade.json` (declaração de acessibilidade WCAG 2.1 AA refletindo recursos técnicos reais: foco visível, skip link, contraste AA, navegação por teclado e sem armadilhas).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 5 páginas prontas renderizadas em `dist/`, sem links quebrados, com canonical absoluto e microdados Schema.org.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** A11 — Páginas legais (revisão).
