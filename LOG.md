@@ -113,3 +113,16 @@
 * **Resultado da auditoria:** Teste de ponta a ponta 100% aprovado. A página compilada foi verificada com sucesso no ar, e ao mudar para rascunho desapareceu de `dist/` mantendo a suíte de auditoria em verde.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** A14 — Teste de auditoria (similaridade e fatal/aviso).
+
+---
+
+## Bloco A14 — Teste de Auditoria (Similaridade e Fatal/Aviso)
+* **Data/Hora:** 2026-10-03 13:38
+* **STATUS:** OK
+* **Arquivos criados:**
+  - `content/paginas/exemplos/exemplo-{1,2,3}.json` (páginas de teste com status 'rascunho').
+  - `reports/teste-auditoria.md` (relatório formal de comprovação de bloqueio da auditoria).
+  - `scripts/test_auditoria_a14.py` (script de teste de estresse de similaridade).
+* **Resultado da auditoria:** Comprovado com rigor que a similaridade narrativa na Passada 1 > 30% gera erro FATAL impeditivo com código de saída != 0, bloqueando o lote. As páginas foram devidamente convertidas para rascunho e a suíte voltou ao status OK.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** A8 — Dossiê base de Ribeirão Preto (Parte 5 do Plano v4).
