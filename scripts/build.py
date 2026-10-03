@@ -219,13 +219,26 @@ def main():
     # 3. Cria pasta dist/ limpa
     DIST_DIR.mkdir(parents=True, exist_ok=True)
 
-    # 4. Copia assets
+    # 4. Copia assets e arquivos da raiz
     if ASSETS_DIR.exists():
         dist_assets = DIST_DIR / 'assets'
         if dist_assets.exists():
             shutil.rmtree(dist_assets)
         shutil.copytree(ASSETS_DIR, dist_assets)
         print(f"[+] Assets copiados para {dist_assets}")
+
+    for root_file in ['robots.txt', 'ads.txt']:
+        src = ROOT_DIR / root_file
+        if src.exists():
+            shutil.copy2(src, DIST_DIR / root_file)
+            print(f"[+] {root_file} copiado para dist/{root_file}")
+
+    # Copia favicons para a raiz de dist/
+    for fav in ['favicon.ico', 'favicon-16x16.png', 'favicon-32x32.png', 'apple-touch-icon.png']:
+        fav_src = ASSETS_DIR / 'img' / fav
+        if fav_src.exists():
+            shutil.copy2(fav_src, DIST_DIR / fav)
+            print(f"[+] {fav} copiado para dist/{fav}")
 
     # 5. Escaneia páginas JSON
     all_pages = []

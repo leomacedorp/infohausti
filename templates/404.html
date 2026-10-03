@@ -1,0 +1,28 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+<div class="text-center py-16 px-4">
+  <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-100 text-amber-600 mb-6">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+    </svg>
+  </div>
+
+  <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
+    404 — Página Não Encontrada
+  </h1>
+
+  <p class="text-slate-600 text-base md:text-lg max-w-xl mx-auto mb-8 font-light leading-relaxed">
+    O link que você seguiu pode estar desatualizado, ter sido movido ou o endereço digitado pode conter um equívoco.
+  </p>
+
+  <div class="flex flex-wrap justify-center gap-4 text-sm">
+    <a href="{{ base_url }}/" class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2.5 px-6 rounded-lg transition-colors inline-flex items-center">
+      Voltar para o Início
+    </a>
+    <a href="{{ base_url }}/ribeirao-preto/pontos-turisticos/" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-semibold py-2.5 px-6 rounded-lg transition-colors inline-flex items-center">
+      Ver Pontos Turísticos
+    </a>
+  </div>
+</div>
+{% endblock %}

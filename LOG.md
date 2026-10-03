@@ -87,3 +87,18 @@
 * **Resultado da auditoria:** `scripts/audit_all.py` roda em página correta e passa; roda com link '#' injetado e falha como FATAL (código != 0), comprovando 100% dos critérios do manual.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** A6 — Arquivos da raiz.
+
+---
+
+## Bloco A6 — Arquivos da Raiz
+* **Data/Hora:** 2026-10-03 13:35
+* **STATUS:** OK
+* **Arquivos criados:**
+  - `robots.txt` (permissão para indexação e referência canônica ao sitemap.xml).
+  - `ads.txt` (placeholder em conformidade com a Regra 10 e A6, aguardando ID real no F4).
+  - `templates/404.html` e `content/paginas/404.json` (página de erro 404 semântica, responsiva e com navegação acessível).
+  - Favicons gerados a partir do `logo.jpg`: `assets/img/favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png` e `apple-touch-icon.png`.
+  - Cópia automática de assets de raiz e favicons integrada em `scripts/build.py`.
+* **Resultado da auditoria:** `scripts/audit_all.py` executado com sucesso: todos os arquivos da raiz e favicons presentes em `dist/`, e `404.html` 100% aprovado na auditoria.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** A7 — Teste de ponta a ponta.
