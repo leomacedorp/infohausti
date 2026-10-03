@@ -411,3 +411,15 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Nenhuma quebra de link, sem canonical relativo, schema íntegro.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** H2 — Roteiros 1 e 2 (Centro Histórico a Pé e Rota do Café).
+
+---
+
+## Bloco H2 — Roteiros 1 e 2 (Centro Histórico a Pé e Rota do Café)
+* **Data/Hora:** 2026-10-03 14:28
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/ribeirao-preto/roteiros/centro-historico.json` (roteiro completo de 4 a 5 horas a pé por 7 monumentos: Praça XV, Theatro Pedro II, Quarteirão Paulista, Palacete Camilo de Mattos, Biblioteca Sinhá Junqueira, MARP e Catedral Metropolitana, com dicas do editor e integração com BRT).
+  - `content/paginas/ribeirao-preto/roteiros/rota-do-cafe.json` (roteiro temático agroindustrial e sensorial de 1 dia explorando os terreiros da antiga Fazenda Monte Alegre no campus da USP, arquitetura burguesa cafeeira e degustação de microlotes especiais da Alta Mogiana).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 35 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema Article + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** H3 — Roteiros 3 e 4 (Crianças, Família e Natureza & Roteiro Noturno e Boêmio).
