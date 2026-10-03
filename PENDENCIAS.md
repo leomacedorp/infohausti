@@ -7,7 +7,8 @@
 ## 👤 Insumos Humanos (Aguardando Leonardo)
 
 - [x] **`content/autor.json` (A9):** Preenchido com dados biográficos reais do editor/autor Leonardo A. Macedo (analista de TI, servidor público municipal, orquestrador de sistemas inteligentes).
-- [ ] **`content/lista-mestre.json` (G1, B2, H0, D1, J1):** Slugs e nomes oficiais dos 12 pontos turísticos, 10 bairros, 6 serviços públicos, 5 roteiros e 5 pilares de história.
+- [x] **`content/lista-mestre.json` (G1, B2, H0):** 6 serviços públicos, 12 pontos turísticos e 5 roteiros temáticos definidos e auditados. Pendente apenas D1 (10 bairros) e J1 (5 pilares da história).
+- [x] **Padronização de Slug — Theatro Pedro II (Decisão Leo 03/10/2026):** O arquivo de dados fonte/dossiê se chama `theatro-pedro-ii.json` (nome oficial tombado). A URL pública em `dist/` é mantida como `teatro-dom-pedro.html` (por herança do legado + comportamento de busca real do usuário no Google: "teatro dom pedro"). Decisão intencional e documentada.
 - [ ] **Foto Oficial do Autor (A9):** Arquivo de foto real para `assets/img/autor.jpg` (atualmente exibindo avatar estilizado com iniciais LM).
 - [ ] **Logo e Favicon (A6):** Arquivos oficiais em alta resolução para geração dos favicons e assets de marca.
 

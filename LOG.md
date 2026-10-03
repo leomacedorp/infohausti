@@ -458,3 +458,47 @@
 * **Resultado da auditoria:** Suíte `audit_all.py` 100% verde (STATUS: OK). 39 páginas ativas e compiladas sem links quebrados, microdados Schema.org íntegros, canonical absoluto e regras de similaridade respeitadas. Todos os blocos do Lote 1 (Bloco A - Fundação, Bloco G - Serviços, Bloco B - Turismo e Bloco H - Roteiros) estão 100% completos e validados.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** LOTE 2 (Bloco C — Linhas de Ônibus) ou Relatório Final de Conclusão do Lote 1 por e-mail para infohausti@gmail.com.
+
+---
+
+## Bloco C0 — Conversor do Banco em linhas.json e Validador de Schema
+* **Data/Hora:** 2026-10-03 15:14
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/dados-fonte/linhas.json` (conversão completa das 113 rotas do SQLite `banco-linhas.db` para o formato estrito da Seção 4: número, nome, modalidade, cor, tarifa, integrações, itinerário, paradas, horários de partida, bairros e fonte oficial RP Mobi).
+  - `scripts/valida_linhas.py` (script validador de schema estrutural: valida presença dos 8 campos obrigatórios e subcampos `valor`, `status`, `fonte_url`, `verificado_em`).
+  - `scripts/extrai_banco_linhas.py` (script extrator reprodutível do banco SQLite para JSON).
+* **Resultado da auditoria:** `scripts/valida_linhas.py` executado com 100% de sucesso (113 linhas auditadas, 112 verificadas e 1 pendente tratada: Linha 407 com itinerário ausente no GTFS original).
+* **Pendências novas:** Linha 407 registrada em `linhas.json` com status pendente no campo itinerário até complemento oficial da RP Mobi.
+* **Próximo bloco sugerido:** C1 — Template de linha (templates/linha.html).
+
+---
+
+## Bloco C1 — Template Oficial de Linhas de Ônibus (templates/linha.html)
+* **Data/Hora:** 2026-10-03 15:15
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `templates/linha.html` (template oficial estruturado: atributo `data-line-id="{{ linha_numero }}"`, cabeçalho semântico com badges e cor oficial, resumo executivo em 4 cards, visão geral narrativa > 250 palavras, itinerários detalhados, tabela de paradas com `aria-label`, grade horária dias úteis/sábados/domingos com `aria-label`, regras de integração de 120 minutos, bairros atendidos, pontos de interesse e atrações próximas, FAQ estruturado para Schema FAQPage e seção de rastreamento em tempo real comentada conforme especificação).
+* **Resultado da auditoria:** Template integrado com sucesso ao Jinja2 no `scripts/build.py`.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** C2 — Piloto de 3 linhas (303, 730 e 902).
+
+---
+
+## Bloco C2 — Piloto de 3 Linhas (303, 730 e 902) & Auditoria de Similaridade
+* **Data/Hora:** 2026-10-03 15:18
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/linhas/linha-303-bom-pastor.json` (linha radial convencional leste-centro: Jardim Zara, Av. das Lágrimas, Recreio Internacional e Plataforma B do Terminal Urbano, com > 1.000 palavras narrativas).
+  - `content/paginas/linhas/linha-730-pq-portinari.json` (linha perimetral longa leste-norte: Parque dos Servidores, Portinari, Novo Shopping, complexo industrial da Lagoinha e Plataforma C do Terminal Urbano, com > 1.000 palavras narrativas).
+  - `content/paginas/linhas/linha-902-norte-sul-2.json` (corredor troncal estrutural BRT Norte-Sul: Estação Norte, Av. Brasil, Av. Saudade, Estação Catedral, Av. Independência e Terminal RibeirãoShopping, com > 1.100 palavras narrativas).
+  - `dist/linhas/linha-303-bom-pastor.html`, `dist/linhas/linha-730-pq-portinari.html`, `dist/linhas/linha-902-norte-sul-2.html` (compiladas e integradas ao `dist/mapa-do-site.html`, `dist/sitemap.xml` e `dist/search-index.json`).
+* **Resultado da auditoria:**
+  - `scripts/check_palavras.py`: 100% APROVADO (todas as 3 linhas com > 1.000 palavras, superando o piso de 250 palavras).
+  - `scripts/check_similaridade.py`: 100% APROVADO em ambas as passadas. Na Passada 1 (texto narrativo estrito), todos os pares ficaram estritamente abaixo do teto de 30,0%:
+    * Linha 303 x Linha 730: **24,7%** (Limite: 30,0%) ✅
+    * Linha 303 x Linha 902: **24,0%** (Limite: 30,0%) ✅
+    * Linha 730 x Linha 902: **19,5%** (Limite: 30,0%) ✅
+  - `scripts/audit_all.py`: **STATUS: OK** (todas as 7 checagens verdes, 0 erros fatais).
+* **Pendências novas:** Nenhuma.
+* **Próximo passo:** Submeter o relatório do Piloto C2 ao Leonardo para validação humana e autorização antes de qualquer avanço para C3 ou lotes em massa (C4–C15).

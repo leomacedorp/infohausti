@@ -1,0 +1,231 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+<article class="prose prose-slate max-w-none" data-line-id="{{ linha_numero }}">
+  <!-- 1. Cabeçalho da Linha -->
+  <header class="mb-8 border-b border-slate-200 pb-6">
+    <div class="flex flex-wrap items-center gap-2 mb-3 not-prose">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold text-white shadow-xs" style="background-color: {{ linha_cor if linha_cor else '#1a15f0' }};">
+        Linha {{ linha_numero }}
+      </span>
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-800">
+        {{ modalidade }}
+      </span>
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+        {{ tarifa }}
+      </span>
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200">
+        Integração 120 min
+      </span>
+    </div>
+    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">{{ h1 }}</h1>
+    <p class="text-lg text-slate-600 leading-relaxed">{{ descricao }}</p>
+  </header>
+
+  <!-- 2. Resumo Operacional da Linha (Cards Informativos) -->
+  <section class="mb-8 not-prose">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
+        <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Origem / Destino</span>
+        <span class="block text-sm font-semibold text-slate-900">{{ resumo_origem_destino }}</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
+        <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Terminal de Conexão</span>
+        <span class="block text-sm font-semibold text-slate-900">{{ terminal_central }}</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
+        <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Tarifa Básica</span>
+        <span class="block text-sm font-semibold text-emerald-700">{{ tarifa }} (Cartão Cidadão)</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
+        <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Regra de Integração</span>
+        <span class="block text-sm font-semibold text-amber-700">120 minutos liberados</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Visão Geral e Contexto Operacional (Texto Narrativo > 250 palavras) -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Visão Geral da Linha e Trajeto</h2>
+    <div class="text-slate-700 leading-relaxed space-y-4">
+      {{ secoes.visao_geral | safe if secoes.visao_geral else '' }}
+    </div>
+  </section>
+
+  <!-- 4. Características do Itinerário e Sentidos -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Itinerário Detalhado e Sentidos</h2>
+    <div class="text-slate-700 leading-relaxed space-y-4 mb-4">
+      {{ secoes.itinerario_texto | safe if secoes.itinerario_texto else '' }}
+    </div>
+    {% if itinerarios_detalhe and itinerarios_detalhe | length > 0 %}
+      <div class="space-y-4 not-prose my-4">
+        {% for itin in itinerarios_detalhe %}
+          <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-bold text-slate-900 text-base">Sentido: {{ itin.nome }}</h3>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-700">
+                {{ itin.num_paradas }} paradas catalogadas
+              </span>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ itin.descricao }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- 5. Principais Paradas e Pontos de Conexão -->
+  <section class="mb-8" aria-label="Lista de Paradas e Conexões Estratégicas">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Principais Paradas e Conexões Estratégicas</h2>
+    <div class="text-slate-700 leading-relaxed space-y-4 mb-4">
+      {{ secoes.paradas_destaque | safe if secoes.paradas_destaque else '' }}
+    </div>
+    {% if paradas_principais and paradas_principais | length > 0 %}
+      <div class="overflow-x-auto not-prose my-4">
+        <table class="w-full text-left border-collapse border border-slate-200 rounded-lg text-sm bg-white">
+          <thead class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+            <tr>
+              <th class="p-3">Identificação</th>
+              <th class="p-3">Logradouro / Endereço</th>
+              <th class="p-3">Bairro</th>
+              <th class="p-3">Conexões / Referência</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-600">
+            {% for parada in paradas_principais %}
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-medium text-slate-900">{{ parada.nome }}</td>
+                <td class="p-3">{{ parada.rua }}</td>
+                <td class="p-3">{{ parada.bairro }}</td>
+                <td class="p-3 text-xs">{{ parada.referencia }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- 6. Horários de Partida -->
+  <section class="mb-8" aria-label="Dados de Horários e Partidas Programadas">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Grade de Horários de Partida</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      As partidas programadas pela concessionária nos terminais operacionais da linha obedecem aos seguintes intervalos:
+    </p>
+    {% if horarios_tabela %}
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-4">
+        <!-- Dias Úteis -->
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
+          <div class="border-b border-slate-200 pb-2 mb-3">
+            <h3 class="font-bold text-slate-900 text-base flex items-center justify-between">
+              <span>Dias Úteis</span>
+              <span class="text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-normal">Seg a Sex</span>
+            </h3>
+          </div>
+          <div class="flex flex-wrap gap-1.5 text-xs text-slate-700 max-h-56 overflow-y-auto pr-1">
+            {% for h in horarios_tabela.dias_uteis %}
+              <span class="px-2 py-1 bg-slate-50 border border-slate-200 rounded-md font-mono">{{ h }}</span>
+            {% else %}
+              <span class="text-slate-400 italic">Sem partidas cadastradas</span>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- Sábados -->
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
+          <div class="border-b border-slate-200 pb-2 mb-3">
+            <h3 class="font-bold text-slate-900 text-base flex items-center justify-between">
+              <span>Sábados</span>
+              <span class="text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-normal">Sáb</span>
+            </h3>
+          </div>
+          <div class="flex flex-wrap gap-1.5 text-xs text-slate-700 max-h-56 overflow-y-auto pr-1">
+            {% for h in horarios_tabela.sabado %}
+              <span class="px-2 py-1 bg-slate-50 border border-slate-200 rounded-md font-mono">{{ h }}</span>
+            {% else %}
+              <span class="text-slate-400 italic">Sem partidas cadastradas</span>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- Domingos e Feriados -->
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
+          <div class="border-b border-slate-200 pb-2 mb-3">
+            <h3 class="font-bold text-slate-900 text-base flex items-center justify-between">
+              <span>Domingos e Feriados</span>
+              <span class="text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-normal">Dom / Fer</span>
+            </h3>
+          </div>
+          <div class="flex flex-wrap gap-1.5 text-xs text-slate-700 max-h-56 overflow-y-auto pr-1">
+            {% for h in horarios_tabela.domingo %}
+              <span class="px-2 py-1 bg-slate-50 border border-slate-200 rounded-md font-mono">{{ h }}</span>
+            {% else %}
+              <span class="text-slate-400 italic">Sem partidas cadastradas</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- 7. Conexões e Baldeações do Percurso -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-3">Integrações Tarifárias e Conexões Práticas</h2>
+    <div class="text-slate-700 leading-relaxed space-y-3">
+      {{ secoes.integracao_detalhe | safe if secoes.integracao_detalhe else '' }}
+    </div>
+  </section>
+
+  <!-- 8. Bairros Atendidos -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Bairros Atendidos no Percurso</h2>
+    <div class="text-slate-700 leading-relaxed space-y-3 mb-4">
+      {{ secoes.bairros_texto | safe if secoes.bairros_texto else '' }}
+    </div>
+    {% if bairros_lista and bairros_lista | length > 0 %}
+      <div class="flex flex-wrap gap-2 not-prose my-4" aria-label="Lista de Bairros Atendidos">
+        {% for b in bairros_lista %}
+          <span class="inline-flex items-center px-3 py-1 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-800 shadow-2xs">
+            📍 {{ b }}
+          </span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- 9. Atrações e Serviços Próximos -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Pontos de Interesse, Comércio e Serviços Próximos</h2>
+    <div class="text-slate-700 leading-relaxed space-y-4">
+      {{ secoes.atracoes_proximas | safe if secoes.atracoes_proximas else '' }}
+    </div>
+  </section>
+
+  <!-- 10. Dúvidas Frequentes (FAQ) -->
+  {% if faq and faq | length >= 3 %}
+    <section class="mb-8" aria-label="Lista de Perguntas Frequentes da Linha">
+      <h2 class="text-2xl font-bold text-slate-900 mb-4">Perguntas Frequentes sobre a Linha {{ linha_numero }}</h2>
+      <div class="space-y-4 not-prose">
+        {% for item in faq %}
+          <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
+            <h3 class="font-bold text-slate-900 text-base mb-2 flex items-start gap-2">
+              <span class="text-amber-600 font-extrabold">Q:</span>
+              <span>{{ item.pergunta }}</span>
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed pl-6">{{ item.resposta }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  <!-- 11. Posição em tempo real (ativar futuramente conforme especificação da Regra 91 / Bloco C) -->
+  <!--
+  <section id="tempo-real-container" class="mb-8" data-line-id="{{ linha_numero }}">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Posição dos Ônibus em Tempo Real</h2>
+    <div id="mapa-tempo-real" class="w-full h-96 bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-center text-slate-500">
+      Carregando satélites e telemetria GPS da Linha {{ linha_numero }}...
+    </div>
+  </section>
+  -->
+</article>
+{% endblock %}
