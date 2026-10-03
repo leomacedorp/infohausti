@@ -1,0 +1,20 @@
+<!--
+  PARTIAL: breadcrumb.html
+  VARIÁVEIS UTILIZADAS:
+    - breadcrumbs: Lista de itens contendo 'nome' e opcionalmente 'url'
+  DESCRIÇÃO: Trilha de navegação semântica com suporte a leitores de tela e microdados.
+-->
+{% if breadcrumbs and breadcrumbs | length > 1 %}
+<nav class="bg-white border-b border-slate-200 py-2.5 text-xs text-slate-500" aria-label="Trilha de Navegação (Breadcrumb)">
+  <div class="container mx-auto px-4 flex flex-wrap items-center gap-2">
+    {% for item in breadcrumbs %}
+      {% if not loop.last and item.url %}
+        <a href="{{ item.url }}" class="hover:text-blue-600 transition-colors">{{ item.nome }}</a>
+        <span class="text-slate-400" aria-hidden="true">/</span>
+      {% else %}
+        <span class="text-slate-800 font-medium" aria-current="page">{{ item.nome }}</span>
+      {% endif %}
+    {% endfor %}
+  </div>
+</nav>
+{% endif %}

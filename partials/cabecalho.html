@@ -1,0 +1,53 @@
+<!--
+  PARTIAL: cabecalho.html
+  VARIÁVEIS UTILIZADAS:
+    - base_url: Prefixo ou URL base para links (ex: '' ou '/')
+    - active_nav: Identificador da seção ativa ('home', 'pontos', 'linhas', 'servicos', 'roteiros')
+    - site_name: Nome da marca ('Ribeirão Preto | Cidade Viva')
+  DESCRIÇÃO: Cabeçalho global responsivo com navegação semântica, busca e menu mobile acessível.
+-->
+<header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+  <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+      <span class="w-3 h-3 rounded-full bg-amber-400 animate-pulse" aria-hidden="true"></span>
+      <a href="{{ base_url }}/" class="font-bold text-lg tracking-tight hover:text-amber-400 transition-colors">
+        Ribeirão Preto <span class="text-amber-400 font-light">| Cidade Viva</span>
+      </a>
+    </div>
+
+    <!-- Navegação Desktop -->
+    <nav class="hidden md:flex items-center space-x-6 text-sm font-medium" aria-label="Navegação Principal">
+      <a href="{{ base_url }}/ribeirao-preto/pontos-turisticos/" class="{% if active_nav == 'pontos' %}text-amber-400 border-b-2 border-amber-400 pb-0.5{% else %}text-slate-300 hover:text-white{% endif %} transition-colors">
+        Pontos Turísticos
+      </a>
+      <a href="{{ base_url }}/ribeirao/linhas/" class="{% if active_nav == 'linhas' %}text-amber-400 border-b-2 border-amber-400 pb-0.5{% else %}text-slate-300 hover:text-white{% endif %} transition-colors">
+        Linhas de Ônibus
+      </a>
+      <a href="{{ base_url }}/servicos/" class="{% if active_nav == 'servicos' %}text-amber-400 border-b-2 border-amber-400 pb-0.5{% else %}text-slate-300 hover:text-white{% endif %} transition-colors">
+        Serviços
+      </a>
+      <a href="{{ base_url }}/roteiros/" class="{% if active_nav == 'roteiros' %}text-amber-400 border-b-2 border-amber-400 pb-0.5{% else %}text-slate-300 hover:text-white{% endif %} transition-colors">
+        Roteiros
+      </a>
+      <a href="{{ base_url }}/ribeirao/linhas/mapa.html" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-3 py-1.5 rounded-md transition-colors text-xs">
+        Mapa Geral
+      </a>
+    </nav>
+
+    <!-- Botão Menu Mobile -->
+    <button type="button" class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none" data-menu-toggle aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu de navegação">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menu Mobile Desdobrável -->
+  <div id="menu-mobile" class="hidden md:hidden bg-slate-950 border-t border-slate-800 px-4 py-4 space-y-3" data-menu-nav>
+    <a href="{{ base_url }}/ribeirao-preto/pontos-turisticos/" class="block text-slate-200 hover:text-amber-400 py-1">Pontos Turísticos</a>
+    <a href="{{ base_url }}/ribeirao/linhas/" class="block text-slate-200 hover:text-amber-400 py-1">Linhas de Ônibus</a>
+    <a href="{{ base_url }}/servicos/" class="block text-slate-200 hover:text-amber-400 py-1">Serviços</a>
+    <a href="{{ base_url }}/roteiros/" class="block text-slate-200 hover:text-amber-400 py-1">Roteiros</a>
+    <a href="{{ base_url }}/ribeirao/linhas/mapa.html" class="inline-block bg-amber-500 text-slate-950 font-bold px-3 py-1.5 rounded-md text-xs mt-2">Mapa Geral</a>
+  </div>
+</header>

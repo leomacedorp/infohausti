@@ -32,3 +32,24 @@
 * **Resultado da auditoria:** `scripts/audit_a2.py` aprovado com sucesso.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** A3 — Partials.
+
+---
+
+## Bloco A3 — Partials
+* **Data/Hora:** 2026-10-03 13:26
+* **STATUS:** OK
+* **Arquivos criados:**
+  - `partials/cabecalho.html` (menu responsivo acessível, busca e links institucionais).
+  - `partials/rodape.html` (rodapé semântico em 4 colunas com links legais e e-mail de correções).
+  - `partials/breadcrumb.html` (trilha de navegação com microdados e marcação ARIA).
+  - `partials/skip_link.html` (atalho para salto de conteúdo).
+  - `partials/lgpd_banner.html` (banner de cookies em conformidade LGPD).
+  - `partials/bloco_autoria.html` (bloco E-E-A-T com foto, biografia, datas e revisor).
+  - `partials/bloco_fontes.html` (transparência de fontes primárias e canal de correções).
+  - `partials/anuncio_topo.html` (slot AdSense superior comentado).
+  - `partials/anuncio_meio.html` (slot AdSense intermediário e bloco 'Anuncie aqui' comentados).
+  - `partials/anuncio_rodape.html` (slot AdSense inferior comentado).
+  - `scripts/audit_a3.py` (script de auditoria de partials).
+* **Resultado da auditoria:** `scripts/audit_a3.py` aprovado sem links `#` e com variáveis documentadas.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** A4 — Gerador de páginas (scripts/build.py).
