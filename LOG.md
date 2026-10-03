@@ -322,3 +322,15 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 24 páginas prontas compiladas perfeitamente em `dist/`, sem links quebrados, canonical absoluto, Schema TouristAttraction + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** B6 — Catedral Metropolitana e Parque Curupira.
+
+---
+
+## Bloco B6 — Catedral Metropolitana e Parque Curupira
+* **Data/Hora:** 2026-10-03 14:20
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/ribeirao-preto/pontos-turisticos/catedral-metropolitana.json` (página completa com +850 palavras narrativas, pedra fundamental de 1904, sagração de 1917, ciclo de afrescos de Benedito Calixto, vitrais da Baviera, BRT Estação Catedral e conexões com MARP e Quarteirão Paulista).
+  - `content/paginas/ribeirao-preto/pontos-turisticos/parque-curupira.json` (página completa com +850 palavras narrativas, requalificação ambiental da antiga pedreira de basalto, cascatas artificiais, 152 mil m² de área verde, pistas de cooper, fauna silvestre e acesso pela Ribeirânia).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 26 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema TouristAttraction + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** B2 / B7 — Levantamento e verificação dos 6 novos pontos turísticos confirmados.
