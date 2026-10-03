@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Sinhá Junqueira - História, Horários, Acervo e Como Chegar | Ribeirão Preto</title>
+    <meta name="description" content="Guia da Biblioteca Sinhá Junqueira em Ribeirão Preto: casarão histórico de 1932 restaurado, acervo de 11 mil livros, cafeteria, Wi-Fi gratuito, horários e linhas de ônibus.">
+    <meta name="keywords" content="biblioteca sinha junqueira ribeirao preto, biblioteca sinha junqueira horarios, biblioteca centro ribeirao, pontos turisticos ribeirao preto, casarao sinha junqueira">
+    <link rel="canonical" href="./biblioteca-sinha-junqueira.html">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        .hero-pattern {
+            background-color: #0f172a;
+            background-image: radial-gradient(rgba(245, 158, 11, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .card-hover {
+            transition: all 0.25s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800 antialiased flex flex-col justify-between min-h-screen">
+
+    <!-- Navbar Oficial da Cidade Viva -->
+    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="w-3 h-3 rounded-full bg-amber-400 animate-pulse"></span>
+                <a href="./" class="font-bold text-lg tracking-tight hover:text-amber-400 transition-colors">
+                    Ribeirão Preto <span class="text-amber-400 font-light">| Cidade Viva</span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-3 sm:space-x-5 text-sm font-medium">
+                <a href="./" class="text-amber-400 border-b-2 border-amber-400 pb-0.5">
+                    <i class="fas fa-landmark mr-1"></i> Pontos Turísticos
+                </a>
+                <a href="../../ribeirao/linhas/" class="text-slate-300 hover:text-white transition-colors">
+                    <i class="fas fa-bus mr-1"></i> Linhas de Ônibus
+                </a>
+                <a href="../../ribeirao/linhas/mapa.html" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-3 py-1.5 rounded-md transition-colors text-xs sm:text-sm">
+                    <i class="fas fa-map mr-1"></i> Mapa Geral
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Espaço Publicitário Superior (Leaderboard Responsivo) -->
+    <div class="bg-slate-100 border-b border-slate-200 py-3">
+        <div class="container mx-auto px-4 flex items-center justify-center">
+            <div class="w-full max-w-4xl h-20 bg-slate-200/70 border border-dashed border-slate-300 rounded flex items-center justify-center text-xs text-slate-500">
+                <i class="fas fa-ad mr-2 text-slate-400"></i> Espaço Publicitário — Google AdSense / Anuncie Aqui
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-white border-b border-slate-200 py-2.5 text-xs text-slate-500">
+        <div class="container mx-auto px-4 flex items-center space-x-2">
+            <a href="./" class="hover:text-blue-600">Pontos Turísticos</a>
+            <span>/</span>
+            <span class="text-slate-800 font-medium">Biblioteca Sinhá Junqueira</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern text-white py-14 px-4 border-b border-slate-800">
+        <div class="container mx-auto max-w-5xl text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 mb-4">
+                <i class="fas fa-book-reader"></i> A Biblioteca Mais Frequentada do Interior Paulista
+            </div>
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight mb-3">
+                Biblioteca Sinhá Junqueira
+            </h1>
+            <p class="text-slate-300 text-base md:text-lg max-w-3xl mx-auto mb-8 font-light">
+                O histórico casarão de 1932 transformado em um polo cultural de referência nacional. Mais de 11 mil livros, cafeteria charmosa, tecnologia e arquitetura de encantar.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-xs md:text-sm text-slate-300">
+                <span class="bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700 flex items-center">
+                    <i class="fas fa-calendar-alt text-amber-400 mr-2"></i> Casarão de 1932
+                </span>
+                <span class="bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700 flex items-center">
+                    <i class="fas fa-book text-emerald-400 mr-2"></i> +11.000 Livros
+                </span>
+                <span class="bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700 flex items-center">
+                    <i class="fas fa-users text-blue-400 mr-2"></i> +173 mil visitas/ano
+                </span>
+                <span class="bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700 flex items-center">
+                    <i class="fas fa-ticket-alt text-rose-400 mr-2"></i> Entrada Gratuita
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4 py-12 max-w-5xl flex-grow">
+
+        <!-- Origem e Legado de Sinhá Junqueira -->
+        <section class="mb-14">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                <i class="fas fa-feather-alt mr-3 text-amber-500"></i> O Legado de Theolina "Sinhá" Junqueira e a Restauração
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4 text-sm text-slate-600 leading-relaxed">
+                    <p>
+                        A criação da biblioteca atende a um desejo generoso e histórico deixado em testamento por <strong class="text-slate-900">Theolina "Sinhá" Junqueira</strong>, benemérita que destinou patrimônio e expressou sua vontade de transformar sua residência em uma biblioteca pública para a juventude e para o povo de Ribeirão Preto.
+                    </p>
+                    <p>
+                        O casarão original, edificado em <strong class="text-slate-900">1932</strong>, funcionou inicialmente como Biblioteca Cultural Altino Arantes a partir de 1961. Em <strong class="text-slate-900">fevereiro de 2020</strong>, a Fundação Educandário Coronel Quito Junqueira entregou à cidade uma monumental restauração e modernização de <strong class="text-slate-900">R$ 11 milhões</strong>.
+                    </p>
+                    <p>
+                        O projeto arquitetônico — assinado pelo renomado arquiteto <strong class="text-slate-900">Dante Della Manna</strong> com restauração histórica de <strong class="text-slate-900">Maria Luiza Dutra</strong> — preservou os elementos decorativos do casarão histórico de 600 m² e agregou um moderno anexo envidraçado de 900 m², integrando leitura, natureza e convivência.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                    <h3 class="font-bold text-base text-slate-900 flex items-center">
+                        <i class="fas fa-info-circle text-amber-500 mr-2"></i> Números da Biblioteca Mais Viva do Interior
+                    </h3>
+                    <ul class="space-y-2.5 text-xs text-slate-600">
+                        <li class="flex justify-between py-1.5 border-b border-slate-100">
+                            <span class="font-medium text-slate-500">Área Total:</span>
+                            <span class="font-bold text-slate-800">1.500 m² (Casarão + Anexo)</span>
+                        </li>
+                        <li class="flex justify-between py-1.5 border-b border-slate-100">
+                            <span class="font-medium text-slate-500">Visitantes por Ano:</span>
+                            <span class="font-bold text-emerald-600">+173.120 acessos</span>
+                        </li>
+                        <li class="flex justify-between py-1.5 border-b border-slate-100">
+                            <span class="font-medium text-slate-500">Empréstimos Anuais:</span>
+                            <span class="font-bold text-blue-600">+14.660 livros</span>
+                        </li>
+                        <li class="flex justify-between py-1.5 border-b border-slate-100">
+                            <span class="font-medium text-slate-500">Investimento no Restauro:</span>
+                            <span class="font-bold text-slate-800">R$ 11 Milhões</span>
+                        </li>
+                        <li class="flex justify-between py-1.5">
+                            <span class="font-medium text-slate-500">Público em Eventos Culturais:</span>
+                            <span class="font-bold text-purple-600">+11.000 pessoas</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estrutura & Conceito de Biblioteca Viva -->
+        <section class="mb-14">
+            <div class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white rounded-2xl p-8 md:p-10 shadow-lg">
+                <span class="text-amber-400 font-semibold text-xs uppercase tracking-wider">Espaços e Convivência</span>
+                <h3 class="text-2xl md:text-3xl font-bold mt-1 mb-6">Uma "Biblioteca Viva" Feita para Todos</h3>
+
+                <div class="grid md:grid-cols-3 gap-6 text-slate-200">
+                    <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/10">
+                        <div class="w-10 h-10 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center font-bold text-lg mb-3">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h4 class="font-bold text-base text-white mb-2">Cafeteria & Jardim</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Ambiente arborizado e charmoso com cafeteria no pátio interno, deck de descanso e mesas ao ar livre para leitura acompanhada de um bom café.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/10">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-400 text-slate-950 flex items-center justify-center font-bold text-lg mb-3">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h4 class="font-bold text-base text-white mb-2">Tecnologia & 15 Salas</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Mais de 15 salas de leitura e estudos silenciosos, 40 computadores modernos com internet rápida e Wi-Fi gratuito de alta performance em todo o complexo.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/10">
+                        <div class="w-10 h-10 rounded-lg bg-blue-400 text-slate-950 flex items-center justify-center font-bold text-lg mb-3">
+                            <i class="fas fa-book-sparkles"></i>
+                        </div>
+                        <h4 class="font-bold text-base text-white mb-2">Sala de Obras Raras</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Espaço climatizado reservado para títulos históricos e edições especiais, além de auditório multiuso e área infantil totalmente lúdica.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informações Práticas & Empréstimo -->
+        <section class="mb-14">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                <i class="fas fa-clock mr-3 text-emerald-600"></i> Informações Práticas e Como Utilizar
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="font-bold text-base text-slate-900 mb-4 flex items-center">
+                        <i class="fas fa-door-open text-amber-500 mr-2"></i> Horários Oficiais de Funcionamento
+                    </h3>
+                    <ul class="space-y-3 text-xs text-slate-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-emerald-500 mr-2 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800">Terça a Sexta-feira:</strong> das 09h às 19h
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-emerald-500 mr-2 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800">Sábados, Domingos e Feriados:</strong> das 10h às 19h
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-ban text-rose-500 mr-2 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800">Segundas-feiras:</strong> Fechada para manutenção interna
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-blue-500 mr-2 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800">Telefone:</strong> (16) 3323-7171 | <strong class="text-slate-800">Site:</strong> bsj.org.br
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-base text-slate-900 mb-3 flex items-center">
+                            <i class="fas fa-id-card text-indigo-500 mr-2"></i> Cadastro para Empréstimo Gratuito
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                            Qualquer cidadão pode retirar livros gratuitamente. O cadastro é feito no balcão de atendimento na hora, apresentando documento com foto (RG ou CNH) e comprovante recente de residência.
+                        </p>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            A biblioteca promove clubes do livro, oficinas literárias, saraus e contação de histórias mensais gratuitas para todas as idades.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 flex items-center">
+                        <i class="fas fa-heart text-rose-500 mr-1.5"></i>
+                        <span>Entrada 100% gratuita para leitura, estudo e lazer cultural.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teia Semântica: Circuito Centro Histórico a Pé -->
+        <section class="mb-14">
+            <div class="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-6 md:p-8">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                    <span class="text-amber-800 font-bold text-xs uppercase tracking-wider">Roteiro a Pé Integrado</span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-3">Conexões no Centro Histórico</h3>
+                <p class="text-slate-600 text-sm mb-6 max-w-3xl">
+                    A Biblioteca Sinhá Junqueira está na mesma Rua Duque de Caxias do Palacete Camilo de Mattos. A caminhada entre os patrimônios dura menos de 2 minutos:
+                </p>
+
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <!-- Palacete Camilo de Mattos -->
+                    <a href="./palacete-camilo-de-mattos.html" class="flex items-center gap-3 bg-white p-3.5 rounded-xl shadow-sm border border-slate-200 hover:border-amber-400 card-hover">
+                        <div class="w-10 h-10 rounded-lg bg-amber-900 text-amber-300 flex items-center justify-center text-lg shrink-0">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-xs">Palacete Camilo de Mattos</h4>
+                            <p class="text-[11px] text-slate-500">Apenas 1 min a pé (nº 625)</p>
+                        </div>
+                    </a>
+
+                    <!-- Theatro Pedro II -->
+                    <a href="./teatro-dom-pedro.html" class="flex items-center gap-3 bg-white p-3.5 rounded-xl shadow-sm border border-slate-200 hover:border-amber-400 card-hover">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-900 text-amber-400 flex items-center justify-center text-lg shrink-0">
+                            <i class="fas fa-theater-masks"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-xs">Theatro Pedro II</h4>
+                            <p class="text-[11px] text-slate-500">A ~2 min a pé</p>
+                        </div>
+                    </a>
+
+                    <!-- MARP -->
+                    <a href="./marp.html" class="flex items-center gap-3 bg-white p-3.5 rounded-xl shadow-sm border border-slate-200 hover:border-amber-400 card-hover">
+                        <div class="w-10 h-10 rounded-lg bg-slate-900 text-amber-400 flex items-center justify-center text-lg shrink-0">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-xs">MARP — Museu de Arte</h4>
+                            <p class="text-[11px] text-slate-500">A ~3 min a pé</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Chegar & Mobilidade Urbana -->
+        <section class="mb-14">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                <i class="fas fa-bus-alt mr-3 text-blue-600"></i> Como Chegar de Transporte Coletivo
+            </h2>
+
+            <!-- Mapa Leaflet -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-6">
+                <h3 class="font-bold text-base text-slate-800 mb-2">Localização no Centro</h3>
+                <p class="text-xs text-slate-500 mb-4">Rua Duque de Caxias, 547 — quase esquina com Rua Tibiriçá / Praça XV</p>
+                <div id="map" class="h-64 rounded-lg border border-slate-200 mb-3"></div>
+                <p class="text-xs text-slate-500 text-center flex items-center justify-center">
+                    <i class="fas fa-map-marker-alt text-rose-500 mr-1.5"></i>
+                    Rua Duque de Caxias, 547 - Centro, Ribeirão Preto - SP | CEP: 14015-020
+                </p>
+            </div>
+
+            <!-- Linhas de Ônibus Confirmadas -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h3 class="font-bold text-base text-slate-800 mb-1">Linhas com Paradas no Entorno Imediato</h3>
+                <p class="text-xs text-slate-500 mb-4">
+                    Paradas da Rua Duque de Caxias, Rua Tibiriçá e Praça XV (a menos de 2 minutos a pé):
+                </p>
+
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    <a href="../../ribeirao/linhas/linha-303-bom-pastor.html" class="flex items-center p-3 bg-blue-50/70 hover:bg-blue-100/70 rounded-lg border border-blue-100 transition-colors">
+                        <i class="fas fa-bus text-blue-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 303 - Bom Pastor</p>
+                            <p class="text-[11px] text-gray-500">Parada Praça XV</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-730-pq-portinari.html" class="flex items-center p-3 bg-purple-50/70 hover:bg-purple-100/70 rounded-lg border border-purple-100 transition-colors">
+                        <i class="fas fa-bus text-purple-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 730 - Pq. Portinari</p>
+                            <p class="text-[11px] text-gray-500">Corredor Norte-Sul</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-315-campos-eliseos-bonfim.html" class="flex items-center p-3 bg-teal-50/70 hover:bg-teal-100/70 rounded-lg border border-teal-100 transition-colors">
+                        <i class="fas fa-bus text-teal-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 315 - C. Elíseos / Bonfim</p>
+                            <p class="text-[11px] text-gray-500">Acesso Centro</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-337-lagoinha-ipiranga.html" class="flex items-center p-3 bg-amber-50/70 hover:bg-amber-100/70 rounded-lg border border-amber-100 transition-colors">
+                        <i class="fas fa-bus text-amber-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 337 - Lagoinha / Ipiranga</p>
+                            <p class="text-[11px] text-gray-500">Eixo Leste-Oeste</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-204-city-ribeirao.html" class="flex items-center p-3 bg-rose-50/70 hover:bg-rose-100/70 rounded-lg border border-rose-100 transition-colors">
+                        <i class="fas fa-bus text-rose-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 204 - City Ribeirão</p>
+                            <p class="text-[11px] text-gray-500">Zona Sul ao Centro</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-708-jd-heitor-rigon.html" class="flex items-center p-3 bg-emerald-50/70 hover:bg-emerald-100/70 rounded-lg border border-emerald-100 transition-colors">
+                        <i class="fas fa-bus text-emerald-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 708 - Jd. Heitor Rigon</p>
+                            <p class="text-[11px] text-gray-500">Rápido ao Centro</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mt-5 pt-4 border-t border-slate-100 flex flex-wrap gap-4 justify-center items-center">
+                    <a href="../../ribeirao/linhas/" class="inline-flex items-center text-xs font-semibold text-blue-600 hover:text-blue-800">
+                        <i class="fas fa-list-ul mr-1.5"></i> Catálogo completo de 113 linhas
+                    </a>
+                    <span class="text-slate-300">•</span>
+                    <a href="../../ribeirao/linhas/mapa.html" class="inline-flex items-center text-xs font-semibold text-amber-600 hover:text-amber-800">
+                        <i class="fas fa-map-marked-alt mr-1.5"></i> Ver traçados no Mapa Geral
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Espaço Publicitário Meio -->
+    <div class="bg-slate-100 border-y border-slate-200 py-4 my-8">
+        <div class="container mx-auto px-4 flex items-center justify-center">
+            <div class="w-full max-w-4xl h-24 bg-slate-200/70 border border-dashed border-slate-300 rounded flex items-center justify-center text-xs text-slate-500">
+                <i class="fas fa-ad mr-2 text-slate-400"></i> Espaço Publicitário — Google AdSense / Anuncie Aqui
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Oficial -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 mr-2"></span>
+                        Biblioteca Sinhá Junqueira
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Casarão histórico de 1932 e biblioteca viva de referência cultural no interior de São Paulo. Leitura, tecnologia e arte acessíveis a todos.
+                    </p>
+                    <p class="text-slate-400 text-sm">
+                        <i class="fas fa-map-pin mr-2 text-amber-400"></i> Rua Duque de Caxias, 547 - Centro
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Circuito Cultural</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="./teatro-dom-pedro.html" class="hover:text-amber-400 transition-colors">Theatro Pedro II</a></li>
+                        <li><a href="./palacete-camilo-de-mattos.html" class="hover:text-amber-400 transition-colors">Palacete Camilo de Mattos</a></li>
+                        <li><a href="./marp.html" class="hover:text-amber-400 transition-colors">MARP — Museu de Arte</a></li>
+                        <li><a href="./" class="hover:text-amber-400 transition-colors">Catedral Metropolitana de São Sebastião</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Guia Ribeirão Preto</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Portal independente de utilidade pública, patrimônio histórico e mobilidade urbana na cidade de Ribeirão Preto - SP.
+                    </p>
+                    <div class="flex space-x-3 text-sm">
+                        <a href="./" class="text-amber-400 hover:underline">Pontos Turísticos</a>
+                        <span class="text-slate-600">•</span>
+                        <a href="../../ribeirao/linhas/" class="text-amber-400 hover:underline">Horários de Ônibus</a>
+                        <span class="text-slate-600">•</span>
+                        <a href="../../ribeirao/linhas/mapa.html" class="text-amber-400 hover:underline">Mapa Geral</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-xs text-slate-500">
+                <p class="mb-1">© 2026 Ribeirão Preto — Guia da Cidade Viva. Conteúdo de utilidade pública e patrimônio histórico.</p>
+                <p>As informações institucionais são apuradas junto à Fundação Educandário Coronel Quito Junqueira e fontes oficiais.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Inicialização do mapa na Biblioteca Sinhá Junqueira
+        var map = L.map('map', { scrollWheelZoom: false }).setView([-21.1764, -47.8105], 16);
+        
+        // Tile layer OSM
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        
+        // Marcador da Biblioteca
+        var marker = L.marker([-21.1764, -47.8105]).addTo(map);
+        marker.bindPopup('<b>Biblioteca Sinhá Junqueira (1932)</b><br>Rua Duque de Caxias, 547 - Centro<br><small>Casarão histórico e polo cultural</small>').openPopup();
+
+        setTimeout(function() {
+            map.invalidateSize();
+        }, 400);
+    </script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["Library", "TouristAttraction", "LocalBusiness"],
+        "name": "Biblioteca Sinhá Junqueira",
+        "description": "Biblioteca viva instalada no histórico casarão de 1932 em Ribeirão Preto, com acervo de 11 mil livros, cafeteria, 15 salas de leitura, computadores, auditório e eventos culturais gratuitos.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Duque de Caxias, 547",
+            "addressLocality": "Ribeirão Preto",
+            "addressRegion": "São Paulo",
+            "postalCode": "14015-020",
+            "addressCountry": "BR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -21.1764,
+            "longitude": -47.8105
+        },
+        "telephone": "+55-16-3323-7171",
+        "sameAs": [
+            "https://bsj.org.br"
+        ],
+        "isAccessibleForFree": true,
+        "publicAccess": true
+    }
+    </script>
+</body>
+</html>

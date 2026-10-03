@@ -1,32 +1,29 @@
-# Ignorar diretórios gerados
+# Build e saída gerada
 dist/
-*.log
-*.tmp
+build/
+.next/
+out/
 
-# Ignorar arquivos de sistema
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+env/
+venv/
+ENV/
+
+# Dependências
+node_modules/
+
+# Sistema operacional
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Ignorar arquivos de desenvolvimento
+# Variáveis de ambiente e segredos
 .env
-.env.local
-*.swp
-*.swo
-
-# Ignorar caches
-.cache/
-__pycache__/
-*.pyc
-
-# Ignorar editor de texto
-.vscode/
-.idea/
-
-# Ignorar arquivos temporários
-*.bak
-*.backup
-
-# Ignorar relatórios de auditoria (exceto os de teste)
-reports/audit-*.md
-reports/revisao-*.md
-reports/teste-*.md
+.env*.local
+*.pem
+*.key

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARP - Museu de Arte de Ribeirão Preto Pedro Manuel-Gismondi | Acervo, Horários e Linhas</title>
+    <meta name="description" content="Guia completo do MARP em Ribeirão Preto: acervo de 1.700 obras, sede do SARP, edifício histórico de 1908 da Sociedade Recreativa, bibliotecas de pesquisa e linhas de ônibus.">
+    <meta name="keywords" content="marp ribeirao preto, museu de arte de ribeirao preto, pedro manuel gismondi, sarp ribeirao preto, pontos turisticos ribeirao preto, museus ribeirao preto">
+    <link rel="canonical" href="./marp.html">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        .hero-pattern {
+            background-color: #0f172a;
+            background-image: radial-gradient(rgba(245, 158, 11, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .card-hover {
+            transition: all 0.25s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800 antialiased flex flex-col justify-between min-h-screen">
+
+    <!-- Navbar Oficial da Cidade Viva -->
+    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="w-3 h-3 rounded-full bg-amber-400 animate-pulse"></span>
+                <a href="./" class="font-bold text-lg tracking-tight hover:text-amber-400 transition-colors">
+                    Ribeirão Preto <span class="text-amber-400 font-light">| Cidade Viva</span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-3 sm:space-x-5 text-sm font-medium">
+                <a href="./" class="text-amber-400 border-b-2 border-amber-400 pb-0.5">
+                    <i class="fas fa-landmark mr-1"></i> Pontos Turísticos
+                </a>
+                <a href="../../ribeirao/linhas/" class="text-slate-300 hover:text-white transition-colors">
+                    <i class="fas fa-bus mr-1"></i> Linhas de Ônibus
+                </a>
+                <a href="../../ribeirao/linhas/mapa.html" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-3 py-1.5 rounded-md transition-colors text-xs sm:text-sm">
+                    <i class="fas fa-map mr-1"></i> Mapa Geral
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Espaço Publicitário Superior (Leaderboard Responsivo) -->
+    <div class="bg-slate-100 border-b border-slate-200 py-3">
+        <div class="container mx-auto px-4 flex items-center justify-center">
+            <div class="w-full max-w-4xl h-20 bg-slate-200/70 border border-dashed border-slate-300 rounded flex items-center justify-center text-xs text-slate-500">
+                <i class="fas fa-ad mr-2 text-slate-400"></i> Espaço Publicitário — Google AdSense / Anuncie Aqui
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-white border-b border-slate-200 py-2.5 text-xs text-slate-500">
+        <div class="container mx-auto px-4 flex items-center space-x-2">
+            <a href="./" class="hover:text-blue-600">Pontos Turísticos</a>
+            <span>/</span>
+            <span class="text-slate-800 font-medium">MARP — Museu de Arte de Ribeirão Preto</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern text-white py-14 px-4 border-b border-slate-800">
+        <div class="container mx-auto max-w-5xl text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 mb-4">
+                <i class="fas fa-palette"></i> Museu Público Municipal de Arte Contemporânea
+            </div>
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight mb-3">
+                MARP — Museu de Arte de Ribeirão Preto
+            </h1>
+            <p class="text-slate-300 text-base md:text-lg max-w-3xl mx-auto mb-8 font-light">
+                Instalado no nobre edifício de 1908 da antiga Sociedade Recreativa. Um acervo de mais de 1.700 obras, sede do SARP e epicentro das artes visuais do interior paulista.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-xs md:text-sm text-slate-300">
+                <span class="bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700 flex items-center">
+                    <i class="fas fa-building text-amber-400 mr-2"></i> Prédio Histórico (1908)
+                </span>
+                <span class="bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700 flex items-center">
+                    <i class="fas fa-image text-emerald-400 mr-2"></i> +1.700 Obras no Acervo
+                </span>
+                <span class="bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700 flex items-center">
+                    <i class="fas fa-award text-blue-400 mr-2"></i> Sede do SARP
+                </span>
+                <span class="bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700 flex items-center">
+                    <i class="fas fa-ticket-alt text-rose-400 mr-2"></i> Entrada Gratuita
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4 py-12 max-w-5xl flex-grow">
+
+        <!-- História e o Edifício Centenário -->
+        <section class="mb-14">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                <i class="fas fa-archway mr-3 text-amber-500"></i> O Edifício Centenário e a Fundação do Museu
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4 text-sm text-slate-600 leading-relaxed">
+                    <p>
+                        Inaugurado em <strong class="text-slate-900">22 de dezembro de 1992</strong>, o MARP nasceu da necessidade fundamental de catalogar, preservar e expor o rico patrimônio artístico acumulado pela cidade de Ribeirão Preto ao longo do século XX.
+                    </p>
+                    <p>
+                        O museu ocupa uma das edificações mais imponentes do centro histórico: o antigo palacete da <strong class="text-slate-900">Sociedade Recreativa</strong>, inaugurado em <strong class="text-slate-900">1908</strong>. Antes de se transformar em museu, o espaço também acolheu momentos decisivos da política paulista ao abrigar a sede da Câmara Municipal de Ribeirão Preto.
+                    </p>
+                    <p>
+                        Trata-se de uma instituição pública municipal, subordinada à Secretaria Municipal da Cultura, com entrada sempre gratuita e acesso democrático à produção artística contemporânea.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                    <h3 class="font-bold text-base text-slate-900 flex items-center">
+                        <i class="fas fa-info-circle text-amber-500 mr-2"></i> Ficha Técnica Institucional
+                    </h3>
+                    <ul class="space-y-2.5 text-xs text-slate-600">
+                        <li class="flex justify-between py-1.5 border-b border-slate-100">
+                            <span class="font-medium text-slate-500">Nome Oficial:</span>
+                            <span class="font-bold text-slate-800 text-right">Museu de Arte "Pedro Manuel-Gismondi"</span>
+                        </li>
+                        <li class="flex justify-between py-1.5 border-b border-slate-100">
+                            <span class="font-medium text-slate-500">Ano de Abertura:</span>
+                            <span class="font-bold text-slate-800">1992</span>
+                        </li>
+                        <li class="flex justify-between py-1.5 border-b border-slate-100">
+                            <span class="font-medium text-slate-500">Data do Edifício:</span>
+                            <span class="font-bold text-slate-800">1908 (Antiga Recreativa)</span>
+                        </li>
+                        <li class="flex justify-between py-1.5 border-b border-slate-100">
+                            <span class="font-medium text-slate-500">Gestão:</span>
+                            <span class="font-bold text-slate-800">Secretaria Municipal de Cultura</span>
+                        </li>
+                        <li class="flex justify-between py-1.5">
+                            <span class="font-medium text-slate-500">Localização:</span>
+                            <span class="font-bold text-slate-800 text-right">Rua Barão do Amazonas, 323</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Acervo & SARP -->
+        <section class="mb-14">
+            <div class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white rounded-2xl p-8 md:p-10 shadow-lg">
+                <span class="text-amber-400 font-semibold text-xs uppercase tracking-wider">Tesouro Artístico</span>
+                <h3 class="text-2xl md:text-3xl font-bold mt-1 mb-6">Acervo de Nível Nacional e o SARP</h3>
+
+                <div class="grid md:grid-cols-3 gap-6 text-slate-200">
+                    <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/10">
+                        <div class="w-10 h-10 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center font-bold text-lg mb-3">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h4 class="font-bold text-base text-white mb-2">+1.700 Obras Registradas</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Acervo expressivo focado na produção regional e em expoentes da arte moderna e contemporânea brasileira, incluindo pinturas, esculturas, gravuras, instalações e fotografias.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/10">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-400 text-slate-950 flex items-center justify-center font-bold text-lg mb-3">
+                            <i class="fas fa-stamp"></i>
+                        </div>
+                        <h4 class="font-bold text-base text-white mb-2">Coleção Pedro Manuel-Gismondi</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            O museu recebeu uma histórica doação de 252 gravuras de Pedro Manuel-Gismondi (artista e crítico de renome que empresta seu nome à instituição), além de núcleos das coleções de Leonello Berti e Nair Opromolla.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/10">
+                        <div class="w-10 h-10 rounded-lg bg-blue-400 text-slate-950 flex items-center justify-center font-bold text-lg mb-3">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4 class="font-bold text-base text-white mb-2">Salão de Arte (SARP)</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Sede anual do prestigiado Salão de Arte de Ribeirão Preto Nacional-Contemporâneo (SARP), um dos mais tradicionais e respeitados prêmios das artes visuais do Brasil.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bibliotecas Internas de Pesquisa -->
+        <section class="mb-14">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                <i class="fas fa-book-reader mr-3 text-emerald-600"></i> Centros de Pesquisa e Bibliotecas Especializadas
+            </h2>
+            <p class="text-sm text-slate-600 mb-6 max-w-3xl">
+                Um grande diferencial do MARP é abrigar dois núcleos de excelência para estudantes, críticos e pesquisadores de história da arte:
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 card-hover">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg">
+                            <i class="fas fa-book-open"></i>
+                        </span>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base">Biblioteca Leopoldo Lima</h3>
+                            <span class="text-xs text-emerald-600 font-medium">Piso Térreo</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Totalmente dedicada à pesquisa em arte contemporânea, reúne uma vasta coleção de livros temáticos, catálogos de exposições nacionais e internacionais e periódicos especializados.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 card-hover">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="w-10 h-10 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center text-lg">
+                            <i class="fas fa-archive"></i>
+                        </span>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base">Biblioteca Pedro Manuel-Gismondi</h3>
+                            <span class="text-xs text-indigo-600 font-medium">+4.000 Itens Especiais</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Acervo pessoal doado pelo crítico de arte, historiador e artista visual. Mais de 4.000 publicações raras sobre teoria e história da arte. Acesso para pesquisa acadêmica mediante solicitação prévia.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informações Práticas & Visitação -->
+        <section class="mb-14">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                <i class="fas fa-calendar-alt mr-3 text-blue-600"></i> Informações Úteis & Visitação
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="font-bold text-base text-slate-900 mb-4 flex items-center">
+                        <i class="fas fa-clock text-amber-500 mr-2"></i> Horários e Contatos Oficiais
+                    </h3>
+                    <ul class="space-y-3 text-xs text-slate-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-emerald-500 mr-2 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800">Horário Oficial de Exposições:</strong> Terça a sexta-feira, das 14h às 17h (com aberturas e horários especiais em períodos de mostras e salões).
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-emerald-500 mr-2 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800">Ingresso:</strong> Gratuito em todas as exposições permanentes e temporárias.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-blue-500 mr-2 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800">Telefone:</strong> (16) 3635-2421
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-purple-500 mr-2 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800">E-mail:</strong> marp.cultura@rp.ribeiraopreto.sp.gov.br
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-base text-slate-900 mb-3 flex items-center">
+                            <i class="fas fa-eye text-indigo-500 mr-2"></i> Exposições Temporárias & Visitas Escolares
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                            O MARP recebe mostras individuais e coletivas de artistas plásticos contemporâneos do Brasil e do exterior ao longo de todo o ano.
+                        </p>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Grupos escolares, universidades e caravanas culturais podem agendar visitas mediadas com a equipe educativa do museu por telefone ou e-mail institucional.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 flex items-center">
+                        <i class="fas fa-exclamation-circle text-amber-500 mr-1.5"></i>
+                        <span>Recomenda-se confirmar a programação do dia pelo telefone antes de visitas em grupos.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teia Semântica: Circuito Centro Histórico a Pé -->
+        <section class="mb-14">
+            <div class="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-6 md:p-8">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                    <span class="text-amber-800 font-bold text-xs uppercase tracking-wider">Roteiro a Pé Integrado</span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-3">Circuito Cultural a Menos de 5 Minutos</h3>
+                <p class="text-slate-600 text-sm mb-6 max-w-3xl">
+                    O MARP fica a poucos metros da Praça XV e da Praça Carlos Gomes. Você pode visitar o museu e conectar facilmente o passeio aos outros marcos históricos da cidade:
+                </p>
+
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <!-- Theatro Pedro II -->
+                    <a href="./teatro-dom-pedro.html" class="flex items-center gap-3 bg-white p-3.5 rounded-xl shadow-sm border border-slate-200 hover:border-amber-400 card-hover">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-900 text-amber-400 flex items-center justify-center text-lg shrink-0">
+                            <i class="fas fa-theater-masks"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-xs">Theatro Pedro II</h4>
+                            <p class="text-[11px] text-slate-500">A ~4 min a pé</p>
+                        </div>
+                    </a>
+
+                    <!-- Palacete Camilo de Mattos -->
+                    <a href="./palacete-camilo-de-mattos.html" class="flex items-center gap-3 bg-white p-3.5 rounded-xl shadow-sm border border-slate-200 hover:border-amber-400 card-hover">
+                        <div class="w-10 h-10 rounded-lg bg-amber-900 text-amber-300 flex items-center justify-center text-lg shrink-0">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-xs">Palacete Camilo de Mattos</h4>
+                            <p class="text-[11px] text-slate-500">A ~4 min a pé</p>
+                        </div>
+                    </a>
+
+                    <!-- Biblioteca Sinhá Junqueira -->
+                    <div class="flex items-center gap-3 bg-white p-3.5 rounded-xl shadow-sm border border-slate-200 hover:border-amber-400 card-hover">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-900 text-emerald-300 flex items-center justify-center text-lg shrink-0">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-xs">Biblioteca Sinhá Junqueira</h4>
+                            <p class="text-[11px] text-slate-500">A ~3 min a pé</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Chegar & Mobilidade Urbana -->
+        <section class="mb-14">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                <i class="fas fa-bus-alt mr-3 text-blue-600"></i> Como Chegar de Transporte Coletivo
+            </h2>
+
+            <!-- Mapa Leaflet -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-6">
+                <h3 class="font-bold text-base text-slate-800 mb-2">Localização no Centro</h3>
+                <p class="text-xs text-slate-500 mb-4">Rua Barão do Amazonas, 323 — entre as ruas Duque de Caxias e Visconde de Inhaúma</p>
+                <div id="map" class="h-64 rounded-lg border border-slate-200 mb-3"></div>
+                <p class="text-xs text-slate-500 text-center flex items-center justify-center">
+                    <i class="fas fa-map-marker-alt text-rose-500 mr-1.5"></i>
+                    Rua Barão do Amazonas, 323 - Centro, Ribeirão Preto - SP | CEP: 14010-120
+                </p>
+            </div>
+
+            <!-- Linhas de Ônibus Confirmadas -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex items-center justify-between mb-3">
+                    <div>
+                        <h3 class="font-bold text-base text-slate-800">Ponto em Frente ao MARP (R. Barão do Amazonas)</h3>
+                        <p class="text-xs text-slate-500">Mais de 1.000 embarques/dia útil com acesso direto a linhas estruturais e interbairros:</p>
+                    </div>
+                    <span class="text-xs bg-blue-100 text-blue-800 font-bold px-2.5 py-1 rounded-full">Ponto Estrutural</span>
+                </div>
+
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 mt-4">
+                    <a href="../../ribeirao/linhas/linha-902-norte-sul-2.html" class="flex items-center p-3 bg-rose-50/70 hover:bg-rose-100/70 rounded-lg border border-rose-100 transition-colors">
+                        <i class="fas fa-bolt text-rose-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 902 - Norte-Sul 2</p>
+                            <p class="text-[11px] text-gray-500">BRT estrutural em frente</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-303-bom-pastor.html" class="flex items-center p-3 bg-blue-50/70 hover:bg-blue-100/70 rounded-lg border border-blue-100 transition-colors">
+                        <i class="fas fa-bus text-blue-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 303 - Bom Pastor</p>
+                            <p class="text-[11px] text-gray-500">Parada na região central</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-730-pq-portinari.html" class="flex items-center p-3 bg-purple-50/70 hover:bg-purple-100/70 rounded-lg border border-purple-100 transition-colors">
+                        <i class="fas fa-bus text-purple-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 730 - Pq. Portinari</p>
+                            <p class="text-[11px] text-gray-500">Ligação Norte-Sul</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-204-city-ribeirao.html" class="flex items-center p-3 bg-amber-50/70 hover:bg-amber-100/70 rounded-lg border border-amber-100 transition-colors">
+                        <i class="fas fa-bus text-amber-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 204 - City Ribeirão</p>
+                            <p class="text-[11px] text-gray-500">Acesso Zona Sul</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-601-distrito-empresarial.html" class="flex items-center p-3 bg-indigo-50/70 hover:bg-indigo-100/70 rounded-lg border border-indigo-100 transition-colors">
+                        <i class="fas fa-bus text-indigo-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 601 - Distrito Emp.</p>
+                            <p class="text-[11px] text-gray-500">Corredor empresarial</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-708-jd-heitor-rigon.html" class="flex items-center p-3 bg-emerald-50/70 hover:bg-emerald-100/70 rounded-lg border border-emerald-100 transition-colors">
+                        <i class="fas fa-bus text-emerald-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 708 - Jd. Heitor Rigon</p>
+                            <p class="text-[11px] text-gray-500">Direto ao Centro</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mt-5 pt-4 border-t border-slate-100 flex flex-wrap gap-4 justify-center items-center">
+                    <a href="../../ribeirao/linhas/" class="inline-flex items-center text-xs font-semibold text-blue-600 hover:text-blue-800">
+                        <i class="fas fa-list-ul mr-1.5"></i> Catálogo completo de 113 linhas
+                    </a>
+                    <span class="text-slate-300">•</span>
+                    <a href="../../ribeirao/linhas/mapa.html" class="inline-flex items-center text-xs font-semibold text-amber-600 hover:text-amber-800">
+                        <i class="fas fa-map-marked-alt mr-1.5"></i> Ver traçados no Mapa Geral
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Espaço Publicitário Meio -->
+    <div class="bg-slate-100 border-y border-slate-200 py-4 my-8">
+        <div class="container mx-auto px-4 flex items-center justify-center">
+            <div class="w-full max-w-4xl h-24 bg-slate-200/70 border border-dashed border-slate-300 rounded flex items-center justify-center text-xs text-slate-500">
+                <i class="fas fa-ad mr-2 text-slate-400"></i> Espaço Publicitário — Google AdSense / Anuncie Aqui
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Oficial -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 mr-2"></span>
+                        MARP — Museu de Arte
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Museu de Arte de Ribeirão Preto Pedro Manuel-Gismondi. Arte moderna e contemporânea, pesquisa e patrimônio cultural público.
+                    </p>
+                    <p class="text-slate-400 text-sm">
+                        <i class="fas fa-map-pin mr-2 text-amber-400"></i> Rua Barão do Amazonas, 323 - Centro
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Circuito Cultural</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="./teatro-dom-pedro.html" class="hover:text-amber-400 transition-colors">Theatro Pedro II</a></li>
+                        <li><a href="./palacete-camilo-de-mattos.html" class="hover:text-amber-400 transition-colors">Palacete Camilo de Mattos</a></li>
+                        <li><a href="./" class="hover:text-amber-400 transition-colors">Biblioteca Sinhá Junqueira</a></li>
+                        <li><a href="./" class="hover:text-amber-400 transition-colors">Catedral Metropolitana de São Sebastião</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Guia Ribeirão Preto</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Portal independente de utilidade pública, patrimônio histórico e mobilidade urbana na cidade de Ribeirão Preto - SP.
+                    </p>
+                    <div class="flex space-x-3 text-sm">
+                        <a href="./" class="text-amber-400 hover:underline">Pontos Turísticos</a>
+                        <span class="text-slate-600">•</span>
+                        <a href="../../ribeirao/linhas/" class="text-amber-400 hover:underline">Horários de Ônibus</a>
+                        <span class="text-slate-600">•</span>
+                        <a href="../../ribeirao/linhas/mapa.html" class="text-amber-400 hover:underline">Mapa Geral</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-xs text-slate-500">
+                <p class="mb-1">© 2026 Ribeirão Preto — Guia da Cidade Viva. Conteúdo de utilidade pública e patrimônio histórico.</p>
+                <p>As informações históricas e de visitação são apuradas junto à Secretaria Municipal da Cultura e fontes oficiais.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Inicialização do mapa no MARP
+        var map = L.map('map', { scrollWheelZoom: false }).setView([-21.1755, -47.8090], 16);
+        
+        // Tile layer OSM
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        
+        // Marcador do MARP
+        var marker = L.marker([-21.1755, -47.8090]).addTo(map);
+        marker.bindPopup('<b>MARP — Museu de Arte de Ribeirão Preto</b><br>Rua Barão do Amazonas, 323 - Centro<br><small>Antiga Sociedade Recreativa (1908)</small>').openPopup();
+
+        setTimeout(function() {
+            map.invalidateSize();
+        }, 400);
+    </script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["ArtGallery", "TouristAttraction", "LocalBusiness"],
+        "name": "MARP - Museu de Arte de Ribeirão Preto Pedro Manuel-Gismondi",
+        "description": "Museu de Arte de Ribeirão Preto instalado no antigo edifício da Sociedade Recreativa de 1908. Acervo de mais de 1.700 obras de arte contemporânea e moderna, sede do SARP e duas bibliotecas de pesquisa artística.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Barão do Amazonas, 323",
+            "addressLocality": "Ribeirão Preto",
+            "addressRegion": "São Paulo",
+            "postalCode": "14010-120",
+            "addressCountry": "BR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -21.1755,
+            "longitude": -47.8090
+        },
+        "telephone": "+55-16-3635-2421",
+        "isAccessibleForFree": true,
+        "publicAccess": true
+    }
+    </script>
+</body>
+</html>
