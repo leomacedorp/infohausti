@@ -333,4 +333,21 @@
   - `content/paginas/ribeirao-preto/pontos-turisticos/parque-curupira.json` (página completa com +850 palavras narrativas, requalificação ambiental da antiga pedreira de basalto, cascatas artificiais, 152 mil m² de área verde, pistas de cooper, fauna silvestre e acesso pela Ribeirânia).
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 26 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema TouristAttraction + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`.
 * **Pendências novas:** Nenhuma.
-* **Próximo bloco sugerido:** B2 / B7 — Levantamento e verificação dos 6 novos pontos turísticos confirmados.
+* **Próximo bloco sugerido:** B2 — Levantamento e verificação dos 6 novos pontos turísticos confirmados.
+
+---
+
+## Bloco B2 — Dossiês Oficiais dos 6 Novos Pontos Turísticos
+* **Data/Hora:** 2026-10-03 14:21
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/lista-mestre.json` (atualizado com os 12 pontos turísticos estruturados, categorias e nomes de dossiês).
+  - `content/dados-fonte/pontos/bosque-fabio-barreto.json` (dossiê verificado: fundado em 1937, 250 mil m² de Mata Atlântica no Morro de São Bento, zoológico e jardim japonês).
+  - `content/dados-fonte/pontos/museu-do-cafe.json` (dossiê verificado: fundado em 1955 na antiga Fazenda Monte Alegre, tulhas, maquinários de café e peças de Francisco Schmidt).
+  - `content/dados-fonte/pontos/praca-xv-de-novembro.json` (dossiê verificado: traçado do século XIX, marco zero cívico, Fonte Luminosa de 1939 e árvores centenárias).
+  - `content/dados-fonte/pontos/quarteirao-paulista.json` (dossiê verificado: conjunto da Cia Cervejaria Paulista de 1930 tombado pelo Condephaat, englobando Pedro II, Edifício Meira Júnior e calçadão).
+  - `content/dados-fonte/pontos/parque-maurilio-biagi.json` (dossiê verificado: inaugurado em 2010 com 70 mil m² na bacia do Retiro Saudoso, RP Skate Park internacional e pistas poliesportivas).
+  - `content/dados-fonte/pontos/santuario-sete-capelas.json` (dossiê verificado: construído entre 1965 e 1970 pelos padres estigmatinos no Morro de São Bento, 7 capelas marianas e mirante).
+* **Resultado da auditoria:** Todos os 6 novos dossiês devidamente criados e verificados com fontes oficiais e datas atualizadas. `audit_all.py` executado com STATUS: OK.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** B7 — 2 pontos novos (Bosque Fábio Barreto e Museu do Café).
