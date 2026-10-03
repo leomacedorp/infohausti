@@ -675,3 +675,31 @@
   - **Bloqueio de Dados Pendentes:** 100% verificado (zero dados pendentes).
   - **Total de páginas em `dist/`:** **96 arquivos HTML** (95 URLs no sitemap.xml + 404.html).
 * **Próximo passo:** Prosseguir imediatamente para o Lote 6 sem pausar.
+
+---
+
+## Bloco C4 — Fase 3: Lote 6 (9 Linhas Convencionais: 205 a 236)
+* **Data/Hora:** 2026-10-03 17:42
+* **STATUS:** OK
+* **Escopo executado:** 9 linhas geradas por ordem numérica estrita:
+  1. `Linha 205 — Jd. João Rossi` (`linhas/linha-205-jd-joao-rossi.html`)
+  2. `Linha 206 — Vila Virgínia` (`linhas/linha-206-vila-virginia.html`)
+  3. `Linha 207 — Hospital das Clínicas` (`linhas/linha-207-hospital-das-clinicas.html`)
+  4. `Linha 208 — Vila Albertina` (`linhas/linha-208-vila-albertina.html`)
+  5. `Linha 210 — Simioni` (`linhas/linha-210-simioni.html`)
+  6. `Linha 211 — Expresso Simioni` (`linhas/linha-211-expresso-simioni.html`)
+  7. `Linha 217 — Quintino - HC` (`linhas/linha-217-quintino-hc.html`)
+  8. `Linha 220 — Pq. Exposições` (`linhas/linha-220-pq-exposicoes.html`)
+  9. `Linha 236 — São José - Adão do Carmo` (`linhas/linha-236-sao-jose-adao-do-carmo.html`)
+* **Arquivos criados e alterados:**
+  - 9 arquivos JSON em `content/paginas/linhas/` com diferenciação temática dedicada (olarias e imigração para 206, genética/biotério para 207, UBS de bairro para 210, telemetria/trânsito rápido para 211, grande anel perimétrico para 217, agronegócio/Feapam para 220, indústria alimentícia/Nestlé para 236).
+  - `content/lista-mestre.json`: Atualizado com `linhas_lote6`.
+  - `content/paginas/linhas/index.json`: 9 slugs sincronizados.
+  - `scripts/gera_lote6.py`: Script oficial de geração.
+* **Resultado da auditoria (`scripts/audit_all.py`):**
+  - **STATUS: OK** (todas as 7 checagens aprovadas com 0 erros fatais).
+  - **Similaridade Passada 1 (Fatal se > 30%):** Máxima de **27,1%** (Linha 210 x Linha 211), abaixo do limiar de alerta preventivo (28%) e fatal (30%).
+  - **Similaridade Passada 2:** Avisos estruturais catalogados sem violação.
+  - **Bloqueio de Dados Pendentes:** 100% verificado (zero dados pendentes).
+  - **Total de páginas em `dist/`:** **105 arquivos HTML** (104 URLs no sitemap.xml + 404.html).
+* **Próximo passo:** Prosseguir imediatamente para o Lote 7 sem pausar.
