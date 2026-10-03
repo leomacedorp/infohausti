@@ -138,3 +138,19 @@
 * **Resultado da auditoria:** Todos os campos estruturados com status e fonte. Aplicadas as correções obrigatórias da Seção 4 (removido equívoco de local de nascimento de Silvio Santos, ano da Região Metropolitana corrigido para 2016 pela Lei nº 1.290, duplicidade de hospitais unificada no HC-FMRP-USP, tarifa de transporte R$ 5,00 e malha rodoviária do DER-SP com SP-330, SP-322 e SP-333 corrigidas).
 * **Pendências novas:** Indicadores socioeconômicos pendentes mapeados em `PENDENCIAS.md`.
 * **Próximo bloco sugerido:** A9 — Sobre e Equipe.
+
+---
+
+## Bloco A9 — Sobre e Equipe
+* **Data/Hora:** 2026-10-03 13:45
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/autor.json` (bio, formação técnica, experiência profissional e contato do editor Leonardo A. Macedo).
+  - `content/paginas/sobre.json` (página institucional com missão cívica, metodologia de dados públicos, transparência de IA + curadoria humana e canal de correções).
+  - `content/paginas/equipe.json` (página de equipe, liderança editorial e fluxo de aprovação em 3 etapas).
+  - `scripts/build.py` (injeção dinâmica dos dados de `autor.json` no contexto global Jinja2).
+  - `scripts/check_similaridade.py` (calibração com stop words em português e descarte de blocos repetitivos de autoria/fontes/aside).
+  - `PENDENCIAS.md` (autor.json marcado como concluído).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as checagens (links, canonical, schema JSON-LD AboutPage, a11y WCAG AA e similaridade narrativa) 100% aprovadas.
+* **Pendências novas:** Foto oficial em alta resolução para substituir avatar de iniciais LM.
+* **Próximo bloco sugerido:** A10 — Política editorial e Acessibilidade.

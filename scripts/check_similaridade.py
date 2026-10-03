@@ -23,16 +23,43 @@ except ImportError:
     print("[ERRO] scikit-learn não instalado. Execute: pip install scikit-learn")
     sys.exit(1)
 
+PORTUGUESE_STOP_WORDS = [
+    'de', 'a', 'o', 'que', 'e', 'do', 'da', 'em', 'um', 'para', 'é', 'com', 'não', 'uma',
+    'os', 'no', 'se', 'na', 'por', 'mais', 'as', 'dos', 'como', 'mas', 'foi', 'ao', 'ele',
+    'das', 'tem', 'à', 'seu', 'sua', 'ou', 'ser', 'quando', 'muito', 'nos', 'já', 'está',
+    'eu', 'também', 'só', 'pelo', 'pela', 'até', 'isso', 'ela', 'entre', 'era', 'depois',
+    'sem', 'mesmo', 'aos', 'ter', 'seus', 'quem', 'nas', 'me', 'esse', 'eles', 'estão',
+    'você', 'tinha', 'foram', 'essa', 'num', 'nem', 'suas', 'meu', 'às', 'minha', 'têm',
+    'numa', 'pelos', 'elas', 'havia', 'seja', 'qual', 'será', 'nós', 'tenho', 'lhe', 'deles',
+    'essas', 'esses', 'pelas', 'este', 'fosse', 'dele', 'tu', 'te', 'vocês', 'vos', 'lhes',
+    'meus', 'minhas', 'teu', 'tua', 'teus', 'tuas', 'nosso', 'nossa', 'nossos', 'nossas',
+    'dela', 'delas', 'esta', 'estes', 'estas', 'aquele', 'aquela', 'aqueles', 'aquelas',
+    'isto', 'aquilo', 'estou', 'estamos', 'estive', 'esteve', 'estivemos',
+    'estiveram', 'estava', 'estávamos', 'estavam', 'estivera', 'estivéramos', 'esteja',
+    'estejamos', 'estejam', 'estivesse', 'estivéssemos', 'estivessem', 'estiver', 'estivermos',
+    'estiverem', 'hei', 'há', 'havemos', 'hão', 'houve', 'houvemos', 'houveram', 'houvera',
+    'houvéramos', 'haja', 'hajamos', 'hajam', 'houvesse', 'houvéssemos', 'houvessem', 'houver',
+    'houvermos', 'houverem', 'houverei', 'houverá', 'houveremos', 'houverão', 'houveria',
+    'houveríamos', 'houveriam', 'sou', 'somos', 'são', 'éramos', 'eram', 'fui',
+    'fomos', 'fora', 'fôramos', 'sejamos', 'sejam', 'fôssemos', 'fossem', 'formos', 'forem',
+    'serei', 'seremos', 'serão', 'seria', 'seríamos', 'seriam', 'temos', 'tínhamos',
+    'tinham', 'tive', 'teve', 'tivemos', 'tiveram', 'tivera', 'tivéramos', 'tenha',
+    'tenhamos', 'tenham', 'tivesse', 'tivéssemos', 'tivessem', 'tiver', 'tivermos', 'tiverem',
+    'terei', 'teremos', 'terão', 'teria', 'teríamos', 'teriam'
+]
+
 def extract_narrative_text(html_content):
-    """Extrai somente parágrafos e títulos editoriais, excluindo cabeçalho, rodapé e listas/tabelas"""
+    """Extrai somente parágrafos e títulos editoriais, excluindo cabeçalho, rodapé, blocos de autoria e listas/tabelas"""
     # Isola o <main>
     main_match = re.search(r'<main[^>]*>(.*?)</main>', html_content, re.DOTALL | re.IGNORECASE)
     content = main_match.group(1) if main_match else html_content
 
-    # Remove tabelas, listas e blocos de scripts
+    # Remove tabelas, listas, aside (autoria/alertas) e blocos de fontes
     content = re.sub(r'<table[^>]*>.*?</table>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
     content = re.sub(r'<ul[^>]*>.*?</ul>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
     content = re.sub(r'<ol[^>]*>.*?</ol>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
+    content = re.sub(r'<aside[^>]*>.*?</aside>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
+    content = re.sub(r'<section[^>]*aria-label=["\']Fontes.*?>.*?</section>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
     content = re.sub(r'<script[^>]*>.*?</script>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
     content = re.sub(r'<style[^>]*>.*?</style>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
 
@@ -76,7 +103,7 @@ def check_similaridade():
         file_names.append(f.relative_to(ROOT_DIR))
 
     # --- 1ª PASSADA: Texto Narrativo (Fatal se > 30%) ---
-    vectorizer_narrative = TfidfVectorizer(min_df=1, stop_words=None)
+    vectorizer_narrative = TfidfVectorizer(min_df=1, stop_words=PORTUGUESE_STOP_WORDS)
     try:
         tfidf_narrative = vectorizer_narrative.fit_transform(narrative_corpus)
         sim_matrix_narrative = cosine_similarity(tfidf_narrative)
@@ -92,7 +119,7 @@ def check_similaridade():
         avisos.append(f"Passada 1: Corpus insuficiente para TF-IDF: {e}")
 
     # --- 2ª PASSADA: Inclui Tabelas e Listas de Paradas (Aviso se > 30%) ---
-    vectorizer_full = TfidfVectorizer(min_df=1, stop_words=None)
+    vectorizer_full = TfidfVectorizer(min_df=1, stop_words=PORTUGUESE_STOP_WORDS)
     try:
         tfidf_full = vectorizer_full.fit_transform(full_corpus)
         sim_matrix_full = cosine_similarity(tfidf_full)

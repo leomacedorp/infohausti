@@ -6,8 +6,9 @@
 
 ## 👤 Insumos Humanos (Aguardando Leonardo)
 
-- [ ] **`content/autor.json` (A9):** Nome completo, bio profissional, formação acadêmica, experiência do editor/autor e arquivo de foto.
+- [x] **`content/autor.json` (A9):** Preenchido com dados biográficos reais do editor/autor Leonardo A. Macedo (analista de TI, servidor público municipal, orquestrador de sistemas inteligentes).
 - [ ] **`content/lista-mestre.json` (G1, B2, H0, D1, J1):** Slugs e nomes oficiais dos 12 pontos turísticos, 10 bairros, 6 serviços públicos, 5 roteiros e 5 pilares de história.
+- [ ] **Foto Oficial do Autor (A9):** Arquivo de foto real para `assets/img/autor.jpg` (atualmente exibindo avatar estilizado com iniciais LM).
 - [ ] **Logo e Favicon (A6):** Arquivos oficiais em alta resolução para geração dos favicons e assets de marca.
 
 ---

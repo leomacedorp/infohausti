@@ -291,6 +291,9 @@ def main():
         # Correções específicas para esta página
         correcoes_pagina = [c for c in correcoes if c.get('slug') == slug]
 
+        # Dados do autor (content/autor.json)
+        autor_global = load_json(CONTENT_DIR / 'autor.json', {})
+
         # Contexto de renderização
         context = {
             "base_url": "",
@@ -300,9 +303,13 @@ def main():
             "descricao": page.get('descricao', ''),
             "keywords": page.get('keywords', ''),
             "h1": page.get('h1', page.get('titulo', '')),
-            "autor_nome": page.get('autor', {}).get('nome', config.get('autor_padrao', {}).get('nome', 'Leonardo A. Macedo')),
-            "autor_bio": page.get('autor', {}).get('bio', config.get('autor_padrao', {}).get('bio', '')),
-            "autor_foto": page.get('autor', {}).get('foto', config.get('autor_padrao', {}).get('foto', '')),
+            "autor_nome": page.get('autor', {}).get('nome', autor_global.get('nome', config.get('autor_padrao', {}).get('nome', 'Leonardo A. Macedo'))),
+            "autor_bio": page.get('autor', {}).get('bio', autor_global.get('bio', config.get('autor_padrao', {}).get('bio', ''))),
+            "autor_foto": page.get('autor', {}).get('foto', autor_global.get('foto', config.get('autor_padrao', {}).get('foto', ''))),
+            "autor_cargo": page.get('autor', {}).get('cargo', autor_global.get('cargo', 'Curador Editorial')),
+            "autor_formacao": autor_global.get('formacao', ''),
+            "autor_experiencia": autor_global.get('experiencia', ''),
+            "autor_global": autor_global,
             "revisor_nome": page.get('revisor', 'Leonardo A. Macedo'),
             "publicado_em": page.get('publicado', ''),
             "atualizado_em": page.get('atualizado', ''),
