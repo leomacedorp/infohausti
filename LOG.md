@@ -166,3 +166,16 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 5 páginas prontas renderizadas em `dist/`, sem links quebrados, com canonical absoluto e microdados Schema.org.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** A11 — Páginas legais (revisão).
+
+---
+
+## Bloco A11 — Páginas Legais (Revisão)
+* **Data/Hora:** 2026-10-03 13:47
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/privacidade.json` (política de privacidade em conformidade com a LGPD Lei 13.709/2018, princípio de coleta mínima, sem perfilamento comercial ativo e canal do encarregado/DPO Leonardo A. Macedo).
+  - `content/paginas/cookies.json` (política técnica de cookies descrevendo estritamente o armazenamento necessário do consentimento LGPD, declarando a ausência de cookies de rastreamento de terceiros nesta fase e instruções de bloqueio no navegador).
+  - `content/paginas/termos-de-uso.json` (condições de navegação, licença de citação de textos com atribuição e link canônico sob a Lei 9.610/1998, limitação de responsabilidade sobre transporte público e foro de Ribeirão Preto - SP).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 8 páginas prontas compiladas com sucesso em `dist/`, sem links quebrados, sem pendências em páginas prontas e com microdados Schema.org.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** A12 — Contato, Anuncie e Imprensa.
