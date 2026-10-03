@@ -12,13 +12,13 @@
 
 ---
 
-## 🔍 Dados Sob Verificação (Dossiê Seção 4 / A8)
+## 🔍 Seção Dossiê (Concluído no Bloco A8)
 
-- [ ] **Fundador e Silvio Santos:** Remover menção de nascimento em Ribeirão Preto (Silvio Santos nasceu no Rio de Janeiro).
-- [ ] **Região Metropolitana:** Confirmar ano exato de criação e número da Lei Complementar Estadual.
-- [ ] **Hospitais:** Resolver duplicidade de "Hospital das Clínicas" com o HC-FMRP-USP.
-- [ ] **BRT:** Confirmar status real de implantação junto à RP Mobi / Prefeitura.
-- [ ] **Tarifa e Bilhete:** Confirmar vigência do valor de R$ 5,00 / R$ 5,20 e nomenclatura oficial do cartão.
-- [ ] **Rodovias:** Confirmar identificação e numeração DER-SP (SP-333 vs SP-348 Bandeirantes; SP-322 Attílio Balbo).
-- [ ] **Distâncias Rodoviárias:** Validar tabela de quilometragens rodoviárias oficiais.
-- [ ] **Indicadores Socioeconômicos:** Confirmar ano base e fontes oficiais (IBGE, SEADE, Caged, SUS) de PIB, MEIs e leitos.
+- [x] **Fundador e Silvio Santos:** Tratado em `rp-perfil.json` — removida afirmação de nascimento em RP (nascido no Rio de Janeiro/RJ).
+- [x] **Região Metropolitana:** Confirmado ano 2016 e Lei Complementar Estadual nº 1.290/2016 (34 municípios).
+- [x] **Hospitais:** Resolvida duplicidade, padronizado como `HC-FMRP-USP` (Unidade Campus e Unidade Emergência).
+- [x] **BRT:** Definido oficialmente como corredores estruturais em implantação progressiva do programa Ribeirão Mobilidade.
+- [x] **Tarifa e Bilhete:** Tarifa vigente R$ 5,00 (Decreto Municipal) com integração de 120 minutos do sistema RP Mobi.
+- [x] **Rodovias:** Retificado DER-SP: SP-330 (Anhanguera), SP-322 (Attílio Balbo/Duarte Nogueira), SP-328 (Alexandre Balbo), SP-333 (Carlos Tonani). Removida confusão com SP-348 Bandeirantes.
+- [x] **Distâncias Rodoviárias:** Confirmadas via DER-SP (São Paulo: 315 km, Campinas: 225 km, Brasília: 710 km).
+- [ ] **Indicadores Socioeconômicos Pendentes:** MEIs ativos (aguardando atualização Portal do Empreendedor 2025/2026), estoque Caged e contagem de leitos SUS no CNES mantidos como `status: pendente` em `rp-perfil.json` até validação pontual.

@@ -126,3 +126,15 @@
 * **Resultado da auditoria:** Comprovado com rigor que a similaridade narrativa na Passada 1 > 30% gera erro FATAL impeditivo com código de saída != 0, bloqueando o lote. As páginas foram devidamente convertidas para rascunho e a suíte voltou ao status OK.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** A8 — Dossiê base de Ribeirão Preto (Parte 5 do Plano v4).
+
+---
+
+## Bloco A8 — Dossiê Base de Ribeirão Preto (Parte 5 do Plano v4)
+* **Data/Hora:** 2026-10-03 13:41
+* **STATUS:** OK
+* **Arquivos criados:**
+  - `content/dados-fonte/rp-perfil.json` (dossiê completo estruturado com campos auditáveis, status de verificação e links de fontes oficiais IBGE, SEADE, DER-SP e Prefeitura).
+  - Atualização da seção 'Dossiê' em `PENDENCIAS.md`.
+* **Resultado da auditoria:** Todos os campos estruturados com status e fonte. Aplicadas as correções obrigatórias da Seção 4 (removido equívoco de local de nascimento de Silvio Santos, ano da Região Metropolitana corrigido para 2016 pela Lei nº 1.290, duplicidade de hospitais unificada no HC-FMRP-USP, tarifa de transporte R$ 5,00 e malha rodoviária do DER-SP com SP-330, SP-322 e SP-333 corrigidas).
+* **Pendências novas:** Indicadores socioeconômicos pendentes mapeados em `PENDENCIAS.md`.
+* **Próximo bloco sugerido:** A9 — Sobre e Equipe.
