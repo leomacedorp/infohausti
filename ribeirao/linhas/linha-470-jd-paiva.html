@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha 470 Jd. Paiva - Horários e Itinerário | Ribeirão Vivo</title>
+    <meta name="description" content="Horários completos e atualizados da Linha 470 Jd. Paiva em Ribeirão Preto (Convencional). Itinerário com paradas, mapa interativo do trajeto e regras de integração.">
+    <link rel="canonical" href="https://infohausti.com.br/ribeirao/linhas/linha-470-jd-paiva.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://infohausti.com.br/ribeirao/linhas/linha-470-jd-paiva.html">
+    <meta property="og:title" content="Linha 470 Jd. Paiva - Horários e Paradas | Ribeirão Vivo">
+    <meta property="og:description" content="Horários atualizados, mapa do trajeto e paradas da Linha 470 de Ribeirão Preto.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rp: {
+                            blue: '#1a15f0',
+                            orange: '#ff6600',
+                            dark: '#0f172a',
+                            light: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        .adsense-box {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            border: 2px dashed #cbd5e1;
+        }
+        #map {
+            height: 380px;
+            width: 100%;
+            border-radius: 1rem;
+            z-index: 1;
+        }
+    </style>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ribeirão Vivo",
+              "item": "https://infohausti.com.br/ribeirao/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Linhas de Ônibus",
+              "item": "https://infohausti.com.br/ribeirao/linhas/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Linha 470 Jd. Paiva",
+              "item": "https://infohausti.com.br/ribeirao/linhas/linha-470-jd-paiva.html"
+            }
+          ]
+        },
+        {
+          "@type": "BusTrip",
+          "name": "Linha 470 - Jd. Paiva",
+          "busNumber": "470",
+          "provider": {
+            "@type": "Organization",
+            "name": "Ribeirão Mobilidade / RP Mobi"
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- TOP NAV -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="../index.html" class="flex items-center gap-1.5 text-slate-600 hover:text-blue-600 transition font-bold text-xs">
+                    <i class="fas fa-home"></i>
+                    <span>Portal</span>
+                </a>
+                <span class="text-slate-300">/</span>
+                <a href="index.html" class="flex items-center gap-1.5 text-slate-800 hover:text-blue-600 transition font-bold text-xs">
+                    <i class="fas fa-bus"></i>
+                    <span>Todas as Linhas</span>
+                </a>
+            </div>
+            <div class="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Dados Oficiais RP Mobi / Ribeirão Mobilidade</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- BANNER TOPO ADSENSE -->
+    <div class="max-w-4xl mx-auto px-4 mt-3 w-full">
+        <div class="adsense-box rounded-xl p-2.5 text-center flex flex-col items-center justify-center min-h-[60px]">
+            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Espaço Publicitário • Google AdSense</span>
+            <p class="text-xs text-slate-500 font-medium mt-0.5">Anúncio contextualizado para passageiros de Ribeirão Preto</p>
+        </div>
+    </div>
+
+    <main class="max-w-4xl mx-auto px-4 py-5 flex-1 w-full space-y-6">
+
+        <!-- CABEÇALHO DA LINHA -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-2xl text-white flex flex-col items-center justify-center shadow-md shrink-0" style="background-color: #1a15f0">
+                        <span class="text-2xl font-black leading-none">470</span>
+                        <span class="text-[9px] uppercase tracking-wider font-bold opacity-80">Linha</span>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2 mb-1">
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">Convencional</span>
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Tarifa R$ 5,00</span>
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">Integração 120min</span>
+                        </div>
+                        <h1 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Jd. Paiva</h1>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+                            Transporte Coletivo de Ribeirão Preto • Rede Oficial
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <button onclick="compartilharLinha()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition shadow-sm">
+                        <i class="fab fa-whatsapp text-sm"></i>
+                        <span>Compartilhar Linha</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD INTELIGENTE: PRÓXIMA SAÍDA AO VIVO -->
+            <div class="mt-5 p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div>
+                    <div class="flex items-center gap-2 text-xs text-orange-400 font-bold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-orange-400 animate-ping"></span>
+                        <span>Próximas Partidas Estimadas</span>
+                    </div>
+                    <div class="mt-1 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-sm">
+                        <div>
+                            <span class="text-slate-400 text-xs block">Ponto 3157 - R. Michele Balieiro:</span>
+                            <strong id="nextDep1" class="text-emerald-400 text-base font-black">Calculando...</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 text-xs block">Ponto 3970 - Estação Praça Carlo...:</span>
+                            <strong id="nextDep2" class="text-blue-300 text-base font-black">Calculando...</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-xs text-slate-400 sm:text-right">
+                    <span>Horário do celular: </span>
+                    <strong id="clockDisplay" class="text-white">--:--</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: TABELA DE HORÁRIOS COMPLETA -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+                <div>
+                    <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+                        <i class="far fa-clock text-blue-600"></i>
+                        <span>Grade Completa de Horários</span>
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Selecione o sentido e o dia da semana.</p>
+                </div>
+
+                <!-- SELETOR DE SENTIDO -->
+                <div class="inline-flex p-1 bg-slate-100 rounded-xl max-w-full overflow-x-auto">
+                    <button id="btnDir1" onclick="trocarDirecao('dir_1')" 
+                            class="px-3 py-1.5 rounded-lg text-xs font-bold transition bg-white text-slate-900 shadow-sm whitespace-nowrap">
+                        Ponto 3157 - R. Michele Balieiro
+                    </button>
+                    <button id="btnDir2" onclick="trocarDirecao('dir_2')" 
+                            class="px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:text-slate-900 whitespace-nowrap">
+                        Ponto 3970 - Estação Praça Carlo...
+                    </button>
+                </div>
+            </div>
+
+            <!-- SELETOR DE DIAS -->
+            <div class="flex gap-2">
+                <button id="btnDiaUteis" onclick="trocarDia('uteis')" 
+                        class="flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-blue-600 text-white border-blue-600 shadow-sm">
+                    Dias Úteis
+                </button>
+                <button id="btnDiaSabado" onclick="trocarDia('sabado')" 
+                        class="flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100">
+                    Sábados
+                </button>
+                <button id="btnDiaDomingo" onclick="trocarDia('domingo')" 
+                        class="flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100">
+                    Domingos / Feriados
+                </button>
+            </div>
+
+            <!-- GRADE DE PARTIDAS -->
+            <div id="gridHorarios" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2"></div>
+
+            <div class="text-[11px] text-slate-400 text-center pt-2">
+                * Integração tarifária permitida em até 120 minutos com o Cartão NOSSO.
+            </div>
+        </section>
+
+        <!-- BANNER ADSENSE MEIO -->
+        <div class="adsense-box rounded-xl p-3 text-center flex flex-col items-center justify-center min-h-[90px]">
+            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Publicidade Programática • Google AdSense</span>
+            <p class="text-xs text-slate-500 font-medium mt-1">Anúncio de alta relevância para os usuários desta rota</p>
+        </div>
+
+        <!-- SEÇÃO: MAPA INTERATIVO DO TRAJETO -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                    <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+                        <i class="fas fa-route text-blue-600"></i>
+                        <span>Mapa Interativo da Linha 470</span>
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Traçado georreferenciado e localização das paradas.</p>
+                </div>
+            </div>
+
+            <div id="map" class="shadow-inner border border-slate-200"></div>
+
+            <p class="text-[11px] text-slate-500 text-center">
+                Toque nos pontos para visualizar o nome da parada e rua.
+            </p>
+        </section>
+
+        <!-- SEÇÃO: ITINERÁRIO RUA A RUA -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                    <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+                        <i class="fas fa-list-ol text-blue-600"></i>
+                        <span>Itinerário e Paradas (72 paradas)</span>
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Sequência de vias atendidas pela linha.</p>
+                </div>
+                <div class="relative w-full sm:w-64">
+                    <input type="text" id="filtroRuas" onkeyup="filtrarParadas()" placeholder="Filtrar parada ou rua..." 
+                           class="w-full text-xs px-3 py-2 pl-8 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-search absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+                </div>
+            </div>
+
+            <div id="listaParadas" class="pt-3 max-h-[500px] overflow-y-auto pr-2">
+                
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. michele balieiro 3157">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-emerald-100 text-emerald-700 border-emerald-400 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-flag-checkered"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 01</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3157</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Michele Balieiro</h5>
+                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 ml-2">Terminal</span>
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. senador teotônio vilela 3158">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 02</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3158</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Senador Teotônio Vilela</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. victor joão castania 3159">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 03</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3159</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Victor João Castania</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. maria aparecida rizzo ruiz 2794">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 04</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #2794</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Maria Aparecida Rizzo Ruiz</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. maria aparecida rizzo ruiz 2795">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 05</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #2795</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Maria Aparecida Rizzo Ruiz</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. renê oliva strang, 1850 3068">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 06</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3068</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Renê Oliva Strang, 1850</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. renê oliva strang, 2060 (ao lado) 3069">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 07</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3069</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Renê Oliva Strang, 2060 (ao lado)</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. luftala wadhi, 1020 3160">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 08</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3160</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Luftala Wadhi, 1020</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. luftala wadhi 3161">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 09</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3161</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Luftala Wadhi</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. oscar schiavoni, 770 3162">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 10</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3162</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Oscar Schiavoni, 770</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. luiz granatto 3163">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 11</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3163</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Luiz Granatto</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. albertina tonon boschin, 840 3164">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 12</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3164</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Albertina Tonon Boschin, 840</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. josé antônio bernardes, 1055 3165">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 13</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3165</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. José Antônio Bernardes, 1055</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. maria ap. rizzo ruiz, s/n 3166">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 14</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3166</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Maria Ap. Rizzo Ruiz, s/n</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. maria celina bim rosa 3167">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 15</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3167</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Maria Celina Bim Rosa</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. joão diniz alvim, s/n 3168">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 16</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3168</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. João Diniz Alvim, s/n</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. joão diniz alvim, 281 3169">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 17</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3169</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. João Diniz Alvim, 281</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. josé aparecido da silva, s/n 880">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 18</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #880</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. José Aparecido da Silva, s/n</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. josé aparecido da silva, 424 3063">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 19</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3063</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. José Aparecido da Silva, 424</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. josé aparecido da silva 2546">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 20</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #2546</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. José Aparecido da Silva</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. josé aparecido da silva, s/n 2547">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 21</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #2547</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. José Aparecido da Silva, s/n</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. francisco massaro, 35 1068">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 22</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #1068</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Francisco Massaro, 35</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. francisco massaro 1069">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 23</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #1069</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Francisco Massaro</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. carlos de campos, 328 1070">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 24</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #1070</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Carlos de Campos, 328</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. monte mor, 276 956">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 25</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #956</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Monte Mor, 276</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. japurá, 81 957">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 26</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #957</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Japurá, 81</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. salvador neves, 779 1007">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 27</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #1007</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Salvador Neves, 779</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. salvador neves, 424 1008">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 28</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #1008</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Salvador Neves, 424</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. salvador neves, 291 1009">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 29</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #1009</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Salvador Neves, 291</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. salvador neves, 35 3355">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 30</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3355</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Salvador Neves, 35</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. amapá, 335 1905">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 31</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #1905</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Amapá, 335</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. amapá, 63 659">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 32</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #659</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Amapá, 63</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. martinico prado, 1153 660">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 33</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #660</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Martinico Prado, 1153</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. martinico prado, 885 661">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 34</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #661</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Martinico Prado, 885</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. martinico prado, 555 662">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 35</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #662</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Martinico Prado, 555</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. martinico prado, 245 663">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 36</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #663</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Martinico Prado, 245</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="estação rodoviária 4042">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-amber-100 text-amber-700 border-amber-400 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-subway"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 37</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #4042</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Estação Rodoviária</h5>
+                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 ml-2">Estação Conexão</span>
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="tu / plat i / ponto 18 3531">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-amber-100 text-amber-700 border-amber-400 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-subway"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 38</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3531</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">TU / Plat I / Ponto 18</h5>
+                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 ml-2">Estação Conexão</span>
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="estação praça da bandeira 3 329">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-amber-100 text-amber-700 border-amber-400 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-subway"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 39</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #329</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Estação Praça da Bandeira 3</h5>
+                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 ml-2">Estação Conexão</span>
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="estação praça carlos gomes 3970">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-amber-100 text-amber-700 border-amber-400 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-subway"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 40</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3970</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Estação Praça Carlos Gomes</h5>
+                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 ml-2">Estação Conexão</span>
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. duque de caxias, 521 333">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 41</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #333</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Duque de Caxias, 521</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. duque de caxias, 339 334">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 42</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #334</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Duque de Caxias, 339</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. cel. luiz da cunha, 180 625">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 43</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #625</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Cel. Luiz da Cunha, 180</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. cel. luiz da cunha, 268 626">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 44</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #626</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Cel. Luiz da Cunha, 268</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. cel. luiz da cunha, 490 627">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 45</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #627</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Cel. Luiz da Cunha, 490</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. cel. luiz da cunha, 886 628">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 46</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #628</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Cel. Luiz da Cunha, 886</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. cel. luiz da cunha, 1100 629">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 47</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #629</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Cel. Luiz da Cunha, 1100</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. são salvador, 131 630">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 48</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #630</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. São Salvador, 131</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. são salvador, 380 631">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 49</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #631</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. São Salvador, 380</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. são salvador, 630 632">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 50</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #632</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. São Salvador, 630</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. são salvador, s/n 979">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 51</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #979</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. São Salvador, s/n</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. são salvador, 1059 (oposto) 980">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 52</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #980</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. São Salvador, 1059 (oposto)</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. são salvador, 1300 981">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 53</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #981</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. São Salvador, 1300</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. rondônia, 1385 3140">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 54</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3140</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Rondônia, 1385</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. rondônia, 1586 3141">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 55</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3141</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Rondônia, 1586</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. carlos de campos, 230 3560">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 56</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3560</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Carlos de Campos, 230</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. francisco massaro, s/n 3142">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 57</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3142</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Francisco Massaro, s/n</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. francisco massaro, s/n 3143">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 58</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3143</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Francisco Massaro, s/n</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. rio pardo, 3810 3144">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 59</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3144</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Rio Pardo, 3810</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. terezinha de souza amancio 3145">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 60</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3145</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Terezinha de Souza Amancio</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. joana vieira siqueira moreira, 305 3146">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 61</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3146</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Joana Vieira Siqueira Moreira, 305</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. dr. josé engracia garcia 3147">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 62</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3147</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Dr. José Engracia Garcia</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. prof. dirceu l. c. fernandes, s/n 3148">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 63</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3148</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Prof. Dirceu L. C. Fernandes, s/n</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. sen. teotônio vilela, s/n 3149">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 64</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3149</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Sen. Teotônio Vilela, s/n</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. sen. teotônio vilela, s/n 3150">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 65</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3150</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Sen. Teotônio Vilela, s/n</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. sen. teotônio vilela, s/n 3151">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 66</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3151</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Sen. Teotônio Vilela, s/n</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. dra. nadir aguiar, 1104 3152">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 67</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3152</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Dra. Nadir Aguiar, 1104</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. dra. nadir aguiar, 1120 3153">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 68</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3153</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Dra. Nadir Aguiar, 1120</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. fábio lellis valeri, s/n 3154">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 69</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3154</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Fábio Lellis Valeri, s/n</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. prof. dr. nassim iazigi, 440 3155">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 70</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3155</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Prof. Dr. Nassim Iazigi, 440</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. prof. dr. nassim iazigi 3156">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 71</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3156</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Prof. Dr. Nassim Iazigi</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. michele balieiro 3157">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-emerald-100 text-emerald-700 border-emerald-400 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-flag-checkered"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 72</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3157</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Michele Balieiro</h5>
+                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 ml-2">Terminal</span>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </section>
+
+        <!-- SEÇÃO B2B: ANUNCIE NO TRAJETO -->
+        <section class="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-800 rounded-2xl p-6 text-white text-center shadow-lg space-y-3">
+            <h3 class="text-xl font-black">Sua loja fica no trajeto da Linha 470?</h3>
+            <p class="text-xs text-blue-100 max-w-md mx-auto">
+                Milhares de passageiros passam na porta da sua empresa todos os meses. Destaque sua marca no Ribeirão Vivo por R$ 99/mês.
+            </p>
+            <div class="pt-2">
+                <a href="https://wa.me/5516981469121?text=Olá,%20tenho%20um%20comércio%20no%20trajeto%20da%20Linha%20470%20e%20quero%20anunciar!" target="_blank"
+                   class="inline-block bg-white text-blue-900 hover:bg-slate-100 font-bold text-xs px-6 py-3 rounded-xl transition shadow-xl">
+                    Anunciar Minha Loja nesta Rota
+                </a>
+            </div>
+        </section>
+
+        <!-- BANNER ADSENSE INFERIOR -->
+        <div class="adsense-box rounded-xl p-2.5 text-center flex flex-col items-center justify-center min-h-[60px]">
+            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Espaço Publicitário • Google AdSense</span>
+            <p class="text-xs text-slate-500 font-medium mt-0.5">Anúncio de rodapé relevante</p>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 mt-8 py-6 text-center text-xs text-slate-500 space-y-2">
+        <p class="font-bold text-slate-800">Ribeirão Vivo • Portal da Cidade Digital de Ribeirão Preto</p>
+        <p>Linha 470 Jd. Paiva — Informações integradas ao sistema Próurbano / RP Mobi</p>
+        <p><a href="index.html" class="text-blue-600 hover:underline font-semibold">← Voltar para a Lista de Linhas</a></p>
+        <p class="text-[11px] text-slate-400">© 2026 Infohaus TI. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const schedulesData = {"dir_1": {"uteis": ["04:50", "05:00", "05:30", "05:45", "06:00", "06:10", "06:20", "06:30", "06:50", "07:00", "07:20", "07:30", "07:45", "08:05", "08:25", "08:40", "09:08", "09:36", "10:04", "10:32", "11:00", "11:28", "11:56", "12:24", "12:52", "13:12", "13:32", "13:52", "14:12", "14:32", "14:52", "15:12", "15:32", "15:52", "16:12", "16:32", "16:52", "17:12", "17:32", "17:52", "18:12", "18:32", "18:52", "19:12", "19:35", "20:10", "20:40", "21:20", "21:50", "22:30", "23:00", "23:40"], "sabado": ["05:00", "05:35", "06:10", "06:45", "07:20", "07:55", "08:30", "09:05", "09:40", "10:15", "10:50", "11:25", "12:00", "12:35", "13:05", "13:45", "14:20", "15:30", "16:40", "17:50", "19:00", "20:00", "21:00", "22:00", "23:00"], "domingo": ["05:00", "06:10", "07:20", "08:30", "09:40", "10:50", "12:00", "13:05", "14:20", "15:30", "16:40", "17:50", "19:00", "20:00", "21:00", "22:00", "23:00"]}, "dir_2": {"uteis": ["05:14", "05:30", "05:40", "05:50", "06:20", "06:50", "07:00", "07:05", "07:30", "07:45", "08:00", "08:28", "08:56", "09:24", "09:52", "10:20", "10:48", "11:16", "11:44", "12:12", "12:32", "12:52", "13:12", "13:32", "13:52", "14:12", "14:32", "14:52", "15:12", "15:32", "15:52", "16:12", "16:32", "16:52", "17:12", "17:32", "17:52", "18:12", "18:32", "19:00", "19:40", "20:10", "21:00", "21:30", "22:10", "22:40", "23:10", "23:50"], "sabado": ["05:35", "06:10", "06:45", "07:20", "07:55", "08:30", "09:05", "09:40", "10:15", "10:50", "11:25", "12:00", "12:35", "13:05", "13:45", "14:55", "16:05", "17:15", "18:25", "19:30", "20:30", "21:30", "22:30", "23:30"], "domingo": ["05:35", "06:45", "07:55", "09:05", "10:15", "11:25", "12:35", "13:45", "14:55", "16:05", "17:15", "18:25", "19:30", "20:30", "21:30", "22:30", "23:30"]}};
+        const routeCoords = [[-21.15125, -47.85114], [-21.15131, -47.85111], [-21.15288, -47.85099], [-21.15301, -47.85039], [-21.1532, -47.84911], [-21.15324, -47.84855], [-21.15268, -47.84857], [-21.15234, -47.84855], [-21.15191, -47.84852], [-21.15279, -47.84686], [-21.15111, -47.8458], [-21.15052, -47.84547], [-21.15025, -47.84598], [-21.14891, -47.84846], [-21.14847, -47.84927], [-21.14797, -47.84848], [-21.1476, -47.84881], [-21.14712, -47.84923], [-21.14684, -47.84946], [-21.14596, -47.84794], [-21.14511, -47.84647], [-21.14546, -47.84614], [-21.14623, -47.84546], [-21.14709, -47.84695], [-21.14747, -47.84662], [-21.14791, -47.84623], [-21.14886, -47.84449], [-21.14844, -47.84424], [-21.14801, -47.84398], [-21.14758, -47.8437], [-21.14715, -47.84343], [-21.14671, -47.84316], [-21.14695, -47.84272], [-21.1472, -47.8422], [-21.14676, -47.84194], [-21.14717, -47.84114], [-21.14749, -47.84042], [-21.14801, -47.83901], [-21.1481, -47.83896], [-21.14821, -47.83896], [-21.14813, -47.83863], [-21.14799, -47.83835], [-21.14783, -47.83814], [-21.148, -47.83763], [-21.14808, -47.83724], [-21.14811, -47.8369], [-21.14819, -47.83638], [-21.14856, -47.83596], [-21.14895, -47.83576], [-21.14946, -47.8356], [-21.14992, -47.83541], [-21.15007, -47.83579], [-21.15013, -47.83593], [-21.15022, -47.83626], [-21.1502, -47.83628], [-21.15036, -47.83649], [-21.15058, -47.83666], [-21.15101, -47.83701], [-21.15142, -47.83734], [-21.15155, -47.83745], [-21.15178, -47.83773], [-21.1528, -47.83904], [-21.153, -47.83937], [-21.15314, -47.83961], [-21.15332, -47.84006], [-21.15353, -47.84054], [-21.15374, -47.84103], [-21.15451, -47.84073], [-21.15458, -47.84081], [-21.1546, -47.84085], [-21.15454, -47.84097], [-21.15451, -47.84108], [-21.15452, -47.84118], [-21.15456, -47.84132], [-21.15461, -47.8414], [-21.15466, -47.84143], [-21.15474, -47.84139], [-21.15493, -47.84141], [-21.15499, -47.84142], [-21.15505, -47.84143], [-21.15511, -47.8414], [-21.15516, -47.84137], [-21.1552, -47.84131], [-21.15524, -47.84118], [-21.15521, -47.841], [-21.15545, -47.84063], [-21.15586, -47.84012], [-21.15617, -47.83971], [-21.15658, -47.83914], [-21.15678, -47.83894], [-21.15688, -47.839], [-21.15699, -47.83904], [-21.15713, -47.83903], [-21.15729, -47.83899], [-21.15741, -47.8389], [-21.15757, -47.83871], [-21.15762, -47.8385], [-21.15765, -47.83828], [-21.15759, -47.83813], [-21.15755, -47.83802], [-21.15758, -47.83785], [-21.15762, -47.83781], [-21.15752, -47.83772], [-21.15771, -47.83753], [-21.15802, -47.83778], [-21.15834, -47.83807], [-21.15907, -47.8371], [-21.15806, -47.83619], [-21.15709, -47.83531], [-21.15721, -47.83512], [-21.15633, -47.83432], [-21.1569, -47.83359], [-21.15738, -47.83304], [-21.15851, -47.83178], [-21.15909, -47.83118], [-21.15986, -47.83021], [-21.16031, -47.82969], [-21.1608, -47.82911], [-21.16132, -47.82858], [-21.16121, -47.8281], [-21.16144, -47.82783], [-21.16201, -47.82705], [-21.16259, -47.82623], [-21.16317, -47.82547], [-21.16378, -47.82468], [-21.16412, -47.82421], [-21.16465, -47.82347], [-21.16493, -47.82307], [-21.1655, -47.82232], [-21.16573, -47.822], [-21.16778, -47.81925], [-21.1681, -47.81883], [-21.1684, -47.81846], [-21.16957, -47.81693], [-21.17011, -47.81613], [-21.17075, -47.81532], [-21.17207, -47.81357], [-21.17246, -47.81308], [-21.17331, -47.81352], [-21.1736, -47.81369], [-21.17372, -47.81381], [-21.17396, -47.81399], [-21.17432, -47.81425], [-21.17487, -47.81459], [-21.17503, -47.81496], [-21.17521, -47.81514], [-21.17547, -47.81544], [-21.17577, -47.81561], [-21.17594, -47.81563], [-21.17609, -47.81555], [-21.17629, -47.8155], [-21.17635, -47.81548], [-21.17649, -47.81542], [-21.17653, -47.81536], [-21.17654, -47.81527], [-21.17656, -47.81513], [-21.17651, -47.81499], [-21.17647, -47.81485], [-21.1762, -47.81464], [-21.17602, -47.8145], [-21.17587, -47.81437], [-21.17463, -47.8133], [-21.17519, -47.81251], [-21.17569, -47.81189], [-21.17744, -47.80956], [-21.17803, -47.80876], [-21.17733, -47.80814], [-21.17595, -47.80686], [-21.17543, -47.80754], [-21.17394, -47.80939], [-21.17317, -47.81046], [-21.17198, -47.81206], [-21.17173, -47.81244], [-21.16942, -47.81547], [-21.16586, -47.8201], [-21.16131, -47.82623], [-21.15705, -47.83182], [-21.15769, -47.83436], [-21.15626, -47.83625], [-21.15764, -47.83746], [-21.15698, -47.83827], [-21.15637, -47.83911], [-21.1551, -47.84078], [-21.15503, -47.84074], [-21.15495, -47.84073], [-21.15485, -47.84078], [-21.15478, -47.84084], [-21.15472, -47.84093], [-21.15471, -47.84106], [-21.15473, -47.8412], [-21.15478, -47.84132], [-21.15483, -47.84139], [-21.15491, -47.84147], [-21.15499, -47.84151], [-21.15509, -47.84149], [-21.15516, -47.84146], [-21.15524, -47.84138], [-21.15529, -47.84139], [-21.15535, -47.84148], [-21.15562, -47.84214], [-21.15452, -47.84217], [-21.15446, -47.84372], [-21.15469, -47.84394], [-21.15517, -47.84423], [-21.15468, -47.84516], [-21.15529, -47.84551], [-21.15478, -47.84642], [-21.15419, -47.84606], [-21.15417, -47.84615], [-21.15424, -47.84702], [-21.15428, -47.8477], [-21.15426, -47.84845], [-21.15417, -47.84936], [-21.15393, -47.85069], [-21.15389, -47.8509], [-21.15351, -47.85216], [-21.15399, -47.85257], [-21.15328, -47.85389], [-21.15241, -47.85546], [-21.15133, -47.85482], [-21.15121, -47.85474], [-21.15114, -47.85473], [-21.15058, -47.85472], [-21.15061, -47.85419], [-21.1506, -47.85365], [-21.1505, -47.85166], [-21.15115, -47.85158], [-21.15125, -47.85114]];
+        const stopsMarkers = [{"seq": 1, "stop_id": 15347894, "ponto_num": "3157", "street": "R. Michele Balieiro", "lat": -21.15126175, "lng": -47.85122592, "is_station": false}, {"seq": 2, "stop_id": 15347893, "ponto_num": "3158", "street": "Av. Senador Teot\u00f4nio Vilela", "lat": -21.15309766, "lng": -47.8501472, "is_station": false}, {"seq": 3, "stop_id": 15347889, "ponto_num": "3159", "street": "R. Victor Jo\u00e3o Castania", "lat": -21.15218842, "lng": -47.84847839, "is_station": false}, {"seq": 4, "stop_id": 15347903, "ponto_num": "2794", "street": "R. Maria Aparecida Rizzo Ruiz", "lat": -21.15256815, "lng": -47.84666591, "is_station": false}, {"seq": 5, "stop_id": 15347902, "ponto_num": "2795", "street": "R. Maria Aparecida Rizzo Ruiz", "lat": -21.15136816, "lng": -47.84594085, "is_station": false}, {"seq": 6, "stop_id": 15347901, "ponto_num": "3068", "street": "Av. Ren\u00ea Oliva Strang, 1850", "lat": -21.14976674, "lng": -47.84690534, "is_station": false}, {"seq": 7, "stop_id": 15347900, "ponto_num": "3069", "street": "Av. Ren\u00ea Oliva Strang, 2060 (ao lado)", "lat": -21.14865147, "lng": -47.84892484, "is_station": false}, {"seq": 8, "stop_id": 15347906, "ponto_num": "3160", "street": "R. Luftala Wadhi, 1020", "lat": -21.14772639, "lng": -47.84859907, "is_station": false}, {"seq": 9, "stop_id": 15347904, "ponto_num": "3161", "street": "R. Luftala Wadhi", "lat": -21.14692953, "lng": -47.84926121, "is_station": false}, {"seq": 10, "stop_id": 15347856, "ponto_num": "3162", "street": "R. Oscar Schiavoni, 770", "lat": -21.14570083, "lng": -47.84723232, "is_station": false}, {"seq": 11, "stop_id": 15347873, "ponto_num": "3163", "street": "R. Luiz Granatto", "lat": -21.14582644, "lng": -47.8458351, "is_station": false}, {"seq": 12, "stop_id": 15347869, "ponto_num": "3164", "street": "R. Albertina Tonon Boschin, 840", "lat": -21.14696986, "lng": -47.84679545, "is_station": false}, {"seq": 13, "stop_id": 15347865, "ponto_num": "3165", "street": "R. Jos\u00e9 Ant\u00f4nio Bernardes, 1055", "lat": -21.14783799, "lng": -47.84637011, "is_station": false}, {"seq": 14, "stop_id": 15347876, "ponto_num": "3166", "street": "R. Maria Ap. Rizzo Ruiz, s/n", "lat": -21.1486227, "lng": -47.84424685, "is_station": false}, {"seq": 15, "stop_id": 15347875, "ponto_num": "3167", "street": "R. Maria Celina Bim Rosa", "lat": -21.14712167, "lng": -47.84244222, "is_station": false}, {"seq": 16, "stop_id": 15347874, "ponto_num": "3168", "street": "R. Jo\u00e3o Diniz Alvim, s/n", "lat": -21.14738626, "lng": -47.84082555, "is_station": false}, {"seq": 17, "stop_id": 15347879, "ponto_num": "3169", "street": "R. Jo\u00e3o Diniz Alvim, 281", "lat": -21.14774751, "lng": -47.83988224, "is_station": false}, {"seq": 18, "stop_id": 15347731, "ponto_num": "880", "street": "R. Jos\u00e9 Aparecido da Silva, s/n", "lat": -21.15015072, "lng": -47.8362216, "is_station": false}, {"seq": 19, "stop_id": 15347829, "ponto_num": "3063", "street": "R. Jos\u00e9 Aparecido da Silva, 424", "lat": -21.15127544, "lng": -47.83727053, "is_station": false}, {"seq": 20, "stop_id": 15347826, "ponto_num": "2546", "street": "R. Jos\u00e9 Aparecido da Silva", "lat": -21.1526449, "lng": -47.83886953, "is_station": false}, {"seq": 21, "stop_id": 15347842, "ponto_num": "2547", "street": "R. Jos\u00e9 Aparecido da Silva, s/n", "lat": -21.15347197, "lng": -47.84049674, "is_station": false}, {"seq": 22, "stop_id": 15348766, "ponto_num": "1068", "street": "Av. Francisco Massaro, 35", "lat": -21.15613639, "lng": -47.83983157, "is_station": false}, {"seq": 23, "stop_id": 15348858, "ponto_num": "1069", "street": "Av. Francisco Massaro", "lat": -21.15718927, "lng": -47.8390409, "is_station": false}, {"seq": 24, "stop_id": 15347116, "ponto_num": "1070", "street": "R. Carlos de Campos, 328", "lat": -21.15828225, "lng": -47.83803278, "is_station": false}, {"seq": 25, "stop_id": 15346864, "ponto_num": "956", "street": "R. Monte Mor, 276", "lat": -21.15856641, "lng": -47.83660036, "is_station": false}, {"seq": 26, "stop_id": 15346870, "ponto_num": "957", "street": "R. Japur\u00e1, 81", "lat": -21.15696727, "lng": -47.83490399, "is_station": false}, {"seq": 27, "stop_id": 15346876, "ponto_num": "1007", "street": "R. Salvador Neves, 779", "lat": -21.15662714, "lng": -47.83407569, "is_station": false}, {"seq": 28, "stop_id": 15346879, "ponto_num": "1008", "street": "R. Salvador Neves, 424", "lat": -21.15870791, "lng": -47.83165877, "is_station": false}, {"seq": 29, "stop_id": 15346881, "ponto_num": "1009", "street": "R. Salvador Neves, 291", "lat": -21.15965935, "lng": -47.83047455, "is_station": false}, {"seq": 30, "stop_id": 15347837, "ponto_num": "3355", "street": "R. Salvador Neves, 35", "lat": -21.16119047, "lng": -47.82879516, "is_station": false}, {"seq": 31, "stop_id": 15347833, "ponto_num": "1905", "street": "R. Amap\u00e1, 335", "lat": -21.16289727, "lng": -47.82595173, "is_station": false}, {"seq": 32, "stop_id": 15347979, "ponto_num": "659", "street": "R. Amap\u00e1, 63", "lat": -21.16441244, "lng": -47.82379044, "is_station": false}, {"seq": 33, "stop_id": 15347918, "ponto_num": "660", "street": "R. Martinico Prado, 1153", "lat": -21.16603215, "lng": -47.8216442, "is_station": false}, {"seq": 34, "stop_id": 15347921, "ponto_num": "661", "street": "R. Martinico Prado, 885", "lat": -21.16765268, "lng": -47.81948208, "is_station": false}, {"seq": 35, "stop_id": 15347924, "ponto_num": "662", "street": "R. Martinico Prado, 555", "lat": -21.1694116, "lng": -47.8171368, "is_station": false}, {"seq": 36, "stop_id": 15347927, "ponto_num": "663", "street": "R. Martinico Prado, 245", "lat": -21.171239, "lng": -47.81474254, "is_station": false}, {"seq": 37, "stop_id": 15347378, "ponto_num": "4042", "street": "Esta\u00e7\u00e3o Rodovi\u00e1ria", "lat": -21.17416711, "lng": -47.81419061, "is_station": true}, {"seq": 38, "stop_id": 15346672, "ponto_num": "3531", "street": "TU / Plat I / Ponto 18", "lat": -21.17639562, "lng": -47.81463084, "is_station": true}, {"seq": 39, "stop_id": 15346799, "ponto_num": "329", "street": "Esta\u00e7\u00e3o Pra\u00e7a da Bandeira 3", "lat": -21.17712907, "lng": -47.81005766, "is_station": true}, {"seq": 40, "stop_id": 15348155, "ponto_num": "3970", "street": "Esta\u00e7\u00e3o Pra\u00e7a Carlos Gomes", "lat": -21.17617495, "lng": -47.80700749, "is_station": true}, {"seq": 41, "stop_id": 15348258, "ponto_num": "333", "street": "R. Duque de Caxias, 521", "lat": -21.17421475, "lng": -47.80917661, "is_station": false}, {"seq": 42, "stop_id": 15346488, "ponto_num": "334", "street": "R. Duque de Caxias, 339", "lat": -21.17315716, "lng": -47.81049609, "is_station": false}, {"seq": 43, "stop_id": 15346473, "ponto_num": "625", "street": "R. Cel. Luiz da Cunha, 180", "lat": -21.17107962, "lng": -47.81326476, "is_station": false}, {"seq": 44, "stop_id": 15346474, "ponto_num": "626", "street": "R. Cel. Luiz da Cunha, 268", "lat": -21.16968652, "lng": -47.81506779, "is_station": false}, {"seq": 45, "stop_id": 15346475, "ponto_num": "627", "street": "R. Cel. Luiz da Cunha, 490", "lat": -21.16850936, "lng": -47.81671406, "is_station": false}, {"seq": 46, "stop_id": 15346477, "ponto_num": "628", "street": "R. Cel. Luiz da Cunha, 886", "lat": -21.16620442, "lng": -47.81973394, "is_station": false}, {"seq": 47, "stop_id": 15346453, "ponto_num": "629", "street": "R. Cel. Luiz da Cunha, 1100", "lat": -21.16497986, "lng": -47.82135542, "is_station": false}, {"seq": 48, "stop_id": 15346457, "ponto_num": "630", "street": "R. S\u00e3o Salvador, 131", "lat": -21.16387092, "lng": -47.82272402, "is_station": false}, {"seq": 49, "stop_id": 15347941, "ponto_num": "631", "street": "R. S\u00e3o Salvador, 380", "lat": -21.16243818, "lng": -47.8246862, "is_station": false}, {"seq": 50, "stop_id": 15347943, "ponto_num": "632", "street": "R. S\u00e3o Salvador, 630", "lat": -21.16110326, "lng": -47.82645713, "is_station": false}, {"seq": 51, "stop_id": 15347077, "ponto_num": "979", "street": "R. S\u00e3o Salvador, s/n", "lat": -21.15987568, "lng": -47.82807103, "is_station": false}, {"seq": 52, "stop_id": 15347742, "ponto_num": "980", "street": "R. S\u00e3o Salvador, 1059 (oposto)", "lat": -21.15864143, "lng": -47.8297836, "is_station": false}, {"seq": 53, "stop_id": 15347745, "ponto_num": "981", "street": "R. S\u00e3o Salvador, 1300", "lat": -21.15733775, "lng": -47.83148195, "is_station": false}, {"seq": 54, "stop_id": 15347952, "ponto_num": "3140", "street": "R. Rond\u00f4nia, 1385", "lat": -21.15757985, "lng": -47.83455829, "is_station": false}, {"seq": 55, "stop_id": 15347966, "ponto_num": "3141", "street": "R. Rond\u00f4nia, 1586", "lat": -21.15637516, "lng": -47.83609678, "is_station": false}, {"seq": 56, "stop_id": 15348996, "ponto_num": "3560", "street": "R. Carlos de Campos, 230", "lat": -21.15743756, "lng": -47.83732155, "is_station": false}, {"seq": 57, "stop_id": 15348866, "ponto_num": "3142", "street": "Av. Francisco Massaro, s/n", "lat": -21.15655714, "lng": -47.83889193, "is_station": false}, {"seq": 58, "stop_id": 15347965, "ponto_num": "3143", "street": "Av. Francisco Massaro, s/n", "lat": -21.155501, "lng": -47.84028529, "is_station": false}, {"seq": 59, "stop_id": 15347964, "ponto_num": "3144", "street": "Av. Rio Pardo, 3810", "lat": -21.15556216, "lng": -47.84200845, "is_station": false}, {"seq": 60, "stop_id": 15347963, "ponto_num": "3145", "street": "R. Terezinha de Souza Amancio", "lat": -21.15447062, "lng": -47.84257504, "is_station": false}, {"seq": 61, "stop_id": 15347969, "ponto_num": "3146", "street": "R. Joana Vieira Siqueira Moreira, 305", "lat": -21.15479166, "lng": -47.84400856, "is_station": false}, {"seq": 62, "stop_id": 15347967, "ponto_num": "3147", "street": "R. Dr. Jos\u00e9 Engracia Garcia", "lat": -21.15478509, "lng": -47.84493516, "is_station": false}, {"seq": 63, "stop_id": 15347922, "ponto_num": "3148", "street": "R. Prof. Dirceu L. C. Fernandes, s/n", "lat": -21.15488044, "lng": -47.84622829, "is_station": false}, {"seq": 64, "stop_id": 15347933, "ponto_num": "3149", "street": "Av. Sen. Teot\u00f4nio Vilela, s/n", "lat": -21.15416037, "lng": -47.8470332, "is_station": false}, {"seq": 65, "stop_id": 15347931, "ponto_num": "3150", "street": "Av. Sen. Teot\u00f4nio Vilela, s/n", "lat": -21.15401848, "lng": -47.84991174, "is_station": false}, {"seq": 66, "stop_id": 15347930, "ponto_num": "3151", "street": "Av. Sen. Teot\u00f4nio Vilela, s/n", "lat": -21.15372365, "lng": -47.85133089, "is_station": false}, {"seq": 67, "stop_id": 15347929, "ponto_num": "3152", "street": "Av. Dra. Nadir Aguiar, 1104", "lat": -21.1538472, "lng": -47.85280451, "is_station": false}, {"seq": 68, "stop_id": 15347936, "ponto_num": "3153", "street": "Av. Dra. Nadir Aguiar, 1120", "lat": -21.15279398, "lng": -47.85479229, "is_station": false}, {"seq": 69, "stop_id": 15347935, "ponto_num": "3154", "street": "R. F\u00e1bio Lellis Valeri, s/n", "lat": -21.15138073, "lng": -47.85482742, "is_station": false}, {"seq": 70, "stop_id": 15347934, "ponto_num": "3155", "street": "R. Prof. Dr. Nassim Iazigi, 440", "lat": -21.15067997, "lng": -47.8543982, "is_station": false}, {"seq": 71, "stop_id": 15347898, "ponto_num": "3156", "street": "R. Prof. Dr. Nassim Iazigi", "lat": -21.15056863, "lng": -47.85281988, "is_station": false}, {"seq": 72, "stop_id": 15347894, "ponto_num": "3157", "street": "R. Michele Balieiro", "lat": -21.15126175, "lng": -47.85122592, "is_station": false}];
+
+        let currentDirection = 'dir_1';
+        let currentDay = 'uteis';
+
+        function renderHorarios() {
+            const list = schedulesData[currentDirection] ? (schedulesData[currentDirection][currentDay] || []) : [];
+            const container = document.getElementById('gridHorarios');
+            container.innerHTML = '';
+
+            const now = new Date();
+            const currentMinutes = now.getHours() * 60 + now.getMinutes();
+            let foundNext = false;
+
+            if (list.length === 0 || list[0].includes('Consulte')) {
+                container.innerHTML = '<p class="col-span-full text-xs text-slate-500 text-center py-3">Consulte partidas em tempo real pelo app Cittamobi.</p>';
+                return;
+            }
+
+            list.forEach(timeStr => {
+                let highlightClass = "bg-slate-50 text-slate-700 border-slate-200 hover:border-blue-400";
+                let badge = "";
+
+                if (timeStr.includes(':')) {
+                    const [h, m] = timeStr.split(':').map(Number);
+                    const depMinutes = h * 60 + m;
+                    const isPast = depMinutes < currentMinutes;
+
+                    if (!foundNext && depMinutes >= currentMinutes) {
+                        highlightClass = "bg-orange-500 text-white font-black border-orange-600 shadow-md scale-105";
+                        badge = '<span class="block text-[8px] uppercase tracking-tighter text-orange-100">Próxima</span>';
+                        foundNext = true;
+                    } else if (isPast) {
+                        highlightClass = "bg-slate-100 text-slate-400 border-slate-200";
+                    }
+                }
+
+                const pill = document.createElement('div');
+                pill.className = `p-2 rounded-xl border text-center font-mono font-bold text-xs transition ${highlightClass}`;
+                pill.innerHTML = `<span>${timeStr}</span>${badge}`;
+                container.appendChild(pill);
+            });
+        }
+
+        function trocarDirecao(dir) {
+            currentDirection = dir;
+            const btn1 = document.getElementById('btnDir1');
+            const btn2 = document.getElementById('btnDir2');
+
+            if (dir === 'dir_1') {
+                btn1.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition bg-white text-slate-900 shadow-sm whitespace-nowrap';
+                btn2.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:text-slate-900 whitespace-nowrap';
+            } else {
+                btn2.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition bg-white text-slate-900 shadow-sm whitespace-nowrap';
+                btn1.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:text-slate-900 whitespace-nowrap';
+            }
+            renderHorarios();
+        }
+
+        function trocarDia(day) {
+            currentDay = day;
+            const dias = ['uteis', 'sabado', 'domingo'];
+            dias.forEach(d => {
+                const btn = document.getElementById('btnDia' + d.charAt(0).toUpperCase() + d.slice(1));
+                if (d === day) {
+                    btn.className = 'flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-blue-600 text-white border-blue-600 shadow-sm';
+                } else {
+                    btn.className = 'flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100';
+                }
+            });
+            renderHorarios();
+        }
+
+        function updateClockAndNext() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('clockDisplay').textContent = `${h}:${m}`;
+
+            const curMin = now.getHours() * 60 + now.getMinutes();
+            const dayOfWeek = now.getDay();
+            let dayKey = 'uteis';
+            if (dayOfWeek === 6) dayKey = 'sabado';
+            else if (dayOfWeek === 0) dayKey = 'domingo';
+
+            // Next 1
+            const list1 = schedulesData['dir_1'] ? (schedulesData['dir_1'][dayKey] || []) : [];
+            let next1 = list1.find(t => {
+                if (!t.includes(':')) return false;
+                const [th, tm] = t.split(':').map(Number);
+                return (th * 60 + tm) >= curMin;
+            });
+            document.getElementById('nextDep1').textContent = next1 || (list1[0] ? 'Amanhã ' + list1[0] : 'Consultar');
+
+            // Next 2
+            const list2 = schedulesData['dir_2'] ? (schedulesData['dir_2'][dayKey] || []) : [];
+            let next2 = list2.find(t => {
+                if (!t.includes(':')) return false;
+                const [th, tm] = t.split(':').map(Number);
+                return (th * 60 + tm) >= curMin;
+            });
+            document.getElementById('nextDep2').textContent = next2 || (list2[0] ? 'Amanhã ' + list2[0] : 'Consultar');
+        }
+
+        function filtrarParadas() {
+            const query = document.getElementById('filtroRuas').value.toLowerCase();
+            document.querySelectorAll('.stop-item').forEach(el => {
+                const name = el.getAttribute('data-name');
+                el.style.display = name.includes(query) ? 'flex' : 'none';
+            });
+        }
+
+        function compartilharLinha() {
+            const text = "Horários e paradas da Linha 470 Jd. Paiva em Ribeirão Preto: https://infohausti.com.br/ribeirao/linhas/linha-470-jd-paiva.html";
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Linha 470 Jd. Paiva - Ribeirão Vivo',
+                    text: text,
+                    url: 'https://infohausti.com.br/ribeirao/linhas/linha-470-jd-paiva.html'
+                }).catch(() => {});
+            } else {
+                window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+            }
+        }
+
+        function initMap() {
+            const mapEl = document.getElementById('map');
+            if (!mapEl) return;
+            
+            const map = L.map('map', { scrollWheelZoom: false }).setView([-21.176, -47.810], 13);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            if (routeCoords.length > 0) {
+                const polyline = L.polyline(routeCoords, {
+                    color: '#1a15f0',
+                    weight: 5,
+                    opacity: 0.85,
+                    lineJoin: 'round'
+                }).addTo(map);
+
+                stopsMarkers.forEach((st, idx) => {
+                    let markerColor = '#1a15f0';
+                    let radius = 4;
+                    if (idx === 0 || idx === stopsMarkers.length - 1) {
+                        markerColor = '#10b981';
+                        radius = 8;
+                    } else if (st.is_station) {
+                        markerColor = '#ef4444';
+                        radius = 7;
+                    }
+
+                    const circle = L.circleMarker([st.lat, st.lng], {
+                        radius: radius,
+                        fillColor: markerColor,
+                        color: '#ffffff',
+                        weight: 2,
+                        opacity: 1,
+                        fillOpacity: 0.9
+                    }).addTo(map);
+
+                    circle.bindPopup(`
+                        <div style="font-family: sans-serif; font-size: 12px; line-height: 1.4;">
+                            <strong style="color: #1a15f0;">Parada #${st.seq}</strong><br>
+                            <strong>${st.street}</strong><br>
+                            ${st.ponto_num ? '<span style="color:#64748b;">Ponto ' + st.ponto_num + '</span>' : ''}
+                        </div>
+                    `);
+                });
+
+                map.fitBounds(polyline.getBounds(), { padding: [30, 30] });
+                setTimeout(() => { map.invalidateSize(); }, 300);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderHorarios();
+            updateClockAndNext();
+            initMap();
+            setInterval(updateClockAndNext, 30000);
+        });
+    </script>
+</body>
+</html>

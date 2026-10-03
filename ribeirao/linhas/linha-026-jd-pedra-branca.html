@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha 026 Jd. Pedra Branca - Horários e Itinerário | Ribeirão Vivo</title>
+    <meta name="description" content="Horários completos e atualizados da Linha 026 Jd. Pedra Branca em Ribeirão Preto (Alimentadora). Itinerário com paradas, mapa interativo do trajeto e regras de integração.">
+    <link rel="canonical" href="https://infohausti.com.br/ribeirao/linhas/linha-026-jd-pedra-branca.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://infohausti.com.br/ribeirao/linhas/linha-026-jd-pedra-branca.html">
+    <meta property="og:title" content="Linha 026 Jd. Pedra Branca - Horários e Paradas | Ribeirão Vivo">
+    <meta property="og:description" content="Horários atualizados, mapa do trajeto e paradas da Linha 026 de Ribeirão Preto.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rp: {
+                            blue: '#1a15f0',
+                            orange: '#ff6600',
+                            dark: '#0f172a',
+                            light: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        .adsense-box {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            border: 2px dashed #cbd5e1;
+        }
+        #map {
+            height: 380px;
+            width: 100%;
+            border-radius: 1rem;
+            z-index: 1;
+        }
+    </style>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ribeirão Vivo",
+              "item": "https://infohausti.com.br/ribeirao/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Linhas de Ônibus",
+              "item": "https://infohausti.com.br/ribeirao/linhas/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Linha 026 Jd. Pedra Branca",
+              "item": "https://infohausti.com.br/ribeirao/linhas/linha-026-jd-pedra-branca.html"
+            }
+          ]
+        },
+        {
+          "@type": "BusTrip",
+          "name": "Linha 026 - Jd. Pedra Branca",
+          "busNumber": "026",
+          "provider": {
+            "@type": "Organization",
+            "name": "Ribeirão Mobilidade / RP Mobi"
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- TOP NAV -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="../index.html" class="flex items-center gap-1.5 text-slate-600 hover:text-blue-600 transition font-bold text-xs">
+                    <i class="fas fa-home"></i>
+                    <span>Portal</span>
+                </a>
+                <span class="text-slate-300">/</span>
+                <a href="index.html" class="flex items-center gap-1.5 text-slate-800 hover:text-blue-600 transition font-bold text-xs">
+                    <i class="fas fa-bus"></i>
+                    <span>Todas as Linhas</span>
+                </a>
+            </div>
+            <div class="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Dados Oficiais RP Mobi / Ribeirão Mobilidade</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- BANNER TOPO ADSENSE -->
+    <div class="max-w-4xl mx-auto px-4 mt-3 w-full">
+        <div class="adsense-box rounded-xl p-2.5 text-center flex flex-col items-center justify-center min-h-[60px]">
+            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Espaço Publicitário • Google AdSense</span>
+            <p class="text-xs text-slate-500 font-medium mt-0.5">Anúncio contextualizado para passageiros de Ribeirão Preto</p>
+        </div>
+    </div>
+
+    <main class="max-w-4xl mx-auto px-4 py-5 flex-1 w-full space-y-6">
+
+        <!-- CABEÇALHO DA LINHA -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-2xl text-white flex flex-col items-center justify-center shadow-md shrink-0" style="background-color: #ea580c">
+                        <span class="text-2xl font-black leading-none">026</span>
+                        <span class="text-[9px] uppercase tracking-wider font-bold opacity-80">Linha</span>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2 mb-1">
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">Alimentadora</span>
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Tarifa R$ 1,80</span>
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">Integração 120min</span>
+                        </div>
+                        <h1 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Jd. Pedra Branca</h1>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+                            Transporte Coletivo de Ribeirão Preto • Rede Oficial
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <button onclick="compartilharLinha()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition shadow-sm">
+                        <i class="fab fa-whatsapp text-sm"></i>
+                        <span>Compartilhar Linha</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD INTELIGENTE: PRÓXIMA SAÍDA AO VIVO -->
+            <div class="mt-5 p-4 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div>
+                    <div class="flex items-center gap-2 text-xs text-orange-400 font-bold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-orange-400 animate-ping"></span>
+                        <span>Próximas Partidas Estimadas</span>
+                    </div>
+                    <div class="mt-1 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-sm">
+                        <div>
+                            <span class="text-slate-400 text-xs block">Ponto 3561 - Terminal Nordeste -...:</span>
+                            <strong id="nextDep1" class="text-emerald-400 text-base font-black">Calculando...</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 text-xs block">Sentido Retorno:</span>
+                            <strong id="nextDep2" class="text-blue-300 text-base font-black">Calculando...</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-xs text-slate-400 sm:text-right">
+                    <span>Horário do celular: </span>
+                    <strong id="clockDisplay" class="text-white">--:--</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: TABELA DE HORÁRIOS COMPLETA -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+                <div>
+                    <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+                        <i class="far fa-clock text-blue-600"></i>
+                        <span>Grade Completa de Horários</span>
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Selecione o sentido e o dia da semana.</p>
+                </div>
+
+                <!-- SELETOR DE SENTIDO -->
+                <div class="inline-flex p-1 bg-slate-100 rounded-xl max-w-full overflow-x-auto">
+                    <button id="btnDir1" onclick="trocarDirecao('dir_1')" 
+                            class="px-3 py-1.5 rounded-lg text-xs font-bold transition bg-white text-slate-900 shadow-sm whitespace-nowrap">
+                        Ponto 3561 - Terminal Nordeste -...
+                    </button>
+                    <button id="btnDir2" onclick="trocarDirecao('dir_2')" 
+                            class="px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:text-slate-900 whitespace-nowrap">
+                        Sentido Retorno
+                    </button>
+                </div>
+            </div>
+
+            <!-- SELETOR DE DIAS -->
+            <div class="flex gap-2">
+                <button id="btnDiaUteis" onclick="trocarDia('uteis')" 
+                        class="flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-blue-600 text-white border-blue-600 shadow-sm">
+                    Dias Úteis
+                </button>
+                <button id="btnDiaSabado" onclick="trocarDia('sabado')" 
+                        class="flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100">
+                    Sábados
+                </button>
+                <button id="btnDiaDomingo" onclick="trocarDia('domingo')" 
+                        class="flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100">
+                    Domingos / Feriados
+                </button>
+            </div>
+
+            <!-- GRADE DE PARTIDAS -->
+            <div id="gridHorarios" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2"></div>
+
+            <div class="text-[11px] text-slate-400 text-center pt-2">
+                * Integração tarifária permitida em até 120 minutos com o Cartão NOSSO.
+            </div>
+        </section>
+
+        <!-- BANNER ADSENSE MEIO -->
+        <div class="adsense-box rounded-xl p-3 text-center flex flex-col items-center justify-center min-h-[90px]">
+            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Publicidade Programática • Google AdSense</span>
+            <p class="text-xs text-slate-500 font-medium mt-1">Anúncio de alta relevância para os usuários desta rota</p>
+        </div>
+
+        <!-- SEÇÃO: MAPA INTERATIVO DO TRAJETO -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                    <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+                        <i class="fas fa-route text-blue-600"></i>
+                        <span>Mapa Interativo da Linha 026</span>
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Traçado georreferenciado e localização das paradas.</p>
+                </div>
+            </div>
+
+            <div id="map" class="shadow-inner border border-slate-200"></div>
+
+            <p class="text-[11px] text-slate-500 text-center">
+                Toque nos pontos para visualizar o nome da parada e rua.
+            </p>
+        </section>
+
+        <!-- SEÇÃO: ITINERÁRIO RUA A RUA -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                    <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+                        <i class="fas fa-list-ol text-blue-600"></i>
+                        <span>Itinerário e Paradas (20 paradas)</span>
+                    </h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Sequência de vias atendidas pela linha.</p>
+                </div>
+                <div class="relative w-full sm:w-64">
+                    <input type="text" id="filtroRuas" onkeyup="filtrarParadas()" placeholder="Filtrar parada ou rua..." 
+                           class="w-full text-xs px-3 py-2 pl-8 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-search absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+                </div>
+            </div>
+
+            <div id="listaParadas" class="pt-3 max-h-[500px] overflow-y-auto pr-2">
+                
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="terminal nordeste 3561">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-emerald-100 text-emerald-700 border-emerald-400 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-flag-checkered"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 01</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3561</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Terminal Nordeste</h5>
+                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 ml-2">Terminal</span>
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. emygdio rosseto, 2674 3230">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 02</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3230</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Emygdio Rosseto, 2674</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. emygdio rosseto, 2947 3231">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 03</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3231</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Emygdio Rosseto, 2947</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. dr. fernando mendes garcia, 3363 2847">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 04</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #2847</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Dr. Fernando Mendes Garcia, 3363</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. dr. fernando mendes garcia, 3085 3901">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 05</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3901</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Dr. Fernando Mendes Garcia, 3085</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. dr. fernando mendes garcia, 2720 3680">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 06</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3680</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Dr. Fernando Mendes Garcia, 2720</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. nilza de oliveira strambi, 1840 2851">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 07</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #2851</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Nilza de Oliveira Strambi, 1840</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. nilza de oliveira strambi, 2190 2852">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 08</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #2852</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Nilza de Oliveira Strambi, 2190</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. nicolau galloro, 340 2853">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 09</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #2853</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Nicolau Galloro, 340</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. nilza de oliveira strambi, 2190 (oposto) 2854">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 10</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #2854</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Nilza de Oliveira Strambi, 2190 (oposto)</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. nilza de oliveira strambi, 1835 2855">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 11</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #2855</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Nilza de Oliveira Strambi, 1835</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. fernando orlandini, 100 2856">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 12</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #2856</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Fernando Orlandini, 100</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. fernando orlandi, s/n 4032">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 13</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #4032</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Fernando Orlandi, s/n</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. dr. fernando mendes garcia, 3886 3610">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 14</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3610</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Dr. Fernando Mendes Garcia, 3886</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="av. dr. fernando mendes garcia, 3346 3611">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 15</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3611</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Av. Dr. Fernando Mendes Garcia, 3346</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. emygdio rosseto, 2947 300">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 16</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #300</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Emygdio Rosseto, 2947</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. emygdio rosseto, 2707 301">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 17</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #301</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Emygdio Rosseto, 2707</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="r. emygdio rosseto, 2427 302">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-blue-100 text-blue-600 border-blue-300 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 18</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #302</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">R. Emygdio Rosseto, 2427</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="estação eugênia vasoin 3612">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-amber-100 text-amber-700 border-amber-400 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-subway"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 19</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3612</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Estação Eugênia Vasoin</h5>
+                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 ml-2">Estação Conexão</span>
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="stop-item relative flex items-start gap-3 pb-5 group" data-name="terminal nordeste 3561">
+                    <div class="absolute left-4 top-8 bottom-0 w-0.5 bg-slate-200 group-last:hidden"></div>
+                    <div class="w-8 h-8 rounded-full border-2 bg-emerald-100 text-emerald-700 border-emerald-400 flex items-center justify-center text-xs font-bold shrink-0 z-10 bg-white">
+                        <i class="fas fa-flag-checkered"></i>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-400">Parada 20</span>
+                            <span class="text-[11px] font-mono text-slate-400">Ponto #3561</span>
+                        </div>
+                        <div class="mt-0.5 flex flex-wrap items-center">
+                            <h5 class="text-sm font-bold text-slate-800">Terminal Nordeste</h5>
+                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 ml-2">Terminal</span>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </section>
+
+        <!-- SEÇÃO B2B: ANUNCIE NO TRAJETO -->
+        <section class="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-800 rounded-2xl p-6 text-white text-center shadow-lg space-y-3">
+            <h3 class="text-xl font-black">Sua loja fica no trajeto da Linha 026?</h3>
+            <p class="text-xs text-blue-100 max-w-md mx-auto">
+                Milhares de passageiros passam na porta da sua empresa todos os meses. Destaque sua marca no Ribeirão Vivo por R$ 99/mês.
+            </p>
+            <div class="pt-2">
+                <a href="https://wa.me/5516981469121?text=Olá,%20tenho%20um%20comércio%20no%20trajeto%20da%20Linha%20026%20e%20quero%20anunciar!" target="_blank"
+                   class="inline-block bg-white text-blue-900 hover:bg-slate-100 font-bold text-xs px-6 py-3 rounded-xl transition shadow-xl">
+                    Anunciar Minha Loja nesta Rota
+                </a>
+            </div>
+        </section>
+
+        <!-- BANNER ADSENSE INFERIOR -->
+        <div class="adsense-box rounded-xl p-2.5 text-center flex flex-col items-center justify-center min-h-[60px]">
+            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Espaço Publicitário • Google AdSense</span>
+            <p class="text-xs text-slate-500 font-medium mt-0.5">Anúncio de rodapé relevante</p>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 mt-8 py-6 text-center text-xs text-slate-500 space-y-2">
+        <p class="font-bold text-slate-800">Ribeirão Vivo • Portal da Cidade Digital de Ribeirão Preto</p>
+        <p>Linha 026 Jd. Pedra Branca — Informações integradas ao sistema Próurbano / RP Mobi</p>
+        <p><a href="index.html" class="text-blue-600 hover:underline font-semibold">← Voltar para a Lista de Linhas</a></p>
+        <p class="text-[11px] text-slate-400">© 2026 Infohaus TI. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const schedulesData = {"dir_1": {"uteis": ["04:40", "05:00", "05:20", "05:40", "06:00", "06:20", "06:40", "07:00", "07:20", "07:40", "08:00", "08:25", "08:50", "09:15", "09:40", "10:05", "10:30", "10:55", "11:20", "11:45", "12:10", "12:35", "13:00", "13:25", "13:50", "14:15", "14:40", "15:00", "15:20", "15:40", "16:00", "16:20", "16:40", "17:00", "17:20", "17:40", "18:00", "18:20", "18:40", "19:00", "19:20", "19:50", "20:25", "20:55", "21:25", "21:55", "22:25", "22:50", "23:20", "23:40"], "sabado": ["04:40", "05:00", "05:15", "05:45", "06:15", "06:45", "07:15", "07:45", "08:15", "08:45", "09:15", "09:45", "10:15", "10:45", "11:15", "11:45", "12:15", "12:45", "13:15", "13:45", "14:15", "14:45", "15:15", "15:45", "16:15", "16:45", "17:15", "17:45", "18:15", "18:45", "19:15", "19:45", "20:15", "21:15", "22:15"], "domingo": ["04:38", "05:06", "05:34", "06:10", "07:10", "08:10", "09:10", "10:10", "11:10", "12:10", "13:10", "14:10", "15:10", "16:10", "17:10", "18:10", "19:10", "20:10", "21:10", "22:10", "23:15"]}, "dir_2": {"uteis": ["04:40", "05:00", "05:20", "05:40", "06:00", "06:20", "06:40", "07:00", "07:20", "07:40", "08:00", "08:25", "08:50", "09:15", "09:40", "10:05", "10:30", "10:55", "11:20", "11:45", "12:10", "12:35", "13:00", "13:25", "13:50", "14:15", "14:40", "15:00", "15:20", "15:40", "16:00", "16:20", "16:40", "17:00", "17:20", "17:40", "18:00", "18:20", "18:40", "19:00", "19:20", "19:50", "20:25", "20:55", "21:25", "21:55", "22:25", "22:50", "23:20", "23:40"], "sabado": ["04:40", "05:00", "05:15", "05:45", "06:15", "06:45", "07:15", "07:45", "08:15", "08:45", "09:15", "09:45", "10:15", "10:45", "11:15", "11:45", "12:15", "12:45", "13:15", "13:45", "14:15", "14:45", "15:15", "15:45", "16:15", "16:45", "17:15", "17:45", "18:15", "18:45", "19:15", "19:45", "20:15", "21:15", "22:15"], "domingo": ["04:38", "05:06", "05:34", "06:10", "07:10", "08:10", "09:10", "10:10", "11:10", "12:10", "13:10", "14:10", "15:10", "16:10", "17:10", "18:10", "19:10", "20:10", "21:10", "22:10", "23:15"]}};
+        const routeCoords = [[-21.13179, -47.74968], [-21.13128, -47.74797], [-21.13094, -47.74697], [-21.13103, -47.74685], [-21.13104, -47.74673], [-21.131, -47.74664], [-21.13089, -47.74659], [-21.13083, -47.74654], [-21.13062, -47.74576], [-21.13063, -47.74518], [-21.13079, -47.74459], [-21.13121, -47.74343], [-21.13143, -47.74279], [-21.13151, -47.74258], [-21.13153, -47.74237], [-21.13152, -47.74218], [-21.13245, -47.742], [-21.13341, -47.74177], [-21.13388, -47.74167], [-21.13434, -47.74156], [-21.13469, -47.74149], [-21.13497, -47.74142], [-21.13503, -47.74152], [-21.13517, -47.74162], [-21.13531, -47.74165], [-21.13543, -47.74163], [-21.13554, -47.7416], [-21.13562, -47.74153], [-21.13571, -47.74143], [-21.13771, -47.74151], [-21.13772, -47.7413], [-21.13772, -47.74081], [-21.13776, -47.74077], [-21.13779, -47.74071], [-21.13781, -47.74063], [-21.13781, -47.74054], [-21.13791, -47.73927], [-21.13805, -47.73797], [-21.1381, -47.73788], [-21.13819, -47.73742], [-21.13834, -47.73664], [-21.13847, -47.73602], [-21.13855, -47.73558], [-21.13874, -47.73455], [-21.13884, -47.73398], [-21.13891, -47.7336], [-21.13926, -47.73367], [-21.14028, -47.7339], [-21.14029, -47.73383], [-21.13949, -47.73366], [-21.13886, -47.73353], [-21.13878, -47.73398], [-21.13868, -47.73455], [-21.13849, -47.73558], [-21.13839, -47.73604], [-21.13829, -47.73664], [-21.13821, -47.73703], [-21.13814, -47.73742], [-21.13805, -47.73787], [-21.13799, -47.73799], [-21.13793, -47.73853], [-21.13785, -47.73928], [-21.13776, -47.74046], [-21.13775, -47.7406], [-21.1377, -47.74072], [-21.13759, -47.74074], [-21.1372, -47.74074], [-21.13672, -47.74075], [-21.13599, -47.74079], [-21.13589, -47.74079], [-21.13583, -47.74077], [-21.13576, -47.74074], [-21.13566, -47.74066], [-21.13559, -47.74062], [-21.13548, -47.74062], [-21.13535, -47.74059], [-21.13528, -47.74059], [-21.1352, -47.7406], [-21.13511, -47.74062], [-21.13506, -47.74064], [-21.135, -47.74068], [-21.13494, -47.74073], [-21.13491, -47.74075], [-21.13483, -47.74086], [-21.13477, -47.741], [-21.13472, -47.74115], [-21.1347, -47.74125], [-21.13469, -47.74128], [-21.13432, -47.74136], [-21.13381, -47.74147], [-21.1329, -47.74168], [-21.13239, -47.74179], [-21.13189, -47.74191], [-21.13143, -47.74203], [-21.13142, -47.74255], [-21.13137, -47.74267], [-21.13115, -47.74331], [-21.13067, -47.74462], [-21.13056, -47.74512], [-21.13054, -47.74564], [-21.13057, -47.74597], [-21.13073, -47.74657], [-21.13068, -47.74664], [-21.13066, -47.7467], [-21.13063, -47.74677], [-21.13064, -47.74683], [-21.13068, -47.74689], [-21.13074, -47.74695], [-21.1308, -47.74698], [-21.13088, -47.747], [-21.13144, -47.74873], [-21.13102, -47.7489], [-21.13124, -47.7496], [-21.13131, -47.75018], [-21.13133, -47.75142], [-21.13174, -47.7516], [-21.13186, -47.75148], [-21.13183, -47.74976]];
+        const stopsMarkers = [{"seq": 1, "stop_id": 15348264, "ponto_num": "3561", "street": "Terminal Nordeste", "lat": -21.13179813, "lng": -47.7496945, "is_station": true}, {"seq": 2, "stop_id": 15347108, "ponto_num": "3230", "street": "R. Emygdio Rosseto, 2674", "lat": -21.1307845, "lng": -47.74629425, "is_station": false}, {"seq": 3, "stop_id": 15347096, "ponto_num": "3231", "street": "R. Emygdio Rosseto, 2947", "lat": -21.13094588, "lng": -47.7443065, "is_station": false}, {"seq": 4, "stop_id": 15349075, "ponto_num": "2847", "street": "Av. Dr. Fernando Mendes Garcia, 3363", "lat": -21.13212295, "lng": -47.74210498, "is_station": false}, {"seq": 5, "stop_id": 17079256, "ponto_num": "3901", "street": "Av. Dr. Fernando Mendes Garcia, 3085", "lat": -21.134203, "lng": -47.74162326, "is_station": false}, {"seq": 6, "stop_id": 15347498, "ponto_num": "3680", "street": "Av. Dr. Fernando Mendes Garcia, 2720", "lat": -21.13666417, "lng": -47.74154172, "is_station": false}, {"seq": 7, "stop_id": 15349079, "ponto_num": "2851", "street": "R. Nilza de Oliveira Strambi, 1840", "lat": -21.13806271, "lng": -47.73820097, "is_station": false}, {"seq": 8, "stop_id": 15349082, "ponto_num": "2852", "street": "R. Nilza de Oliveira Strambi, 2190", "lat": -21.13861192, "lng": -47.73529551, "is_station": false}, {"seq": 9, "stop_id": 15349069, "ponto_num": "2853", "street": "R. Nicolau Galloro, 340", "lat": -21.1395054, "lng": -47.73362366, "is_station": false}, {"seq": 10, "stop_id": 15349036, "ponto_num": "2854", "street": "R. Nilza de Oliveira Strambi, 2190 (oposto)", "lat": -21.13849578, "lng": -47.73527781, "is_station": false}, {"seq": 11, "stop_id": 15349038, "ponto_num": "2855", "street": "R. Nilza de Oliveira Strambi, 1835", "lat": -21.13793446, "lng": -47.73818404, "is_station": false}, {"seq": 12, "stop_id": 15349050, "ponto_num": "2856", "street": "R. Fernando Orlandini, 100", "lat": -21.13698836, "lng": -47.7407222, "is_station": false}, {"seq": 13, "stop_id": 24740359, "ponto_num": "4032", "street": "R. Fernando Orlandi, s/n", "lat": -21.13630271, "lng": -47.74072059, "is_station": false}, {"seq": 14, "stop_id": 15348582, "ponto_num": "3610", "street": "Av. Dr. Fernando Mendes Garcia, 3886", "lat": -21.13399225, "lng": -47.74139755, "is_station": false}, {"seq": 15, "stop_id": 15348622, "ponto_num": "3611", "street": "Av. Dr. Fernando Mendes Garcia, 3346", "lat": -21.13208586, "lng": -47.74181061, "is_station": false}, {"seq": 16, "stop_id": 15348099, "ponto_num": "300", "street": "R. Emygdio Rosseto, 2947", "lat": -21.13081985, "lng": -47.74423286, "is_station": false}, {"seq": 17, "stop_id": 15348098, "ponto_num": "301", "street": "R. Emygdio Rosseto, 2707", "lat": -21.13060295, "lng": -47.74595895, "is_station": false}, {"seq": 18, "stop_id": 15348108, "ponto_num": "302", "street": "R. Emygdio Rosseto, 2427", "lat": -21.13114031, "lng": -47.74789392, "is_station": false}, {"seq": 19, "stop_id": 15348075, "ponto_num": "3612", "street": "Esta\u00e7\u00e3o Eug\u00eania Vasoin", "lat": -21.1312915, "lng": -47.75095154, "is_station": true}, {"seq": 20, "stop_id": 15348264, "ponto_num": "3561", "street": "Terminal Nordeste", "lat": -21.13179813, "lng": -47.7496945, "is_station": true}];
+
+        let currentDirection = 'dir_1';
+        let currentDay = 'uteis';
+
+        function renderHorarios() {
+            const list = schedulesData[currentDirection] ? (schedulesData[currentDirection][currentDay] || []) : [];
+            const container = document.getElementById('gridHorarios');
+            container.innerHTML = '';
+
+            const now = new Date();
+            const currentMinutes = now.getHours() * 60 + now.getMinutes();
+            let foundNext = false;
+
+            if (list.length === 0 || list[0].includes('Consulte')) {
+                container.innerHTML = '<p class="col-span-full text-xs text-slate-500 text-center py-3">Consulte partidas em tempo real pelo app Cittamobi.</p>';
+                return;
+            }
+
+            list.forEach(timeStr => {
+                let highlightClass = "bg-slate-50 text-slate-700 border-slate-200 hover:border-blue-400";
+                let badge = "";
+
+                if (timeStr.includes(':')) {
+                    const [h, m] = timeStr.split(':').map(Number);
+                    const depMinutes = h * 60 + m;
+                    const isPast = depMinutes < currentMinutes;
+
+                    if (!foundNext && depMinutes >= currentMinutes) {
+                        highlightClass = "bg-orange-500 text-white font-black border-orange-600 shadow-md scale-105";
+                        badge = '<span class="block text-[8px] uppercase tracking-tighter text-orange-100">Próxima</span>';
+                        foundNext = true;
+                    } else if (isPast) {
+                        highlightClass = "bg-slate-100 text-slate-400 border-slate-200";
+                    }
+                }
+
+                const pill = document.createElement('div');
+                pill.className = `p-2 rounded-xl border text-center font-mono font-bold text-xs transition ${highlightClass}`;
+                pill.innerHTML = `<span>${timeStr}</span>${badge}`;
+                container.appendChild(pill);
+            });
+        }
+
+        function trocarDirecao(dir) {
+            currentDirection = dir;
+            const btn1 = document.getElementById('btnDir1');
+            const btn2 = document.getElementById('btnDir2');
+
+            if (dir === 'dir_1') {
+                btn1.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition bg-white text-slate-900 shadow-sm whitespace-nowrap';
+                btn2.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:text-slate-900 whitespace-nowrap';
+            } else {
+                btn2.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition bg-white text-slate-900 shadow-sm whitespace-nowrap';
+                btn1.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:text-slate-900 whitespace-nowrap';
+            }
+            renderHorarios();
+        }
+
+        function trocarDia(day) {
+            currentDay = day;
+            const dias = ['uteis', 'sabado', 'domingo'];
+            dias.forEach(d => {
+                const btn = document.getElementById('btnDia' + d.charAt(0).toUpperCase() + d.slice(1));
+                if (d === day) {
+                    btn.className = 'flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-blue-600 text-white border-blue-600 shadow-sm';
+                } else {
+                    btn.className = 'flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100';
+                }
+            });
+            renderHorarios();
+        }
+
+        function updateClockAndNext() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('clockDisplay').textContent = `${h}:${m}`;
+
+            const curMin = now.getHours() * 60 + now.getMinutes();
+            const dayOfWeek = now.getDay();
+            let dayKey = 'uteis';
+            if (dayOfWeek === 6) dayKey = 'sabado';
+            else if (dayOfWeek === 0) dayKey = 'domingo';
+
+            // Next 1
+            const list1 = schedulesData['dir_1'] ? (schedulesData['dir_1'][dayKey] || []) : [];
+            let next1 = list1.find(t => {
+                if (!t.includes(':')) return false;
+                const [th, tm] = t.split(':').map(Number);
+                return (th * 60 + tm) >= curMin;
+            });
+            document.getElementById('nextDep1').textContent = next1 || (list1[0] ? 'Amanhã ' + list1[0] : 'Consultar');
+
+            // Next 2
+            const list2 = schedulesData['dir_2'] ? (schedulesData['dir_2'][dayKey] || []) : [];
+            let next2 = list2.find(t => {
+                if (!t.includes(':')) return false;
+                const [th, tm] = t.split(':').map(Number);
+                return (th * 60 + tm) >= curMin;
+            });
+            document.getElementById('nextDep2').textContent = next2 || (list2[0] ? 'Amanhã ' + list2[0] : 'Consultar');
+        }
+
+        function filtrarParadas() {
+            const query = document.getElementById('filtroRuas').value.toLowerCase();
+            document.querySelectorAll('.stop-item').forEach(el => {
+                const name = el.getAttribute('data-name');
+                el.style.display = name.includes(query) ? 'flex' : 'none';
+            });
+        }
+
+        function compartilharLinha() {
+            const text = "Horários e paradas da Linha 026 Jd. Pedra Branca em Ribeirão Preto: https://infohausti.com.br/ribeirao/linhas/linha-026-jd-pedra-branca.html";
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Linha 026 Jd. Pedra Branca - Ribeirão Vivo',
+                    text: text,
+                    url: 'https://infohausti.com.br/ribeirao/linhas/linha-026-jd-pedra-branca.html'
+                }).catch(() => {});
+            } else {
+                window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+            }
+        }
+
+        function initMap() {
+            const mapEl = document.getElementById('map');
+            if (!mapEl) return;
+            
+            const map = L.map('map', { scrollWheelZoom: false }).setView([-21.176, -47.810], 13);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            if (routeCoords.length > 0) {
+                const polyline = L.polyline(routeCoords, {
+                    color: '#FF6600',
+                    weight: 5,
+                    opacity: 0.85,
+                    lineJoin: 'round'
+                }).addTo(map);
+
+                stopsMarkers.forEach((st, idx) => {
+                    let markerColor = '#FF6600';
+                    let radius = 4;
+                    if (idx === 0 || idx === stopsMarkers.length - 1) {
+                        markerColor = '#10b981';
+                        radius = 8;
+                    } else if (st.is_station) {
+                        markerColor = '#ef4444';
+                        radius = 7;
+                    }
+
+                    const circle = L.circleMarker([st.lat, st.lng], {
+                        radius: radius,
+                        fillColor: markerColor,
+                        color: '#ffffff',
+                        weight: 2,
+                        opacity: 1,
+                        fillOpacity: 0.9
+                    }).addTo(map);
+
+                    circle.bindPopup(`
+                        <div style="font-family: sans-serif; font-size: 12px; line-height: 1.4;">
+                            <strong style="color: #FF6600;">Parada #${st.seq}</strong><br>
+                            <strong>${st.street}</strong><br>
+                            ${st.ponto_num ? '<span style="color:#64748b;">Ponto ' + st.ponto_num + '</span>' : ''}
+                        </div>
+                    `);
+                });
+
+                map.fitBounds(polyline.getBounds(), { padding: [30, 30] });
+                setTimeout(() => { map.invalidateSize(); }, 300);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderHorarios();
+            updateClockAndNext();
+            initMap();
+            setInterval(updateClockAndNext, 30000);
+        });
+    </script>
+</body>
+</html>
