@@ -351,3 +351,15 @@
 * **Resultado da auditoria:** Todos os 6 novos dossiês devidamente criados e verificados com fontes oficiais e datas atualizadas. `audit_all.py` executado com STATUS: OK.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** B7 — 2 pontos novos (Bosque Fábio Barreto e Museu do Café).
+
+---
+
+## Bloco B7 — Bosque Fábio Barreto e Museu do Café
+* **Data/Hora:** 2026-10-03 14:23
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/ribeirao-preto/pontos-turisticos/bosque-fabio-barreto.json` (página completa com +850 palavras narrativas, 250 mil m² de Mata Atlântica no Morro de São Bento, zoológico municipal, centro de reabilitação silvestre, Jardim Japonês, mirante e entrada gratuita).
+  - `content/paginas/ribeirao-preto/pontos-turisticos/museu-do-cafe.json` (página completa com +850 palavras narrativas, sede histórica da Fazenda Monte Alegre no campus da USP, acervo de arqueologia agroindustrial do café, maquinários a vapor, tulhas, troles, Francisco Schmidt e entrada franca).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 28 páginas prontas compiladas perfeitamente em `dist/`, sem links quebrados, canonical absoluto, Schema TouristAttraction + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** B8 — 2 pontos novos (Praça XV de Novembro e Quarteirão Paulista).
