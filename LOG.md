@@ -435,3 +435,15 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 37 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema Article + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** H4 — Roteiro 5 (Ribeirão Preto em 3 Dias) e Hub de Roteiros (roteiros/index).
+
+---
+
+## Bloco H4 — Roteiro 5 (Ribeirão Preto em 3 Dias) e Hub Central de Roteiros
+* **Data/Hora:** 2026-10-03 14:32
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/ribeirao-preto/roteiros/ribeirao-em-3-dias.json` (planejamento executivo e de lazer completo de 72 horas para feriados: Dia 1 Centro e Artes, Dia 2 Agroexportação e Parques Ecológicos, Dia 3 Morro de São Bento, Santuário e Gastronomia italiana).
+  - `content/paginas/ribeirao-preto/roteiros/index.json` (hub central categorizando todos os 5 roteiros temáticos, integrados à rede RP Mobi, com visual moderno e cards estruturados).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 39 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema CollectionPage / Article + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`. Conclusão formal de todo o **Bloco H (Roteiros — 6 páginas)**!
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** CHECKPOINT 1 — Revisão humana formal de 10% do lote (mínimo 3 páginas) documentada em reports/revisao-humana-lote1.md.
