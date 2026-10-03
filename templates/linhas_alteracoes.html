@@ -1,0 +1,134 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+<article class="prose prose-slate max-w-none">
+  <!-- 1. Cabeçalho -->
+  <header class="mb-8 border-b border-slate-200 pb-6">
+    <div class="flex flex-wrap items-center gap-2 mb-3 not-prose">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-200">
+        Avisos & Operação
+      </span>
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800">
+        Comunicação Oficial RP Mobi
+      </span>
+    </div>
+    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">{{ h1 }}</h1>
+    <p class="text-lg text-slate-600 leading-relaxed max-w-3xl">{{ descricao }}</p>
+
+    <!-- Navegação Rápida -->
+    <div class="flex flex-wrap gap-2 mt-6 not-prose">
+      <a href="/linhas/index.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs">
+        &larr; Voltar ao Catálogo de Linhas
+      </a>
+      <a href="/linhas/descontinuadas.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs">
+        📋 Linhas Descontinuadas ou Fundidas
+      </a>
+      <a href="/linhas/mapa.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs">
+        🗺️ Mapa da Rede
+      </a>
+    </div>
+  </header>
+
+  <!-- 2. Estrutura Transparente de Avisos Operacionais -->
+  <section class="mb-8 not-prose" aria-label="Status do Feed Oficial de Alterações">
+    <div class="p-6 rounded-2xl border border-blue-200 bg-blue-50/60">
+      <div class="flex items-start gap-4">
+        <span class="text-2xl flex-shrink-0">📢</span>
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-1">Central de Alterações Viárias e Desvios Temporários</h2>
+          <p class="text-sm text-slate-700 leading-relaxed mb-3">
+            O município de Ribeirão Preto conta com intervenções periódicas do programa <em>Ribeirão Mobilidade</em>, recapeamento asfáltico e eventos públicos que podem gerar desvios temporários em linhas urbanas.
+          </p>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>Transparência Operacional:</strong> Como a concessionária RP Mobi não disponibiliza um feed público aberto em formato RSS/JSON para desvios instantâneos diários, os passageiros devem consultar os canais de fiscalização e atendimento telefônico imediato listados abaixo antes de planejar trajetos em vias com obras civis ativas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Canais Oficiais para Consulta em Tempo Real -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Canais Imediatos de Atendimento da RP Mobi</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 not-prose mb-6">
+      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider block mb-1">Telefone Gratuito</span>
+        <h3 class="font-bold text-slate-900 text-base mb-1">0800 77 10 118</h3>
+        <p class="text-xs text-slate-500 mb-2">Central de Atendimento ao Passageiro</p>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Canal telefônico 24 horas para informações de desvios operacionais imediatos, localização de pontos provisórios e reclamações sobre atrasos de frota.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <span class="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">Aplicativo Móvel</span>
+        <h3 class="font-bold text-slate-900 text-base mb-1">Aplicativo Bus2 / CittaMobi</h3>
+        <p class="text-xs text-slate-500 mb-2">Previsão por Telemetria GPS</p>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Plataforma oficial que exibe os veículos em movimento pelo mapa, avisos de desvio e previsão calculada de chegada em cada parada cadastrada.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider block mb-1">Atendimento Presencial</span>
+        <h3 class="font-bold text-slate-900 text-base mb-1">Posto Central RP Mobi</h3>
+        <p class="text-xs text-slate-500 mb-2">Rua Tibiriçá, 636 — Centro</p>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Atendimento de segunda a sexta-feira, das 07h às 18h, para recarga de cartões, cadastro de gratuidades de estudantes/idosos e ouvidoria física.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Destaque para Linhas Descontinuadas -->
+  <section class="mb-8 not-prose">
+    <div class="p-6 rounded-2xl border border-slate-200 bg-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <h2 class="text-base font-bold text-slate-900 mb-1">Procurando por uma linha que não circula mais?</h2>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Consulte o diretório histórico com a relação de linhas extintas ou incorporadas pela Prefeitura (como as antigas linhas 19, 33 e 501) e veja quais ônibus as substituíram.
+        </p>
+      </div>
+      <a href="/linhas/descontinuadas.html" class="inline-flex items-center px-4 py-2.5 rounded-lg text-xs font-bold bg-slate-900 text-white hover:bg-slate-800 transition-colors flex-shrink-0 text-center shadow-xs">
+        Ver Linhas Descontinuadas &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- 5. FAQ Estruturado -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Perguntas sobre Alterações e Desvios</h2>
+    <div class="space-y-4 not-prose">
+      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <h3 class="font-bold text-slate-900 text-base mb-2 flex items-start gap-2">
+          <span class="text-amber-600 font-extrabold">Q:</span>
+          <span>A integração de 120 minutos continua valendo em casos de desvio?</span>
+        </h3>
+        <p class="text-sm text-slate-600 leading-relaxed pl-6">
+          Sim. A regra tarifária de 120 minutos é temporal e controlada pelo leitor do Cartão Cidadão nos validadores de bordo, permanecendo ativa mesmo quando o veículo realiza desvios viários por obras.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <h3 class="font-bold text-slate-900 text-base mb-2 flex items-start gap-2">
+          <span class="text-amber-600 font-extrabold">Q:</span>
+          <span>Como saber se o meu ponto de ônibus foi transferido provisoriamente?</span>
+        </h3>
+        <p class="text-sm text-slate-600 leading-relaxed pl-6">
+          A RP Mobi instala faixas informativas ou cavaletes nos pontos interditados indicando o abrigo provisório mais próximo, além de atualizar o aplicativo Bus2.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <h3 class="font-bold text-slate-900 text-base mb-2 flex items-start gap-2">
+          <span class="text-amber-600 font-extrabold">Q:</span>
+          <span>Onde reclamar sobre descumprimento de itinerário ou corte de partidas?</span>
+        </h3>
+        <p class="text-sm text-slate-600 leading-relaxed pl-6">
+          Reclamações formais com dia, horário e número do prefixo do veículo devem ser encaminhadas à Ouvidoria da RP Mobi pelo telefone 0800 77 10 118 ou protocoladas no posto da Rua Tibiriçá, 636.
+        </p>
+      </div>
+    </div>
+  </section>
+</article>
+{% endblock %}

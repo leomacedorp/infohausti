@@ -13,12 +13,11 @@
 
 ---
 
-## 2. Natureza da Fonte: Mobilibus Tecnologia (Bus2 / RP Mobi)
+## 2. Natureza da Fonte: Mobilibus Tecnologia (Bus2) e RP Mobi
 
-* **Classificação:** **Fonte Primária Operacional Homologada** (Não é agregador terceiro não oficial).
-* **Entidade Responsável:** A *Mobilibus Tecnologia Ltda* é a fornecedora e desenvolvedora da plataforma tecnológica de despacho, monitoramento de frota por GPS e bilhetagem do transporte coletivo contratada pela concessionária do transporte municipal de Ribeirão Preto (Consórcio PróUrbano) e supervisionada pela **RP Mobi** (Empresa de Mobilidade Urbana de Ribeirão Preto S.A.).
+* **Classificação Técnica:** **Fonte Operacional de Referência** (com a RP Mobi como fonte oficial gestora).
+* **Entidade Responsável:** A *Mobilibus Tecnologia Ltda* é a desenvolvedora da plataforma Bus2, contratada pelo consórcio PróUrbano para operar o sistema de bilhetagem e monitoramento. O feed `project_id=614` é o mesmo que alimenta o aplicativo oficial Bus2 e a telemetria do sistema. A **RP Mobi** é a gestora pública oficial do sistema. Tratamos a Mobilibus como fonte operacional de referência — a fonte oficial gestora e regulatória é a RP Mobi.
 * **Código de Projeto Oficial:** `project_id: 614` (identificador exclusivo do município de Ribeirão Preto na rede Mobilibus).
-* **Aplicações que Utilizam a Mesma API:** O site da RP Mobi, o aplicativo oficial para passageiros (*Bus2*) e o sistema de telemetria em tempo real das garagens consomem diretamente essa mesma base de dados.
 * **Tempo de Propagação:** Mudanças de itinerário ou criação/extinção de linhas decretadas pela Prefeitura são cadastradas na base operacional da Mobilibus antes ou no próprio dia da entrada em vigor da escala.
 
 ---

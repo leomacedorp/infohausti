@@ -1,0 +1,182 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+<article class="prose prose-slate max-w-none">
+  <!-- 1. Cabeçalho -->
+  <header class="mb-8 border-b border-slate-200 pb-6">
+    <div class="flex flex-wrap items-center gap-2 mb-3 not-prose">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-900 border border-blue-200">
+        Cartografia & Rede Viária
+      </span>
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800">
+        Malha Urbana RP Mobi
+      </span>
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+        Geografia dos 5 Setores
+      </span>
+    </div>
+    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">{{ h1 }}</h1>
+    <p class="text-lg text-slate-600 leading-relaxed max-w-3xl">{{ descricao }}</p>
+
+    <!-- Navegação Rápida -->
+    <div class="flex flex-wrap gap-2 mt-6 not-prose">
+      <a href="/linhas/index.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs">
+        &larr; Voltar ao Catálogo de Linhas
+      </a>
+      <a href="/linhas/alteracoes.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs">
+        ⚠️ Alterações e Desvios
+      </a>
+      <a href="/linhas/descontinuadas.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs">
+        📋 Linhas Descontinuadas
+      </a>
+    </div>
+  </header>
+
+  <!-- 2. Box de Aviso Estrutural: Dados Geográficos em Preparação (Sem Leaflet) -->
+  <section class="mb-8 not-prose" aria-label="Aviso de Cartografia em Preparação">
+    <div class="p-8 rounded-2xl border-2 border-dashed border-slate-300 bg-slate-100/70 text-center">
+      <div class="w-16 h-16 rounded-full bg-slate-200 flex items-center justify-center text-3xl mx-auto mb-4">
+        🗺️
+      </div>
+      <h2 class="text-xl font-bold text-slate-900 mb-2">Camada Cartográfica Interativa em Preparação</h2>
+      <p class="text-slate-600 text-sm max-w-2xl mx-auto leading-relaxed mb-6">
+        A renderização das coordenadas geográficas e traçados vetoriais completos no mapa dinâmico está temporariamente em processamento técnico, aguardando a padronização e compressão topológica dos arquivos de malha viária municipal (<code class="bg-slate-200 px-1.5 py-0.5 rounded text-xs text-slate-800">content/dados-fonte/malha/</code>). Esta medida garante que a experiência de navegação mobile permaneça extremamente ágil e sem consumo excessivo de dados móveis do usuário.
+      </p>
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-300 text-slate-700 shadow-2xs">
+        <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+        <span>Camada de geometria viária em conformidade com o padrão OpenStreetMap</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Organização Territorial do Transporte Coletivo -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Estrutura Territorial da Malha Viária</h2>
+    <div class="space-y-4 text-slate-700 leading-relaxed">
+      <p>
+        A rede de transporte público coletivo de Ribeirão Preto cobre uma área urbana superior a 650 quilômetros quadrados, integrando mais de 150 bairros residenciais, centros universitários, polos industriais e os distritos de Bonfim Paulista e Cruz das Posses. A circulação é estruturada a partir de um traçado radial-concêntrico, no qual os fluxos periféricos convergem para anéis viários intermediários e para a área central tombada.
+      </p>
+      <p>
+        O modelo de mobilidade é segmentado em cinco zonas operacionais bem delimitadas, permitindo conexões diretas ou transbordos gratuitos em até 120 minutos entre veículos de perfis complementares:
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose mt-6">
+      <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+          <h3 class="font-bold text-slate-900 text-base">Eixo Norte & Noroeste</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed mb-2">
+          Compreende bairros densamente povoados como Ipiranga, Campos Elíseos, Quintino Facci, Geraldo Correia de Carvalho, Adelino Simioni e Marincek. Conta com ligação expressa pelas avenidas Brasil, Saudade e Mogiana.
+        </p>
+        <span class="text-xs font-semibold text-slate-500">Conexões: Estação de Transferência Norte e Terminal Rodoviário.</span>
+      </div>
+
+      <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+          <h3 class="font-bold text-slate-900 text-base">Eixo Sul & Sudeste</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed mb-2">
+          Engloba bairros como Jardim Irajá, Jardim Botânico, Nova Aliança, Jardim Canadá, Vila Virgínia e a expansão do distrito de Bonfim Paulista. Articula-se pelas avenidas Independência, Presidente Vargas, Portugal e Professor João Fiúsa.
+        </p>
+        <span class="text-xs font-semibold text-slate-500">Conexões: Terminais de integração da Zona Sul e centros de compras.</span>
+      </div>
+
+      <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+          <h3 class="font-bold text-slate-900 text-base">Eixo Leste & Nordeste</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed mb-2">
+          Abrange o Parque Castelo Branco, Jardim Paulista, Lagoinha, Parque dos Bandeirantes e o conjunto habitacional Ribeirão Verde, escoando o tráfego pelas avenidas Castelo Branco, Maria de Jesus Condeixa e Francisco Junqueira.
+        </p>
+        <span class="text-xs font-semibold text-slate-500">Conexões: Terminal Leste (Novo Shopping) e plataformas do Trevo Waldo Adalberto da Silveira.</span>
+      </div>
+
+      <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-3 h-3 rounded-full bg-purple-500"></span>
+          <h3 class="font-bold text-slate-900 text-base">Eixo Oeste & Universitário</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed mb-2">
+          Integra os bairros tradicionais da Vila Tibério, Sumarezinho, Vila Monte Alegre, Jardim Antártica e o Campus Universitário da USP / Hospital das Clínicas. O escoamento principal ocorre pela Avenida do Café e Rua Coronel Luiz da Cunha.
+        </p>
+        <span class="text-xs font-semibold text-slate-500">Conexões: Plataforma USP e ligação direta com a Estação Central.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Classificação Funcional das Modalidades de Linhas -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Hierarquia das Modalidades Operacionais</h2>
+    <div class="space-y-4 text-slate-700 leading-relaxed">
+      <p>
+        Para orientar o deslocamento dos passageiros com clareza, os serviços cadastrados na malha municipal dividem-se em quatro modalidades funcionais distintas, cada uma atendendo a um propósito específico de mobilidade:
+      </p>
+    </div>
+
+    <div class="space-y-3 not-prose mt-4">
+      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <h3 class="font-bold text-slate-900 text-sm mb-1">1. Linhas Troncais Estruturais (Corredores BRT)</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Circulam em canaletas exclusivas e faixas preferenciais com pavimento rígido, operando veículos de alta capacidade (padron com ar-condicionado e tomadas USB). Conectam os extremos das zonas Norte, Sul, Leste e Oeste ao centro tradicional com paradas abrigadas e semáforos inteligentes sincronizados.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <h3 class="font-bold text-slate-900 text-sm mb-1">2. Linhas Radiais Convencionais</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Trajetos clássicos ponto a ponto que unem diretamente os bairros periféricos ao Terminal Urbano Central (Alameda Dr. Dino Bueno). Garantem o acesso de trabalhadores ao comércio de rua e repartições cívicas sem necessidade de baldeação.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <h3 class="font-bold text-slate-900 text-sm mb-1">3. Linhas Perimetrais e Circulares</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Projetadas para cruzar a cidade tangencialmente, interligando diferentes bairros e polos geradores de viagens (hospitais, shoppings, faculdades e distritos empresariais) sem passar pela região central saturada de trânsito.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <h3 class="font-bold text-slate-900 text-sm mb-1">4. Linhas Alimentadoras Locais e Noturnas (Corujão)</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          As alimentadoras operam micro-ônibus e veículos médios no interior de vilas e loteamentos mais distantes, conduzindo os moradores até os terminais de integração. No período da madrugada (das 00h às 05h), a rede noturna (Linhas 001 a 008) assegura o retorno seguro de trabalhadores e estudantes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FAQ Estruturado -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Dúvidas sobre o Mapa e Itinerários</h2>
+    <div class="space-y-4 not-prose">
+      {% for f in faq %}
+      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <h3 class="font-bold text-slate-900 text-base mb-1">{{ f.pergunta }}</h3>
+        <p class="text-sm text-slate-700 leading-relaxed">{{ f.resposta }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- 6. Rodapé e Fontes -->
+  <footer class="pt-6 border-t border-slate-200 text-xs text-slate-500">
+    <p class="font-semibold text-slate-700 mb-2">Fontes Oficiais Verificadas:</p>
+    <ul class="list-disc list-inside space-y-1">
+      {% for f in fontes %}
+      <li>
+        <a href="{{ f.url }}" rel="nofollow noopener noreferrer" target="_blank" class="text-slate-600 hover:text-slate-900 underline">
+          {{ f.nome }}
+        </a> (Verificado em: {{ f.verificado_em }})
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="mt-4 pt-4 border-t border-slate-100 flex flex-wrap justify-between items-center text-slate-400">
+      <span>Revisão editorial: {{ revisor }} &bull; Atualizado em {{ atualizado }}</span>
+      <a href="/politica-editorial.html" class="hover:text-slate-600 underline">Política Editorial e Correções</a>
+    </div>
+  </footer>
+</article>
+{% endblock %}

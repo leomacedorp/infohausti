@@ -1,0 +1,278 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+<article class="prose prose-slate max-w-none">
+  <!-- 1. Cabeçalho -->
+  <header class="mb-8 border-b border-slate-200 pb-6">
+    <div class="flex flex-wrap items-center gap-2 mb-3 not-prose">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-slate-200 text-slate-800 border border-slate-300">
+        Memória Operacional
+      </span>
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-rose-100 text-rose-800">
+        Linhas Descontinuadas & Fundidas
+      </span>
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+        Malha RP Mobi Vigente
+      </span>
+    </div>
+    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">{{ h1 }}</h1>
+    <p class="text-lg text-slate-600 leading-relaxed max-w-3xl">{{ descricao }}</p>
+
+    <!-- Navegação Rápida -->
+    <div class="flex flex-wrap gap-2 mt-6 not-prose">
+      <a href="/linhas/index.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs">
+        &larr; Voltar ao Catálogo de Linhas Ativas
+      </a>
+      <a href="/linhas/alteracoes.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs">
+        ⚠️ Alterações e Desvios Operacionais
+      </a>
+      <a href="/linhas/mapa.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs">
+        🗺️ Mapa da Rede
+      </a>
+    </div>
+  </header>
+
+  <!-- 2. Box Explicativo de Governança e Transparência -->
+  <section class="mb-8 not-prose" aria-label="Contexto de Reestruturação da Rede">
+    <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+      <div class="flex items-start gap-4">
+        <span class="text-2xl flex-shrink-0">🏛️</span>
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-1">Por que esta página existe?</h2>
+          <p class="text-sm text-slate-700 leading-relaxed mb-3">
+            Com as obras do programa <strong>Ribeirão Mobilidade</strong> e a entrega progressiva dos corredores de ônibus BRT (Norte-Sul, Leste-Oeste e Radiais), diversas linhas tradicionais tiveram seus trajetos reconfigurados, foram unificadas a outras rotas ou desativadas para evitar sobreposição desnecessária de viagens.
+          </p>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Se você procurou no Google por um número antigo de linha de Ribeirão Preto e não encontrou no catálogo ativo, este guia oficial lista a data de encerramento, o motivo técnico e a rota alternativa que atende a sua região hoje.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Relação das Principais Linhas Descontinuadas ou Fundidas -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Linhas Descontinuadas e suas Substitutas Oficiais</h2>
+
+    <div class="space-y-4 not-prose">
+      <!-- Linha 19 -->
+      <div class="p-5 rounded-xl border border-rose-200 bg-white shadow-2xs">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-rose-100 text-rose-800 font-extrabold text-lg border border-rose-200">
+              19
+            </span>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">Linha 19 — Estação Brasil</h3>
+              <span class="text-xs text-slate-500">Antiga ligação da Estação Norte / Av. Brasil</span>
+            </div>
+          </div>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200">
+            Desativada em 01/09/2025
+          </span>
+        </div>
+        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-700 bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+          <div>
+            <strong class="text-slate-900 block mb-1">Motivo do Encerramento:</strong>
+            <p class="text-xs leading-relaxed text-slate-600">
+              Desativação formal anunciada pela Prefeitura e RP Mobi para redistribuição estratégica da frota e reforço de horários em bairros populosos da Zona Norte.
+            </p>
+          </div>
+          <div>
+            <strong class="text-slate-900 block mb-1">Linhas Alternativas Ativas:</strong>
+            <p class="text-xs leading-relaxed text-slate-600 mb-1">
+              Os veículos e viagens foram remanejados para reforçar a operação de:
+            </p>
+            <ul class="text-xs space-y-1 list-disc list-inside text-slate-800 font-medium">
+              <li>Linha 201 — Quintino II</li>
+              <li>Linha 310 — Quintino / Avelino</li>
+              <li>Corredor BRT 902 — Norte-Sul 2 (atendimento direto na Av. Brasil)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Linha 33 -->
+      <div class="p-5 rounded-xl border border-amber-200 bg-white shadow-2xs">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-amber-100 text-amber-800 font-extrabold text-lg border border-amber-200">
+              33
+            </span>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">Linha 33 — Portal dos Pinheiros</h3>
+              <span class="text-xs text-slate-500">Antiga linha alimentadora local</span>
+            </div>
+          </div>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+            Incorporada em 01/09/2025
+          </span>
+        </div>
+        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-700 bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+          <div>
+            <strong class="text-slate-900 block mb-1">Motivo da Incorporação:</strong>
+            <p class="text-xs leading-relaxed text-slate-600">
+              Unificação de itinerários para otimizar partidas e intervalos de espera na região Leste/Nordeste do município.
+            </p>
+          </div>
+          <div>
+            <strong class="text-slate-900 block mb-1">Linha Substituta Direta:</strong>
+            <p class="text-xs leading-relaxed text-slate-600 mb-1">
+              Trajeto 100% absorvido pela:
+            </p>
+            <div class="font-medium text-xs text-slate-800">
+              👉 <a href="/linhas/linha-063.html" class="text-blue-700 underline font-semibold hover:text-blue-900">Linha 063 — Parque das Gaivotas</a> (atende todo o itinerário antigo com horários integrados).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Linha 501 -->
+      <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-200 text-slate-800 font-extrabold text-lg border border-slate-300">
+              501
+            </span>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">Linha 501 — Higienópolis</h3>
+              <span class="text-xs text-slate-500">Radial Centro-Sul tradicional</span>
+            </div>
+          </div>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-300">
+            Extinta na Reformulação
+          </span>
+        </div>
+        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-700 bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+          <div>
+            <strong class="text-slate-900 block mb-1">Contexto Operacional:</strong>
+            <p class="text-xs leading-relaxed text-slate-600">
+              Extinta após a inauguração das faixas exclusivas e modernização dos eixos da Zona Sul (Av. Independência, Nove de Julho e Portugal), que concentraram a demanda de transporte rápido.
+            </p>
+          </div>
+          <div>
+            <strong class="text-slate-900 block mb-1">Como se Deslocar Hoje:</strong>
+            <p class="text-xs leading-relaxed text-slate-600">
+              Passageiros da região do Higienópolis e Boulevard utilizam as linhas troncais e radiais que cruzam o quadrilátero central e as avenidas Nove de Julho e Portugal, combinadas com a integração gratuita de 120 minutos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Linhas D 402 e D 420 -->
+      <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-200 text-slate-800 font-extrabold text-sm border border-slate-300 text-center">
+              D 402<br>D 420
+            </span>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">Linhas Diretas D 402 e D 420 — Ribeirão Verde I e II</h3>
+              <span class="text-xs text-slate-500">Antigas linhas expressas diretas sem paradas intermediárias</span>
+            </div>
+          </div>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-300">
+            Substituídas pelo BRT
+          </span>
+        </div>
+        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-700 bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+          <div>
+            <strong class="text-slate-900 block mb-1">Motivo da Substituição:</strong>
+            <p class="text-xs leading-relaxed text-slate-600">
+              A antiga categoria de "linhas diretas" pontuais foi absorvida pela arquitetura dos eixos troncais do Ribeirão Mobilidade, que oferecem faixas preferenciais com muito mais velocidade e frequência.
+            </p>
+          </div>
+          <div>
+            <strong class="text-slate-900 block mb-1">Novas Rotas do Ribeirão Verde:</strong>
+            <p class="text-xs leading-relaxed text-slate-600 mb-1">
+              Atendimento garantido pelo:
+            </p>
+            <ul class="text-xs space-y-1 list-disc list-inside text-slate-800 font-medium">
+              <li>Linha 910 — Norte-Sul 1B (BRT estrutural do complexo Ribeirão Verde)</li>
+              <li>Linhas alimentadoras locais integradas no Terminal da Zona Leste</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Linhas com Nome ou Itinerário Atualizado Recentemente -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Linhas Renomeadas ou com Novo Itinerário (Em Operação)</h2>
+    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+      Algumas linhas continuam ativas, mas tiveram o nome oficial ou a extensão do percurso alterados recentemente pela RP Mobi:
+    </p>
+
+    <div class="overflow-x-auto not-prose rounded-xl border border-slate-200 shadow-2xs">
+      <table class="w-full text-left text-sm text-slate-700">
+        <thead class="bg-slate-50 text-slate-900 text-xs uppercase font-bold border-b border-slate-200">
+          <tr>
+            <th class="px-4 py-3">Código</th>
+            <th class="px-4 py-3">Nome Atual Oficial</th>
+            <th class="px-4 py-3">Nome Antigo / Alteração</th>
+            <th class="px-4 py-3">Página Oficial</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <tr class="hover:bg-slate-50/70 transition-colors">
+            <td class="px-4 py-3 font-bold text-slate-900">045</td>
+            <td class="px-4 py-3 font-semibold text-slate-900">Vila do Golfe</td>
+            <td class="px-4 py-3 text-xs text-slate-600">Antiga <em>Vila do Ipê</em> (novo itinerário pela Zona Sul)</td>
+            <td class="px-4 py-3 text-xs"><a href="/linhas/linha-045.html" class="text-blue-700 font-semibold underline hover:text-blue-900">Ver Horários &rarr;</a></td>
+          </tr>
+          <tr class="hover:bg-slate-50/70 transition-colors">
+            <td class="px-4 py-3 font-bold text-slate-900">055</td>
+            <td class="px-4 py-3 font-semibold text-slate-900">San Marco</td>
+            <td class="px-4 py-3 text-xs text-slate-600">Antiga <em>Royal Park</em> (ajuste de ponto final)</td>
+            <td class="px-4 py-3 text-xs"><a href="/linhas/linha-055.html" class="text-blue-700 font-semibold underline hover:text-blue-900">Ver Horários &rarr;</a></td>
+          </tr>
+          <tr class="hover:bg-slate-50/70 transition-colors">
+            <td class="px-4 py-3 font-bold text-slate-900">105</td>
+            <td class="px-4 py-3 font-semibold text-slate-900">Sul Inter Shopping</td>
+            <td class="px-4 py-3 text-xs text-slate-600">Conexão perimetral interligando centros comerciais do Sul</td>
+            <td class="px-4 py-3 text-xs"><a href="/linhas/linha-105.html" class="text-blue-700 font-semibold underline hover:text-blue-900">Ver Horários &rarr;</a></td>
+          </tr>
+          <tr class="hover:bg-slate-50/70 transition-colors">
+            <td class="px-4 py-3 font-bold text-slate-900">256</td>
+            <td class="px-4 py-3 font-semibold text-slate-900">Parque / Shopping Iguatemi</td>
+            <td class="px-4 py-3 text-xs text-slate-600">Extensão de atendimento comercial</td>
+            <td class="px-4 py-3 text-xs"><a href="/linhas/linha-256.html" class="text-blue-700 font-semibold underline hover:text-blue-900">Ver Horários &rarr;</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 5. Perguntas Frequentes -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Perguntas Frequentes sobre Mudanças de Linhas</h2>
+    <div class="space-y-4 not-prose">
+      {% for f in faq %}
+      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
+        <h3 class="font-bold text-slate-900 text-base mb-1">{{ f.pergunta }}</h3>
+        <p class="text-sm text-slate-700 leading-relaxed">{{ f.resposta }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- 6. Fontes Verificadas -->
+  <footer class="pt-6 border-t border-slate-200 text-xs text-slate-500">
+    <p class="font-semibold text-slate-700 mb-2">Fontes Oficiais Verificadas:</p>
+    <ul class="list-disc list-inside space-y-1">
+      {% for f in fontes %}
+      <li>
+        <a href="{{ f.url }}" rel="nofollow noopener noreferrer" target="_blank" class="text-slate-600 hover:text-slate-900 underline">
+          {{ f.nome }}
+        </a> (Verificado em: {{ f.verificado_em }})
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="mt-4 pt-4 border-t border-slate-100 flex flex-wrap justify-between items-center text-slate-400">
+      <span>Revisão editorial: {{ revisor }} &bull; Atualizado em {{ atualizado }}</span>
+      <a href="/politica-editorial.html" class="hover:text-slate-600 underline">Política de Correções e Retificações</a>
+    </div>
+  </footer>
+</article>
+{% endblock %}
