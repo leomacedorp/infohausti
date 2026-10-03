@@ -102,3 +102,14 @@
 * **Resultado da auditoria:** `scripts/audit_all.py` executado com sucesso: todos os arquivos da raiz e favicons presentes em `dist/`, e `404.html` 100% aprovado na auditoria.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** A7 — Teste de ponta a ponta.
+
+---
+
+## Bloco A7 — Teste de Ponta a Ponta
+* **Data/Hora:** 2026-10-03 13:36
+* **STATUS:** OK
+* **Arquivos criados:**
+  - `scripts/test_ponta_a_ponta_a7.py` (script automatizado que valida o ciclo de compilação com status 'pronta', execução do audit_all.py, conversão para 'rascunho', exclusão em dist/ e re-auditoria limpa).
+* **Resultado da auditoria:** Teste de ponta a ponta 100% aprovado. A página compilada foi verificada com sucesso no ar, e ao mudar para rascunho desapareceu de `dist/` mantendo a suíte de auditoria em verde.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** A14 — Teste de auditoria (similaridade e fatal/aviso).
