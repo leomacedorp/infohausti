@@ -387,3 +387,14 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 32 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema TouristAttraction + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`. Todos os 12 pontos turísticos do projeto agora possuem páginas individuais ativas!
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** B10 — Hub de Turismo (ribeirao-preto/pontos-turisticos/index).
+
+---
+
+## Bloco B10 — Hub de Turismo de Ribeirão Preto (pontos-turisticos/index)
+* **Data/Hora:** 2026-10-03 14:26
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/ribeirao-preto/pontos-turisticos/index.json` (hub central com categorização dos 12 pontos turísticos: Centro Histórico e Arquitetura do Café, Museus e Literatura, Parques Ecológicos e Preservação, Patrimônio Sacro e Mirantes, integrado ao transporte da RP Mobi).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 33 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema CollectionPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`. Conclusão formal de todo o **Bloco B (Turismo — 13 páginas)**!
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** BLOCO H — Roteiros Temáticos (H0 — Definir os 5 roteiros temáticos em lista-mestre.json).
