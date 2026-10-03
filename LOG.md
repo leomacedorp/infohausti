@@ -205,3 +205,43 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 13 páginas prontas renderizadas sem links quebrados, com canonical absoluto, microdados Schema.org e zero pendências. Conclusão formal de todo o **Bloco A (Fundação)**!
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** BLOCO G — Serviços Públicos (G1 — Insumo humano da lista de 6 serviços e lista-mestre.json).
+
+---
+
+## Bloco G1 — Lista-Mestre de Serviços Públicos
+* **Data/Hora:** 2026-10-03 14:09
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/lista-mestre.json` (6 serviços oficiais confirmados pelo Leonardo: tarifa e cartão, poupatempo, telefones úteis, saúde básica/UPA, matrículas municipais e rodovias).
+* **Resultado da auditoria:** Lista validada estruturalmente com slugs padronizados.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** G2 — Template de serviço e dossiês.
+
+---
+
+## Bloco G2 — Template de Serviço e Dossiês Oficiais
+* **Data/Hora:** 2026-10-03 14:10
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `templates/servico.html` (template oficial estruturado conforme Seção 5: o que é, como acessar, passo a passo, linhas de ônibus conectadas e autoria/fontes).
+  - `content/dados-fonte/servicos/tarifa-e-cartao-nosso.json`
+  - `content/dados-fonte/servicos/poupatempo-ribeirao-preto.json`
+  - `content/dados-fonte/servicos/telefones-uteis-e-emergencia.json`
+  - `content/dados-fonte/servicos/postos-de-saude-ubs-upa.json`
+  - `content/dados-fonte/servicos/matriculas-e-escolas-municipais.json`
+  - `content/dados-fonte/servicos/rodovias-e-acessos-viarios.json`
+* **Resultado da auditoria:** Todos os 6 dossiês criados no formato rigoroso da Seção 4 com status `verificado`, fontes oficiais primárias e datas vigentes.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** G3 — Páginas de serviço 1 e 2.
+
+---
+
+## Bloco G3 — Páginas de Serviço 1 e 2
+* **Data/Hora:** 2026-10-03 14:11
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/servicos/tarifa-e-cartao-nosso.json` (página completa com tarifa R$ 5,00, integração de 120 minutos, passo a passo para emissão do Cartão Cidadão no posto da Rua Tibiriçá e conexões com 4 linhas).
+  - `content/paginas/servicos/poupatempo-ribeirao-preto.json` (página oficial com regras de agendamento obrigatório no portal oficial, atendimento no Novo Shopping e linhas de ônibus).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 15 páginas prontas compiladas com sucesso em `dist/`, aprovadas em contagem narrativa (> 400 palavras por serviço), Schema JSON-LD com GovernmentService + FAQPage e inclusão automática no `mapa-do-site.html`.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** G4 — Páginas de serviço 3 e 4.

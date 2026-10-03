@@ -1,0 +1,119 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+<article class="prose prose-slate max-w-none">
+  <!-- Cabeçalho do Serviço -->
+  <header class="mb-8 border-b border-slate-200 pb-6">
+    <div class="flex items-center gap-2 mb-2">
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+        Serviço Público Municipal
+      </span>
+      {% if categoria %}
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700">
+          {{ categoria }}
+        </span>
+      {% endif %}
+    </div>
+    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">{{ h1 }}</h1>
+    <p class="text-lg text-slate-600 leading-relaxed">{{ descricao }}</p>
+  </header>
+
+  <!-- 1. O que é -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">O que é este serviço</h2>
+    <div class="text-slate-700 leading-relaxed space-y-4">
+      {{ secoes.oque_e | safe if secoes.oque_e else '' }}
+    </div>
+  </section>
+
+  <!-- 2. Como Acessar (Endereço, Telefone, Horário) -->
+  <section class="mb-8 bg-slate-50 border border-slate-200 rounded-xl p-6">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Como Acessar e Canais de Atendimento</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-slate-700">
+      {% if atendimento.endereco %}
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+          <p class="font-bold text-slate-900 mb-1">📍 Endereço / Localização</p>
+          <p>{{ atendimento.endereco }}</p>
+        </div>
+      {% endif %}
+      {% if atendimento.horario %}
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+          <p class="font-bold text-slate-900 mb-1">⏰ Horário de Funcionamento</p>
+          <p>{{ atendimento.horario }}</p>
+        </div>
+      {% endif %}
+      {% if atendimento.telefone %}
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+          <p class="font-bold text-slate-900 mb-1">📞 Telefone / Contato</p>
+          <p>{{ atendimento.telefone }}</p>
+        </div>
+      {% endif %}
+    </div>
+    {% if secoes.detalhes_acesso %}
+      <div class="mt-4 text-slate-700 leading-relaxed text-sm">
+        {{ secoes.detalhes_acesso | safe }}
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- 3. Passo a Passo -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Passo a Passo para Utilização</h2>
+    {% if passos and passos | length > 0 %}
+      <div class="space-y-4 my-4">
+        {% for passo in passos %}
+          <div class="flex items-start gap-4 p-4 rounded-lg border border-slate-200 bg-white shadow-xs">
+            <span class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
+              {{ loop.index }}
+            </span>
+            <div>
+              <h3 class="font-bold text-slate-900 text-base mb-1">{{ passo.titulo }}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">{{ passo.descricao }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% if secoes.passo_a_passo %}
+      <div class="text-slate-700 leading-relaxed space-y-4">
+        {{ secoes.passo_a_passo | safe }}
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- 4. Linhas de Ônibus que Chegam -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Como Chegar de Transporte Coletivo (RP Mobi)</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      O serviço é acessível pelas seguintes linhas estruturais do sistema municipal de transporte de Ribeirão Preto:
+    </p>
+    {% if linhas_proximas and linhas_proximas | length > 0 %}
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-4">
+        {% for linha in linhas_proximas %}
+          <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+            <span class="font-bold text-amber-600 text-sm block mb-1">Linha {{ linha.codigo }}</span>
+            <span class="text-xs text-slate-700 font-medium block">{{ linha.nome }}</span>
+            {% if linha.parada %}
+              <span class="text-[11px] text-slate-500 block mt-1">Parada de desembarque: {{ linha.parada }}</span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% if secoes.como_chegar %}
+      <div class="text-slate-700 leading-relaxed text-sm">
+        {{ secoes.como_chegar | safe }}
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- Seções Complementares -->
+  {% if secoes.informacoes_adicionais %}
+    <section class="mb-8">
+      <div class="text-slate-700 leading-relaxed space-y-4">
+        {{ secoes.informacoes_adicionais | safe }}
+      </div>
+    </section>
+  {% endif %}
+</article>
+{% endblock %}
