@@ -375,3 +375,15 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 30 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema TouristAttraction + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** B9 — 2 pontos novos (Parque Maurílio Biagi e Santuário das Sete Capelas).
+
+---
+
+## Bloco B9 — Parque Maurílio Biagi e Santuário das Sete Capelas
+* **Data/Hora:** 2026-10-03 14:25
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/ribeirao-preto/pontos-turisticos/parque-maurilio-biagi.json` (página completa com +850 palavras narrativas, 70 mil m² na várzea revitalizada do Córrego Retiro Saudoso, RP Skate Park olímpico projetado por Bob Burnquist, ciclovias e quadras).
+  - `content/paginas/ribeirao-preto/pontos-turisticos/santuario-sete-capelas.json` (página completa com +850 palavras narrativas, templo semicircular construído pelos estigmatinos entre 1965 e 1970 no Morro de São Bento, 7 devoções marianas e mirante panorâmico).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 32 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema TouristAttraction + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`. Todos os 12 pontos turísticos do projeto agora possuem páginas individuais ativas!
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** B10 — Hub de Turismo (ribeirao-preto/pontos-turisticos/index).
