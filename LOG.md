@@ -363,3 +363,15 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 28 páginas prontas compiladas perfeitamente em `dist/`, sem links quebrados, canonical absoluto, Schema TouristAttraction + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** B8 — 2 pontos novos (Praça XV de Novembro e Quarteirão Paulista).
+
+---
+
+## Bloco B8 — Praça XV de Novembro e Quarteirão Paulista
+* **Data/Hora:** 2026-10-03 14:24
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/ribeirao-preto/pontos-turisticos/praca-xv-de-novembro.json` (página completa com +850 palavras narrativas, marco zero cívico, Fonte Luminosa de 1939, árvores centenárias, monumento aos voluntários de 1932 e convivência urbana 24h).
+  - `content/paginas/ribeirao-preto/pontos-turisticos/quarteirao-paulista.json` (página completa com +850 palavras narrativas, conjunto tombado pelo Condephaat em 1982, Edifício Meira Júnior, Palace Hotel, vida boêmia, calçadão histórico de pedras portuguesas e conexão com o Pedro II).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 30 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema TouristAttraction + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** B9 — 2 pontos novos (Parque Maurílio Biagi e Santuário das Sete Capelas).
