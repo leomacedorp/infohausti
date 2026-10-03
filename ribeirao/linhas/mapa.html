@@ -130,13 +130,16 @@
         <div class="absolute top-16 sm:top-3 right-3 sm:right-6 z-20 w-72 sm:w-80">
             <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-slate-200 p-2">
                 <div class="relative">
-                    <input type="text" id="inputBuscaLinha" onkeyup="buscarLinhas()" placeholder="Destacar linha (ex: 303, 337, 901)..." 
-                           class="w-full text-xs px-3 py-2 pl-8 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium">
+                    <input type="text" id="inputBuscaLinha" oninput="buscarLinhas(event)" onkeydown="checkEnter(event)" placeholder="Buscar linha (ex: 303, Lagoinha)..." 
+                           autocomplete="off"
+                           class="w-full text-xs px-3 py-2 pl-8 pr-7 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium">
                     <i class="fas fa-search absolute left-2.5 top-2.5 text-slate-400 text-xs"></i>
-                    <button id="btnClearSearch" onclick="limparSelecao()" class="hidden absolute right-2.5 top-2 text-slate-400 hover:text-slate-700 text-xs">
+                    <button id="btnClearSearch" onclick="limparSelecao(true)" class="hidden absolute right-2.5 top-2 text-slate-400 hover:text-slate-700 text-xs">
                         <i class="fas fa-times-circle"></i>
                     </button>
                 </div>
+                <!-- LISTA DE SUGESTÕES AUTOCOMPLETE -->
+                <div id="searchSuggestions" class="hidden mt-1.5 max-h-56 overflow-y-auto divide-y divide-slate-100 rounded-xl border border-slate-100 bg-white shadow-lg"></div>
             </div>
         </div>
 
@@ -311,10 +314,12 @@
             }).addTo(map);
         }
 
-        function destacarLinha(shortName, props) {
+        function destacarLinha(shortName, props, updateInput = true) {
             highlightedRoute = shortName;
-            document.getElementById('inputBuscaLinha').value = shortName;
-            document.getElementById('btnClearSearch').classList.remove('hidden');
+            if (updateInput) {
+                document.getElementById('inputBuscaLinha').value = shortName;
+                document.getElementById('btnClearSearch').classList.remove('hidden');
+            }
 
             renderLines();
 
@@ -337,10 +342,36 @@
             }
         }
 
-        function limparSelecao() {
+        function selecionarLinha(shortName) {
+            const f = allFeatures.find(item => item.properties.short_name === shortName);
+            if (!f) return;
+            document.getElementById('inputBuscaLinha').value = shortName;
+            document.getElementById('btnClearSearch').classList.remove('hidden');
+            const sug = document.getElementById('searchSuggestions');
+            sug.classList.add('hidden');
+            sug.innerHTML = '';
+            destacarLinha(shortName, f.properties, false);
+        }
+
+        function checkEnter(e) {
+            if (e.key === 'Enter') {
+                const sug = document.getElementById('searchSuggestions');
+                const first = sug.querySelector('[data-route]');
+                if (first) {
+                    selecionarLinha(first.getAttribute('data-route'));
+                }
+            }
+        }
+
+        function limparSelecao(clearInput = true) {
             highlightedRoute = null;
-            document.getElementById('inputBuscaLinha').value = '';
+            if (clearInput) {
+                document.getElementById('inputBuscaLinha').value = '';
+            }
             document.getElementById('btnClearSearch').classList.add('hidden');
+            const sug = document.getElementById('searchSuggestions');
+            sug.classList.add('hidden');
+            sug.innerHTML = '';
             document.getElementById('inspectorCard').classList.add('hidden');
             renderLines();
         }
@@ -371,28 +402,84 @@
             }
         }
 
-        function buscarLinhas() {
-            const val = document.getElementById('inputBuscaLinha').value.trim().toLowerCase();
+        function buscarLinhas(e) {
+            const input = document.getElementById('inputBuscaLinha');
+            const val = input.value.trim().toLowerCase();
             const btnClear = document.getElementById('btnClearSearch');
+            const sug = document.getElementById('searchSuggestions');
 
             if (!val) {
                 btnClear.classList.add('hidden');
-                limparSelecao();
+                sug.classList.add('hidden');
+                sug.innerHTML = '';
+                limparSelecao(false);
                 return;
             }
 
             btnClear.classList.remove('hidden');
 
-            // Procura por número exato ou nome
-            const match = allFeatures.find(f => {
+            // Agrupa linhas únicas
+            const seen = new Set();
+            const uniqueRoutes = [];
+            allFeatures.forEach(f => {
                 const p = f.properties;
-                return p.short_name.toLowerCase() === val || p.long_name.toLowerCase().includes(val);
+                if (!seen.has(p.short_name)) {
+                    seen.add(p.short_name);
+                    uniqueRoutes.push(p);
+                }
             });
 
-            if (match) {
-                destacarLinha(match.properties.short_name, match.properties);
+            const exact = [];
+            const starts = [];
+            const contains = [];
+
+            uniqueRoutes.forEach(p => {
+                const num = p.short_name.toLowerCase();
+                const name = p.long_name.toLowerCase();
+
+                if (num === val) {
+                    exact.push(p);
+                } else if (num.startsWith(val)) {
+                    starts.push(p);
+                } else if (name.includes(val) || num.includes(val)) {
+                    contains.push(p);
+                }
+            });
+
+            const matches = [...exact, ...starts, ...contains].slice(0, 7);
+
+            if (matches.length > 0) {
+                sug.innerHTML = matches.map(p => `
+                    <div onclick="selecionarLinha('${p.short_name}')" data-route="${p.short_name}" class="p-2.5 hover:bg-blue-50 cursor-pointer flex items-center justify-between transition">
+                        <div class="flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg text-white font-bold text-xs flex items-center justify-center shrink-0" style="background-color: ${p.color || '#1a15f0'}">${p.short_name}</span>
+                            <div>
+                                <strong class="text-xs text-slate-800 block">${p.long_name}</strong>
+                                <span class="text-[10px] text-slate-400">${p.sector_name || ''}</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right text-[10px] text-slate-400"></i>
+                    </div>
+                `).join('');
+                sug.classList.remove('hidden');
+
+                // Se houver uma correspondência exata de número (ex: digitou "303")
+                if (exact.length > 0) {
+                    destacarLinha(exact[0].short_name, exact[0], false);
+                }
+            } else {
+                sug.innerHTML = '<div class="p-3 text-xs text-slate-400 text-center">Nenhuma linha encontrada</div>';
+                sug.classList.remove('hidden');
             }
         }
+
+        // Fecha sugestões ao clicar fora
+        document.addEventListener('click', (e) => {
+            const searchBox = document.getElementById('inputBuscaLinha')?.closest('.bg-white\/95');
+            if (searchBox && !searchBox.contains(e.target)) {
+                document.getElementById('searchSuggestions')?.classList.add('hidden');
+            }
+        });
 
         function localizarUsuario() {
             if (!navigator.geolocation) {
