@@ -179,3 +179,16 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 8 páginas prontas compiladas com sucesso em `dist/`, sem links quebrados, sem pendências em páginas prontas e com microdados Schema.org.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** A12 — Contato, Anuncie e Imprensa.
+
+---
+
+## Bloco A12 — Contato, Anuncie e Imprensa
+* **Data/Hora:** 2026-10-03 13:48
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/contato.json` (canais de atendimento para dúvidas, correções e parcerias, horários de plantão e prazos de resposta em até 24h a 48h).
+  - `content/paginas/anuncie.json` (pacotes de publicidade ética — banner topo, meio de artigo e patrocínio temático — com preços sob consulta e conformidade CONAR/Google).
+  - `content/paginas/imprensa.json` (kit institucional para redações e pesquisadores com boilerplate, porta-voz Leonardo A. Macedo, paleta de cores e links de assets).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 11 páginas prontas renderizadas sem links quebrados, com canonical absoluto e microdados Schema.org.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** A13 — Hub principal e Mapa do site.
