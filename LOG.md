@@ -280,3 +280,33 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 20 páginas prontas compiladas com sucesso em `dist/`, com sitemap.xml e search-index.json atualizados para 20 URLs. Conclusão formal de todo o **Bloco G (Serviços Públicos)**!
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** BLOCO B — Turismo (B1 — Consolidar os dossiês dos 6 pontos já levantados no formato da seção 4).
+
+---
+
+## Bloco B1 — Dossiês Oficiais de Pontos Turísticos
+* **Data/Hora:** 2026-10-03 14:15
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/dados-fonte/pontos/theatro-pedro-ii.json` (inauguração em 1930, 1.588 lugares, incêndio de 1980, cúpula de Tomie Ohtake e tombamento Condephaat).
+  - `content/dados-fonte/pontos/palacete-camilo-de-mattos.json` (centenário de 1922, tombamento CONPPAC 2008, restauração 2024 e visitação gratuita).
+  - `content/dados-fonte/pontos/marp-museu-de-arte.json` (inauguração em 1992 no casarão de 1908 da Sociedade Recreativa, SARP e acervo de +1.700 obras).
+  - `content/dados-fonte/pontos/biblioteca-sinha-junqueira.json` (casarão de 1932, restauro de 2020, 15 salas, auditório, cafeteria e acervo de +11.000 volumes).
+  - `content/dados-fonte/pontos/catedral-metropolitana.json` (pedra fundamental de 1904, afrescos de Benedito Calixto e vitrais alemães).
+  - `content/dados-fonte/pontos/parque-curupira.json` (152.000 m², cascatas artificiais em pedreira basáltica e trilhas ecológicas).
+* **Resultado da auditoria:** Todos os 6 dossiês criados no formato da Seção 4 com status `verificado`, fontes oficiais primárias e datas vigentes.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** B3 e B4 — Template de ponto turístico e migração do Theatro Pedro II e Palacete Camilo de Mattos.
+
+---
+
+## Bloco B3 e B4 — Template de Ponto Turístico e Migração de Theatro Pedro II e Palacete
+* **Data/Hora:** 2026-10-03 14:17
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `templates/ponto.html` (template oficial estruturado conforme Seção 5: resumo, visitação, história e contexto, linhas de transporte, atrações próximas a pé e roteiros).
+  - `content/paginas/ribeirao-preto/pontos-turisticos/teatro-dom-pedro.json` (migração com mais de 850 palavras narrativas, Schema TouristAttraction + FAQPage e links para 4 linhas de ônibus).
+  - `content/paginas/ribeirao-preto/pontos-turisticos/palacete-camilo-de-mattos.json` (migração com mais de 850 palavras narrativas, dados da restauração de 2024, visitação gratuita e conexão a pé com o Quarteirão Paulista).
+  - `scripts/check_similaridade.py` (isolamento de blocos de metadados e paradas de transporte na 1ª passada conforme regra 57).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 22 páginas prontas compiladas com sucesso em `dist/`, sem links quebrados, com canonical absoluto, microdados Schema.org TouristAttraction + FAQPage e inclusão automática no `mapa-do-site.html`.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** B5 — 2 pontos com dossiê (MARP e Biblioteca Sinhá Junqueira).

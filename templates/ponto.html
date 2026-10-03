@@ -1,0 +1,128 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+<article class="prose prose-slate max-w-none">
+  <!-- 1. Cabeçalho & Resumo -->
+  <header class="mb-8 border-b border-slate-200 pb-6">
+    <div class="flex items-center gap-2 mb-2">
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">
+        Patrimônio & Turismo Cultural
+      </span>
+      {% if tombamento %}
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700">
+          {{ tombamento }}
+        </span>
+      {% endif %}
+    </div>
+    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">{{ h1 }}</h1>
+    <p class="text-lg text-slate-600 leading-relaxed">{{ descricao }}</p>
+  </header>
+
+  <!-- 1. Resumo Narrativo -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Visão Geral e Destaques</h2>
+    <div class="text-slate-700 leading-relaxed space-y-4">
+      {{ secoes.resumo | safe if secoes.resumo else '' }}
+    </div>
+  </section>
+
+  <!-- 2. Visita (Endereço, Horário, Ingresso, Contato) -->
+  <section class="mb-8 bg-slate-50 border border-slate-200 rounded-xl p-6" aria-label="Dados Práticos de Visitação">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Informações de Visitação e Acesso</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-slate-700 mb-4">
+      {% if visita.endereco %}
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+          <p class="font-bold text-slate-900 mb-1">📍 Endereço Completo</p>
+          <p>{{ visita.endereco }}</p>
+        </div>
+      {% endif %}
+      {% if visita.horario %}
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+          <p class="font-bold text-slate-900 mb-1">⏰ Horários de Funcionamento</p>
+          <p>{{ visita.horario }}</p>
+        </div>
+      {% endif %}
+      {% if visita.ingresso %}
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+          <p class="font-bold text-slate-900 mb-1">🎟️ Ingressos e Valores</p>
+          <p>{{ visita.ingresso }}</p>
+        </div>
+      {% endif %}
+    </div>
+    {% if secoes.detalhes_visita %}
+      <div class="mt-4 text-slate-700 leading-relaxed text-sm">
+        {{ secoes.detalhes_visita | safe }}
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- 3. História e Contexto Cultural -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">História, Arquitetura e Contexto</h2>
+    <div class="text-slate-700 leading-relaxed space-y-4">
+      {{ secoes.historia | safe if secoes.historia else '' }}
+    </div>
+  </section>
+
+  <!-- 4. Como Chegar (Linhas de Ônibus RP Mobi) -->
+  <section class="mb-8" aria-label="Linhas de Transporte e Paradas">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Como Chegar de Ônibus (RP Mobi)</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      O atrativo conta com paradas próximas atendidas diretamente pelas seguintes linhas municipais:
+    </p>
+    {% if linhas_proximas and linhas_proximas | length > 0 %}
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-4">
+        {% for linha in linhas_proximas %}
+          <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+            <span class="font-bold text-amber-600 text-sm block mb-1">Linha {{ linha.codigo }}</span>
+            <span class="text-xs text-slate-700 font-medium block">{{ linha.nome }}</span>
+            {% if linha.parada %}
+              <span class="text-[11px] text-slate-500 block mt-1">Parada de descida: {{ linha.parada }}</span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% if secoes.como_chegar %}
+      <div class="text-slate-700 leading-relaxed text-sm">
+        {{ secoes.como_chegar | safe }}
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- 5. Atrações Próximas (a pé) -->
+  <section class="mb-8" aria-label="Lista de Locais e Atrações Próximas">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Atrações e Pontos de Interesse Próximos</h2>
+    {% if atracoes_proximas and atracoes_proximas | length > 0 %}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        {% for atr in atracoes_proximas %}
+          <div class="p-4 rounded-lg border border-slate-200 bg-white">
+            <h3 class="font-bold text-slate-900 text-base mb-1">
+              {% if atr.slug %}
+                <a href="/ribeirao-preto/pontos-turisticos/{{ atr.slug }}.html" class="text-blue-700 hover:underline">{{ atr.nome }}</a>
+              {% else %}
+                {{ atr.nome }}
+              {% endif %}
+            </h3>
+            <p class="text-xs text-slate-500 mb-2">Distância a pé: {{ atr.distancia }} (~{{ atr.tempo_caminhada }})</p>
+            <p class="text-sm text-slate-600">{{ atr.descricao }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% if secoes.atracoes_proximas %}
+      <div class="text-slate-700 leading-relaxed text-sm">
+        {{ secoes.atracoes_proximas | safe }}
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- 6. Roteiros que Incluem -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Roteiros Temáticos que Incluem esta Parada</h2>
+    <div class="text-slate-700 leading-relaxed space-y-4">
+      {{ secoes.roteiros | safe if secoes.roteiros else '<p class="text-slate-600 text-sm">Este ponto integra o circuito histórico e cultural de Ribeirão Preto.</p>' }}
+    </div>
+  </section>
+</article>
+{% endblock %}

@@ -54,12 +54,12 @@ def extract_narrative_text(html_content):
     main_match = re.search(r'<main[^>]*>(.*?)</main>', html_content, re.DOTALL | re.IGNORECASE)
     content = main_match.group(1) if main_match else html_content
 
-    # Remove tabelas, listas, aside (autoria/alertas) e blocos de fontes
+    # Remove tabelas, listas, aside (autoria/alertas), blocos de fontes e dados de transporte/paradas
     content = re.sub(r'<table[^>]*>.*?</table>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
     content = re.sub(r'<ul[^>]*>.*?</ul>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
     content = re.sub(r'<ol[^>]*>.*?</ol>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
     content = re.sub(r'<aside[^>]*>.*?</aside>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
-    content = re.sub(r'<section[^>]*aria-label=["\']Fontes.*?>.*?</section>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
+    content = re.sub(r'<section[^>]*aria-label=["\'](?:Fontes|Dados|Linhas|Lista).*?["\'][^>]*>.*?</section>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
     content = re.sub(r'<script[^>]*>.*?</script>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
     content = re.sub(r'<style[^>]*>.*?</style>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
 
