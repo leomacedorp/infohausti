@@ -423,3 +423,15 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 35 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema Article + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** H3 — Roteiros 3 e 4 (Crianças, Família e Natureza & Roteiro Noturno e Boêmio).
+
+---
+
+## Bloco H3 — Roteiros 3 e 4 (Crianças, Família e Natureza & Roteiro Noturno e Boêmio)
+* **Data/Hora:** 2026-10-03 14:30
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/ribeirao-preto/roteiros/roteiro-criancas.json` (roteiro completo de 1 dia para famílias: fauna e Jardim Japonês no Bosque Fábio Barreto, cascatas e piquenique no Curupira, áreas esportivas e recreativas no Maurílio Biagi e leitura infantil na Sinhá Junqueira).
+  - `content/paginas/ribeirao-preto/roteiros/roteiro-noturno.json` (roteiro boêmio noturno das 18h às 23h30: happy hour na Fonte Luminosa da Praça XV, fachada iluminada da Catedral, concertos no Theatro Pedro II e choperias históricas no calçadão do Quarteirão Paulista).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 37 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema Article + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** H4 — Roteiro 5 (Ribeirão Preto em 3 Dias) e Hub de Roteiros (roteiros/index).
