@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palacete Camilo de Mattos - História, Restauração, Visitação e Como Chegar | Ribeirão Preto</title>
+    <meta name="description" content="Conheça o Palacete Camilo de Mattos em Ribeirão Preto: construído em 1922, tombado pelo patrimônio histórico e restaurado em 2024. Curiosidades, horários de visitação e linhas de ônibus.">
+    <meta name="keywords" content="palacete camilo de mattos ribeirao preto, camilo de mattos ribeirao, pontos turisticos ribeirao preto, centro historico ribeirao preto, casa torta ribeirao, turismo ribeirao">
+    <link rel="canonical" href="./palacete-camilo-de-mattos.html">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        .hero-pattern {
+            background-color: #0f172a;
+            background-image: radial-gradient(rgba(245, 158, 11, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .card-hover {
+            transition: all 0.25s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800 antialiased flex flex-col justify-between min-h-screen">
+
+    <!-- Navbar Oficial da Cidade Viva -->
+    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="w-3 h-3 rounded-full bg-amber-400 animate-pulse"></span>
+                <a href="./" class="font-bold text-lg tracking-tight hover:text-amber-400 transition-colors">
+                    Ribeirão Preto <span class="text-amber-400 font-light">| Cidade Viva</span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-3 sm:space-x-5 text-sm font-medium">
+                <a href="./" class="text-amber-400 border-b-2 border-amber-400 pb-0.5">
+                    <i class="fas fa-landmark mr-1"></i> Pontos Turísticos
+                </a>
+                <a href="../../ribeirao/linhas/" class="text-slate-300 hover:text-white transition-colors">
+                    <i class="fas fa-bus mr-1"></i> Linhas de Ônibus
+                </a>
+                <a href="../../ribeirao/linhas/mapa.html" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-3 py-1.5 rounded-md transition-colors text-xs sm:text-sm">
+                    <i class="fas fa-map mr-1"></i> Mapa Geral
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Espaço Publicitário Superior (Leaderboard Responsivo) -->
+    <div class="bg-slate-100 border-b border-slate-200 py-3">
+        <div class="container mx-auto px-4 flex items-center justify-center">
+            <div class="w-full max-w-4xl h-20 bg-slate-200/70 border border-dashed border-slate-300 rounded flex items-center justify-center text-xs text-slate-500">
+                <i class="fas fa-ad mr-2 text-slate-400"></i> Espaço Publicitário — Google AdSense / Anuncie Aqui
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-white border-b border-slate-200 py-2.5 text-xs text-slate-500">
+        <div class="container mx-auto px-4 flex items-center space-x-2">
+            <a href="./" class="hover:text-blue-600">Pontos Turísticos</a>
+            <span>/</span>
+            <span class="text-slate-800 font-medium">Palacete Camilo de Mattos</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern text-white py-14 px-4 border-b border-slate-800">
+        <div class="container mx-auto max-w-5xl text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 mb-4">
+                <i class="fas fa-landmark"></i> Patrimônio Cultural Tombado (2008)
+            </div>
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight mb-3">
+                Palacete Camilo de Mattos
+            </h1>
+            <p class="text-slate-300 text-base md:text-lg max-w-3xl mx-auto mb-8 font-light">
+                O renascimento de uma joia arquitetônica de 1922 no coração de Ribeirão Preto. Da era áurea do café ao abandono e a uma restauração espetacular aberta ao público.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-xs md:text-sm text-slate-300">
+                <span class="bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700 flex items-center">
+                    <i class="fas fa-calendar-alt text-amber-400 mr-2"></i> Construído em 1922
+                </span>
+                <span class="bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700 flex items-center">
+                    <i class="fas fa-door-open text-emerald-400 mr-2"></i> 19 Cômodos Históricos
+                </span>
+                <span class="bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700 flex items-center">
+                    <i class="fas fa-users text-blue-400 mr-2"></i> ~700 visitantes/dia
+                </span>
+                <span class="bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700 flex items-center">
+                    <i class="fas fa-ticket-alt text-rose-400 mr-2"></i> Entrada Gratuita
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4 py-12 max-w-5xl flex-grow">
+
+        <!-- Linha do Tempo e História -->
+        <section class="mb-14">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                <i class="fas fa-history mr-3 text-amber-500"></i> Memória e Trajetória Centenária
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Origem -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 card-hover">
+                    <div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm mb-4">
+                        1922
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Residência dos Barões & Prefeito</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Erguido no ano do centenário da Independência pelo jurista e ex-prefeito Joaquim Camilo de Mattos. O palacete abrigava sua numerosa família e recebia as principais personalidades políticas e econômicas da "Califórnia Brasileira".
+                    </p>
+                </div>
+
+                <!-- Abandono -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 card-hover">
+                    <div class="w-10 h-10 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-sm mb-4">
+                        2008
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Tombamento & Quase uma Década Fechado</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Tombado como patrimônio cultural municipal em 2008, o imóvel enfrentou quase dez anos de abandono e degradação após a morte do último herdeiro morador, tornando-se um mistério para quem passava pela Praça XV.
+                    </p>
+                </div>
+
+                <!-- Renascimento -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 card-hover">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm mb-4">
+                        2024
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Restauração e Abertura ao Povo</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Adquirido em 2016 por empresários comprometidos com o patrimônio, iniciou o restauro minucioso em 2017. Em 19 de junho de 2024 foi entregue a primeira etapa com cores originais, hall e dormitórios históricos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curiosidades & Arquitetura -->
+        <section class="mb-14">
+            <div class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white rounded-2xl p-8 md:p-10 shadow-lg">
+                <span class="text-amber-400 font-semibold text-xs uppercase tracking-wider">Mistérios e Singularidades</span>
+                <h3 class="text-2xl md:text-3xl font-bold mt-1 mb-6">Curiosidades que Tornam o Palacete Único</h3>
+                
+                <div class="grid md:grid-cols-2 gap-6 text-slate-200">
+                    <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/10">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-2xl text-pink-400"><i class="fas fa-bath"></i></span>
+                            <h4 class="font-bold text-lg text-white">A Banheira Rosa na Sacada</h4>
+                        </div>
+                        <p class="text-sm leading-relaxed text-slate-300">
+                            Uma das maiores curiosidades dos visitantes é uma banheira cor-de-rosa instalada estrategicamente na sacada do quarto principal, oferecendo vista para os jardins e para a Praça XV — uma excentricidade de requinte da década de 1920.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/10">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-2xl text-amber-400"><i class="fas fa-balance-scale"></i></span>
+                            <h4 class="font-bold text-lg text-white">A Famosa "Casa Torta"</h4>
+                        </div>
+                        <p class="text-sm leading-relaxed text-slate-300">
+                            A estrutura centenária apresenta uma suave inclinação perceptível a olho nu, apelidada carinhosamente de "casa torta". O desnível histórico foi meticulosamente consolidado pela engenharia moderna durante o restauro para garantir total segurança estrutural.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/10">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-2xl text-teal-400"><i class="fas fa-paint-roller"></i></span>
+                            <h4 class="font-bold text-lg text-white">Resgate das Cores Originais</h4>
+                        </div>
+                        <p class="text-sm leading-relaxed text-slate-300">
+                            Pesquisadores e restauradores realizaram prospecção estratigráfica (remoção cuidadosa de camadas de tinta) até descobrir o tom exato aplicado pelos pintores italianos em 1922, devolvendo a paleta fiel à fachada.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/10">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-2xl text-indigo-400"><i class="fas fa-vector-square"></i></span>
+                            <h4 class="font-bold text-lg text-white">Dimensões Monumentais</h4>
+                        </div>
+                        <p class="text-sm leading-relaxed text-slate-300">
+                            Com mais de 10.000 m² de terreno e cerca de 600 m² de área construída, o casarão possui 19 cômodos no total (8 no andar superior e 11 no térreo), além da antiga residência do caseiro nos fundos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informações de Visitação -->
+        <section class="mb-14">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                <i class="fas fa-door-open mr-3 text-emerald-600"></i> Informações Práticas para o Visitante
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="font-bold text-lg text-slate-800 mb-4 flex items-center">
+                        <i class="fas fa-clock mr-2 text-emerald-600"></i> Horários e Acesso
+                    </h3>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-500 mr-2.5 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800">Entrada:</strong> Gratuita e aberta ao público.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-500 mr-2.5 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800">Localização:</strong> Rua Duque de Caxias, 625, esquina com Rua Tibiriçá — Centro.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-500 mr-2.5 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800">Espaços Entregues:</strong> Fachada restaurada, imponente hall de entrada e o Dormitório I preservado com mobiliário e arquitetura de época.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-500 mr-2.5 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-800">Fluxo Médio:</strong> Cerca de 700 visitantes/dia durante a semana e mais de 1.000 pessoas nos fins de semana e feriados.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-800 mb-4 flex items-center">
+                            <i class="fas fa-lightbulb mr-2 text-amber-500"></i> Dicas para Sua Experiência
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                            Por estar situado em frente à Praça XV de Novembro, o ideal é combinar a visita ao Palacete com um passeio a pé pelo conjunto do Quarteirão Paulista e pela Catedral Metropolitana.
+                        </p>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            A luz do final de tarde valoriza as cores da fachada restaurada para fotografias incríveis.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 flex items-center text-xs text-slate-500">
+                        <i class="fas fa-info-circle mr-1.5 text-blue-500"></i>
+                        <span>O espaço conta com exposições culturais rotativas e eventos de arte.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teia Semântica: Circuito Centro Histórico a Pé -->
+        <section class="mb-14">
+            <div class="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-6 md:p-8">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                    <span class="text-amber-800 font-bold text-xs uppercase tracking-wider">Roteiro a Pé Integrado</span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-3">Circuito do Café no Centro Histórico</h3>
+                <p class="text-slate-600 text-sm mb-6 max-w-3xl">
+                    O Palacete Camilo de Mattos, o Theatro Pedro II e a Catedral Metropolitana formam um triângulo histórico de menos de 5 minutos de caminhada. Você visita os três patrimônios sem precisar de carro ou transporte extra.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <!-- Link para Pedro II -->
+                    <a href="./teatro-dom-pedro.html" class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-slate-200 hover:border-amber-400 card-hover">
+                        <div class="w-12 h-12 rounded-lg bg-indigo-900 text-amber-400 flex items-center justify-center text-xl shrink-0">
+                            <i class="fas fa-theater-masks"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h4 class="font-bold text-slate-900 text-sm">Theatro Pedro II</h4>
+                                <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">A 2 min a pé</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-0.5">3º maior teatro de ópera do país, cúpula de Tomie Ohtake e OSRP.</p>
+                        </div>
+                    </a>
+
+                    <!-- Link para Catedral -->
+                    <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-slate-200 hover:border-amber-400 card-hover">
+                        <div class="w-12 h-12 rounded-lg bg-amber-800 text-amber-200 flex items-center justify-center text-xl shrink-0">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h4 class="font-bold text-slate-900 text-sm">Catedral Metropolitana de São Sebastião</h4>
+                                <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">A 3 min a pé</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-0.5">Neogótico de 1917 com afrescos originais de Benedito Calixto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Chegar & Linhas de Ônibus -->
+        <section class="mb-14">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                <i class="fas fa-bus-alt mr-3 text-blue-600"></i> Como Chegar de Transporte Coletivo
+            </h2>
+
+            <!-- Mapa Leaflet -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-6">
+                <h3 class="font-bold text-base text-slate-800 mb-2">Localização no Centro</h3>
+                <p class="text-xs text-slate-500 mb-4">Esquina da Rua Duque de Caxias com Rua Tibiriçá (em frente à Praça XV de Novembro)</p>
+                <div id="map" class="h-64 rounded-lg border border-slate-200 mb-3"></div>
+                <p class="text-xs text-slate-500 text-center flex items-center justify-center">
+                    <i class="fas fa-map-marker-alt text-rose-500 mr-1.5"></i>
+                    Rua Duque de Caxias, 625 - Centro, Ribeirão Preto - SP | CEP: 14015-020
+                </p>
+            </div>
+
+            <!-- Linhas de Ônibus Confirmadas -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h3 class="font-bold text-base text-slate-800 mb-1">Linhas Urbanas com Parada no Entorno</h3>
+                <p class="text-xs text-slate-500 mb-4">
+                    Paradas da Rua Duque de Caxias, Rua Tibiriçá e Terminal Praça da Bandeira (a menos de 3 minutos de caminhada):
+                </p>
+
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    <a href="../../ribeirao/linhas/linha-303-bom-pastor.html" class="flex items-center p-3 bg-blue-50/70 hover:bg-blue-100/70 rounded-lg border border-blue-100 transition-colors">
+                        <i class="fas fa-bus text-blue-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 303 - Bom Pastor</p>
+                            <p class="text-[11px] text-gray-500">Parada Praça XV</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-730-pq-portinari.html" class="flex items-center p-3 bg-purple-50/70 hover:bg-purple-100/70 rounded-lg border border-purple-100 transition-colors">
+                        <i class="fas fa-bus text-purple-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 730 - Pq. Portinari</p>
+                            <p class="text-[11px] text-gray-500">Corredor Norte-Sul</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-315-campos-eliseos-bonfim.html" class="flex items-center p-3 bg-teal-50/70 hover:bg-teal-100/70 rounded-lg border border-teal-100 transition-colors">
+                        <i class="fas fa-bus text-teal-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 315 - C. Elíseos / Bonfim</p>
+                            <p class="text-[11px] text-gray-500">Atende a região central</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-337-lagoinha-ipiranga.html" class="flex items-center p-3 bg-amber-50/70 hover:bg-amber-100/70 rounded-lg border border-amber-100 transition-colors">
+                        <i class="fas fa-bus text-amber-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 337 - Lagoinha / Ipiranga</p>
+                            <p class="text-[11px] text-gray-500">Ligação Leste-Oeste</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-204-city-ribeirao.html" class="flex items-center p-3 bg-rose-50/70 hover:bg-rose-100/70 rounded-lg border border-rose-100 transition-colors">
+                        <i class="fas fa-bus text-rose-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 204 - City Ribeirão</p>
+                            <p class="text-[11px] text-gray-500">Conexão Zona Sul</p>
+                        </div>
+                    </a>
+
+                    <a href="../../ribeirao/linhas/linha-708-jd-heitor-rigon.html" class="flex items-center p-3 bg-emerald-50/70 hover:bg-emerald-100/70 rounded-lg border border-emerald-100 transition-colors">
+                        <i class="fas fa-bus text-emerald-600 mr-2.5 text-base"></i>
+                        <div class="text-left">
+                            <p class="font-semibold text-gray-800 text-xs">Linha 708 - Jd. Heitor Rigon</p>
+                            <p class="text-[11px] text-gray-500">Acesso rápido Centro</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mt-5 pt-4 border-t border-slate-100 flex flex-wrap gap-4 justify-center items-center">
+                    <a href="../../ribeirao/linhas/" class="inline-flex items-center text-xs font-semibold text-blue-600 hover:text-blue-800">
+                        <i class="fas fa-list-ul mr-1.5"></i> Catálogo completo de 113 linhas
+                    </a>
+                    <span class="text-slate-300">•</span>
+                    <a href="../../ribeirao/linhas/mapa.html" class="inline-flex items-center text-xs font-semibold text-amber-600 hover:text-amber-800">
+                        <i class="fas fa-map-marked-alt mr-1.5"></i> Ver traçados no Mapa Geral
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gastronomia e Comércio do Entorno (Espaço de Monetização) -->
+        <section class="mb-14">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                <i class="fas fa-utensils mr-3 text-amber-600"></i> No Entorno do Palacete
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Choperia Pinguim -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2 py-0.5 rounded">Patrimônio Gastronômico</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2 flex items-center">
+                        <i class="fas fa-beer mr-2 text-amber-500"></i> Choperia Pinguim (Quarteirão Paulista)
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                        Localizada no térreo do Edifício Diederichsen, no mesmo quarteirão do Palacete, é parada tradicional de quem visita o centro histórico para apreciar o tradicional chopp com petiscos e pratos típicos.
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        <i class="fas fa-map-marker-alt mr-1"></i> Rua General Osório, 389 — Centro
+                    </p>
+                </div>
+
+                <!-- Espaço de Patrocínio / Anúncio Local -->
+                <div class="bg-gradient-to-br from-slate-100 to-amber-50/50 p-6 rounded-xl border border-dashed border-amber-300 flex flex-col justify-between text-center md:text-left">
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-2 py-0.5 rounded">Espaço Comercial</span>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2">
+                            Seu Estabelecimento no Guia Oficial
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Possui cafeteria, restaurante, hotel ou comércio no Centro de Ribeirão Preto? Destaque sua marca para milhares de moradores e turistas que consultam nosso guia diariamente.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-amber-200/60 flex items-center justify-between text-xs">
+                        <span class="text-slate-500">Parcerias e Anúncios</span>
+                        <span class="text-amber-700 font-bold">Anuncie Conosco</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Espaço Publicitário Meio -->
+    <div class="bg-slate-100 border-y border-slate-200 py-4 my-8">
+        <div class="container mx-auto px-4 flex items-center justify-center">
+            <div class="w-full max-w-4xl h-24 bg-slate-200/70 border border-dashed border-slate-300 rounded flex items-center justify-center text-xs text-slate-500">
+                <i class="fas fa-ad mr-2 text-slate-400"></i> Espaço Publicitário — Google AdSense / Anuncie Aqui
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Oficial -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 mr-2"></span>
+                        Palacete Camilo de Mattos
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Patrimônio cultural e arquitetônico de Ribeirão Preto. Monumento vivo do apogeu cafeeiro de 1922 aberto para visitação pública.
+                    </p>
+                    <p class="text-slate-400 text-sm">
+                        <i class="fas fa-map-pin mr-2 text-amber-400"></i> Rua Duque de Caxias, 625 - Centro
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Circuito Cultural</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="./teatro-dom-pedro.html" class="hover:text-amber-400 transition-colors">Theatro Pedro II</a></li>
+                        <li><a href="./" class="hover:text-amber-400 transition-colors">Catedral Metropolitana de São Sebastião</a></li>
+                        <li><a href="./" class="hover:text-amber-400 transition-colors">Quarteirão Paulista & Pinguim</a></li>
+                        <li><a href="./" class="hover:text-amber-400 transition-colors">Biblioteca Sinhá Junqueira</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Guia Ribeirão Preto</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Portal independente de utilidade pública, patrimônio histórico e mobilidade urbana na cidade de Ribeirão Preto - SP.
+                    </p>
+                    <div class="flex space-x-3 text-sm">
+                        <a href="./" class="text-amber-400 hover:underline">Pontos Turísticos</a>
+                        <span class="text-slate-600">•</span>
+                        <a href="../../ribeirao/linhas/" class="text-amber-400 hover:underline">Horários de Ônibus</a>
+                        <span class="text-slate-600">•</span>
+                        <a href="../../ribeirao/linhas/mapa.html" class="text-amber-400 hover:underline">Mapa Geral</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-xs text-slate-500">
+                <p class="mb-1">© 2026 Ribeirão Preto — Guia da Cidade Viva. Conteúdo de utilidade pública e patrimônio histórico.</p>
+                <p>As informações históricas e de visitação são apuradas junto a fontes oficiais e aos gestores do patrimônio.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Inicialização do mapa no Palacete Camilo de Mattos
+        var map = L.map('map', { scrollWheelZoom: false }).setView([-21.1769, -47.8112], 16);
+        
+        // Tile layer OSM
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        
+        // Marcador do Palacete
+        var marker = L.marker([-21.1769, -47.8112]).addTo(map);
+        marker.bindPopup('<b>Palacete Camilo de Mattos (1922)</b><br>Rua Duque de Caxias, 625 - Centro<br><small>Em frente à Praça XV de Novembro</small>').openPopup();
+
+        setTimeout(function() {
+            map.invalidateSize();
+        }, 400);
+    </script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["TouristAttraction", "LocalBusiness"],
+        "name": "Palacete Camilo de Mattos",
+        "description": "Construído em 1922 pelo ex-prefeito Joaquim Camilo de Mattos e tombado pelo patrimônio histórico de Ribeirão Preto em 2008. Restaurado em 2024 e aberto ao público para visitação cultural.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Duque de Caxias, 625",
+            "addressLocality": "Ribeirão Preto",
+            "addressRegion": "São Paulo",
+            "postalCode": "14015-020",
+            "addressCountry": "BR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -21.1769,
+            "longitude": -47.8112
+        },
+        "isAccessibleForFree": true,
+        "publicAccess": true
+    }
+    </script>
+</body>
+</html>
