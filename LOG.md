@@ -245,3 +245,15 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 15 páginas prontas compiladas com sucesso em `dist/`, aprovadas em contagem narrativa (> 400 palavras por serviço), Schema JSON-LD com GovernmentService + FAQPage e inclusão automática no `mapa-do-site.html`.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** G4 — Páginas de serviço 3 e 4.
+
+---
+
+## Bloco G4 — Páginas de Serviço 3 e 4
+* **Data/Hora:** 2026-10-03 14:12
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/servicos/telefones-uteis-e-emergencia.json` (guia completo de socorro e emergência: SAMU 192, Bombeiros 193, PM 190, GCM 153, RP Mobi 0800, Saerp 0800 e SAM 156).
+  - `content/paginas/servicos/postos-de-saude-ubs-upa.json` (guia da rede municipal de saúde: UPAs 24h Norte, Leste e Oeste, UBDS Vila Virgínia, triagem de Manchester, UBSs de bairro e farmácia municipal).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 17 páginas prontas compiladas com sucesso em `dist/`, sem links quebrados, com canonical absoluto, microdados Schema.org GovernmentService + FAQPage e inclusão automática no `mapa-do-site.html`.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** G5 — Páginas de serviço 5 e 6.
