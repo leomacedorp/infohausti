@@ -502,3 +502,19 @@
   - `scripts/audit_all.py`: **STATUS: OK** (todas as 7 checagens verdes, 0 erros fatais).
 * **Pendências novas:** Nenhuma.
 * **Próximo passo:** Submeter o relatório do Piloto C2 ao Leonardo para validação humana e autorização antes de qualquer avanço para C3 ou lotes em massa (C4–C15).
+
+---
+
+## Verificação de Paridade e Procedência da API Mobilibus (RP Mobi)
+* **Data/Hora:** 2026-10-03 15:48
+* **STATUS:** OK
+* **Arquivos criados:**
+  - `content/dados-fonte/verificacao-mobilibus-2026-10-03.json` (evidência bruta da consulta HTTP 200 à API Mobilibus `https://mobilibus.com/api/routes?project_id=614`).
+  - `scripts/verifica_api_mobilibus.py` (script automatizado de consulta e auditoria comparativa rota a rota).
+  - `content/dados-fonte/README-verificacao.md` (dossiê completo de procedência, confirmação de data exata de extração do banco em 27/08/2026 às 12:00:29 e atestação da Mobilibus como fonte primária operacional oficial).
+* **Resultado da auditoria:**
+  - Total no banco local: 113 rotas.
+  - Total na API ao vivo: 113 rotas.
+  - Divergências de ID: 0. Divergências de Nomes: 0. 100% de paridade factual confirmada.
+  - Confirmado que o banco já incorpora todas as alterações de rede pós-setembro/2025 e março/2026 (045 Vila do Golfe, 055 San Marco, 105 Sul Inter Shopping, 256 Iguatemi; e exclusão prévia das extintas 19, 33 e 501).
+* **Próximo passo:** Confirmação da política de linhas descontinuadas e início do Bloco C3.
