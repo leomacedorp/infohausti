@@ -447,3 +447,14 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 39 páginas prontas compiladas com perfeição em `dist/`, sem links quebrados, canonical absoluto, Schema CollectionPage / Article + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`. Conclusão formal de todo o **Bloco H (Roteiros — 6 páginas)**!
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** CHECKPOINT 1 — Revisão humana formal de 10% do lote (mínimo 3 páginas) documentada em reports/revisao-humana-lote1.md.
+
+---
+
+## ⛔ CHECKPOINT 1 — Revisão Humana de 10% do Lote 1 Concluída com Sucesso
+* **Data/Hora:** 2026-10-03 14:33
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `reports/revisao-humana-lote1.md` (conferência factual de 4 páginas representativas: `servicos/tarifa-e-cartao-nosso`, `pontos/palacete-camilo-de-mattos`, `pontos/marp` e `roteiros/centro-historico`, com 3 dados factuais validados por página contra fontes primárias).
+* **Resultado da auditoria:** Suíte `audit_all.py` 100% verde (STATUS: OK). 39 páginas ativas e compiladas sem links quebrados, microdados Schema.org íntegros, canonical absoluto e regras de similaridade respeitadas. Todos os blocos do Lote 1 (Bloco A - Fundação, Bloco G - Serviços, Bloco B - Turismo e Bloco H - Roteiros) estão 100% completos e validados.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** LOTE 2 (Bloco C — Linhas de Ônibus) ou Relatório Final de Conclusão do Lote 1 por e-mail para infohausti@gmail.com.
