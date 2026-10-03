@@ -269,3 +269,14 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 19 páginas prontas compiladas com sucesso em `dist/`, sem links quebrados, com canonical absoluto, microdados Schema.org GovernmentService + FAQPage e inclusão automática no `mapa-do-site.html`.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** G6 — Hub de Serviços (servicos/index).
+
+---
+
+## Bloco G6 — Hub de Serviços Públicos (servicos/index)
+* **Data/Hora:** 2026-10-03 14:14
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/servicos/index.json` (hub central com visão de descentralização e cards conectando todos os 6 serviços públicos municipais e estaduais).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 20 páginas prontas compiladas com sucesso em `dist/`, com sitemap.xml e search-index.json atualizados para 20 URLs. Conclusão formal de todo o **Bloco G (Serviços Públicos)**!
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** BLOCO B — Turismo (B1 — Consolidar os dossiês dos 6 pontos já levantados no formato da seção 4).
