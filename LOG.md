@@ -310,3 +310,15 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 22 páginas prontas compiladas com sucesso em `dist/`, sem links quebrados, com canonical absoluto, microdados Schema.org TouristAttraction + FAQPage e inclusão automática no `mapa-do-site.html`.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** B5 — 2 pontos com dossiê (MARP e Biblioteca Sinhá Junqueira).
+
+---
+
+## Bloco B5 — MARP e Biblioteca Sinhá Junqueira
+* **Data/Hora:** 2026-10-03 14:19
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/ribeirao-preto/pontos-turisticos/marp.json` (página completa com +850 palavras narrativas, edifício histórico de 1908 da Sociedade Recreativa, SARP, acervo de +1.700 obras, linhas de transporte e atrações próximas).
+  - `content/paginas/ribeirao-preto/pontos-turisticos/biblioteca-sinha-junqueira.json` (página completa com +850 palavras narrativas, solar de 1932, anexo moderno de 2020, acervo de 11.000 volumes, 15 salas temáticas, cafeteria, FAQ e conexões com Theatro Pedro II e Palacete Camilo de Mattos).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 24 páginas prontas compiladas perfeitamente em `dist/`, sem links quebrados, canonical absoluto, Schema TouristAttraction + FAQPage e inclusão automática no `mapa-do-site.html` e `sitemap.xml`.
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** B6 — Catedral Metropolitana e Parque Curupira.
