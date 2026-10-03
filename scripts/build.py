@@ -198,6 +198,146 @@ def resolve_internal_links(html, ready_slugs, dist_dir):
 
     return re.sub(r'<a\s+[^>]*?href=["\']([^"\']+)["\'][^>]*?>(.*?)</a>', replace_link, html, flags=re.DOTALL | re.IGNORECASE)
 
+def generate_mapa_do_site(ready_pages, config, env, ready_slugs):
+    """
+    Gera automaticamente mapa-do-site.html a partir das páginas com status 'pronta' (Bloco A13)
+    Garante que o mapa-do-site liste exclusivamente páginas existentes.
+    """
+    dominio_base = config.get('dominio_base', 'https://infohausti.com.br')
+
+    categorias = {
+        "Institucional & Transparência": [],
+        "Normas Legais & Privacidade": [],
+        "Hubs & Portais": [],
+        "Pontos Turísticos & Patrimônio": [],
+        "Mobilidade & Linhas de Ônibus": [],
+        "Serviços Públicos": [],
+        "Roteiros Temáticos": [],
+        "Outras Páginas": []
+    }
+
+    for page in ready_pages:
+        slug = page.get('slug', '')
+        if slug in ('404', 'mapa-do-site'):
+            continue
+        titulo = page.get('titulo', slug)
+        desc = page.get('descricao', '')
+        rel_url = f"/{slug}.html" if slug != 'index' else "/"
+        item = {"titulo": titulo, "url": rel_url, "descricao": desc}
+
+        if slug in ('sobre', 'equipe', 'politica-editorial', 'acessibilidade', 'contato', 'imprensa', 'anuncie'):
+            categorias["Institucional & Transparência"].append(item)
+        elif slug in ('privacidade', 'cookies', 'termos-de-uso'):
+            categorias["Normas Legais & Privacidade"].append(item)
+        elif 'index' in slug:
+            categorias["Hubs & Portais"].append(item)
+        elif 'ponto' in slug or 'turismo' in slug:
+            categorias["Pontos Turísticos & Patrimônio"].append(item)
+        elif 'linha' in slug or 'transporte' in slug:
+            categorias["Mobilidade & Linhas de Ônibus"].append(item)
+        elif 'servico' in slug:
+            categorias["Serviços Públicos"].append(item)
+        elif 'roteiro' in slug:
+            categorias["Roteiros Temáticos"].append(item)
+        else:
+            categorias["Outras Páginas"].append(item)
+
+    html_parts = [
+        '<article class="prose prose-slate max-w-none">',
+        '  <header class="mb-8">',
+        '    <p class="text-xs font-semibold uppercase tracking-wider text-amber-600 mb-2">Estrutura & Navegação</p>',
+        '    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">Mapa do Site — Índice Geral</h1>',
+        '    <p class="text-lg text-slate-600 leading-relaxed">Relação completa, estruturada e atualizada de todas as páginas ativas e auditadas publicadas no portal Ribeirão Preto — Cidade Viva.</p>',
+        '  </header>',
+        '  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">'
+    ]
+
+    for cat_nome, itens in categorias.items():
+        if itens:
+            html_parts.append('    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">')
+            html_parts.append(f'      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100">{cat_nome}</h2>')
+            html_parts.append('      <ul class="space-y-3 text-sm">')
+            for it in itens:
+                html_parts.append('        <li>')
+                html_parts.append(f'          <a href="{it["url"]}" class="font-bold text-blue-700 hover:underline">{it["titulo"]}</a>')
+                if it["descricao"]:
+                    html_parts.append(f'          <p class="text-xs text-slate-500 mt-0.5">{it["descricao"]}</p>')
+                html_parts.append('        </li>')
+            html_parts.append('      </ul>')
+            html_parts.append('    </div>')
+
+    html_parts.append('  </div>')
+    html_parts.append('</article>')
+
+    conteudo_html = "\n".join(html_parts)
+
+    page_data = {
+        "slug": "mapa-do-site",
+        "template": "base.html",
+        "schema_type": "WebPage",
+        "titulo": "Mapa do Site | Ribeirão Preto — Cidade Viva",
+        "h1": "Mapa do Site — Índice Geral",
+        "descricao": "Índice completo e atualizado de todas as páginas públicas ativas do portal Ribeirão Preto — Cidade Viva.",
+        "status": "pronta",
+        "publicado": datetime.now().strftime('%Y-%m-%d'),
+        "atualizado": datetime.now().strftime('%Y-%m-%d'),
+        "proxima_revisao": "2027-10-03",
+        "breadcrumbs": [
+            {"nome": "Início", "url": f"{dominio_base}/"},
+            {"nome": "Mapa do Site", "url": f"{dominio_base}/mapa-do-site.html"}
+        ],
+        "fontes": [
+            {"titulo": "Estrutura Canônica de URLs Infohaus RP", "url": f"{dominio_base}/sitemap.xml", "data": datetime.now().strftime('%Y-%m-%d')}
+        ],
+        "conteudo_html": conteudo_html
+    }
+
+    canonical_url = f"{dominio_base}/mapa-do-site.html"
+    schema_json = build_schema_graph(page_data, config, canonical_url)
+
+    autor_global = load_json(CONTENT_DIR / 'autor.json', {})
+    context = {
+        "base_url": "",
+        "canonical_url": canonical_url,
+        "site_nome": config.get('nome_site', 'Ribeirão Preto | Cidade Viva'),
+        "titulo": page_data['titulo'],
+        "descricao": page_data['descricao'],
+        "keywords": "mapa do site ribeirao preto, indice ribeirao viva",
+        "h1": page_data['h1'],
+        "autor_nome": autor_global.get('nome', 'Leonardo A. Macedo'),
+        "autor_bio": autor_global.get('bio', ''),
+        "autor_foto": autor_global.get('foto', ''),
+        "autor_cargo": autor_global.get('cargo', 'Curador Editorial'),
+        "autor_formacao": autor_global.get('formacao', ''),
+        "autor_experiencia": autor_global.get('experiencia', ''),
+        "autor_global": autor_global,
+        "revisor_nome": "Leonardo A. Macedo",
+        "publicado_em": page_data['publicado'],
+        "atualizado_em": page_data['atualizado'],
+        "proxima_revisao": page_data['proxima_revisao'],
+        "versao": config.get('versao', '1.0.0'),
+        "email_contato": config.get('email_contato', 'infohausti@gmail.com'),
+        "email_correcoes": config.get('email_correcoes', 'infohausti@gmail.com'),
+        "fontes": page_data['fontes'],
+        "breadcrumbs": page_data['breadcrumbs'],
+        "schema_json": schema_json,
+        "correcoes_pagina": [],
+        "active_nav": '',
+        "ready_slugs": ready_slugs,
+        "conteudo_html": conteudo_html
+    }
+
+    template = env.get_template('templates/base.html')
+    rendered_html = template.render(**context)
+    rendered_html = resolve_internal_links(rendered_html, ready_slugs, DIST_DIR)
+
+    out_file = DIST_DIR / "mapa-do-site.html"
+    with open(out_file, 'w', encoding='utf-8') as f:
+        f.write(rendered_html)
+    print(f"[+] Mapa do site gerado dinamicamente: {out_file.relative_to(ROOT_DIR)}")
+
+    return page_data
+
 def main():
     print("==================================================")
     print("   MOTOR DE COMPILAÇÃO INFOHAUS RP (build.py)    ")
@@ -344,7 +484,19 @@ def main():
 
         print(f"[+] Renderizado: {out_file.relative_to(ROOT_DIR)}")
 
-    # 8. Gera sitemap e índice de busca
+    # 8. Bloco A13: Gera mapa-do-site.html a partir das páginas prontas
+    mapa_page = generate_mapa_do_site(ready_pages, config, env, ready_slugs)
+    if mapa_page:
+        ready_pages.append(mapa_page)
+
+    # 9. Sincroniza root index.html a partir de ribeirao-preto/index.html se necessário
+    rp_index = DIST_DIR / "ribeirao-preto" / "index.html"
+    root_index = DIST_DIR / "index.html"
+    if rp_index.exists() and not root_index.exists():
+        shutil.copy2(rp_index, root_index)
+        print(f"[+] Root dist/index.html sincronizado a partir de {rp_index.relative_to(ROOT_DIR)}")
+
+    # 10. Gera sitemap e índice de busca
     generate_sitemap(ready_pages, config)
     generate_search_index(ready_pages, config)
 

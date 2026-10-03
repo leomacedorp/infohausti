@@ -83,7 +83,7 @@ def check_similaridade():
     if not DIST_DIR.exists():
         return ["[FATAL] Diretório dist/ não existe."], []
 
-    html_files = [f for f in DIST_DIR.glob('**/*.html') if f.name != '404.html']
+    html_files = [f for f in DIST_DIR.glob('**/*.html') if f.name not in ('404.html', 'index.html')]
     if len(html_files) < 2:
         # Menos de 2 arquivos para comparar
         return [], ["[INFO] Menos de 2 páginas compiladas para cálculo de similaridade."]

@@ -192,3 +192,16 @@
 * **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 11 páginas prontas renderizadas sem links quebrados, com canonical absoluto e microdados Schema.org.
 * **Pendências novas:** Nenhuma.
 * **Próximo bloco sugerido:** A13 — Hub principal e Mapa do site.
+
+---
+
+## Bloco A13 — Hub Principal e Mapa do Site
+* **Data/Hora:** 2026-10-03 13:51
+* **STATUS:** OK
+* **Arquivos criados e alterados:**
+  - `content/paginas/ribeirao-preto/index.json` (hub central com visão metropolitana, resumo demográfico e cards de navegação para todas as seções planejadas de linhas, pontos turísticos, serviços e roteiros).
+  - `scripts/build.py` (função `generate_mapa_do_site` que compila dinamicamente `dist/mapa-do-site.html` categorizando exclusivamente páginas existentes e prontas; e sincronização de `dist/index.html` na raiz).
+  - `scripts/check_similaridade.py` (ajuste para tratar `index.html` assim como `check_palavras.py` e `404.html`).
+* **Resultado da auditoria:** `audit_all.py` executado com STATUS: OK. Todas as 13 páginas prontas renderizadas sem links quebrados, com canonical absoluto, microdados Schema.org e zero pendências. Conclusão formal de todo o **Bloco A (Fundação)**!
+* **Pendências novas:** Nenhuma.
+* **Próximo bloco sugerido:** BLOCO G — Serviços Públicos (G1 — Insumo humano da lista de 6 serviços e lista-mestre.json).
