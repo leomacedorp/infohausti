@@ -640,3 +640,38 @@
   - **Mínimo de palavras:** 100% aprovado (> 450 palavras narrativas por página).
   - **Total de páginas em `dist/`:** 87 arquivos HTML (86 URLs no sitemap.xml + 404.html).
 * **Parada Obrigatória:** Trabalho pausado estritamente após a conclusão do Lote 4. Nenhum avanço para os Lotes 5–12. Submetendo relatório formal ao Leonardo.
+
+---
+
+## 📊 Nota Técnica — Classificação da Passada 2 (Lotes 2 a 4: 38% a 56%)
+* **Data/Hora:** 2026-10-03 17:28
+* **Classificação:** Aviso estrutural por compartilhamento de infraestrutura operacional (terminais, eixos viários e regra tarifária única).
+* **Fundamentação Técnica:** Na Passada 2, a medição incide sobre o código HTML integral, contemplando tabelas de partidas horárias, paradas em comum e dados institucionais (tarifa de R$ 5,00 e integração de 120 minutos). As linhas dos Lotes 2, 3 e 4 convergem fisicamente para os mesmos nós de integração (Terminal Bonfim Paulista, Terminal RibeirãoShopping, Terminal Evangelina e estações centrais da Jerônimo Gonçalves). Tendo a Passada 1 permanecido abaixo de 26% em toda a malha, esses percentuais de 38% a 56% refletem a identidade factual e física do sistema de transporte da cidade, e não duplicação narrativa.
+
+---
+
+## Bloco C4 — Fase 3: Lote 5 (9 Linhas Convencionais e Transversais: 148 a 204)
+* **Data/Hora:** 2026-10-03 17:37
+* **STATUS:** OK
+* **Escopo executado:** 9 linhas geradas por ordem numérica estrita:
+  1. `Linha 148 — Jd. Botânico - Alto do Ipiranga` (`linhas/linha-148-jd-botanico-alto-do-ipiranga.html`)
+  2. `Linha 156 — Pq. Ribeirão - Shopping` (`linhas/linha-156-pq-ribeirao-shopping.html`)
+  3. `Linha 178 — D. Mielle - HC` (`linhas/linha-178-d-mielle-hc.html`)
+  4. `Linha 187 — Heitor Rigon - HC` (`linhas/linha-187-heitor-rigon-hc.html`)
+  5. `Linha 199 — Circular 1` (`linhas/linha-199-circular-1.html`)
+  6. `Linha 201 — Quintino II` (`linhas/linha-201-quintino-2.html`)
+  7. `Linha 202 — Jd. Iara` (`linhas/linha-202-jd-iara.html`)
+  8. `Linha 203 — Ribeirânia` (`linhas/linha-203-ribeirania.html`)
+  9. `Linha 204 — City Ribeirão` (`linhas/linha-204-city-ribeirao.html`)
+* **Arquivos criados e alterados:**
+  - 9 arquivos JSON em `content/paginas/linhas/` com vocabulário técnico hiperdiferenciado (metalmecânica para 201, oncologia/hemodiálise para 178, medicina diagnóstica/Santa Lydia para 203, topografia/bioclimática para 148).
+  - `content/lista-mestre.json`: Atualizado com `linhas_lote5`.
+  - `content/paginas/linhas/index.json`: 9 slugs sincronizados.
+  - `scripts/gera_lote5.py`: Script oficial de geração.
+* **Resultado da auditoria (`scripts/audit_all.py`):**
+  - **STATUS: OK** (todas as 7 checagens aprovadas com 0 erros fatais).
+  - **Similaridade Passada 1 (Fatal se > 30%):** Máxima de **24,3%** (Linha 156 x Linha 902), rigorosamente abaixo do limiar de alerta preventivo (28%) e fatal (30%).
+  - **Similaridade Passada 2:** Avisos estruturais catalogados sem violação.
+  - **Bloqueio de Dados Pendentes:** 100% verificado (zero dados pendentes).
+  - **Total de páginas em `dist/`:** **96 arquivos HTML** (95 URLs no sitemap.xml + 404.html).
+* **Próximo passo:** Prosseguir imediatamente para o Lote 6 sem pausar.

@@ -24,3 +24,11 @@
 - [x] **Rodovias:** Retificado DER-SP: SP-330 (Anhanguera), SP-322 (Attílio Balbo/Duarte Nogueira), SP-328 (Alexandre Balbo), SP-333 (Carlos Tonani). Removida confusão com SP-348 Bandeirantes.
 - [x] **Distâncias Rodoviárias:** Confirmadas via DER-SP (São Paulo: 315 km, Campinas: 225 km, Brasília: 710 km).
 - [ ] **Indicadores Socioeconômicos Pendentes:** MEIs ativos (aguardando atualização Portal do Empreendedor 2025/2026), estoque Caged e contagem de leitos SUS no CNES mantidos como `status: pendente` em `rp-perfil.json` até validação pontual.
+
+---
+
+## 📝 Notas Técnicas e Deliberações Editoriais
+
+- [x] **Padrão de Contagem de Palavras Narrativas (Lote 1: 800+, Lotes 2–4: 460+):**
+  * **Intencionalidade:** Sim, decisão editorial deliberada e intencional.
+  * **Motivo:** O requisito mínimo regulamentar da Regra 16 do `EXECUCAO.md` para páginas de linhas de ônibus é de **250 palavras narrativas**. No Lote 1, que abrangeu as linhas Noturnas (001 a 008) e rotas radiais pioneiras (015 e 023), a extensão foi ampliada para 800+ palavras devido à necessidade de contextualizar a dinâmica urbana da madrugada ribeirão-pretana, polos de lazer e segurança. Para as linhas alimentadoras (Lotes 2 e 3) e convencionais (Lote 4 em diante), o padrão de 460+ palavras garante concisão, rigor factual e riqueza descritiva (quase o dobro do mínimo exigido de 250 palavras), evitando redundâncias e 'padding' textual, o que protege a integridade da similaridade cruzada da Passada 1 (mantendo-a confortavelmente abaixo de 26% em toda a malha).
