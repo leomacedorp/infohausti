@@ -347,6 +347,101 @@ def check_fontes_factuais_suite():
           f'{len(fatals)} fatal(is), {len(avisos)} aviso(s)')
     return fatals, avisos
 
+# ---------- PONTOS TURÍSTICOS (Verificação Urgente item 2 — Leo, 05/10/2026) ----------
+PONTOS_PAGS_DIR = ROOT / 'content' / 'paginas' / 'ribeirao-preto' / 'pontos-turisticos'
+PONTOS_ALIAS = {'marp': 'marp-museu-de-arte', 'teatro-dom-pedro': 'theatro-pedro-ii'}
+PHONE_RE = re.compile(r'\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}')
+
+def _digitos_fone(s):
+    out = set()
+    for m in PHONE_RE.finditer(s or ''):
+        d = re.sub(r'\D', '', m.group(0))
+        if len(d) in (10, 11):
+            out.add(d)
+    return out
+
+def _flat(s):
+    return ' '.join(re.sub(r'[^\w]', ' ', norm(s)).split())
+
+def _dossie_ponto(stem):
+    nome = PONTOS_ALIAS.get(stem, stem)
+    p = FONTES / 'pontos' / f'{nome}.json'
+    if not p.exists():
+        return None
+    with open(p, encoding='utf-8') as f:
+        return json.load(f)
+
+def verifica_ponto(pag):
+    """Valida página de ponto turístico contra o dossiê em dados-fonte/pontos/.
+    Régua (Leo, 05/10/2026): NOME oficial (tokens específicos em h1+titulo),
+    TELEFONE (dígitos da página ⊆ dossiê; sem fonte no dossiê = FATAL),
+    ENDEREÇO e HORÁRIO (texto normalizado idêntico quando ambos existem).
+    Omissão na página é permitida (padrão fonte única — museu-do-cafe)."""
+    stem = (pag.get('slug') or '').split('/')[-1]
+    dos = _dossie_ponto(stem)
+    if dos is None:
+        return [], [f'AVISO-PONTO-SEM-DOSSIE: "{stem}" sem dossiê em dados-fonte/pontos/']
+    def g(k):
+        v = dos.get(k)
+        return v.get('valor') if isinstance(v, dict) else None
+    fatals, avisos = [], []
+    # 1. NOME OFICIAL (FATAL)
+    nome_d = g('nome') or ''
+    if nome_d:
+        alvo = set(_flat(pag.get('h1', '') + ' ' + pag.get('titulo', '')).split())
+        esp = tokens_especificos(nome_d)
+        if not (esp & alvo):
+            fatals.append(f'NOME-ERRADO: nome oficial "{nome_d}" não casa com '
+                          f'h1/título da página "{stem}".')
+    # 2. TELEFONE (FATAL)
+    tel_pag, tel_dos = pag.get('telefone'), g('telefone')
+    dp, dd = _digitos_fone(tel_pag), _digitos_fone(tel_dos)
+    if tel_pag and not dd:
+        fatals.append(f'TELEFONE-SEM-FONTE: "{tel_pag}" publicado sem telefone '
+                      f'no dossiê de "{stem}".')
+    elif dp and dd and not dp <= dd:
+        fatals.append(f'TELEFONE-ERRADO: página "{stem}" cita {sorted(dp)}; '
+                      f'dossiê: {sorted(dd)}.')
+    # 3. ENDEREÇO (FATAL)
+    end_pag = (pag.get('visita') or {}).get('endereco')
+    end_dos = g('endereco')
+    if end_pag and end_dos and _flat(end_pag) != _flat(end_dos):
+        fatals.append(f'ENDERECO-ERRADO: página "{stem}" diverge do endereço '
+                      f'verificado no dossiê.')
+    # 4. HORÁRIO (FATAL)
+    hor_pag = (pag.get('visita') or {}).get('horario')
+    hor_dos = g('horario_visita')
+    if hor_pag and hor_dos and _flat(hor_pag) != _flat(hor_dos):
+        fatals.append(f'HORARIO-ERRADO: página "{stem}" diverge do horário '
+                      f'verificado no dossiê.')
+    return fatals, avisos
+
+def check_pontos_factuais_suite(paginas_dir=None):
+    """Extensão aos pontos turísticos (Decisão Leo, 05/10/2026). Recebe
+    paginas_dir opcional apenas para fixtures de teste; a suíte usa o
+    caminho real. Retorna (fatals, avisos) no padrão do audit_all."""
+    fatals, avisos = [], []
+    base = Path(paginas_dir) if paginas_dir else PONTOS_PAGS_DIR
+    n = 0
+    for arq in sorted(base.glob('*.json')):
+        if arq.name == 'index.json':
+            continue
+        try:
+            with open(arq, encoding='utf-8') as f:
+                pag = json.load(f)
+        except Exception as e:
+            fatals.append(f'PONTO-JSON-INVALIDO: {arq.name}: {e}')
+            continue
+        if pag.get('status') != 'pronta':
+            continue
+        n += 1
+        f_l, a_l = verifica_ponto(pag)
+        fatals.extend(f_l)
+        avisos.extend(a_l)
+    print(f'[check_pontos_factuais_suite] {n} páginas de ponto, '
+          f'{len(fatals)} fatal(is), {len(avisos)} aviso(s)')
+    return fatals, avisos
+
 def main():
     arquivos = sorted(PAGINAS.glob('linha-*.json'))
     linhas_rel = []
