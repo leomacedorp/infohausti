@@ -67,7 +67,7 @@ def _bloco_visitante_igreja(horarios_str, secretaria=None, extra=None):
 # ---- 1. Basílica Santo Antônio de Pádua (abre com MISSAS) ────────────
 _sa = _v('basilica-santo-antonio-de-padua', 'nome')
 _p('basilica-santo-antonio-de-padua',
-   f'{_sa} em Ribeirão Preto | Cidade Viva',
+   f'{_sa} em Ribeirão Preto | Ribeirão Viva',
    f'{_sa}: Missas Diárias no Coração dos Campos Elíseos',
    f'Missas, confissões e atendimento espiritual na {_sa} de Ribeirão '
    f'Preto: horários completos por dia, telefone e endereço oficiais, '
@@ -185,7 +185,7 @@ _p('basilica-santo-antonio-de-padua',
 # ---- 2. Santuário N. Sra. do Rosário (abre com HISTÓRIA/santuário) ──
 _sr = _v('santuario-nossa-senhora-do-rosario', 'nome')
 _p('santuario-nossa-senhora-do-rosario',
-   f'{_sr} em Ribeirão Preto | Cidade Viva',
+   f'{_sr} em Ribeirão Preto | Ribeirão Viva',
    f'{_sr}: O Santuário Mariano de 1914 na Vila Tibério',
    f'História centenária, missas diárias e confissões do {_sr}: horários '
    f'completos e contatos oficiais verificados na Arquidiocese de Ribeirão Preto.',
@@ -282,7 +282,7 @@ _p('santuario-nossa-senhora-do-rosario',
 # ---- 3. Paróquia Santa Rita de Cássia (abre com COMUNIDADE) ──────────
 _sri = _v('paroquia-santa-rita-de-cassia', 'nome')
 _p('paroquia-santa-rita-de-cassia',
-   f'{_sri} em Ribeirão Preto | Cidade Viva',
+   f'{_sri} em Ribeirão Preto | Ribeirão Viva',
    f'{_sri}: Uma Comunidade de Fé que Não Para no Jardim Independência',
    f'A vida comunitária da {_sri}: missas diárias às 17h, secretaria e '
    f'telefones oficiais, verificados na Arquidiocese de Ribeirão Preto.',
@@ -374,7 +374,7 @@ _p('paroquia-santa-rita-de-cassia',
 # ---- 4. Paróquia Santa Teresinha Doutora (abre com LOCALIZAÇÃO) ──────
 _st = _v('paroquia-santa-teresinha-doutora', 'nome')
 _p('paroquia-santa-teresinha-doutora',
-   f'{_st} em Ribeirão Preto | Cidade Viva',
+   f'{_st} em Ribeirão Preto | Ribeirão Viva',
    f'{_st}: Quatro Missas de Domingo na Esquina da Av. Presidente Kennedy',
    f'Localização estratégica e grade completa da {_st}: missas, secretaria '
    f'até as 21h e contatos oficiais verificados na Arquidiocese.',
@@ -471,7 +471,7 @@ _p('paroquia-santa-teresinha-doutora',
 # ---- 5. Igreja São Benedito (abre com ARQUITETURA/ADORação) ──────────
 _sb = _v('igreja-sao-benedito', 'nome')
 _p('igreja-sao-benedito',
-   f'{_sb} em Ribeirão Preto | Cidade Viva',
+   f'{_sb} em Ribeirão Preto | Ribeirão Viva',
    f'{_sb}: Silêncio e Adoração Perpétua no Quarteirão Paulista',
    f'Templo Votivo de 1920 com adoração diária das 8h30 às 16h na Rua '
    f'Prudente de Morais: missas, contatos e horários verificados na Arquidiocese.',
@@ -567,7 +567,7 @@ _p('igreja-sao-benedito',
 # ---- 6. Paróquia Senhor Bom Jesus do Bonfim (abre com ROMARIA) ───────
 _bf = _v('paroquia-senhor-bom-jesus-do-bonfim', 'nome')
 _p('paroquia-senhor-bom-jesus-do-bonfim',
-   f'{_bf} em Bonfim Paulista | Cidade Viva',
+   f'{_bf} em Bonfim Paulista | Ribeirão Viva',
    f'{_bf}: A Matriz da Romaria no Distrito Histórico',
    f'Romaria de Nossa Senhora Aparecida e missas na matriz de 1898 de '
    f'Bonfim Paulista: horários, endereço e contatos verificados na Arquidiocese.',
@@ -661,7 +661,7 @@ _p('paroquia-senhor-bom-jesus-do-bonfim',
 # ---- 7. Teatro Municipal (abre com FICHA TÉCNICA/números) ───────────
 _tm = _v('teatro-municipal', 'nome')
 _p('teatro-municipal',
-   f'{_tm} em Ribeirão Preto | Cidade Viva',
+   f'{_tm} em Ribeirão Preto | Ribeirão Viva',
    f'{_tm}: 515 Lugares de Palco Italiano no Morro do São Bento',
    f'Ficha técnica oficial do {_tm}: auditório de 515 lugares, palco '
    f'italiano de 12 x 12 m, bilheteria externa e telefone, no portal da Prefeitura.',
@@ -755,7 +755,7 @@ _p('teatro-municipal',
 # ---- 8. Teatro de Arena (abre com FORMATO/conceito) ──────────────────
 _ta = _v('teatro-de-arena', 'nome')
 _p('teatro-de-arena',
-   f'{_ta} em Ribeirão Preto | Cidade Viva',
+   f'{_ta} em Ribeirão Preto | Ribeirão Viva',
    f'{_ta}: A Plateia Envolvente sob o Céu do São Bento',
    f'O formato de arena do {_ta}: palco central, plateia em volta e '
    f'espetáculos ao ar livre no Complexo Cultural do Morro do São Bento.',
@@ -850,7 +850,7 @@ _p('teatro-de-arena',
 # ---- 9. Centro Cultural Palace (abre com PRÊMIO/2026) ────────────────
 _cp = _v('centro-cultural-palace', 'nome')
 _p('centro-cultural-palace',
-   f'{_cp} em Ribeirão Preto | Cidade Viva',
+   f'{_cp} em Ribeirão Preto | Ribeirão Viva',
    f'{_cp}: O Palace Hotel Centenário Premiado pela Estado',
    f'Centenário em 2026 e Prêmio Governador do Estado para as Artes: '
    f'a trajetória do {_cp} no prédio tombado do antigo Palace Hotel.',
@@ -949,7 +949,7 @@ _p('centro-cultural-palace',
 # ---- 10. Sesc Ribeirão Preto (abre com INSTITUIÇÃO/rede) ─────────────
 _se = _v('sesc-ribeirao-preto', 'nome')
 _p('sesc-ribeirao-preto',
-   f'{_se} em Ribeirão Preto | Cidade Viva',
+   f'{_se} em Ribeirão Preto | Ribeirão Viva',
    f'{_se}: A Rede Cultural do Comércio na Rua Tibiriçá',
    f'Endereço oficial e programação mensal do {_se}, unidade do Sesc SP '
    f'no centro de Ribeirão Preto, verificada nas páginas oficiais.',
@@ -1035,7 +1035,7 @@ _p('sesc-ribeirao-preto',
 # ---- 11. Instituto Figueiredo Ferraz (abre com ENTRADA GRATUITA) ────
 _if = _v('instituto-figueiredo-ferraz', 'nome')
 _p('instituto-figueiredo-ferraz',
-   f'{_if} em Ribeirão Preto | Cidade Viva',
+   f'{_if} em Ribeirão Preto | Ribeirão Viva',
    f'{_if}: Arte Contemporânea Gratuita no Alto da Boa Vista',
    f'Entrada gratuita de terça a sábado no {_if}: endereço, horários e '
    f'telefones oficiais verificados no site da instituição.',
@@ -1121,7 +1121,7 @@ _p('instituto-figueiredo-ferraz',
 # ---- 12. MIS-RP ─────────────────────────────────────────────────────
 _mi = _v('mis-rp', 'nome')
 _p('mis-rp',
-   f'{_mi} em Ribeirão Preto | Cidade Viva',
+   f'{_mi} em Ribeirão Preto | Ribeirão Viva',
    f'{_mi}: Rádio, Cinema e Memória Audiovisual no Centro',
    f'Acervo pioneiro do rádio no interior, entrada gratuita e sessões de '
    f'cinema: o guia completo do MIS de Ribeirão Preto, com dados oficiais.',
@@ -1223,7 +1223,7 @@ _p('mis-rp',
 # ---- 13. Museu Histórico Plínio Travassos (abre com PATRONO) ─────────
 _mh = _v('museu-historico-plinio-travassos', 'nome')
 _p('museu-historico-plinio-travassos',
-   f'{_mh} — Temporariamente Fechado | Cidade Viva',
+   f'{_mh} — Temporariamente Fechado | Ribeirão Viva',
    f'{_mh}: O Legado de 1938 Fechado desde 2016',
    f'A história do museu fundado por Plínio Travassos dos Santos em 1938, '
    f'interditado desde março de 2016 no campus da USP, com dados oficiais.',
@@ -1326,7 +1326,7 @@ _p('museu-historico-plinio-travassos',
 # ---- 14. Casa da Memória Italiana (abre com FAMÍLIA) ─────────────────
 _cm = _v('casa-da-memoria-italiana', 'nome')
 _p('casa-da-memoria-italiana',
-   f'{_cm} em Ribeirão Preto | Cidade Viva',
+   f'{_cm} em Ribeirão Preto | Ribeirão Viva',
    f'{_cm}: O Palacete dos Biagi e a História dos Italianos',
    f'A casa de 1923-1925 onde viveu a família Biagi hoje guarda a memória '
    f'da imigração italiana: visitas mediadas, entrada livre e programação '
@@ -1431,7 +1431,7 @@ _p('casa-da-memoria-italiana',
 # ---- 15. Palácio Rio Branco ──────────────────────────────────────────
 _pr = _v('palacio-rio-branco', 'nome')
 _p('palacio-rio-branco',
-   f'{_pr} em Ribeirão Preto | Cidade Viva',
+   f'{_pr} em Ribeirão Preto | Ribeirão Viva',
    f'{_pr}: O Paço de 1917 em Obras de Restauro',
    f'História completa do {_pr}: pedra fundamental de 1915, salões '
    f'Nobre e Rosa, tombamento de 1988 e restauro iniciado em 2024.',
@@ -1530,7 +1530,7 @@ _p('palacio-rio-branco',
 # ---- 16. Mercado Municipal ───────────────────────────────────────────
 _me = _v('mercado-municipal', 'nome')
 _p('mercado-municipal',
-   f'{_me} em Ribeirão Preto | Cidade Viva',
+   f'{_me} em Ribeirão Preto | Ribeirão Viva',
    f'{_me}: Do Incêndio de 1942 ao Mercadão dos 152 Boxes',
    f'História completa do Mercado de 1900: incêndio de 1942, reinauguração '
    f'de 1958, obra de Vaccarini e horários atuais, com dados oficiais.',
@@ -1620,7 +1620,7 @@ _p('mercado-municipal',
 # ---- 17. Estação Barracão ────────────────────────────────────────────
 _eb = _v('estacao-barracao', 'nome')
 _p('estacao-barracao',
-   f'{_eb} em Ribeirão Preto | Cidade Viva',
+   f'{_eb} em Ribeirão Preto | Ribeirão Viva',
    f'{_eb}: O Galpão onde os Imigrantes Italianos Começaram no Brasil',
    f'A estação de 1900 que batizou dois bairros e cadastrou os imigrantes '
    f'da Mogiana: história, desativação de 2011 e vistoria federal de 2025.',
@@ -1708,7 +1708,7 @@ _p('estacao-barracao',
 # ---- 18. Estação Mogiana ─────────────────────────────────────────────
 _em = _v('estacao-mogiana', 'nome')
 _p('estacao-mogiana',
-   f'{_em} em Ribeirão Preto | Cidade Viva',
+   f'{_em} em Ribeirão Preto | Ribeirão Viva',
    f'{_em}: De Ramos de Azevedo ao Abandono, a Ferrovia que Fez a Cidade',
    f'A história da Mogiana em Ribeirão Preto: linha de 1883, estação de '
    f'1884 demolida em 1967 e o prédio de 1965 hoje abandonado na Av. Mogiana.',
