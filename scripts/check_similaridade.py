@@ -263,7 +263,7 @@ def check_similaridade(detailed=False):
 
         narrative_masked_corpus.append(masked_narrative)
         full_corpus.append(full_text)
-        file_names.append(f.relative_to(ROOT_DIR))
+        file_names.append(str(f.relative_to(ROOT_DIR)).replace("\\", "/"))
 
     # --- CAMADA 1: Editorial / Estrutural Mascarada (Fatal se > 30%, Aviso se > 25%) ---
     vectorizer_camada1 = TfidfVectorizer(min_df=1, stop_words=PORTUGUESE_STOP_WORDS)
