@@ -5,6 +5,8 @@ Valida afirmações factuais da narrativa de cada página de linha contra
 content/dados-fonte/linhas.json (+ pontos/, rp-perfil.json, lista-mestre.json).
 
 Aprovação: Leo, 03/10/2026 (regra 1.20 EXECUCAO.md).
+Integração à suíte audit_all.py como FATAL bloqueante (wrapper
+check_fontes_factuais_suite): Decisão 1 do Leo, 05/10/2026.
 
 Priorização FATAL (Ajuste 3):
   1. INSTITUICAO-INVENTADA  2. PLATAFORMA-ERRADA  3. VIA-ERRADA
@@ -312,6 +314,38 @@ def tipo_de(msg):
         if msg.startswith(t):
             return t
     return 'OUTROS'
+
+def check_fontes_factuais_suite():
+    """Wrapper Decisão 1 (Leo, 05/10/2026): integra este check à suíte
+    audit_all.py como FATAL bloqueante, retornando (fatals, avisos) no
+    padrão da suíte. Relatório detalhado segue via execução standalone
+    (main), que grava reports/check_fontes_factuais_<ts>.txt."""
+    fatals, avisos = [], []
+    arquivos = sorted(PAGINAS.glob('linha-*.json'))
+    for arq in arquivos:
+        try:
+            with open(arq, encoding='utf-8') as f:
+                pag = json.load(f)
+        except Exception as e:
+            fatals.append(f'FATUAIS-FONTES: {arq.name}: JSON inválido — {e}')
+            continue
+        num_pag = pag.get('linha_numero') or arq.stem.split('-')[1]
+        chave = None
+        for cand in (num_pag, str(int(num_pag)), num_pag.zfill(3)):
+            if cand in LINHAS_FONTE:
+                chave = cand
+                break
+        if chave is None:
+            # mesma régua do main(): página sem fonte em dados-fonte é
+            # reportada no relatório standalone, não fatal da suíte
+            continue
+        secoes = {k: v for k, v in (pag.get('secoes') or {}).items() if isinstance(v, str)}
+        f_l, a_l = verifica_linha(chave, LINHAS_FONTE[chave], secoes)
+        fatals.extend(f'[{chave}] {m}' for m in f_l)
+        avisos.extend(f'[{chave}] {m}' for m in a_l)
+    print(f'[check_fontes_factuais_suite] {len(arquivos)} páginas de linha, '
+          f'{len(fatals)} fatal(is), {len(avisos)} aviso(s)')
+    return fatals, avisos
 
 def main():
     arquivos = sorted(PAGINAS.glob('linha-*.json'))

@@ -124,5 +124,19 @@
       {{ secoes.roteiros | safe if secoes.roteiros else '<p class="text-slate-600 text-sm">Este ponto integra o circuito histórico e cultural de Ribeirão Preto.</p>' }}
     </div>
   </section>
+
+  <!-- 7. Seções Extras Dinâmicas (complementares às 6 fixas: igrejas, teatros, museus, prédios) -->
+  {% if secoes_extras %}
+    {% for sec in secoes_extras %}
+      {% if sec.titulo and sec.conteudo %}
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">{{ sec.titulo }}</h2>
+        <div class="text-slate-700 leading-relaxed space-y-4">
+          {{ sec.conteudo | safe }}
+        </div>
+      </section>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 </article>
 {% endblock %}

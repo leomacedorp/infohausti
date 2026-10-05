@@ -36,6 +36,7 @@ try:
     from check_palavras import check_palavras
     from check_qualidade_texto import check_qualidade_texto
     from check_dist_stale import check_dist_stale
+    from check_fontes_factuais import check_fontes_factuais_suite
 except ImportError:
     # Adiciona pasta scripts ao path
     sys.path.insert(0, str(ROOT_DIR / 'scripts'))
@@ -48,6 +49,7 @@ except ImportError:
     from check_palavras import check_palavras
     from check_qualidade_texto import check_qualidade_texto
     from check_dist_stale import check_dist_stale
+    from check_fontes_factuais import check_fontes_factuais_suite
 
 def run_full_audit():
     print("==================================================")
@@ -67,7 +69,8 @@ def run_full_audit():
         ("Bloqueio de Dados Pendentes", check_pendentes),
         ("Mínimos de Palavras por Template", check_palavras),
         ("Qualidade Editorial e Anti-Spinning", check_qualidade_texto),
-        ("Dist Stale (dist em dia com content)", check_dist_stale)
+        ("Dist Stale (dist em dia com content)", check_dist_stale),
+        ("Fontes Factuais (linhas)", check_fontes_factuais_suite)
     ]
 
     for name, check_fn in checks:

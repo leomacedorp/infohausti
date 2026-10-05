@@ -829,3 +829,31 @@ informativo; a similaridade é do fato, não da redação) e Camada 2 (lexical c
 **Próximos passos:**
 1. Revisão humana de 10% (regra 18) — Leo confere 7 páginas.
 2. Bloco D (Bairros) destravado — D1 template + dossiês dos 10 bairros.
+
+---
+
+## 05/10/2026 — PREPARAÇÃO DO PIPELINE PARA EXPANSÃO (Decisões 1, 2 e 3 do Leo)
+
+**Decisão 1 — check_fontes_factuais integrado à suíte (FATAL bloqueante):**
+* Wrapper `check_fontes_factuais_suite()` criado em `scripts/check_fontes_factuais.py`
+  retornando `(fatals, avisos)` no padrão da suíte; registrado no `audit_all.py`.
+* Régua preservada: 5 prioridades fatais, avisos não bloqueiam; páginas sem fonte em
+  dados-fonte seguem para o relatório standalone (main), sem virar fatal da suíte.
+* Execução standalone preservada (relatório detalhado em reports/).
+
+**Decisão 2 — template ponto.html ampliado:**
+* Nova seção dinâmica `secoes_extras`: lista de `{titulo, conteudo}` iterada no template,
+  COMPLEMENTAR às 6 seções fixas (compatibilidade total).
+* Caso de uso: igrejas (Horário de Missas), teatros (Programação), museus (Status/Acervo),
+  prédios — conteúdo que antes ficava invisível por não caber nas 6 fixas.
+* Páginas existentes renderizam idênticas (verificado: 6 h2 em museu-do-cafe, 0 quebras).
+
+**Pipeline verificado (build + audit_all):**
+* BUILD=0; STATUS: OK — 9 checks, 0 fatais, incluindo os 2 novos:
+  - Dist Stale: 150 em dia, 0 desatualizadas, 0 faltando (evita repeat do 6a91119)
+  - Fontes Factuais (linhas): 113 páginas, 0 fatais, 484 avisos (não bloqueiam)
+* Relatório: reports/audit_20261005_071649.txt
+
+**Próximo:** aguardar pacote de expansão (20 páginas: igrejas, teatros, museus, prédios)
+usando `secoes_extras` conforme especificação do Leo.
+
