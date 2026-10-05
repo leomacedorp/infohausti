@@ -30,19 +30,19 @@
   <section class="mb-8 bg-slate-50 border border-slate-200 rounded-xl p-6" aria-label="Dados Práticos de Visitação">
     <h2 class="text-2xl font-bold text-slate-900 mb-4">Informações de Visitação e Acesso</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-slate-700 mb-4">
-      {% if visita.endereco %}
+      {% if visita and visita.endereco %}
         <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
           <p class="font-bold text-slate-900 mb-1">📍 Endereço Completo</p>
           <p>{{ visita.endereco }}</p>
         </div>
       {% endif %}
-      {% if visita.horario %}
+      {% if visita and visita.horario %}
         <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
           <p class="font-bold text-slate-900 mb-1">⏰ Horários de Funcionamento</p>
           <p>{{ visita.horario }}</p>
         </div>
       {% endif %}
-      {% if visita.ingresso %}
+      {% if visita and visita.ingresso %}
         <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
           <p class="font-bold text-slate-900 mb-1">🎟️ Ingressos e Valores</p>
           <p>{{ visita.ingresso }}</p>
