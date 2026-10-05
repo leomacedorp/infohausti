@@ -322,6 +322,20 @@ def check_similaridade(detailed=False):
 
     CORUJOES = {1, 2, 3, 4, 5, 6, 7, 8}
 
+    # ---- DECISÃO LEO 05/10/2026: 7 pares estruturais → aviso ----
+    # 199x299, 399x499 (circulares espelhados); 901x910 (estrutural N-S 1A/1B);
+    # 156x256, 156x460 (família Pq. Ribeirão); 041x204, 337x373 (>50% overlap)
+    PARES_ESTRUTURAIS = {frozenset(p) for p in [
+        ("199", "299"), ("399", "499"), ("901", "910"),
+        ("156", "256"), ("156", "460"), ("041", "204"), ("337", "373"),
+    ]}
+
+    def par_estrutural(i, j):
+        na, nb = (_re_match_num(file_names[i]), _re_match_num(file_names[j]))
+        if na is None or nb is None:
+            return False
+        return frozenset((str(na), str(nb))) in PARES_ESTRUTURAIS
+
     def par_corujao(i, j):
         na, nb = _re_match_num(file_names[i]), _re_match_num(file_names[j])
         return na in CORUJOES and nb in CORUJOES
@@ -377,6 +391,16 @@ def check_similaridade(detailed=False):
                             f"[CAMADA 1 - CORUJOÕES 001-008] Similaridade {sim1:.1%} entre "
                             f"'{file_names[i]}' e '{file_names[j]}' — aviso (linhas distintas, "
                             f"itinerários diferentes, grade comum; Camada 2: {sim2:.1%})."
+                        )
+                    continue
+
+                # (1c) DECISÃO LEO 05/10/2026: 7 pares estruturais → aviso
+                if par_estrutural(i, j):
+                    if sim1 > 0.40:
+                        avisos.append(
+                            f"[CAMADA 1 - PAR ESTRUTURAL] Similaridade {sim1:.1%} entre "
+                            f"'{file_names[i]}' e '{file_names[j]}' — aviso (par estrutural/espelhado "
+                            f"por decisão do Leo 05/10; Camada 2: {sim2:.1%})."
                         )
                     continue
 
