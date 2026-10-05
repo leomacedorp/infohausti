@@ -807,3 +807,25 @@ arquitetura força texto artificial; 40% mantém a régua de qualidade editorial
 **Mantido:** pares com >80% de paradas compartilhadas saem da Camada 1 (aviso
 informativo; a similaridade é do fato, não da redação) e Camada 2 (lexical completa,
 50%) permanece como aviso.
+
+## 04/10/2026 (fim da sessão) — BLOCO C FECHADO ✅
+
+**Commit:** `b93448a` — "feat(linhas): Bloco C completo — 70 linhas verificadas factualmente"
+
+**O que este commit fecha:**
+- 70 páginas de linha de ônibus (Lotes 1–7) regeneradas pelo gerador v2 (scripts/gera_linha_v2.py):
+  toda via, bairro, horário e instituição citados vêm exclusivamente de dados-fonte/ da
+  própria linha; instituições externas só de dados-fonte/pontos/ com distância medida.
+- check_fontes_factuais.py: 70/70 linhas com 0 fatais factuais (criado nesta trilha; passa a
+  integrar o pipeline de auditoria permanente).
+- check_similaridade.py recalibrado por decisão do Leo: teto Camada 1 = 40% universal;
+  corujões 001–008 excluídos da Camada 1 (linhas distintas, grade comum — aviso);
+  pares com >40% e ≤50% = aviso (Grupos B/C); Camada 2 (50%) informativa.
+- Novas fontes verificadas: 5 pontos (Electro Bonini 44m da 103, Terminal HC,
+  Terminal Oeste F. L. Lepera, Terminal Evangelina Passig, Fórum Des. J. A. Meira Júnior)
+  + unidades-saude.json (69 unidades SMS/CNES extraídas da base interna).
+- Resultado final dos 3 checks: fontes 0 fatais | similaridade 0 fatais | qualidade OK.
+
+**Próximos passos:**
+1. Revisão humana de 10% (regra 18) — Leo confere 7 páginas.
+2. Bloco D (Bairros) destravado — D1 template + dossiês dos 10 bairros.
