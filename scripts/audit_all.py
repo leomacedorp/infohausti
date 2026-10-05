@@ -34,6 +34,7 @@ try:
     from check_similaridade import check_similaridade
     from check_pendentes import check_pendentes
     from check_palavras import check_palavras
+    from check_qualidade_texto import check_qualidade_texto
 except ImportError:
     # Adiciona pasta scripts ao path
     sys.path.insert(0, str(ROOT_DIR / 'scripts'))
@@ -44,6 +45,7 @@ except ImportError:
     from check_similaridade import check_similaridade
     from check_pendentes import check_pendentes
     from check_palavras import check_palavras
+    from check_qualidade_texto import check_qualidade_texto
 
 def run_full_audit():
     print("==================================================")
@@ -61,7 +63,8 @@ def run_full_audit():
         ("Acessibilidade WCAG AA", check_a11y),
         ("Similaridade em Duas Passadas", check_similaridade),
         ("Bloqueio de Dados Pendentes", check_pendentes),
-        ("Mínimos de Palavras por Template", check_palavras)
+        ("Mínimos de Palavras por Template", check_palavras),
+        ("Qualidade Editorial e Anti-Spinning", check_qualidade_texto)
     ]
 
     for name, check_fn in checks:

@@ -1,0 +1,37 @@
+{
+  "_doc": "Famílias de linhas irmãs que compartilham trajeto real (mesmo eixo/terminal). Dentro da família, a Camada 1 do check_similaridade usa limite de 40% (travado), MAS só se a Camada 2 (overlap factual) comprovar trajeto compartilhado (>= 60%). Pares fora da família seguem a regra geral de 30%. Nunca adicionar família sem justificativa factual.",
+  "limite_fatal_padrao_familia": 0.40,
+  "min_overlap_camada2": 0.60,
+  "familias": [
+    {
+      "id": "simioni",
+      "nome": "Simioni paradora e expressa",
+      "linhas": ["210", "211"],
+      "justificativa": "Mesma origem (Simioni); 211 é a variante expressa da 210. Overlap real: 83,3%."
+    },
+    {
+      "id": "circular-centro",
+      "nome": "Circulares 1 e 2",
+      "linhas": ["199", "299"],
+      "justificativa": "Mesmo anel circular percorrido em sentidos opostos (horário x anti-horário). Overlap real: 70,4%."
+    },
+    {
+      "id": "parque-ribeirao-shopping",
+      "nome": "Linhas Parque Ribeirão / Shoppings Zona Sul",
+      "linhas": ["156", "256"],
+      "justificativa": "Ambas partem do Parque Ribeirão (Zona Sudoeste) compartilhando o corredor inicial da Cásper Líbero e Caramuru. Overlap real: 66,7%."
+    },
+    {
+      "id": "quintino-avelino",
+      "nome": "Eixo Quintino Facci / Parque Industrial Avelino Alves Palma",
+      "linhas": ["310", "311"],
+      "justificativa": "Mesmo tronco viário entre Quintino Facci I/II e Parque Industrial Avelino Alves Palma. Overlap real: 92,9%."
+    },
+    {
+      "id": "quintino-avelino-residencial",
+      "nome": "Linha 101 - Parque Avelino",
+      "linhas": ["101", "110"],
+      "justificativa": "Servem o mesmo eixo, com 110 sendo uma variante mais curta que termina antes. Overlap real: 68,8%."
+    }
+  ]
+}

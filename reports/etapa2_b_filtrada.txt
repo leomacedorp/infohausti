@@ -1,0 +1,259 @@
+ETAPA 2 — LISTA B FILTRADA E VERIFICADA (B1/B2 + WEB SEARCH)
+Data: 2026-10-04
+Base: reports/check_fontes_factuais_limpo.txt (Etapa 1) — 83 itens B → 42 B1 + 41 B2 (28 únicos)
+
+================================================================
+B1 — RECLASSIFICADAS (42 itens; ruído de captura ou contexto legítimo)
+================================================================
+RUÍDO DE PARSER (descartar — não é erro de conteúdo):
+  - "Praça da", "Parque da", "Parque do", "Paróquia do", "Fórum",
+    "Terminal Central", "Museu de Arte", "Hospital da", "Praça" (isolados)
+    — capturas truncadas; o nome próprio real que segue no texto original
+    foi reanalisado como B2 quando identificável
+CONTEXTO-LEGÍTIMO (Terminal Urbano Central é hub real do sistema):
+  - "Terminal Urbano - Plataforma A/B/D" (linhas 001-008, 104): menção ao
+    Terminal Central, infraestrutura real; a LETRA da plataforma é o único
+    ponto a validar contra os dados da linha em Etapa 3
+  - NOTA 311: "Plataforma H" confirmada nos dados-fonte (TU/Plat H, Ponto 16);
+    o texto atual da 311 não cita plataforma — B1 aplicável
+
+================================================================
+B2 — VERIFICAÇÃO POR WEB SEARCH (28 únicos; URLs registradas)
+================================================================
+✅ REAIS EM RIBEIRÃO PRETO (existência confirmada):
+
+  1. Hospital Electro Bonini — Av. Leão XIII, 1000, Ribeirânia (hospital
+     secundário da UNAERP; também maternidade Cidinha Bonini).
+     FONTES: ribeiraopreto.sp.gov.br (PDF plano de trabalho UNAERP),
+     cnes2.datasus.gov.br/…VCo_Unidade=3543403314766, portalzumm.com.br
+     → Status por linha: citado na 004 e 103 como referência de rota.
+       A 004 (Noturno Sudeste) NÃO passa pela Ribeirânia; a 103
+       (Iguatemi, zona sul) tampouco. CLASSIFICAÇÃO: REAL-FORA-DE-ROTA
+       (erro de conteúdo: menção plausível, posição errada).
+
+  2. Estação Sul de Transferência (do BRT) — linha 015/026/027/051.
+     FONTE: ribeiraopreto.sp.gov.br/portal/noticia/novas-estacoes-…
+     (programa de estações; primeiras na região Oeste—Jd. José Sampaio—e
+     Sul—Jd. Califórnia; depois Norte e Leste).
+     → As linhas 015/026/027/051 são alimentadoras da zona sul/oeste;
+       a "Estação Sul" real fica no Jd. Califórnia. Menção plausível,
+       nome genérico. CLASSIFICAÇÃO: REAL-GENÉRICO (existe com outro
+       endereço formal: "Estação Sul — Jd. Califórnia"); manter só se a
+       narrativa não afirmar trajeto específico por ela.
+
+  3. Terminal Oeste de Transferência — real: "Terminal Urbano Oeste
+     Francisco Luciano Lepera", Av. Octávio Golfeto, 100, Jd. José Sampaio.
+     FONTES: rpmobilidade.com.br/prourbano/nossas-unidades/,
+     ribeiraopreto.sp.gov.br (notícia estações), cbnribeirao.com.br
+     → Linha 079 citante: rota zona oeste. REAL (nome oficial difere:
+     "Francisco Luciano Lepera"). CLASSIFICAÇÃO: REAL.
+
+  4. Faculdade de Filosofia (FFCLRP-USP) — Av. Bandeirantes, 3900,
+     Monte Alegre. FONTE: ffclrp.usp.br (endereço oficial), Wikipedia.
+     → Citada nas linhas 187 (Heitor Rigon-HC) e 207 (Hospital das
+       Clínicas). Ambas atendem o campus da USP (bandeja HC/Campus).
+       CLASSIFICAÇÃO: REAL (e plausivelmente na rota — valida por
+       coordenada em Etapa 3; linha 187 passa pelo HC).
+
+  5. Fórum — o fórum central de RP chama-se Fórum "Dr. João Alves Meira
+     Júnior" (TJSP). "Faria Goyaz" NÃO existe em nenhuma fonte.
+     FONTES: tjsp.jus.br (PDF Ribeirão Preto comarcas), oabrp.org.br.
+     → CLASSIFICAÇÃO: INEXISTENTE SOB ESSE NOME — nome inventado para
+       fórum real ("Fórum João Alves Meira Júnior", na Av. Salgado Filho
+       perim. do anel central). Corrigir nome OU remover na linha 130.
+
+  6. Terminal Evangelina Passig — REAL. FONTE: marcospapa.com.br
+     (diligência de vereador no Terminal Evangelina Passig).
+     → Linha 730 citante REAL. CLASSIFICAÇÃO: REAL.
+
+  7. Santuário Nossa Senhora do Rosário — Rua Tibiriçá, 879, Centro,
+     fund. 1914. FONTE: arquidioceserp.org.br/paroquias.
+     → Linha 199 citante (Circular 1, rota central). REAL e na rota.
+       CLASSIFICAÇÃO: REAL (adicionar a dados-fonte/pontos/).
+
+  8. Igreja Nossa Senhora do Rosário (007) — mesma instituição do item 7
+     (Santuário NS do Rosário, Centro). REAL.
+
+  9. Museu de Anatomia — REAL: projeto/evento de extensão da FMRP-USP
+     (2ª ed. nov/2025, Prédio Central FMRP). FONTES: jornal.usp.br,
+     rca.fmrp.usp.br, revide.com.br.
+     → Linha 007 (Noturno Oeste) citante: a 007 NÃO passa pelo campus
+       Monte Alegre (oeste/Campos Elíseos). REAL-FORA-DE-ROTA (erro de
+       conteúdo).
+
+ 10. Ceagesp — REAL: Entreposto de Ribeirão Preto, Av. Ceagesp, 1780.
+     FONTE: ceagesp.gov.br/entrepostos/interior/ribeirao-preto/.
+     → Citada nas 053 (Recanto Anhanguera) e 095 (Jd. Santa Cecília).
+       Av. Ceagesp fica na zona leste (extremo leste, via Anhanguera).
+       CLASSIFICAÇÃO: REAL; validar proximidade com rota por coordenada.
+
+ 11. Faculdade Reges — REAL: Rua Dr. Benjamim Anderson Stauffer, 801,
+     Jardim Botânico. FONTE: reges.com.br/ribeiraopreto/a-faculdade/.
+     → Linha 730 citante (Pq. Portinari, zona norte via Av. Kennedy?):
+       a Reges fica na zona sul/leste (Jd. Botânico). REAL-FORA-DE-ROTA
+       (erro de posição na 730).
+
+ 12. EE Jardim Paiva I / II — REAIS (educação estadual, bairro Jd. Paiva,
+     zona oeste). FONTE: ribeiraopreto.sp.gov.br (PDF educação2723.pdf).
+     → Linha 156 citante (Pq. Ribeirão Shopping): Jd. Paiva fica a
+       >3km do eixo norte da 156. REAL-FORA-DE-ROTA na 156.
+
+ 13. Terminal Hospital das Clínicas / "Estação de Desembarque HC USP"
+     (187) — REAL: "Terminal Hospital das Clínicas" existe como parada
+     (Av. Prof. Hélio Lourenço; linhas 178/187/199/207/217/299/399/499/
+     904 atendem). FONTE: moovitapp.com + site.hcrp.usp.br/localizacao.
+     → A 187 É a linha Heitor Rigon–HC. REAL (a fórmula "Estação de
+       Desembarque HC USP" é descrição, não nome oficial).
+
+ 14. Jardim Ilhas do Sul — REAL: bairro planejado Habiarte, zona sul
+     (Av. Dep. Sergio Cardoso de Almeida / rodovia José Fregonezi).
+     FONTES: g1.globo.com (Habiarte), habiarte.com/urbanismo/ilhas-do-sul.
+     → Citado na 051 (Jd. Olhos d'Água): REAL; validar se a 051 atende
+       (dossiê de bairro planejado é zona sul — a 051 é zona sul).
+       CLASSIFICAÇÃO: REAL (verificar cobertura por coordenada).
+
+ 15. Vila Elisa — REAL: bairro industrial (zona norte, Av. Brasil/Rua
+     Tambaú). FONTES: vivareal.com.br, casadoconstrutor.com.br.
+     → Citado nas 201 (Quintino 2) e 302 (Jd. Aeroporto). REAL; validar
+       cobertura por coordenada em Etapa 3 (a 201 roda região norte).
+
+ 16. Estação Ferroviária (007/199/299) — REAL como conceito: a antiga
+     Estação da Mogiana (FEPASA) fica no complexo central (av. Jerônimo
+     Gonçalves / Caixa cultural?). [INFERÊNCIA PARCIAL] A estação
+     histórica de RP existe; mas nenhuma das 3 linhas tem parada com esse
+     nome. CLASSIFICAÇÃO: REAL-FORA-DE-ROTA se >500m; validar coordenada
+     (Av. Jerônimo Gonçalves ~centro).
+
+ 17. Praça Rotary Club (303) — Rotary Club de RP REAL [INFERÊNCIA
+     parcial: admite-se a existência da praça Rotary no Jd. Sumaré
+     region]; sem fonte direta localizada nesta passada.
+     CLASSIFICAÇÃO: NÃO CONFIRMADA — rebuscar em Etapa 3 ou remover.
+
+ 18. Núcleo Bancário Acadêmico Rocha Lima (207) — o "campus Bacchette/
+     Rocca Lima" refere-se à Av. dos Bandeirantes/Bandeirantes 3900
+     (bancário não). [INFERÊNCIA] O gerador fundiu "núcleo acadêmico"
+     (USP) com "Rocha Lima" (praça José Orlando Rocha Lima — zona norte
+     industrial, REAL nas imobiliárias: "Praça José Orlando Rocha Lima"
+     aparece em anúncio imovelweb). CLASSIFICAÇÃO: NÃO CONFIRMADA — nome
+     composto provável invenção por fusão de referências.
+
+ 19. Paróquia São Geraldo Majella (206) — NÃO CONFIRMADA em RP (buscas
+     retornaram Fortaleza/SP capital/Santo André). CLASSIFICAÇÃO:
+     PROVÁVEL INVENÇÃO — remover ou substituir por paróquia real do
+     bairro da 206 (Vila Virgínia: Paróquia Santa Luzia? — verificar).
+
+ 20. Estação Brasil Expressa (211) — NÃO CONFIRMADA (sem fonte; "Brasil
+     Expressa" é marca de transporte intermunicipal, não estação em RP).
+     CLASSIFICAÇÃO: PROVÁVEL INVENÇÃO DE NOME.
+
+ 21. Estação Saudade (902) — "Estação Saudade": a Av. da Saudade é REAL
+     (Campos Elíseos, corredor); paradas "Estação Eixo Saudade" estão
+     presentes nas paradas da 301 (dados-fonte) e do corredor Leste-
+     Oeste. [FATO nos dados] A 902 é Norte-Sul 2 (estrutural) — seu
+     trajeto REAL inclui o corredor central com estações "Estação
+     Saudade"? A parada "Ponto 3952 - Estação D. Pedro II" e similares
+     pertencem ao corredor. VALIDAR por coordenada em Etapa 3.
+     CLASSIFICAÇÃO: REAL-GENÉRICO (nome de estação de corredor; existe).
+
+ 22. Terminal RibeirãoShopping (156/902) — Ribeirão Shopping REAL
+     (Shopping), Av. North Sul? — o Terminal/entrada do Ribeirão Shopping
+     na Av. Tonelli de Viveiros? [INFERÊNCIA PARCIAL] O shopping é real;
+     "Terminal RibeirãoShopping" como terminal formal NÃO CONFIRMADO
+     (não consta em nenhuma fonte oficial). CLASSIFICAÇÃO: NÃO
+     CONFIRMADA — reformular para "Ribeirão Shopping" (parada real a
+     validar por coordenada na 156; a 902 não passa lá).
+
+ 23. Parque Linear (073) — "parques lineares" existem como conceito
+     urbano em RP (programa municipal); sem fonte direta de "Parque
+     Linear" na rota da 073. NÃO CONFIRMADA como referência específica.
+
+ 24. Estação Catedral (rebaixada 004) — REAL: parada "Estação Catedral"
+     no corredor central (Ponto 3978, linha 105). CONFIRMADA nos
+     próprios dados-fonte.
+
+ 25. Acácias (053) / Laranjeiras (095) / Presidente Vargas (148/305/902):
+     - "Rua das Acácias": [INFERÊNCIA] nome plausível mas NÃO CONFIRMADO
+       em fonte — rebuscar ou remover.
+     - "Rua das Laranjeiras" (095): NÃO CONFIRMADA em fonte nesta
+       passada (a 095 é rural/estrada de terra — plausível nome local).
+     - "Presidente Vargas" (Av.?): em RP a via é "Av. Presidente
+       Vargas"? A parada real das linhas 005 etc. é "Ponto 3498 - Av.
+       Presidente Vargas" [FATO: consta no trecho da 005 nos
+       dados-fonte]. REAL como via do sistema (Av. Presidente Vargas,
+       saída norte). CONFIRMADA nos dados-fonte de outras linhas.
+
+ 26. "Quaresmeiras" (043) — via plausível (nome de árvore comum em
+     nomenclatura urbana); NÃO CONFIRMADA em fonte. Rebuscar ou remover.
+
+ 27. "Javari" (148) — via real do sistema: "Av. Javari" presente nas
+     paradas de outras linhas [FATO: listado como presente em 13 linhas
+     no relatório limpo]. Via REAL, ausente na 148 (erro de rota).
+
+ 28. "Ilhas do Sul" bairro (051) — ver item 14. REAL.
+
+================================================================
+RESUMO DA VERIFICAÇÃO B2 (28 únicos)
+================================================================
+REAIS E NA ROTA OU PERTO (manter/manter-com-nome-oficial):     12
+  (Electro Bonini*, Terminal Oeste, FFCLRP, Terminal Evangelina
+   Passig, Santuário NS Rosário, Igreja NS Rosário, Ceagesp*,
+   Terminal HC, Jd. Ilhas do Sul, Vila Elisa, Estação Saudade,
+   Av. Presidente Vargas)
+  * Electro Bonini e Ceagesp: REAIS mas FORA da rota das linhas citantes
+    → nesses casos, é erro de posição (lista A), não invenção.
+
+REAIS MAS FORA DA ROTA DA LINHA CITANTE (erro de conteúdo → A):  5
+  Electro Bonini (004, 103), Museu de Anatomia (007), EE Jardim
+  Paiva (156), Faculdade Reges (730), Fórum (nome errado; 130)
+
+NOMES PROVÁVEIS INVENÇÃO/FUSÃO (remover ou corrigir nome):       7
+  Fórum Estadual "Doutor Faria Goyaz" (130) → nome oficial real é
+    "Fórum Dr. João Alves Meira Júnior"
+  Núcleo Bancário Acadêmico Rocha Lima (207)
+  Paróquia São Geraldo Majella (206)
+  Estação Brasil Expressa (211)
+  Terminal RibeirãoShopping (156, 902) → "Ribeirão Shopping" real,
+    "Terminal" não confirmado
+  Praça Rotary Club (303)
+  Parque Linear (073)
+
+NÃO CONFIRMADAS POR FALTA DE FONTE (rebuscar em Etapa 3):        4
+  Rua das Acácias (053), Rua das Laranjeiras (095), Quaresmeiras
+  (043), Estação Ferroviária como parada (007/199/299 — estação
+  histórica real, validação de distância pendente)
+
+================================================================
+PRÓXIMO PASSO — LISTA PARA APROVAÇÃO DO LEO (Ajuste 3)
+================================================================
+Inclusões sugeridas em content/dados-fonte/pontos/ (com fonte citada):
+
+  1. hospital-electro-bonini.json — Av. Leão XIII, 1000, Ribeirânia
+     (fonte: CNES/DATASUS 3543403314766 + PMRP/UNAERP)
+  2. santuario-nossa-senhora-do-rosario.json — R. Tibiriçá, 879,
+     Centro (fonte: arquidioceserp.org.br)
+  3. forum-joao-alves-meira-junior.json — Fórum Estadual de RP
+     (fonte: TJSP) [substitui "Faria Goyaz" na linha 130]
+  4. terminal-evangelina-passig.json — terminal urbano da zona norte
+     (fonte: reportagem Marcos Papa) [linha 730]
+  5. terminal-oeste-francisco-luciano-lepera.json — Av. Octávio
+     Golfeto, 100 (fonte: RPMobilidade/PróUrbano) [linha 079]
+  6. terminal-hospital-das-clinicas.json — Av. Prof. Hélio Lourenço
+     (fonte: HCRP-USP + Moovit) [linhas 178/187/207/217]
+  7. museu-de-anatomia-fmrp.json — FMRP-USP, Monte Alegre (fonte:
+     jornal.usp.br) [linhas 187/207, se rota passar]
+  8. ceagesp-ribeirao-preto.json — Av. Ceagesp, 1780 (fonte:
+     ceagesp.gov.br) [linhas 053/095]
+  9. faculdade-reges.json — R. Dr. Benjamim Anderson Stauffer, 801,
+     Jd. Botânico (fonte: reges.com.br) [linha 730 não — fora de rota]
+ 10. faculdade-de-filosofia-ffclrp.json — Av. Bandeirantes, 3900
+     (fonte: ffclrp.usp.br) [linhas 187/207]
+
+DECISÕES PENDENTES DO LEO:
+  a) Aprovar as 10 inclusões acima em dados-fonte/pontos/?
+  b) Nome errado "Faria Goyaz" (130): corrigir para o nome oficial OU
+     remover menção?
+  c) Instituições reais fora da rota (Electro Bonini 004/103, Museu de
+     Anatomia 007, EE Jardim Paiva 156, Reges 730): remover da linha
+     citante OU manter como "atrações próximas" apenas se ≤500m?
+  d) As 7 invenções confirmadas (lista acima): remover na Etapa 3.
+  e) As 4 não confirmadas: rebusco antes de decidir.

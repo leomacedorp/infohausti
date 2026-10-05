@@ -1,0 +1,298 @@
+RELATÓRIO LIMPO — CHECK FONTES FACTUAIS (ETAPA 1)
+Data/Hora: 2026-10-04 01:25:49
+Vocabulário: VIA AUSENTE NAS PARADAS DA LINHA / INSTITUIÇÃO NÃO CONFIRMADA EM FONTE / BAIRRO AUSENTE NAS PARADAS DA LINHA
+Regra de contexto: item citado a <=500m de alguma parada da linha = menção contextual legítima (AVISO), exceto em seções de trajeto (itinerario_texto, paradas_destaque), onde afirmar trajeto sem parada = erro real.
+======================================================================
+
+RECONCILIAÇÃO: 76 erros reais (A) + 83 não confirmados (B) + 3 ruídos (C) + 17 contextos legítimos rebaixados a AVISO = 179 itens classificados (base anterior: 120 fatais brutos)
+
+LISTA A — ERROS REAIS (corrigir na Fase 2, Etapa 3):
+  [001]
+    - (paradas_destaque) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Capitão Salomão" — via presente na(s) linha(s): 002, 008, 075, 102, 187, 201, 208, 211, 308, 311, 330, 337, 351, 373, 380, 399, 437, 499, 507, 601, 603, 607, 670, 680, 688, 701, 708, 780, 788, 803, 804, 810, 903
+  [002]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Jerônimo Gonçalves" — via presente na(s) linha(s): 041, 103, 106, 108, 130, 136, 206, 217, 236, 256, 306, 337, 360, 373, 380, 399, 401, 406, 437, 499, 606, 730
+  [004]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Doutor Celso Charuri e" — via presente na(s) linha(s): 005, 007, 041, 104, 147, 178, 305, 315, 351, 503, 601, 804, 901, 910
+    - (paradas_destaque) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Costábile Romano e" — via presente na(s) linha(s): 178, 187, 208, 401, 804
+    - (atracoes_proximas) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (contexto distante): "Costábile Romano" — via das linhas 178, 187, 208, 401, 804; dist mín sem coord
+  [006]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Jerônimo Gonçalves e" — via presente na(s) linha(s): 041, 103, 106, 108, 130, 136, 206, 217, 236, 256, 306, 337, 360, 373, 380, 399, 401, 406, 437, 499, 606, 730
+  [007]
+    - (visao_geral) ERRO REAL:INSTITUIÇÃO FORA DE POSIÇÃO: "Hospital da" — item real mapeado a 3448m da linha (parada "Ponto 3955 - Estação Hospital Ribeirânia", linha 004) — além de 500m
+    - (itinerario_texto) ERRO REAL:INSTITUIÇÃO FORA DE POSIÇÃO: "Hospital da" — item real mapeado a 3448m da linha (parada "Ponto 3955 - Estação Hospital Ribeirânia", linha 004) — além de 500m
+    - (paradas_destaque) ERRO REAL:INSTITUIÇÃO FORA DE POSIÇÃO: "Hospital da" — item real mapeado a 3448m da linha (parada "Ponto 3955 - Estação Hospital Ribeirânia", linha 004) — além de 500m
+  [035]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "José Fregonesi" — via presente na(s) linha(s): 005, 315, 351
+    - (atracoes_proximas) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (contexto distante): "José Fregonesi" — via das linhas 005, 315, 351; dist mín 1729m
+  [041]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Maria Cândida de Jesus e" — via presente na(s) linha(s): 003, 007, 008, 043, 051, 053, 063, 065, 079, 093, 101, 136, 178, 208, 210, 217, 303, 308, 330, 337, 373, 437, 470, 507, 601, 603, 607, 630, 670, 703, 730, 804, 810, 903
+    - (paradas_destaque) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Maria Cândida de Jesus" — via presente na(s) linha(s): 003, 007, 008, 043, 051, 053, 063, 065, 079, 093, 101, 136, 178, 208, 210, 217, 303, 308, 330, 337, 373, 437, 470, 507, 601, 603, 607, 630, 670, 703, 730, 804, 810, 903
+  [051]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "José Adolfo Bianco Molina" — via presente na(s) linha(s): 005, 015, 025, 104, 105, 130, 156, 199, 299, 305, 315, 351, 901, 910
+  [085]
+    - (visao_geral) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (contexto distante): "José Fregonesi" — via das linhas 005, 315, 351; dist mín 2784m
+  [101]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Duque de Caxias" — via presente na(s) linha(s): 001, 002, 003, 004, 005, 006, 007, 008, 102, 107, 108, 136, 147, 204, 207, 208, 236, 303, 308, 330, 337, 373, 437, 470, 503, 606, 608, 680, 703, 708, 730, 780, 788
+  [103]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Costábile Romano" — via presente na(s) linha(s): 178, 187, 208, 401, 804
+    - (paradas_destaque) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Costábile Romano" — via presente na(s) linha(s): 178, 187, 208, 401, 804
+    - (paradas_destaque) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Alice Alem Saadi" — via presente na(s) linha(s): 204
+  [104]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Doutor Dino Bueno" — via presente na(s) linha(s): 002, 101, 201, 202, 220, 302, 310, 320, 401, 910
+  [105]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Américo Brasiliense e Álvares Cabral" — via presente na(s) linha(s): 106, 147, 178, 206, 299, 308, 315, 337, 351, 373, 380, 606, 607, 608, 670, 680, 707, 708, 804
+  [106]
+    - (atracoes_proximas) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (contexto distante): "General Osório" — via das linhas 002, 102, 337, 373, 399, 499, 902; dist mín sem coord
+  [107]
+    - (atracoes_proximas) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (contexto distante): "General Osório" — via das linhas 002, 102, 337, 373, 399, 499, 902; dist mín sem coord
+  [130]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Doutor Ângelo Gennaro Gallo e Costábile Romano" — via presente na(s) linha(s): 003, 051, 101, 105, 110, 136, 178, 187, 199, 208, 217, 236, 256, 303, 305, 330, 373, 401, 607, 630, 670, 730, 804
+    - (itinerario_texto) ERRO REAL:INSTITUIÇÃO FORA DE POSIÇÃO: "Fórum Estadual" — item real mapeado a 3978m da linha (parada "Ponto 3900 - Estação Hospital Estadual ", linha 005) — além de 500m
+    - (paradas_destaque) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Costábile Romano" — via presente na(s) linha(s): 178, 187, 208, 401, 804
+    - (paradas_destaque) ERRO REAL:INSTITUIÇÃO FORA DE POSIÇÃO: "Fórum Estadual" — item real mapeado a 3978m da linha (parada "Ponto 3900 - Estação Hospital Estadual ", linha 005) — além de 500m
+  [148]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Javari" — via presente na(s) linha(s): 008, 107, 108, 187, 208, 217, 308, 380, 608, 680, 688, 708, 780
+    - (paradas_destaque) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Javari" — via presente na(s) linha(s): 008, 107, 108, 187, 208, 217, 308, 380, 608, 680, 688, 708, 780
+  [156]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Alfredo Condeixa" — via presente na(s) linha(s): 003, 008, 063, 065, 073, 103, 136, 187, 203, 236, 303, 403, 437, 703, 708, 730, 788
+  [178]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "José Barense" — via presente na(s) linha(s): 403
+  [187]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Eduardo Andrea Matarazzo" — via presente na(s) linha(s): 015, 025, 045, 055, 148, 199, 204, 211, 299, 311, 380, 401, 437, 601, 688, 701, 708, 788, 810
+    - (paradas_destaque) ERRO REAL:HORÁRIO FORA DA GRADE: "05:30" — verificável contra dados-fonte
+  [201]
+    - (visao_geral) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (contexto distante): "Thomaz Alberto Whately e" — via das linhas 002, 015, 025, 147, 202, 220, 302, 320, 401, 601, 804, 901, 910, 923; dist mín 1375m
+    - (atracoes_proximas) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (contexto distante): "General Osório" — via das linhas 002, 102, 337, 373, 399, 499, 902; dist mín sem coord
+  [202]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Duque de Caxias e Tibiriçá" — via presente na(s) linha(s): 001, 002, 003, 004, 005, 006, 007, 008, 102, 107, 108, 136, 147, 204, 207, 208, 236, 303, 308, 330, 337, 373, 437, 470, 503, 603, 606, 608, 630, 680, 703, 708, 730, 780, 788
+    - (paradas_destaque) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Tibiriçá" — via presente na(s) linha(s): 102, 208, 308, 330, 603, 608, 630, 680, 703, 708, 730, 780, 788
+  [203]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Presidente Costábile Romano" — via presente na(s) linha(s): 178, 187, 208, 401, 804
+  [204]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Presidente Kennedy" — via presente na(s) linha(s): 003, 103, 199, 203, 337, 373, 703, 730, 904, 923
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Tibiriçá e" — via presente na(s) linha(s): 102, 208, 308, 330, 603, 608, 630, 680, 703, 708, 730, 780, 788
+    - (integracao_detalhe) ERRO REAL:INSTITUIÇÃO FORA DE POSIÇÃO: "Hospital da" — item real mapeado a 878m da linha (parada "Ponto 3955 - Estação Hospital Ribeirânia", linha 004) — além de 500m
+  [205]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Doutor José Otávio de Oliveira" — via presente na(s) linha(s): 003, 015, 025, 026, 051, 085, 105, 147, 210, 211, 303, 330, 460, 703, 730, 923
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Américo Brasiliense e Duque de Caxias" — via presente na(s) linha(s): 001, 002, 003, 004, 005, 006, 007, 008, 102, 106, 107, 108, 136, 147, 178, 204, 206, 207, 208, 236, 299, 303, 308, 330, 337, 373, 380, 437, 470, 503, 606, 607, 608, 670, 680, 703, 707, 708, 730, 780, 788, 804
+  [206]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Franco da Rocha" — via presente na(s) linha(s): 003, 006, 101, 136, 147, 148, 199, 203, 236, 256, 299, 306, 360, 399, 460, 499, 703, 730, 904
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Saldanha Marinho e Florêncio de Abreu" — via presente na(s) linha(s): 004, 101, 102, 103, 104, 105, 130, 136, 148, 201, 203, 205, 236, 305, 310, 351, 403, 499, 603, 608, 630, 708, 788, 902, 910
+    - (paradas_destaque) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Vital Brasil" — via presente na(s) linha(s): 001, 002, 023, 101, 110, 201, 202, 217, 302, 310, 320, 601, 901, 902, 910
+  [208]
+    - (atracoes_proximas) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (contexto distante): "Silveira Martins" — via das linhas 001, 003, 008, 035, 110, 210, 211, 217, 301, 308, 310, 311, 337, 373, 380, 499, 507, 601, 603, 607, 630, 670, 680, 688, 701, 703, 730, 780, 788, 803, 804, 810, 903; dist mín 836m
+  [210]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Tibiriçá e General Osório" — via presente na(s) linha(s): 002, 102, 208, 308, 330, 337, 373, 399, 499, 603, 608, 630, 680, 703, 708, 730, 780, 788, 902
+  [211]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Brasil" — via presente na(s) linha(s): 001, 002, 023, 101, 110, 201, 202, 217, 302, 310, 320, 601, 901, 902, 910
+  [220]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Brasil" — via presente na(s) linha(s): 001, 002, 023, 101, 110, 201, 202, 217, 302, 310, 320, 601, 901, 902, 910
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Duque de Caxias e General Osório" — via presente na(s) linha(s): 001, 002, 003, 004, 005, 006, 007, 008, 102, 107, 108, 136, 147, 204, 207, 208, 236, 303, 308, 330, 337, 373, 399, 437, 470, 499, 503, 606, 608, 680, 703, 708, 730, 780, 788, 902
+  [236]
+    - (visao_geral) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (contexto distante): "Henri Nestlé" — via das linhas 043, 073, 603, 630, 703, 730; dist mín 1387m
+    - (paradas_destaque) ERRO REAL:HORÁRIO FORA DA GRADE: "14:00" — verificável contra dados-fonte
+  [256]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Caramuru" — via presente na(s) linha(s): 105, 156, 236, 306, 360, 399, 406, 460, 499, 506, 606
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Luiz Eduardo Toledo Prado" — via presente na(s) linha(s): 003, 008, 015, 025, 045, 055, 103, 107, 108, 130, 147, 148, 199, 204, 207, 211, 299, 311, 437, 470, 601, 688, 701, 730, 788, 810
+    - (atracoes_proximas) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (contexto distante): "Caramuru e" — via das linhas 105, 156, 236, 306, 360, 399, 406, 460, 499, 506, 606; dist mín 1491m
+  [299]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Caramuru" — via presente na(s) linha(s): 105, 156, 236, 306, 360, 399, 406, 460, 499, 506, 606
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Vila Tibério e" — via presente na(s) linha(s): 073
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Capitão Salomão e Saudade" — via presente na(s) linha(s): 001, 002, 008, 075, 101, 102, 187, 199, 201, 202, 208, 211, 220, 302, 308, 310, 311, 320, 330, 337, 351, 373, 380, 399, 401, 437, 499, 507, 601, 603, 607, 608, 670, 680, 688, 701, 708, 780, 788, 803, 804, 810, 901, 903, 910
+  [301]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Duque de Caxias e Tibiriçá" — via presente na(s) linha(s): 001, 002, 003, 004, 005, 006, 007, 008, 102, 107, 108, 136, 147, 204, 207, 208, 236, 303, 308, 330, 337, 373, 437, 470, 503, 603, 606, 608, 630, 680, 703, 708, 730, 780, 788
+  [302]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Santos Dumont" — via presente na(s) linha(s): 003, 007, 043, 073, 095, 136, 178, 236, 308, 330, 337, 373, 403, 630, 703, 730, 923
+  [303]
+    - (integracao_detalhe) ERRO REAL:INSTITUIÇÃO FORA DE POSIÇÃO: "Hospital da" — item real mapeado a 2057m da linha (parada "Ponto 3955 - Estação Hospital Ribeirânia", linha 004) — além de 500m
+  [305]
+    - (atracoes_proximas) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (contexto distante): "Garibaldi" — via das linhas 005, 104, 147, 203, 315, 351, 904; dist mín 524m
+  [306]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Alfredo Condeixa" — via presente na(s) linha(s): 003, 008, 063, 065, 073, 103, 136, 187, 203, 236, 303, 403, 437, 703, 708, 730, 788
+    - (paradas_destaque) ERRO REAL:HORÁRIO FORA DA GRADE: "05:45" — verificável contra dados-fonte
+  [310]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Thomaz Alberto Whately e" — via presente na(s) linha(s): 002, 015, 025, 147, 202, 220, 302, 320, 401, 601, 804, 901, 910, 923
+  [311]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Marechal Costa e Silva" — via presente na(s) linha(s): 001, 002, 003, 041, 063, 075, 085, 095, 101, 105, 110, 178, 199, 202, 208, 210, 217, 220, 236, 299, 301, 302, 315, 320, 337, 351, 360, 373, 380, 399, 401, 403, 470, 499, 503, 506, 603, 606, 607, 630, 670, 703, 708, 730, 901, 902, 904
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Jerônimo Gonçalves" — via presente na(s) linha(s): 041, 103, 106, 108, 130, 136, 206, 217, 236, 256, 306, 337, 360, 373, 380, 399, 401, 406, 437, 499, 606, 730
+    - (atracoes_proximas) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (contexto distante): "Costa e Silva" — via das linhas 001, 002, 003, 041, 063, 075, 085, 095, 101, 105, 110, 178, 199, 202, 208, 210, 217, 220, 236, 299, 301, 302, 315, 320, 337, 351, 360, 373, 380, 399, 401, 403, 470, 499, 503, 506, 603, 606, 607, 630, 670, 703, 708, 730, 901, 902, 904; dist mín 1083m
+  [730]
+    - (paradas_destaque) ERRO REAL:INSTITUIÇÃO FORA DE POSIÇÃO: "Shopping e" — item real mapeado a 3611m da linha (parada "Ponto 3398 - Terminal Ribeirão Shopping", linha 005) — além de 500m
+    - (atracoes_proximas) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (contexto distante): "General Osório e da Baixada Central" — via das linhas 002, 102, 337, 373, 399, 499, 902; dist mín sem coord
+  [902]
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Saudade" — via presente na(s) linha(s): 001, 101, 102, 199, 201, 202, 208, 220, 302, 310, 320, 351, 380, 401, 608, 708, 901, 910
+    - (itinerario_texto) ERRO REAL:VIA AUSENTE NAS PARADAS DA LINHA (seção de trajeto): "Jerônimo Gonçalves" — via presente na(s) linha(s): 041, 103, 106, 108, 130, 136, 206, 217, 236, 256, 306, 337, 360, 373, 380, 399, 401, 406, 437, 499, 606, 730
+    - (itinerario_texto) ERRO REAL:INSTITUIÇÃO FORA DE POSIÇÃO: "Estação Catedral" — item real mapeado a 1013m da linha (parada "Ponto 3978 - Estação Catedral", linha 105) — além de 500m
+    - (paradas_destaque) ERRO REAL:INSTITUIÇÃO FORA DE POSIÇÃO: "Estação Catedral" — item real mapeado a 1013m da linha (parada "Ponto 3978 - Estação Catedral", linha 105) — além de 500m
+    - (atracoes_proximas) ERRO REAL:INSTITUIÇÃO FORA DE POSIÇÃO: "Estação Catedral" — item real mapeado a 1013m da linha (parada "Ponto 3978 - Estação Catedral", linha 105) — além de 500m
+
+LISTA B — NÃO CONFIRMADOS EM FONTE (investigar na Etapa 2):
+  [001]
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Urbano - Plataforma B" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [002]
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Urbano - Plataforma B" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (integracao_detalhe) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Central" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (atracoes_proximas) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Praça da" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [003]
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Urbano - Plataforma B" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [004]
+    - (visao_geral) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Hospital Electro Bonini" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Urbano - Plataforma B" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (integracao_detalhe) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Central" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [005]
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Urbano - Plataforma A" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [006]
+    - (itinerario_texto) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Central" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Urbano - Plataforma A" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [007]
+    - (visao_geral) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Central" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Urbano - Plataforma A" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (atracoes_proximas) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Igreja Nossa Senhora do Rosário" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (atracoes_proximas) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Museu de Anatomia" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (atracoes_proximas) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Estação Ferroviária" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [008]
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Urbano - Plataforma A" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [015]
+    - (visao_geral) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Estação Sul de Transferência do BRT" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (itinerario_texto) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Estação Sul de Transferência" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (atracoes_proximas) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Parque da" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (atracoes_proximas) BAIRRO AUSENTE NAS PARADAS DA LINHA: "Parque da" — não casa com bairros[].valor nem lista-mestre — investigar
+  [026]
+    - (itinerario_texto) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Estação Sul de Transferência" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [027]
+    - (itinerario_texto) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Estação Sul de Transferência" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [043]
+    - (itinerario_texto) VIA NÃO CONFIRMADA EM FONTE: "Quaresmeiras  e" — ausente em todas as 113 linhas — verificar existência
+  [051]
+    - (visao_geral) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Estação Sul de Transferência" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (itinerario_texto) VIA NÃO CONFIRMADA EM FONTE: "Jardim Ilhas do Sul" — ausente em todas as 113 linhas — verificar existência
+    - (itinerario_texto) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Estação Sul de Transferência" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (itinerario_texto) BAIRRO AUSENTE NAS PARADAS DA LINHA: "Jardim Ilhas do Sul.  O" — não casa com bairros[].valor nem lista-mestre — investigar
+  [053]
+    - (visao_geral) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Ceagesp" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (itinerario_texto) VIA NÃO CONFIRMADA EM FONTE: "Acácias" — ausente em todas as 113 linhas — verificar existência
+    - (paradas_destaque) VIA NÃO CONFIRMADA EM FONTE: "Acácias" — ausente em todas as 113 linhas — verificar existência
+  [073]
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Parque Linear" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (paradas_destaque) BAIRRO AUSENTE NAS PARADAS DA LINHA: "Parque Linear" — não casa com bairros[].valor nem lista-mestre — investigar
+  [079]
+    - (visao_geral) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Oeste de Transferência" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [095]
+    - (itinerario_texto) VIA NÃO CONFIRMADA EM FONTE: "Laranjeiras e" — ausente em todas as 113 linhas — verificar existência
+    - (paradas_destaque) VIA NÃO CONFIRMADA EM FONTE: "Laranjeiras" — ausente em todas as 113 linhas — verificar existência
+    - (integracao_detalhe) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Ceagesp" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [103]
+    - (visao_geral) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Hospital Electro Bonini e" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [104]
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Urbano - Plataforma D" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [110]
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Paróquia do" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [130]
+    - (visao_geral) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Fórum" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (visao_geral) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Fórum Estadual Doutor Faria Goyaz" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (integracao_detalhe) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Fórum" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [148]
+    - (itinerario_texto) VIA NÃO CONFIRMADA EM FONTE: "Presidente Vargas" — ausente em todas as 113 linhas — verificar existência
+    - (itinerario_texto) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Parque da" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (itinerario_texto) BAIRRO AUSENTE NAS PARADAS DA LINHA: "Parque da" — não casa com bairros[].valor nem lista-mestre — investigar
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Parque da" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (paradas_destaque) BAIRRO AUSENTE NAS PARADAS DA LINHA: "Parque da" — não casa com bairros[].valor nem lista-mestre — investigar
+  [156]
+    - (visao_geral) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Urbano Central" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal RibeirãoShopping" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Escola Estadual Jardim Paiva" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [178]
+    - (visao_geral) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Parque do" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (visao_geral) BAIRRO AUSENTE NAS PARADAS DA LINHA: "Parque do" — não casa com bairros[].valor nem lista-mestre — investigar
+    - (bairros_texto) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Parque do" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (bairros_texto) BAIRRO AUSENTE NAS PARADAS DA LINHA: "Parque do" — não casa com bairros[].valor nem lista-mestre — investigar
+  [187]
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Estação de Desembarque HC USP" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (atracoes_proximas) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Faculdade de Filosofia" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [199]
+    - (itinerario_texto) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Estação Ferroviária" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Praça" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (atracoes_proximas) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Santuário Nossa Senhora do Rosário" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [201]
+    - (itinerario_texto) BAIRRO AUSENTE NAS PARADAS DA LINHA: "Vila Elisa" — não casa com bairros[].valor nem lista-mestre — investigar
+    - (bairros_texto) BAIRRO AUSENTE NAS PARADAS DA LINHA: "Vila Elisa" — não casa com bairros[].valor nem lista-mestre — investigar
+  [202]
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Praça da" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [206]
+    - (visao_geral) VIA NÃO CONFIRMADA EM FONTE: "Barretos e" — ausente em todas as 113 linhas — verificar existência
+    - (itinerario_texto) VIA NÃO CONFIRMADA EM FONTE: "Barretos e" — ausente em todas as 113 linhas — verificar existência
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Paróquia São Geraldo Majella" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [207]
+    - (itinerario_texto) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Faculdade de Filosofia" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (paradas_destaque) BAIRRO AUSENTE NAS PARADAS DA LINHA: "Núcleo Bancário Acadêmico Rocha Lima" — não casa com bairros[].valor nem lista-mestre — investigar
+  [211]
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Estação Brasil Expressa" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [299]
+    - (atracoes_proximas) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Estação Ferroviária e" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [302]
+    - (itinerario_texto) BAIRRO AUSENTE NAS PARADAS DA LINHA: "Vila Elisa.  Em" — não casa com bairros[].valor nem lista-mestre — investigar
+    - (bairros_texto) BAIRRO AUSENTE NAS PARADAS DA LINHA: "Vila Elisa" — não casa com bairros[].valor nem lista-mestre — investigar
+  [303]
+    - (atracoes_proximas) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Museu de Arte" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (atracoes_proximas) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Praça Rotary Club" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (atracoes_proximas) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Paróquia Bom Pastor e de" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [305]
+    - (itinerario_texto) VIA NÃO CONFIRMADA EM FONTE: "Presidente Vargas e" — ausente em todas as 113 linhas — verificar existência
+  [310]
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Central" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [311]
+    - (integracao_detalhe) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Central" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [730]
+    - (itinerario_texto) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal Evangelina Passig" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (atracoes_proximas) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Faculdade Reges" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+  [902]
+    - (itinerario_texto) VIA NÃO CONFIRMADA EM FONTE: "Presidente Vargas" — ausente em todas as 113 linhas — verificar existência
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Estação Saudade" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+    - (paradas_destaque) INSTITUIÇÃO NÃO CONFIRMADA EM FONTE: "Terminal RibeirãoShopping" — sem coordenada em nenhuma parada do sistema — investigar existência (Etapa 2)
+
+LISTA C — RUÍDO DE PARSER (descartar; não é erro):
+  [206]
+    - (integracao_detalhe) RUÍDO:VIA: "Usuários" — captura truncada/genérica
+  [207]
+    - (visao_geral) RUÍDO:VIA: "Fiscalizada" — captura truncada/genérica
+  [730]
+    - (paradas_destaque) RUÍDO:VIA: "Entre e" — captura truncada/genérica
+
+REBAIXADOS A AVISO — CONTEXTO LEGÍTIMO (regra 500m):
+  [004]
+    - (atracoes_proximas) AVISO-CONTEXTO ≤500m: "Catedral" — 96m (coord da parada "Ponto 3978 - Estação Catedral", linha 105)
+  [005]
+    - (itinerario_texto) AVISO-VIA-CONTEXTO-URBANO: "Independência e Avenida Presidente Vargas"
+    - (atracoes_proximas) AVISO-VIA-CONTEXTO-URBANO: "Fernando de Freitas Monteiro da Silva"
+  [055]
+    - (itinerario_texto) AVISO-VIA-CONTEXTO-URBANO: "San Marco"
+  [085]
+    - (bairros_texto) AVISO-VIA-CONTEXTO-URBANO: "SP-328"
+  [103]
+    - (itinerario_texto) AVISO-VIA-CONTEXTO-URBANO: "Visconde do Rio Branco e Mariana Junqueira"
+  [107]
+    - (itinerario_texto) AVISO-VIA-CONTEXTO-URBANO: "Saldanha Marinho e Visconde do Rio Branco"
+  [110]
+    - (itinerario_texto) AVISO-VIA-CONTEXTO-URBANO: "Tibiriçá e Visconde do Rio Branco"
+  [130]
+    - (itinerario_texto) AVISO-VIA-CONTEXTO-URBANO: "Maurílio Biagi e"
+    - (itinerario_texto) AVISO-VIA-CONTEXTO-URBANO: "São Sebastião e Álvares Cabral"
+  [147]
+    - (itinerario_texto) AVISO-VIA-CONTEXTO-URBANO: "Barão do Amazonas e Florêncio de Abreu"
+  [156]
+    - (visao_geral) AVISO-VIA-CONTEXTO-URBANO: "Coronel Fernando Ferreira Leite"
+    - (itinerario_texto) AVISO-VIA-CONTEXTO-URBANO: "Coronel Fernando Ferreira Leite e"
+  [203]
+    - (itinerario_texto) AVISO-VIA-CONTEXTO-URBANO: "Francisco Junqueira"
+  [204]
+    - (itinerario_texto) AVISO-VIA-CONTEXTO-URBANO: "Maurílio Biagi"
+    - (paradas_destaque) AVISO-VIA-CONTEXTO-URBANO: "Maurílio Biagi"
+  [311]
+    - (itinerario_texto) AVISO-VIA-CONTEXTO-URBANO: "Júlia Maria da Silva e Pedro Colino"
+
+======================================================================
+RECONTAGEM COM ERROS REAIS (só lista A):
+  Linhas com 0 erros reais:  28
+  Linhas com 1-2:            32  (001, 002, 006, 035, 041, 051, 085, 101, 104, 105, 106, 107, 148, 156, 178, 187, 201, 202, 203, 205, 208, 210, 211, 220, 236, 301, 302, 303, 305, 306, 310, 730)
+  Linhas com 3+:             10  (004, 007, 103, 130, 204, 206, 256, 299, 311, 902)
+STATUS: FALHOU (erros reais presentes)

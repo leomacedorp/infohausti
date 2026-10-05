@@ -1,0 +1,37 @@
+{
+  "_doc": "Famílias de linhas irmãs que compartilham trajeto real (mesmo eixo/terminal). Dentro da família, a Camada 1 do check_similaridade usa 'limite_fatal' próprio em vez de 30%, MAS só se a Camada 2 (overlap factual) comprovar trajeto compartilhado (>= 'min_overlap_camada2'). Pares fora da família seguem a regra geral de 30%. Nunca adicionar família sem justificativa factual.",
+  "limite_fatal_padrao_familia": 0.48,
+  "min_overlap_camada2": 0.30,
+  "familias": [
+    {
+      "id": "eixo-quintino-avelino",
+      "nome": "Eixo Quintino Facci / Parque Industrial Avelino Alves Palma",
+      "linhas": ["101", "110", "201", "301", "310", "311"],
+      "justificativa": "Seis linhas servindo o mesmo eixo Norte (Quintino Facci I/II e Parque Avelino Alves Palma), com variantes paradora, expressa e interbairros sobre vias e paradas comuns."
+    },
+    {
+      "id": "circular-centro",
+      "nome": "Circulares 1 e 2",
+      "linhas": ["199", "299"],
+      "justificativa": "Mesmo anel circular percorrido em sentidos opostos (horário x anti-horário)."
+    },
+    {
+      "id": "simioni",
+      "nome": "Simioni paradora e expressa",
+      "linhas": ["210", "211"],
+      "justificativa": "Mesma origem (Simioni); 211 é a variante expressa da 210."
+    },
+    {
+      "id": "adao-do-carmo",
+      "nome": "Linhas do Adão do Carmo",
+      "linhas": ["136", "236"],
+      "justificativa": "Ambas terminam no Adão do Carmo, partindo de Castelo Branco (136) e São José (236)."
+    },
+    {
+      "id": "parque-ribeirao-shopping",
+      "nome": "Linhas Parque Ribeirão / Shoppings Zona Sul",
+      "linhas": ["156", "256"],
+      "justificativa": "Ambas partem do Parque Ribeirão (Zona Sudoeste) compartilhando o corredor inicial da Cásper Líbero e Caramuru em direção aos polos de compras da Zona Sul."
+    }
+  ]
+}

@@ -144,7 +144,9 @@ adivinhe.
 
     · próximo bloco sugerido
 
-
+1.20 — Mudanças estruturais (novos arquivos de política, alteração de
+thresholds, mudança de escopo) exigem aprovação explícita do Leo antes de
+serem codadas. O executor pode PROPOR, não aplicar.
 
 Regras de auditoria (aplicadas pelo audit_all.py):
 
