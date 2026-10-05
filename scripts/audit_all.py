@@ -35,6 +35,7 @@ try:
     from check_pendentes import check_pendentes
     from check_palavras import check_palavras
     from check_qualidade_texto import check_qualidade_texto
+    from check_dist_stale import check_dist_stale
 except ImportError:
     # Adiciona pasta scripts ao path
     sys.path.insert(0, str(ROOT_DIR / 'scripts'))
@@ -46,6 +47,7 @@ except ImportError:
     from check_pendentes import check_pendentes
     from check_palavras import check_palavras
     from check_qualidade_texto import check_qualidade_texto
+    from check_dist_stale import check_dist_stale
 
 def run_full_audit():
     print("==================================================")
@@ -64,7 +66,8 @@ def run_full_audit():
         ("Similaridade em Duas Passadas", check_similaridade),
         ("Bloqueio de Dados Pendentes", check_pendentes),
         ("Mínimos de Palavras por Template", check_palavras),
-        ("Qualidade Editorial e Anti-Spinning", check_qualidade_texto)
+        ("Qualidade Editorial e Anti-Spinning", check_qualidade_texto),
+        ("Dist Stale (dist em dia com content)", check_dist_stale)
     ]
 
     for name, check_fn in checks:
