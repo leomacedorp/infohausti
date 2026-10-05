@@ -6,6 +6,11 @@
 
 ## 👤 Insumos Humanos (Aguardando Leonardo)
 
+- [ ] **Expansão Turística (05/10/2026) — 4 pendências aceitas por Leo:**
+  - [ ] **Telefone do Sesc RP:** sem fonte oficial (páginas da unidade não publicam); página corretamente NÃO publica telefone — contato via formulário sescsp.org.br/fale-conosco.
+  - [ ] **História do IFF:** página institucional inacessível (timeout de extração); campo pendente no dossiê — história não publicada sem fonte.
+  - [ ] **Endereço postal das Estações (Barracão e Mogiana):** fontes oficiais só dão referência viária (junção Dom Pedro I × Capitão Salomão; alinhamento da Av. Mogiana) — páginas usam a referência.
+  - [ ] **Visitação do Palácio Rio Branco:** obras de restauro desde 06/2024; visitação marcada como "não confirmada" até obra concluída.
 - [x] **`content/autor.json` (A9):** Preenchido com dados biográficos reais do editor/autor Leonardo A. Macedo (analista de TI, servidor público municipal, orquestrador de sistemas inteligentes).
 - [x] **`content/lista-mestre.json` (G1, B2, H0):** 6 serviços públicos, 12 pontos turísticos e 5 roteiros temáticos definidos e auditados. Pendente apenas D1 (10 bairros) e J1 (5 pilares da história).
 - [x] **Padronização de Slug — Theatro Pedro II (Decisão Leo 03/10/2026):** O arquivo de dados fonte/dossiê se chama `theatro-pedro-ii.json` (nome oficial tombado). A URL pública em `dist/` é mantida como `teatro-dom-pedro.html` (por herança do legado + comportamento de busca real do usuário no Google: "teatro dom pedro"). Decisão intencional e documentada.
