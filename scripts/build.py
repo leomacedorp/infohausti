@@ -247,7 +247,7 @@ def generate_mapa_do_site(ready_pages, config, env, ready_slugs):
         '  <header class="mb-8">',
         '    <p class="text-xs font-semibold uppercase tracking-wider text-amber-600 mb-2">Estrutura & Navegação</p>',
         '    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">Mapa do Site — Índice Geral</h1>',
-        '    <p class="text-lg text-slate-600 leading-relaxed">Relação completa, estruturada e atualizada de todas as páginas ativas e auditadas publicadas no portal Ribeirão Preto — Ribeirão Viva.</p>',
+        '    <p class="text-lg text-slate-600 leading-relaxed">Relação completa, estruturada e atualizada de todas as páginas ativas e auditadas publicadas no portal Ribeirão Viva.</p>',
         '  </header>',
         '  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">'
     ]
@@ -275,9 +275,9 @@ def generate_mapa_do_site(ready_pages, config, env, ready_slugs):
         "slug": "mapa-do-site",
         "template": "base.html",
         "schema_type": "WebPage",
-        "titulo": "Mapa do Site | Ribeirão Preto — Ribeirão Viva",
+        "titulo": "Mapa do Site",
         "h1": "Mapa do Site — Índice Geral",
-        "descricao": "Índice completo e atualizado de todas as páginas públicas ativas do portal Ribeirão Preto — Ribeirão Viva.",
+        "descricao": "Índice completo e atualizado de todas as páginas públicas ativas do portal Ribeirão Viva.",
         "status": "pronta",
         "publicado": datetime.now().strftime('%Y-%m-%d'),
         "atualizado": datetime.now().strftime('%Y-%m-%d'),
@@ -299,7 +299,7 @@ def generate_mapa_do_site(ready_pages, config, env, ready_slugs):
     context = {
         "base_url": "",
         "canonical_url": canonical_url,
-        "site_nome": config.get('nome_site', 'Ribeirão Preto | Ribeirão Viva'),
+        "site_nome": config.get('nome_site', 'Ribeirão Viva'),
         "titulo": page_data['titulo'],
         "descricao": page_data['descricao'],
         "keywords": "mapa do site ribeirao preto, indice ribeirao viva",
@@ -438,7 +438,7 @@ def main():
         context = {
             "base_url": "",
             "canonical_url": canonical_url,
-            "site_nome": config.get('nome_site', 'Ribeirão Preto | Ribeirão Viva'),
+            "site_nome": config.get('nome_site', 'Ribeirão Viva'),
             "titulo": page.get('titulo', ''),
             "descricao": page.get('descricao', ''),
             "keywords": page.get('keywords', ''),
