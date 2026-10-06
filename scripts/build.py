@@ -367,7 +367,7 @@ def main():
         shutil.copytree(ASSETS_DIR, dist_assets)
         print(f"[+] Assets copiados para {dist_assets}")
 
-    for root_file in ['robots.txt', 'ads.txt']:
+    for root_file in ['robots.txt', 'ads.txt', 'CNAME']:
         src = ROOT_DIR / root_file
         if src.exists():
             shutil.copy2(src, DIST_DIR / root_file)
