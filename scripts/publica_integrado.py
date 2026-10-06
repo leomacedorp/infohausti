@@ -1,0 +1,494 @@
+#!/usr/bin/env python3
+"""
+scripts/publica_integrado.py
+Integra a solução original de linhas (Bus_info com Leaflet, horários por sentido e paradas reais)
+com os novos dados de turismo, bairros e serviços públicos em um portal único e funcional.
+"""
+import os
+import sys
+import shutil
+import re
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+RIBEIRAO_LINHAS = ROOT_DIR / "ribeirao" / "linhas"
+DIST_DIR = ROOT_DIR / "dist"
+DEST_LINHAS = ROOT_DIR / "linhas"
+
+def publicar():
+    print("[*] Iniciando integração e publicação do Ribeirão Vivo...")
+    
+    # 1. Copiar as 115 páginas originais de linhas para /linhas/
+    if not RIBEIRAO_LINHAS.exists():
+        print(f"[ERRO] Diretório de linhas original não encontrado: {RIBEIRAO_LINHAS}")
+        sys.exit(1)
+        
+    DEST_LINHAS.mkdir(parents=True, exist_ok=True)
+    count_linhas = 0
+    for f in RIBEIRAO_LINHAS.glob("*.html"):
+        content = f.read_text(encoding="utf-8")
+        # Ajusta canonical para /linhas/ em vez de /ribeirao/linhas/
+        content = content.replace("https://infohausti.com.br/ribeirao/linhas/", "https://infohausti.com.br/linhas/")
+        (DEST_LINHAS / f.name).write_text(content, encoding="utf-8")
+        count_linhas += 1
+    print(f"[+] {count_linhas} páginas de linhas com Leaflet sincronizadas em /linhas/")
+
+    # Copiar também arquivos auxiliares de linhas (json, js, etc se houver)
+    for f in RIBEIRAO_LINHAS.glob("*.json"):
+        shutil.copy2(f, DEST_LINHAS / f.name)
+
+    # 2. Copiar seções de bairros, pontos turísticos e serviços de dist/
+    for folder in ["bairros", "servicos", "assets"]:
+        src_folder = DIST_DIR / folder
+        dest_folder = ROOT_DIR / folder
+        if src_folder.exists():
+            if dest_folder.exists():
+                shutil.rmtree(dest_folder)
+            shutil.copytree(src_folder, dest_folder)
+            print(f"[+] Pasta {folder}/ sincronizada na raiz.")
+
+    # 3. Copiar ribeirao-preto (turismo e roteiros)
+    src_rp = DIST_DIR / "ribeirao-preto"
+    dest_rp = ROOT_DIR / "ribeirao-preto"
+    if src_rp.exists():
+        if dest_rp.exists():
+            shutil.rmtree(dest_rp)
+        shutil.copytree(src_rp, dest_rp)
+        print(f"[+] Pasta ribeirao-preto/ (turismo e roteiros) sincronizada na raiz.")
+
+    # 4. Copiar páginas institucionais e utilitárias de dist/
+    for doc in [
+        "sobre.html", "equipe.html", "contato.html", "politica-editorial.html",
+        "privacidade.html", "termos-de-uso.html", "anuncie.html", "404.html",
+        "mapa-do-site.html", "acessibilidade.html", "imprensa.html", "cookies.html",
+        "robots.txt", "ads.txt", "CNAME", "favicon.ico", "favicon-16x16.png",
+        "favicon-32x32.png", "apple-touch-icon.png"
+    ]:
+        src_file = DIST_DIR / doc
+        if not src_file.exists():
+            src_file = ROOT_DIR / doc
+        if src_file.exists():
+            shutil.copy2(src_file, ROOT_DIR / doc)
+            print(f"[+] Arquivo {doc} sincronizado na raiz.")
+
+    # 5. Criar a Home Integrada Oficial (index.html)
+    criar_home_integrada()
+
+    # 6. Gerar sitemap.xml consolidado
+    gerar_sitemap_consolidado()
+
+    print("\n[OK] Integração concluída com sucesso! Todos os arquivos estão na raiz prontos para o ar.")
+
+def criar_home_integrada():
+    home_path = ROOT_DIR / "index.html"
+    
+    html = """<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ribeirão Vivo | O Portal de Mobilidade, Bairros e Vida de Ribeirão Preto</title>
+    <meta name="description" content="Guia completo de Ribeirão Preto - SP. 113 linhas de ônibus com mapas interativos e horários em tempo real, 30 pontos turísticos, 10 bairros históricos e serviços públicos.">
+    <link rel="canonical" href="https://infohausti.com.br/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://infohausti.com.br/">
+    <meta property="og:title" content="Ribeirão Vivo | A Cidade Digital em Suas Mãos">
+    <meta property="og:description" content="113 linhas de ônibus com horários e mapas, pontos turísticos, bairros e serviços essenciais de Ribeirão Preto.">
+    <meta property="og:image" content="https://infohausti.com.br/assets/img/og-image.jpg">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rp: {
+                            blue: '#1a15f0',
+                            orange: '#ff6600',
+                            dark: '#0f172a',
+                            light: '#f8fafc',
+                            card: '#ffffff'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .adsense-box {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            border: 2px dashed #cbd5e1;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- TOP HEADER -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">🏙️</span>
+                <div>
+                    <a href="/" class="text-lg font-black tracking-tight text-slate-900 flex items-center gap-1.5 hover:opacity-90">
+                        RIBEIRÃO <span class="text-blue-600">VIVO</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full">Portal Digital</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-5 text-xs font-bold text-slate-600">
+                <a href="/linhas/" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fas fa-bus text-blue-600"></i> Ônibus</a>
+                <a href="/ribeirao-preto/pontos-turisticos/" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fas fa-landmark text-amber-600"></i> Turismo</a>
+                <a href="/bairros/" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fas fa-city text-emerald-600"></i> Bairros</a>
+                <a href="/servicos/" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fas fa-file-lines text-indigo-600"></i> Serviços</a>
+                <a href="/mapa-do-site.html" class="hover:text-blue-600 transition">Mapa do Site</a>
+            </nav>
+            <a href="/anuncie.html" class="text-xs font-bold bg-slate-900 text-white px-3 py-1.5 rounded-lg hover:bg-blue-600 transition shadow-sm">
+                Anunciar
+            </a>
+        </div>
+    </header>
+
+    <!-- BANNER TOPO -->
+    <div class="max-w-5xl mx-auto px-4 mt-3 w-full">
+        <div class="adsense-box rounded-xl p-2.5 text-center flex flex-col items-center justify-center min-h-[60px]">
+            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Espaço Publicitário • Google AdSense</span>
+            <p class="text-xs text-slate-500 font-medium mt-0.5">Anúncios contextualizados para o público de Ribeirão Preto e Região</p>
+        </div>
+    </div>
+
+    <main class="max-w-5xl mx-auto px-4 py-6 flex-1 w-full space-y-8">
+
+        <!-- HERO SECTION -->
+        <section class="bg-gradient-to-br from-blue-700 via-indigo-800 to-slate-900 rounded-2xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
+            <div class="relative z-10">
+                <span class="inline-block text-xs font-bold bg-white/20 backdrop-blur-md px-3.5 py-1 rounded-full mb-3 text-orange-300">
+                    📍 Mobilidade & Dados Oficiais de Ribeirão Preto
+                </span>
+                <h1 class="text-2xl sm:text-4xl font-black leading-tight tracking-tight">
+                    A cidade em um clique: linhas de ônibus, bairros e patrimônio.
+                </h1>
+                <p class="text-sm sm:text-base text-blue-100 mt-2.5 max-w-2xl leading-relaxed">
+                    Consulte horários e mapas com Leaflet das 113 linhas municipais, conheça a história dos bairros e descubra o que fazer em Ribeirão Preto sem complicação.
+                </p>
+
+                <!-- BUSCA RÁPIDA -->
+                <div class="mt-6 flex flex-col sm:flex-row gap-2 max-w-2xl">
+                    <div class="relative flex-1">
+                        <i class="fas fa-search absolute left-4 top-3.5 text-slate-400 text-sm"></i>
+                        <input type="text" id="inputBusca" placeholder="Buscar linha (ex: 303, 902), bairro ou teatro..." 
+                               class="w-full pl-11 pr-4 py-3 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 shadow-md">
+                    </div>
+                    <a href="/linhas/" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl text-sm transition shadow-md text-center whitespace-nowrap">
+                        Ver Linhas de Ônibus
+                    </a>
+                </div>
+
+                <!-- CARDS DE ESTATÍSTICAS -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8 pt-6 border-t border-white/10">
+                    <div class="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
+                        <span class="text-2xl sm:text-3xl font-black text-orange-400">113</span>
+                        <p class="text-[11px] uppercase tracking-wider text-blue-200 mt-0.5">Linhas de Ônibus</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
+                        <span class="text-2xl sm:text-3xl font-black text-amber-300">30</span>
+                        <p class="text-[11px] uppercase tracking-wider text-blue-200 mt-0.5">Pontos Culturais</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
+                        <span class="text-2xl sm:text-3xl font-black text-emerald-400">10</span>
+                        <p class="text-[11px] uppercase tracking-wider text-blue-200 mt-0.5">Bairros Mapeados</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
+                        <span class="text-2xl sm:text-3xl font-black text-cyan-300">R$ 5,00</span>
+                        <p class="text-[11px] uppercase tracking-wider text-blue-200 mt-0.5">Tarifa Única (120m)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DESTAQUE MOBILIDADE URBANA -->
+        <section class="space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Transporte Coletivo</span>
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900">Mobilidade Urbana & Linhas de Ônibus</h2>
+                </div>
+                <a href="/linhas/" class="text-xs sm:text-sm font-bold text-blue-600 hover:text-blue-800 transition flex items-center gap-1">
+                    Ver catálogo completo <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <div class="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fas fa-ticket"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm">Integração Gratuita de 120 Minutos</h4>
+                        <p class="text-xs text-slate-600 mt-0.5">Tarifa vigente de R$ 5,00 com o Cartão Cidadão RP Mobi. Embarque no segundo ônibus sem pagar nova passagem dentro do prazo.</p>
+                    </div>
+                </div>
+                <div class="flex gap-2 w-full sm:w-auto">
+                    <a href="/servicos/tarifa-e-cartao-nosso.html" class="flex-1 sm:flex-none text-center text-xs font-bold bg-white text-blue-700 border border-blue-300 px-3 py-2 rounded-xl hover:bg-blue-100 transition">
+                        Como funciona o cartão
+                    </a>
+                    <a href="/linhas/mapa.html" class="flex-1 sm:flex-none text-center text-xs font-bold bg-blue-600 text-white px-3 py-2 rounded-xl hover:bg-blue-700 transition">
+                        Mapa Geral da Rede
+                    </a>
+                </div>
+            </div>
+
+            <!-- LINHAS MAIS CONSULTADAS COM LEAFLET -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                <a href="/linhas/linha-303-bom-pastor.html" class="bg-white border border-slate-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-0.5 rounded-lg bg-blue-600 text-white font-black text-xs">303</span>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase">Radial</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition text-sm">Bom Pastor</h3>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Av. das Lágrimas ⇄ Castelo Branco ⇄ Terminal Urbano Central. Mapa interativo com 61 paradas.</p>
+                </a>
+                <a href="/linhas/linha-902-norte-sul-2.html" class="bg-white border border-slate-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-0.5 rounded-lg bg-purple-600 text-white font-black text-xs">902</span>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase">Corredor BRT</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition text-sm">Norte-Sul 2</h3>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Eixo estrutural Norte-Sul pelos corredores exclusivos com embarque nivelado e alta frequência.</p>
+                </a>
+                <a href="/linhas/linha-103-iguatemi.html" class="bg-white border border-slate-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-0.5 rounded-lg bg-blue-600 text-white font-black text-xs">103</span>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase">Convencional</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition text-sm">Iguatemi</h3>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Conexão do Centro e eixo Costábile Romano / UNAERP até o Shopping Iguatemi na Zona Sul.</p>
+                </a>
+                <a href="/linhas/linha-207-hospital-das-clinicas.html" class="bg-white border border-slate-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-0.5 rounded-lg bg-emerald-600 text-white font-black text-xs">207</span>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase">Hospitalar</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition text-sm">Hospital das Clínicas</h3>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Acesso direto ao campus da USP e Hospital das Clínicas (Unidade Campus e Emergência).</p>
+                </a>
+                <a href="/linhas/linha-199-circular-1.html" class="bg-white border border-slate-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-0.5 rounded-lg bg-blue-600 text-white font-black text-xs">199</span>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase">Circular</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition text-sm">Circular 1</h3>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Anel viário no sentido horário ligando zonas clínicas, centros comerciais e polos de ensino.</p>
+                </a>
+                <a href="/linhas/linha-001-noturno-norte.html" class="bg-white border border-slate-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-0.5 rounded-lg bg-slate-900 text-white font-black text-xs">001</span>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase">Corujão</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition text-sm">Noturno Norte</h3>
+                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Operação de madrugada para trabalhadores de turno e retorno seguro da Zona Norte.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- SEÇÕES INTEGRADAS: PATRIMÔNIO, BAIRROS E SERVIÇOS -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- TURISMO E CULTURA -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg font-bold">🏛️</span>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-base">Turismo & Patrimônio</h3>
+                        <p class="text-xs text-slate-500">30 pontos culturais documentados</p>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    História, horários de visitação e como chegar de ônibus aos principais palacetes, museus, praças e parques da cidade.
+                </p>
+                <div class="space-y-1.5 pt-1">
+                    <a href="/ribeirao-preto/pontos-turisticos/teatro-dom-pedro.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
+                        🎭 Theatro Pedro II & Quarteirão Paulista
+                    </a>
+                    <a href="/ribeirao-preto/pontos-turisticos/marp.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
+                        🎨 MARP — Museu de Arte de Ribeirão Preto
+                    </a>
+                    <a href="/ribeirao-preto/pontos-turisticos/biblioteca-sinha-junqueira.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
+                        📖 Biblioteca Sinhá Junqueira (Casarão 1932)
+                    </a>
+                    <a href="/ribeirao-preto/pontos-turisticos/museu-do-cafe.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1">
+                        ☕ Museu do Café & USP
+                    </a>
+                </div>
+                <a href="/ribeirao-preto/pontos-turisticos/" class="block text-xs font-bold text-amber-700 hover:underline pt-2">
+                    Ver todos os 30 pontos culturais →
+                </a>
+            </div>
+
+            <!-- BAIRROS -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg font-bold">🏘️</span>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-base">Bairros de Ribeirão</h3>
+                        <p class="text-xs text-slate-500">10 bairros históricos e perfis</p>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    A identidade territorial da cidade: história da fundação, principais ruas, unidades de saúde (UBS) e linhas que atendem cada região.
+                </p>
+                <div class="space-y-1.5 pt-1">
+                    <a href="/bairros/centro.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
+                        📍 Centro Histórico e Comercial
+                    </a>
+                    <a href="/bairros/campos-eliseos.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
+                        🚂 Campos Elíseos (Tradição e Ferrovia)
+                    </a>
+                    <a href="/bairros/ribeirania.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
+                        🎓 Ribeirânia (UNAERP e Polo de Saúde)
+                    </a>
+                    <a href="/bairros/jardim-botanico.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1">
+                        🌳 Jardim Botânico e Parque Sul
+                    </a>
+                </div>
+                <a href="/bairros/" class="block text-xs font-bold text-emerald-700 hover:underline pt-2">
+                    Explorar os 10 bairros da cidade →
+                </a>
+            </div>
+
+            <!-- SERVIÇOS PÚBLICOS -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-lg font-bold">📋</span>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-base">Serviços Públicos</h3>
+                        <p class="text-xs text-slate-500">Guia de utilidade essencial</p>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Informações práticas do dia a dia municipal: postos de saúde 24h, agendamentos no Poupatempo e telefones de emergência.
+                </p>
+                <div class="space-y-1.5 pt-1">
+                    <a href="/servicos/postos-de-saude-ubs-upa.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
+                        🏥 Postos de Saúde, UBSs e UPAs 24h
+                    </a>
+                    <a href="/servicos/poupatempo-ribeirao-preto.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
+                        🏢 Poupatempo (Novo Shopping)
+                    </a>
+                    <a href="/servicos/tarifa-e-cartao-nosso.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
+                        💳 Cartão Cidadão RP Mobi & Recargas
+                    </a>
+                    <a href="/servicos/telefones-uteis-e-emergencia.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1">
+                        📞 Telefones Úteis e Emergência (SAMU, Bombeiros)
+                    </a>
+                </div>
+                <a href="/servicos/" class="block text-xs font-bold text-indigo-700 hover:underline pt-2">
+                    Ver guia completo de serviços →
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-12">
+        <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-4 gap-6">
+            <div>
+                <span class="font-black text-white text-sm block mb-2">Ribeirão Vivo</span>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    Plataforma cívica e independente de dados abertos e mobilidade urbana de Ribeirão Preto - SP.
+                </p>
+            </div>
+            <div>
+                <span class="font-bold text-slate-200 block mb-2">Transporte & Mapas</span>
+                <ul class="space-y-1">
+                    <li><a href="/linhas/" class="hover:text-white transition">Todas as 113 Linhas</a></li>
+                    <li><a href="/linhas/mapa.html" class="hover:text-white transition">Mapa Geral da Rede</a></li>
+                    <li><a href="/servicos/tarifa-e-cartao-nosso.html" class="hover:text-white transition">Regras de Tarifa & Integração</a></li>
+                </ul>
+            </div>
+            <div>
+                <span class="font-bold text-slate-200 block mb-2">Patrimônio & Bairros</span>
+                <ul class="space-y-1">
+                    <li><a href="/ribeirao-preto/pontos-turisticos/" class="hover:text-white transition">Pontos Turísticos</a></li>
+                    <li><a href="/bairros/" class="hover:text-white transition">Bairros de Ribeirão</a></li>
+                    <li><a href="/ribeirao-preto/roteiros/" class="hover:text-white transition">Roteiros Temáticos</a></li>
+                </ul>
+            </div>
+            <div>
+                <span class="font-bold text-slate-200 block mb-2">Institucional</span>
+                <ul class="space-y-1">
+                    <li><a href="/sobre.html" class="hover:text-white transition">Sobre o Projeto</a></li>
+                    <li><a href="/politica-editorial.html" class="hover:text-white transition">Política Editorial</a></li>
+                    <li><a href="/contato.html" class="hover:text-white transition">Fale Conosco / Correções</a></li>
+                    <li><a href="/mapa-do-site.html" class="hover:text-white transition">Mapa do Site Completo</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-5xl mx-auto px-4 mt-8 pt-4 border-t border-slate-800 text-center text-slate-500">
+            © 2026 Ribeirão Vivo • Todos os dados operacionais cruzados com fontes oficiais da RP Mobi e Prefeitura de Ribeirão Preto.
+        </div>
+    </footer>
+
+</body>
+</html>"""
+    home_path.write_text(html, encoding="utf-8")
+    print("[+] Home integrada oficial criada em index.html")
+
+def gerar_sitemap_consolidado():
+    sitemap_path = ROOT_DIR / "sitemap.xml"
+    urls = []
+    
+    # Raiz e páginas principais
+    urls.append("https://infohausti.com.br/")
+    for doc in ROOT_DIR.glob("*.html"):
+        if doc.name not in ["index.html", "404.html"]:
+            urls.append(f"https://infohausti.com.br/{doc.name}")
+            
+    # Linhas
+    if DEST_LINHAS.exists():
+        for doc in DEST_LINHAS.glob("*.html"):
+            urls.append(f"https://infohausti.com.br/linhas/{doc.name}")
+            
+    # Bairros
+    bairros_dir = ROOT_DIR / "bairros"
+    if bairros_dir.exists():
+        for doc in bairros_dir.glob("*.html"):
+            urls.append(f"https://infohausti.com.br/bairros/{doc.name}")
+
+    # Serviços
+    servicos_dir = ROOT_DIR / "servicos"
+    if servicos_dir.exists():
+        for doc in servicos_dir.glob("*.html"):
+            urls.append(f"https://infohausti.com.br/servicos/{doc.name}")
+
+    # Turismo e Roteiros
+    rp_dir = ROOT_DIR / "ribeirao-preto"
+    if rp_dir.exists():
+        for doc in rp_dir.rglob("*.html"):
+            rel = doc.relative_to(ROOT_DIR).as_posix()
+            urls.append(f"https://infohausti.com.br/{rel}")
+
+    urls = sorted(list(set(urls)))
+    
+    xml_lines = ['<?xml version="1.0" encoding="UTF-8"?>']
+    xml_lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+    for u in urls:
+        xml_lines.append("  <url>")
+        xml_lines.append(f"    <loc>{u}</loc>")
+        xml_lines.append("    <changefreq>weekly</changefreq>")
+        xml_lines.append("    <priority>0.8</priority>")
+        xml_lines.append("  </url>")
+    xml_lines.append("</urlset>")
+    
+    sitemap_path.write_text("\n".join(xml_lines), encoding="utf-8")
+    print(f"[+] sitemap.xml gerado com {len(urls)} URLs consolidadas.")
+
+if __name__ == '__main__':
+    publicar()

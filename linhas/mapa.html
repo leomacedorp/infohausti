@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mapa da Rede de Ônibus de Ribeirão Preto | Todas as Linhas Traçadas - Ribeirão Vivo</title>
+    <meta name="description" content="Visualize todas as 113 linhas de ônibus de Ribeirão Preto no mapa interativo. Veja por onde elas passam, onde se cruzam, terminais de integração e filtre por bairros e setores.">
+    <link rel="canonical" href="https://infohausti.com.br/linhas/mapa.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://infohausti.com.br/linhas/mapa.html">
+    <meta property="og:title" content="Mapa Geral da Rede de Ônibus | Ribeirão Vivo">
+    <meta property="og:description" content="Mapa completo com todas as 113 linhas traçadas de Ribeirão Preto. Descubra onde as linhas se cruzam.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rp: {
+                            blue: '#1a15f0',
+                            orange: '#ff6600',
+                            dark: '#0f172a',
+                            light: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        #map {
+            height: 100%;
+            width: 100%;
+            z-index: 10;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .leaflet-popup-content-wrapper {
+            border-radius: 1rem;
+            padding: 4px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="h-full w-full overflow-hidden flex flex-col font-sans bg-slate-900 text-slate-900 antialiased select-none">
+
+    <!-- BARRA SUPERIOR RESPONSIVA -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 z-30 px-3 sm:px-6 py-2.5 flex items-center justify-between shrink-0 shadow-xs">
+        <div class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-1.5 text-slate-700 hover:text-blue-600 transition font-bold text-xs bg-slate-100 hover:bg-slate-200 px-2.5 py-1.5 rounded-xl">
+                <i class="fas fa-arrow-left"></i>
+                <span class="hidden sm:inline">Lista de Linhas</span>
+            </a>
+            <div class="flex items-center gap-2">
+                <span class="text-xl">🗺️</span>
+                <div>
+                    <h1 class="text-xs sm:text-sm font-black text-slate-900 leading-tight flex items-center gap-1.5">
+                        <span>MAPA DA REDE</span>
+                        <span class="text-[9px] uppercase font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">113 Linhas</span>
+                    </h1>
+                    <p class="text-[10px] text-slate-500 hidden sm:block">Traçados oficiais e cruzamentos em Ribeirão Preto</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <!-- Botão Minha Localização -->
+            <button onclick="localizarUsuario()" class="text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-xl transition flex items-center gap-1.5">
+                <i class="fas fa-crosshairs text-blue-600"></i>
+                <span class="hidden md:inline">Onde Estou</span>
+            </button>
+            <a href="../index.html" class="text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-xl transition shadow-xs">
+                Portal Ribeirão
+            </a>
+        </div>
+    </header>
+
+    <!-- ÁREA PRINCIPAL DO MAPA & PAINEL FLUTUANTE -->
+    <div class="relative flex-1 w-full h-full overflow-hidden">
+
+        <!-- MAPA LEAFLET -->
+        <div id="map"></div>
+
+        <!-- BARRA FLUTUANTE DE FILTROS POR SETOR (TOPO DO MAPA) -->
+        <div class="absolute top-3 left-3 right-3 sm:left-6 sm:right-auto z-20 flex items-center gap-1.5 overflow-x-auto no-scrollbar p-1 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg border border-slate-200/80 max-w-full">
+            <button onclick="filtrarSetor('todos')" id="pill-todos" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-black transition bg-blue-600 text-white shadow-xs">
+                Todas (113)
+            </button>
+            <button onclick="filtrarSetor('troncais')" id="pill-troncais" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-purple-100 hover:text-purple-800 whitespace-nowrap">
+                🟣 Troncais / BRT
+            </button>
+            <button onclick="filtrarSetor('leste')" id="pill-leste" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-blue-100 hover:text-blue-800 whitespace-nowrap">
+                🔵 Zona Leste
+            </button>
+            <button onclick="filtrarSetor('norte')" id="pill-norte" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-blue-100 hover:text-blue-800 whitespace-nowrap">
+                🔷 Zona Norte
+            </button>
+            <button onclick="filtrarSetor('sul')" id="pill-sul" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-emerald-100 hover:text-emerald-800 whitespace-nowrap">
+                🟢 Zona Sul
+            </button>
+            <button onclick="filtrarSetor('oeste')" id="pill-oeste" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-indigo-100 hover:text-indigo-800 whitespace-nowrap">
+                🟣 Zona Oeste
+            </button>
+            <button onclick="filtrarSetor('alimentadoras')" id="pill-alimentadoras" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-orange-100 hover:text-orange-800 whitespace-nowrap">
+                🟠 Alimentadoras
+            </button>
+            <button onclick="filtrarSetor('noturnas')" id="pill-noturnas" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200 whitespace-nowrap">
+                ⚫ Noturnas
+            </button>
+        </div>
+
+        <!-- CAIXA DE BUSCA FLUTUANTE (CANTO SUPERIOR DIREITO) -->
+        <div class="absolute top-16 sm:top-3 right-3 sm:right-6 z-20 w-72 sm:w-80">
+            <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-slate-200 p-2">
+                <div class="relative">
+                    <input type="text" id="inputBuscaLinha" oninput="buscarLinhas(event)" onkeydown="checkEnter(event)" placeholder="Buscar linha (ex: 303, Lagoinha)..." 
+                           autocomplete="off"
+                           class="w-full text-xs px-3 py-2 pl-8 pr-7 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium">
+                    <i class="fas fa-search absolute left-2.5 top-2.5 text-slate-400 text-xs"></i>
+                    <button id="btnClearSearch" onclick="limparSelecao(true)" class="hidden absolute right-2.5 top-2 text-slate-400 hover:text-slate-700 text-xs">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                </div>
+                <!-- LISTA DE SUGESTÕES AUTOCOMPLETE -->
+                <div id="searchSuggestions" class="hidden mt-1.5 max-h-56 overflow-y-auto divide-y divide-slate-100 rounded-xl border border-slate-100 bg-white shadow-lg"></div>
+            </div>
+        </div>
+
+        <!-- CARD FLUTUANTE DE LINHA EM DESTAQUE (INSPECTOR) -->
+        <div id="inspectorCard" class="hidden absolute bottom-5 left-3 right-3 sm:left-6 sm:right-auto sm:w-96 z-20 bg-white/95 backdrop-blur-md rounded-3xl p-5 shadow-2xl border border-slate-200/90 transition-all duration-300">
+            <div class="flex items-start justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <div id="inspBadge" class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex flex-col items-center justify-center font-black shadow-sm shrink-0">
+                        <span id="inspNum" class="text-base leading-none">303</span>
+                        <span class="text-[8px] uppercase tracking-tighter opacity-80">Linha</span>
+                    </div>
+                    <div>
+                        <span id="inspSector" class="text-[10px] font-bold uppercase tracking-wider text-blue-600">Zona Leste</span>
+                        <h3 id="inspName" class="text-sm font-black text-slate-900 leading-tight">Bom Pastor</h3>
+                        <p id="inspTrip" class="text-[11px] text-slate-500 mt-0.5">Av. das Lágrimas ⇄ Centro</p>
+                    </div>
+                </div>
+                <button onclick="limparSelecao()" class="text-slate-400 hover:text-slate-700 p-1">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                <span class="text-slate-500">Tarifa: <strong class="text-slate-800">R$ 5,00</strong></span>
+                <a id="inspLink" href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-3 py-1.5 rounded-xl transition shadow-xs flex items-center gap-1.5 text-xs">
+                    <span>Ver Horários & Paradas</span>
+                    <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- LEGENDA RÁPIDA (CANTO INFERIOR DIREITO) -->
+        <div class="hidden md:block absolute bottom-5 right-6 z-20 bg-white/90 backdrop-blur-md p-3 rounded-2xl border border-slate-200 shadow-lg text-[11px] space-y-1">
+            <span class="font-bold text-slate-700 block mb-1">Legenda da Rede</span>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#9333ea]"></span> <span>Corredores BRT (900)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#1a15f0]"></span> <span>Zona Leste (300/600/700)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#2563eb]"></span> <span>Zona Norte (100/800)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#059669]"></span> <span>Zona Sul (200)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#4f46e5]"></span> <span>Zona Oeste (400/500)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#ea580c]"></span> <span>Alimentadoras (015-095)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#1e293b]"></span> <span>Noturnas (001-008)</span></div>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let map;
+        let geojsonLayer;
+        let allFeatures = [];
+        let activeSector = 'todos';
+        let highlightedRoute = null;
+        let userMarker = null;
+
+        // Terminais Urbanos de Ribeirão Preto
+        const terminais = [
+            { name: "Terminal Urbano Central", desc: "Plataformas A, B, C, D • Catedral", lat: -21.1755, lng: -47.8152, icon: "🏛️" },
+            { name: "Terminal Rodoviária (Dra. Evangelina)", desc: "Integração Intermunicipal e Urbana", lat: -21.1738, lng: -47.8189, icon: "🚌" },
+            { name: "Terminal Bonfim Paulista", desc: "Conexão dos distritos e condomínios Sul", lat: -21.2858, lng: -47.8130, icon: "🌳" },
+            { name: "Terminal Ribeirão Verde", desc: "Conexão dos bairros da Zona Leste", lat: -21.1275, lng: -47.7423, icon: "🏡" },
+            { name: "Terminal São José", desc: "Polo industrial e alimentadoras Leste", lat: -21.1560, lng: -47.7315, icon: "🏭" }
+        ];
+
+        function initMap() {
+            map = L.map('map', {
+                zoomControl: false
+            }).setView([-21.177, -47.810], 12);
+
+            L.control.zoom({ position: 'bottomleft' }).addTo(map);
+
+            // Tiles OpenStreetMap Universais
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Adiciona marcadores de terminais
+            terminais.forEach(t => {
+                const termIcon = L.divIcon({
+                    className: 'custom-term-icon',
+                    html: `<div style="background: white; border: 2px solid #1a15f0; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">${t.icon}</div>`,
+                    iconSize: [32, 32],
+                    iconAnchor: [16, 16]
+                });
+
+                L.marker([t.lat, t.lng], { icon: termIcon }).addTo(map)
+                    .bindPopup(`
+                        <div style="font-size: 12px; line-height: 1.4;">
+                            <strong style="color: #1a15f0; font-size: 13px;">${t.name}</strong><br>
+                            <span style="color: #64748b;">${t.desc}</span>
+                        </div>
+                    `);
+            });
+
+            // Carrega GeoJSON das linhas
+            fetch('dados_linhas_rede.json')
+                .then(res => res.json())
+                .then(data => {
+                    allFeatures = data.features;
+                    renderLines();
+                })
+                .catch(err => console.error("Erro ao carregar dados:", err));
+        }
+
+        function getLineStyle(feature) {
+            const p = feature.properties;
+            const isMatch = highlightedRoute ? (p.short_name === highlightedRoute) : true;
+            const sectorMatch = (activeSector === 'todos') || (p.sector === activeSector);
+
+            if (highlightedRoute) {
+                if (isMatch) {
+                    return {
+                        color: p.color || '#1a15f0',
+                        weight: 6,
+                        opacity: 1.0,
+                        zIndex: 1000
+                    };
+                } else {
+                    return {
+                        color: '#94a3b8',
+                        weight: 1.5,
+                        opacity: 0.15
+                    };
+                }
+            }
+
+            if (!sectorMatch) {
+                return {
+                    color: '#cbd5e1',
+                    weight: 1,
+                    opacity: 0.05
+                };
+            }
+
+            let weight = 2.5;
+            let opacity = 0.65;
+            if (p.sector === 'troncais') {
+                weight = 4;
+                opacity = 0.85;
+            }
+
+            return {
+                color: p.color || '#1a15f0',
+                weight: weight,
+                opacity: opacity
+            };
+        }
+
+        function renderLines() {
+            if (geojsonLayer) {
+                map.removeLayer(geojsonLayer);
+            }
+
+            geojsonLayer = L.geoJSON(allFeatures, {
+                style: getLineStyle,
+                onEachFeature: (feature, layer) => {
+                    const p = feature.properties;
+                    layer.on('click', () => {
+                        destacarLinha(p.short_name, p);
+                    });
+                    layer.on('mouseover', () => {
+                        if (!highlightedRoute) {
+                            layer.setStyle({ weight: 5, opacity: 0.95 });
+                        }
+                    });
+                    layer.on('mouseout', () => {
+                        if (!highlightedRoute) {
+                            geojsonLayer.resetStyle(layer);
+                        }
+                    });
+                }
+            }).addTo(map);
+        }
+
+        function destacarLinha(shortName, props, updateInput = true) {
+            highlightedRoute = shortName;
+            if (updateInput) {
+                document.getElementById('inputBuscaLinha').value = shortName;
+                document.getElementById('btnClearSearch').classList.remove('hidden');
+            }
+
+            renderLines();
+
+            // Mostra o card inspetor
+            const card = document.getElementById('inspectorCard');
+            card.classList.remove('hidden');
+
+            document.getElementById('inspNum').textContent = props.short_name;
+            document.getElementById('inspName').textContent = props.long_name;
+            document.getElementById('inspTrip').textContent = props.trip_name || 'Itinerário Oficial';
+            document.getElementById('inspSector').textContent = props.sector_name;
+            document.getElementById('inspBadge').style.backgroundColor = props.color;
+            document.getElementById('inspLink').href = props.url;
+
+            // Enquadra a linha selecionada
+            const selectedFeatures = allFeatures.filter(f => f.properties.short_name === shortName);
+            if (selectedFeatures.length > 0) {
+                const tempLayer = L.geoJSON(selectedFeatures);
+                map.fitBounds(tempLayer.getBounds(), { padding: [60, 60] });
+            }
+        }
+
+        function selecionarLinha(shortName) {
+            const f = allFeatures.find(item => item.properties.short_name === shortName);
+            if (!f) return;
+            document.getElementById('inputBuscaLinha').value = shortName;
+            document.getElementById('btnClearSearch').classList.remove('hidden');
+            const sug = document.getElementById('searchSuggestions');
+            sug.classList.add('hidden');
+            sug.innerHTML = '';
+            destacarLinha(shortName, f.properties, false);
+        }
+
+        function checkEnter(e) {
+            if (e.key === 'Enter') {
+                const sug = document.getElementById('searchSuggestions');
+                const first = sug.querySelector('[data-route]');
+                if (first) {
+                    selecionarLinha(first.getAttribute('data-route'));
+                }
+            }
+        }
+
+        function limparSelecao(clearInput = true) {
+            highlightedRoute = null;
+            if (clearInput) {
+                document.getElementById('inputBuscaLinha').value = '';
+            }
+            document.getElementById('btnClearSearch').classList.add('hidden');
+            const sug = document.getElementById('searchSuggestions');
+            sug.classList.add('hidden');
+            sug.innerHTML = '';
+            document.getElementById('inspectorCard').classList.add('hidden');
+            renderLines();
+        }
+
+        function filtrarSetor(sectorId) {
+            activeSector = sectorId;
+            highlightedRoute = null;
+            document.getElementById('inspectorCard').classList.add('hidden');
+
+            document.querySelectorAll('.sector-pill').forEach(btn => {
+                btn.className = 'sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200 whitespace-nowrap';
+            });
+            const activeBtn = document.getElementById('pill-' + sectorId);
+            if (activeBtn) {
+                activeBtn.className = 'sector-pill px-3 py-1.5 rounded-xl text-xs font-black transition bg-blue-600 text-white shadow-xs whitespace-nowrap';
+            }
+
+            renderLines();
+
+            if (sectorId !== 'todos') {
+                const sectorFeatures = allFeatures.filter(f => f.properties.sector === sectorId);
+                if (sectorFeatures.length > 0) {
+                    const tempLayer = L.geoJSON(sectorFeatures);
+                    map.fitBounds(tempLayer.getBounds(), { padding: [40, 40] });
+                }
+            } else {
+                map.setView([-21.177, -47.810], 12);
+            }
+        }
+
+        function buscarLinhas(e) {
+            const input = document.getElementById('inputBuscaLinha');
+            const val = input.value.trim().toLowerCase();
+            const btnClear = document.getElementById('btnClearSearch');
+            const sug = document.getElementById('searchSuggestions');
+
+            if (!val) {
+                btnClear.classList.add('hidden');
+                sug.classList.add('hidden');
+                sug.innerHTML = '';
+                limparSelecao(false);
+                return;
+            }
+
+            btnClear.classList.remove('hidden');
+
+            // Agrupa linhas únicas
+            const seen = new Set();
+            const uniqueRoutes = [];
+            allFeatures.forEach(f => {
+                const p = f.properties;
+                if (!seen.has(p.short_name)) {
+                    seen.add(p.short_name);
+                    uniqueRoutes.push(p);
+                }
+            });
+
+            const exact = [];
+            const starts = [];
+            const contains = [];
+
+            uniqueRoutes.forEach(p => {
+                const num = p.short_name.toLowerCase();
+                const name = p.long_name.toLowerCase();
+
+                if (num === val) {
+                    exact.push(p);
+                } else if (num.startsWith(val)) {
+                    starts.push(p);
+                } else if (name.includes(val) || num.includes(val)) {
+                    contains.push(p);
+                }
+            });
+
+            const matches = [...exact, ...starts, ...contains].slice(0, 7);
+
+            if (matches.length > 0) {
+                sug.innerHTML = matches.map(p => `
+                    <div onclick="selecionarLinha('${p.short_name}')" data-route="${p.short_name}" class="p-2.5 hover:bg-blue-50 cursor-pointer flex items-center justify-between transition">
+                        <div class="flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg text-white font-bold text-xs flex items-center justify-center shrink-0" style="background-color: ${p.color || '#1a15f0'}">${p.short_name}</span>
+                            <div>
+                                <strong class="text-xs text-slate-800 block">${p.long_name}</strong>
+                                <span class="text-[10px] text-slate-400">${p.sector_name || ''}</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right text-[10px] text-slate-400"></i>
+                    </div>
+                `).join('');
+                sug.classList.remove('hidden');
+
+                // Se houver uma correspondência exata de número (ex: digitou "303")
+                if (exact.length > 0) {
+                    destacarLinha(exact[0].short_name, exact[0], false);
+                }
+            } else {
+                sug.innerHTML = '<div class="p-3 text-xs text-slate-400 text-center">Nenhuma linha encontrada</div>';
+                sug.classList.remove('hidden');
+            }
+        }
+
+        // Fecha sugestões ao clicar fora
+        document.addEventListener('click', (e) => {
+            const searchBox = document.getElementById('inputBuscaLinha')?.closest('.bg-white\/95');
+            if (searchBox && !searchBox.contains(e.target)) {
+                document.getElementById('searchSuggestions')?.classList.add('hidden');
+            }
+        });
+
+        function localizarUsuario() {
+            if (!navigator.geolocation) {
+                alert("Geolocalização não suportada neste navegador.");
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(pos => {
+                const lat = pos.coords.latitude;
+                const lng = pos.coords.longitude;
+
+                if (userMarker) {
+                    map.removeLayer(userMarker);
+                }
+
+                userMarker = L.circleMarker([lat, lng], {
+                    radius: 9,
+                    fillColor: '#3b82f6',
+                    color: '#ffffff',
+                    weight: 3,
+                    opacity: 1,
+                    fillOpacity: 0.9
+                }).addTo(map);
+
+                userMarker.bindPopup("<strong>Você está aqui!</strong><br>Veja as linhas de ônibus que passam pelas ruas ao redor.").openPopup();
+                map.setView([lat, lng], 15);
+            }, () => {
+                alert("Não foi possível obter sua localização. Verifique as permissões de GPS.");
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initMap);
+    </script>
+</body>
+</html>
