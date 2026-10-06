@@ -1,0 +1,109 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+<article class="prose prose-slate max-w-none">
+  <!-- Cabeçalho -->
+  <header class="mb-8 border-b border-slate-200 pb-6">
+    <div class="flex items-center gap-2 mb-2">
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">
+        Bairros de Ribeirão Preto
+      </span>
+      {% if zona %}
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700">
+          {{ zona }}
+        </span>
+      {% endif %}
+    </div>
+    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">{{ h1 }}</h1>
+    <p class="text-lg text-slate-600 leading-relaxed">{{ descricao }}</p>
+  </header>
+
+  <!-- 1. Visão Geral -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Visão Geral do Bairro</h2>
+    <div class="text-slate-700 leading-relaxed space-y-4">
+      {{ secoes.resumo | safe if secoes.resumo else '' }}
+    </div>
+  </section>
+
+  <!-- 2. História -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">História e Formação</h2>
+    <div class="text-slate-700 leading-relaxed space-y-4">
+      {{ secoes.historia | safe if secoes.historia else '' }}
+    </div>
+  </section>
+
+  <!-- 3. Transporte -->
+  <section class="mb-8" aria-label="Linhas de Ônibus do Bairro">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Como Circular de Ônibus (RP Mobi)</h2>
+    {% if linhas_proximas and linhas_proximas | length > 0 %}
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-4">
+        {% for linha in linhas_proximas %}
+          <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+            <a href="/linhas/linha-{{ linha.codigo_dash }}.html" class="font-bold text-amber-600 text-sm block mb-1 hover:underline">Linha {{ linha.codigo }}</a>
+            <span class="text-xs text-slate-700 font-medium block">{{ linha.nome }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% if secoes.transporte %}
+      <div class="text-slate-700 leading-relaxed text-sm">
+        {{ secoes.transporte | safe }}
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- 4. Pontos Turísticos no Bairro -->
+  <section class="mb-8" aria-label="Pontos Turísticos Localizados no Bairro">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Pontos Turísticos e Patrimônio</h2>
+    {% if pontos_no_bairro and pontos_no_bairro | length > 0 %}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        {% for atr in pontos_no_bairro %}
+          <div class="p-4 rounded-lg border border-slate-200 bg-white">
+            <h3 class="font-bold text-slate-900 text-base mb-1">
+              <a href="/ribeirao-preto/pontos-turisticos/{{ atr.slug }}.html" class="text-blue-700 hover:underline">{{ atr.nome }}</a>
+            </h3>
+            <p class="text-sm text-slate-600">{{ atr.descricao }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% if secoes.pontos %}
+      <div class="text-slate-700 leading-relaxed text-sm">
+        {{ secoes.pontos | safe }}
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- 5. Serviços Públicos -->
+  <section class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Serviços Públicos e Equipamentos</h2>
+    <div class="text-slate-700 leading-relaxed space-y-4">
+      {{ secoes.servicos | safe if secoes.servicos else '' }}
+    </div>
+  </section>
+
+  <!-- 6. Vizinhança e CEP -->
+  <section class="mb-8 bg-slate-50 border border-slate-200 rounded-xl p-6" aria-label="Vizinhança e Endereçamento">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Vizinhança, Limites e Endereçamento</h2>
+    <div class="text-slate-700 leading-relaxed text-sm space-y-4">
+      {{ secoes.vizinhos | safe if secoes.vizinhos else '' }}
+    </div>
+  </section>
+
+  <!-- 7. Seções Extras -->
+  {% if secoes_extras %}
+    {% for sec in secoes_extras %}
+      {% if sec.titulo and sec.conteudo %}
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">{{ sec.titulo }}</h2>
+        <div class="text-slate-700 leading-relaxed space-y-4">
+          {{ sec.conteudo | safe }}
+        </div>
+      </section>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</article>
+{% endblock %}

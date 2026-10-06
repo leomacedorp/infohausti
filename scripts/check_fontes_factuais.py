@@ -442,6 +442,88 @@ def check_pontos_factuais_suite(paginas_dir=None):
           f'{len(fatals)} fatal(is), {len(avisos)} aviso(s)')
     return fatals, avisos
 
+# ---------- BAIRROS (Bloco D — Leo, 05/10/2026) ----------
+BAIRROS_PAGS_DIR = ROOT / 'content' / 'paginas' / 'bairros'
+BAIRROS_DOSSIES = ROOT / 'content' / 'dados-fonte' / 'bairros'
+
+
+def verifica_bairro(pag):
+    """Valida página de bairro contra o dossiê em dados-fonte/bairros/.
+    Régua: NOME (h1/título casa com nome oficial), HISTÓRIA (o texto
+    publicado deve conter o valor verificado do dossiê) e ZONA (se a página
+    publica zona, deve ser a do dossiê). Omissão é permitida; divergência
+    é FATAL."""
+    stem = (pag.get('slug') or '').split('/')[-1]
+    dos_path = BAIRROS_DOSSIES / f'{stem}.json'
+    if not dos_path.exists():
+        return [], [f'AVISO-BAIRRO-SEM-DOSSIE: "{stem}" sem dossiê em '
+                    f'dados-fonte/bairros/']
+    with open(dos_path, encoding='utf-8') as f:
+        dos = json.load(f)
+
+    def g(campo):
+        v = dos.get(campo)
+        if isinstance(v, dict) and v.get('status') == 'verificado':
+            return v.get('valor')
+        return None
+
+    fatals, avisos = [], []
+    # 1. NOME
+    nome_d = g('nome') or ''
+    if nome_d:
+        alvo = set(_flat((pag.get('h1') or '') + ' ' +
+                         (pag.get('titulo') or '')).split())
+        esp = tokens_especificos(nome_d)
+        if esp and not (esp & alvo):
+            fatals.append(f'NOME-ERRADO: nome oficial "{nome_d}" não casa '
+                          f'com h1/título da página "{stem}".')
+    # 2. HISTÓRIA: texto publicado precisa conter o valor verificado
+    hist_d = g('historia')
+    if hist_d:
+        pub = strip_tags(' '.join(
+            v for v in (pag.get('secoes') or {}).values()
+            if isinstance(v, str)))
+        # comparacao por janela de 60 chars normalizados (texto pode
+        # ser parafraseado levemente, mas o fato central deve estar la)
+        frag = _flat(hist_d)[:60]
+        if frag and frag not in _flat(pub):
+            fatals.append(f'HISTORIA-ERRADA: página "{stem}" não publica a '
+                          f'historia verificada do dossiê.')
+    # 3. ZONA
+    zona_d = g('zona')
+    zona_p = pag.get('zona')
+    if zona_p and zona_d and _flat(zona_p) not in _flat(zona_d):
+        fatals.append(f'ZONA-ERRADA: página "{stem}" publica zona '
+                      f'"{zona_p}"; dossiê: "{zona_d}".')
+    return fatals, avisos
+
+
+def check_bairros_factuais_suite(paginas_dir=None):
+    """Bloco D (Leo, 05/10/2026). Retorna (fatals, avisos) no padrão da
+    suíte; valida páginas de bairro contra dossiês verificados."""
+    fatals, avisos = [], []
+    base = Path(paginas_dir) if paginas_dir else BAIRROS_PAGS_DIR
+    n = 0
+    for arq in sorted(base.glob('*.json')):
+        if arq.name == 'index.json':
+            continue
+        try:
+            with open(arq, encoding='utf-8') as f:
+                pag = json.load(f)
+        except Exception as e:
+            fatals.append(f'BAIRRO-JSON-INVALIDO: {arq.name}: {e}')
+            continue
+        if pag.get('status') != 'pronta':
+            continue
+        n += 1
+        f_l, a_l = verifica_bairro(pag)
+        fatals.extend(f_l)
+        avisos.extend(a_l)
+    print(f'[check_bairros_factuais_suite] {n} páginas de bairro, '
+          f'{len(fatals)} fatal(is), {len(avisos)} aviso(s)')
+    return fatals, avisos
+
+
 def main():
     arquivos = sorted(PAGINAS.glob('linha-*.json'))
     linhas_rel = []

@@ -38,6 +38,7 @@ try:
     from check_dist_stale import check_dist_stale
     from check_fontes_factuais import check_fontes_factuais_suite
     from check_fontes_factuais import check_pontos_factuais_suite
+    from check_fontes_factuais import check_bairros_factuais_suite
 except ImportError:
     # Adiciona pasta scripts ao path
     sys.path.insert(0, str(ROOT_DIR / 'scripts'))
@@ -52,6 +53,7 @@ except ImportError:
     from check_dist_stale import check_dist_stale
     from check_fontes_factuais import check_fontes_factuais_suite
     from check_fontes_factuais import check_pontos_factuais_suite
+    from check_fontes_factuais import check_bairros_factuais_suite
 
 def run_full_audit():
     print("==================================================")
@@ -73,7 +75,8 @@ def run_full_audit():
         ("Qualidade Editorial e Anti-Spinning", check_qualidade_texto),
         ("Dist Stale (dist em dia com content)", check_dist_stale),
         ("Fontes Factuais (linhas)", check_fontes_factuais_suite),
-        ("Fontes Factuais (pontos turísticos)", check_pontos_factuais_suite)
+        ("Fontes Factuais (pontos turísticos)", check_pontos_factuais_suite),
+        ("Fontes Factuais (bairros)", check_bairros_factuais_suite)
     ]
 
     for name, check_fn in checks:
