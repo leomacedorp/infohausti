@@ -504,7 +504,22 @@ def main():
     generate_sitemap(ready_pages, config)
     generate_search_index(ready_pages, config)
 
-    print("\n[OK] Build concluído com sucesso!")
+    # 11. Sincroniza saída publicada para a raiz do repositório (onde o GitHub Pages lê)
+    print("\n[*] Sincronizando saída para a raiz do repositório (GitHub Pages)...")
+    for item in DIST_DIR.iterdir():
+        if item.name == '.gitkeep':
+            continue
+        dest = ROOT_DIR / item.name
+        if item.is_dir():
+            if dest.exists():
+                shutil.rmtree(dest)
+            shutil.copytree(item, dest)
+            print(f"[+] Diretório sincronizado na raiz: {item.name}/")
+        else:
+            shutil.copy2(item, dest)
+            print(f"[+] Arquivo sincronizado na raiz: {item.name}")
+
+    print("\n[OK] Build e publicação sincronizados com sucesso!")
     return True
 
 if __name__ == '__main__':
