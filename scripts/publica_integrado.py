@@ -120,6 +120,12 @@ def criar_home_integrada():
     </script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .adsense-box {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            border: 2px dashed #cbd5e1;
+        }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
 
@@ -147,6 +153,14 @@ def criar_home_integrada():
             </a>
         </div>
     </header>
+
+    <!-- BANNER TOPO -->
+    <div class="max-w-5xl mx-auto px-4 mt-3 w-full">
+        <div class="adsense-box rounded-xl p-2.5 text-center flex flex-col items-center justify-center min-h-[60px]">
+            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Espaço Publicitário • Google AdSense</span>
+            <p class="text-xs text-slate-500 font-medium mt-0.5">Anúncios contextualizados para o público de Ribeirão Preto e Região</p>
+        </div>
+    </div>
 
     <main class="max-w-5xl mx-auto px-4 py-6 flex-1 w-full space-y-8">
 
