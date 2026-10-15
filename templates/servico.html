@@ -91,7 +91,11 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-4">
         {% for linha in linhas_proximas %}
           <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
-            <span class="font-bold text-amber-600 text-sm block mb-1">Linha {{ linha.codigo }}</span>
+            {% if linha.slug %}
+              <a href="/linhas/{{ linha.slug }}.html" class="font-bold text-amber-600 hover:text-amber-700 hover:underline text-sm block mb-1">Linha {{ linha.codigo }}</a>
+            {% else %}
+              <span class="font-bold text-amber-600 text-sm block mb-1">Linha {{ linha.codigo }}</span>
+            {% endif %}
             <span class="text-xs text-slate-700 font-medium block">{{ linha.nome }}</span>
             {% if linha.parada %}
               <span class="text-[11px] text-slate-500 block mt-1">Parada de desembarque: {{ linha.parada }}</span>
