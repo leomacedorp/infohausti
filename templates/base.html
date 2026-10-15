@@ -42,7 +42,6 @@
 
   {% include 'partials/skip_link.html' %}
   {% include 'partials/cabecalho.html' %}
-  {% include 'partials/anuncio_topo.html' %}
   {% include 'partials/breadcrumb.html' %}
 
   <main id="conteudo-principal" class="flex-grow">
@@ -59,14 +58,9 @@
 
     <div class="container mx-auto px-4 max-w-5xl py-8">
       {% block content %}{{ conteudo_html | safe if conteudo_html else '' }}{% endblock %}
-
-      {% include 'partials/anuncio_meio.html' %}
-      {% include 'partials/bloco_autoria.html' %}
-      {% include 'partials/bloco_fontes.html' %}
     </div>
   </main>
 
-  {% include 'partials/anuncio_rodape.html' %}
   {% include 'partials/rodape.html' %}
   {% include 'partials/lgpd_banner.html' %}
 

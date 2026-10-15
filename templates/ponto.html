@@ -1,141 +1,199 @@
 {% extends 'templates/base.html' %}
 
 {% block content %}
-<article class="prose prose-slate max-w-none">
-  <!-- 1. Cabeçalho & Resumo -->
-  <header class="mb-8 border-b border-slate-200 pb-6">
-    <div class="flex items-center gap-2 mb-2">
-      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">
-        Patrimônio & Turismo Cultural
+<article class="max-w-none">
+  <!-- 1. Cabeçalho & Destaques -->
+  <header class="bg-white border border-slate-200/90 rounded-2xl p-6 md:p-8 shadow-xs mb-8">
+    <div class="flex flex-wrap items-center gap-2 mb-3">
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-900 border border-amber-200/80">
+        🏛️ Patrimônio & Turismo Cultural
       </span>
       {% if tombamento %}
-        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700">
-          {{ tombamento }}
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200">
+          📜 {{ tombamento }}
         </span>
       {% endif %}
     </div>
-    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">{{ h1 }}</h1>
-    <p class="text-lg text-slate-600 leading-relaxed">{{ descricao }}</p>
+    <h1 class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">{{ h1 }}</h1>
+    <p class="text-base md:text-lg text-slate-600 leading-relaxed font-normal">{{ descricao }}</p>
   </header>
 
-  <!-- 1. Resumo Narrativo -->
-  <section class="mb-8">
-    <h2 class="text-2xl font-bold text-slate-900 mb-4">Visão Geral e Destaques</h2>
-    <div class="text-slate-700 leading-relaxed space-y-4">
-      {{ secoes.resumo | safe if secoes.resumo else '' }}
+  <!-- 2. Visão Geral e Destaques -->
+  {% if secoes.resumo %}
+  <section class="bg-white border border-slate-200/90 rounded-2xl p-6 md:p-8 shadow-xs mb-8">
+    <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+      <span class="w-2 h-6 bg-amber-500 rounded-full inline-block"></span>
+      Visão Geral e Destaques
+    </h2>
+    <div class="text-slate-700 leading-relaxed space-y-4 text-base">
+      {{ secoes.resumo | safe }}
     </div>
   </section>
+  {% endif %}
 
-  <!-- 2. Visita (Endereço, Horário, Ingresso, Contato) -->
-  <section class="mb-8 bg-slate-50 border border-slate-200 rounded-xl p-6" aria-label="Dados Práticos de Visitação">
-    <h2 class="text-2xl font-bold text-slate-900 mb-4">Informações de Visitação e Acesso</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-slate-700 mb-4">
+  <!-- 3. Informações Práticas de Visitação -->
+  <section class="bg-white border border-slate-200/90 rounded-2xl p-6 md:p-8 shadow-xs mb-8" aria-label="Dados Práticos de Visitação">
+    <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-5 flex items-center gap-2">
+      <span class="w-2 h-6 bg-blue-600 rounded-full inline-block"></span>
+      Informações de Visitação e Acesso
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
       {% if visita and visita.endereco %}
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
-          <p class="font-bold text-slate-900 mb-1">📍 Endereço Completo</p>
-          <p>{{ visita.endereco }}</p>
+        <div class="bg-slate-50/80 border border-slate-200/80 rounded-xl p-4.5">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5 flex items-center gap-1.5">
+            📍 Endereço Completo
+          </span>
+          <p class="text-sm font-semibold text-slate-900 leading-snug">{{ visita.endereco }}</p>
         </div>
       {% endif %}
       {% if visita and visita.horario %}
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
-          <p class="font-bold text-slate-900 mb-1">⏰ Horários de Funcionamento</p>
-          <p>{{ visita.horario }}</p>
+        <div class="bg-slate-50/80 border border-slate-200/80 rounded-xl p-4.5">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5 flex items-center gap-1.5">
+            ⏰ Horários de Funcionamento
+          </span>
+          <p class="text-sm font-semibold text-slate-900 leading-snug">{{ visita.horario }}</p>
         </div>
       {% endif %}
       {% if visita and visita.ingresso %}
-        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
-          <p class="font-bold text-slate-900 mb-1">🎟️ Ingressos e Valores</p>
-          <p>{{ visita.ingresso }}</p>
+        <div class="bg-slate-50/80 border border-slate-200/80 rounded-xl p-4.5">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5 flex items-center gap-1.5">
+            🎟️ Ingressos e Valores
+          </span>
+          <p class="text-sm font-semibold text-slate-900 leading-snug">{{ visita.ingresso }}</p>
         </div>
       {% endif %}
     </div>
     {% if secoes.detalhes_visita %}
-      <div class="mt-4 text-slate-700 leading-relaxed text-sm">
+      <div class="mt-4 pt-4 border-t border-slate-100 text-slate-700 leading-relaxed text-sm">
         {{ secoes.detalhes_visita | safe }}
       </div>
     {% endif %}
   </section>
 
-  <!-- 3. História e Contexto Cultural -->
-  <section class="mb-8">
-    <h2 class="text-2xl font-bold text-slate-900 mb-4">História, Arquitetura e Contexto</h2>
-    <div class="text-slate-700 leading-relaxed space-y-4">
-      {{ secoes.historia | safe if secoes.historia else '' }}
+  <!-- 4. Como Chegar de Ônibus (RP Mobi) -->
+  <section class="bg-white border border-slate-200/90 rounded-2xl p-6 md:p-8 shadow-xs mb-8" aria-label="Linhas de Transporte e Paradas">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5 pb-4 border-b border-slate-100">
+      <div>
+        <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-2 h-6 bg-amber-500 rounded-full inline-block"></span>
+          Como Chegar de Ônibus (RP Mobi)
+        </h2>
+        <p class="text-xs md:text-sm text-slate-500 mt-1">
+          Paradas verificadas e linhas diretas em raio a pé (até 500m):
+        </p>
+      </div>
+      {% if linhas_proximas %}
+        <span class="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 border border-amber-200/80 text-amber-900 rounded-full text-xs font-semibold">
+          🚏 {{ linhas_proximas | length }} linhas verificadas
+        </span>
+      {% endif %}
     </div>
-  </section>
 
-  <!-- 4. Como Chegar (Linhas de Ônibus RP Mobi) -->
-  <section class="mb-8" aria-label="Linhas de Transporte e Paradas">
-    <h2 class="text-2xl font-bold text-slate-900 mb-4">Como Chegar de Ônibus (RP Mobi)</h2>
-    <p class="text-slate-700 leading-relaxed mb-4">
-      O atrativo conta com paradas próximas atendidas diretamente pelas seguintes linhas municipais:
-    </p>
     {% if linhas_proximas and linhas_proximas | length > 0 %}
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 mb-5">
         {% for linha in linhas_proximas %}
-          <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
-            {% if linha.slug %}
-              <a href="/linhas/{{ linha.slug }}.html" class="font-bold text-amber-600 hover:text-amber-700 hover:underline text-sm block mb-1">Linha {{ linha.codigo }}</a>
-            {% else %}
-              <span class="font-bold text-amber-600 text-sm block mb-1">Linha {{ linha.codigo }}</span>
-            {% endif %}
-            <span class="text-xs text-slate-700 font-medium block">{{ linha.nome }}</span>
+          <div class="bg-slate-50 hover:bg-amber-50/30 border border-slate-200 hover:border-amber-400 rounded-xl p-3.5 transition-all duration-150 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                {% if linha.slug %}
+                  <a href="/linhas/{{ linha.slug }}.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-slate-900 group-hover:bg-amber-500 text-amber-400 group-hover:text-slate-950 font-bold text-xs rounded-md transition-colors shadow-2xs">
+                    🚌 Linha {{ linha.codigo }}
+                  </a>
+                {% else %}
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-slate-900 text-amber-400 font-bold text-xs rounded-md">
+                    🚌 Linha {{ linha.codigo }}
+                  </span>
+                {% endif %}
+              </div>
+              <h3 class="text-xs font-semibold text-slate-800 group-hover:text-amber-950 leading-snug mb-2">
+                {{ linha.nome }}
+              </h3>
+            </div>
             {% if linha.parada %}
-              <span class="text-[11px] text-slate-500 block mt-1">Parada de descida: {{ linha.parada }}</span>
+              <div class="pt-2 border-t border-slate-200/70 text-[11px] text-slate-600 flex items-start gap-1">
+                <span class="text-slate-400 flex-shrink-0">📍</span>
+                <span>{{ linha.parada }}</span>
+              </div>
             {% endif %}
           </div>
         {% endfor %}
       </div>
     {% endif %}
+
     {% if secoes.como_chegar %}
-      <div class="text-slate-700 leading-relaxed text-sm">
+      <div class="text-slate-700 leading-relaxed text-sm bg-slate-50/70 p-4 rounded-xl border border-slate-200/70">
         {{ secoes.como_chegar | safe }}
       </div>
     {% endif %}
   </section>
 
-  <!-- 5. Atrações Próximas (a pé) -->
-  <section class="mb-8" aria-label="Lista de Locais e Atrações Próximas">
-    <h2 class="text-2xl font-bold text-slate-900 mb-4">Atrações e Pontos de Interesse Próximos</h2>
+  <!-- 5. História, Arquitetura e Contexto -->
+  {% if secoes.historia %}
+  <section class="bg-white border border-slate-200/90 rounded-2xl p-6 md:p-8 shadow-xs mb-8">
+    <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+      <span class="w-2 h-6 bg-slate-700 rounded-full inline-block"></span>
+      História, Arquitetura e Contexto
+    </h2>
+    <div class="text-slate-700 leading-relaxed space-y-4 text-base">
+      {{ secoes.historia | safe }}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- 6. Atrações Próximas (a pé) -->
+  {% if (atracoes_proximas and atracoes_proximas | length > 0) or secoes.atracoes_proximas %}
+  <section class="bg-white border border-slate-200/90 rounded-2xl p-6 md:p-8 shadow-xs mb-8" aria-label="Lista de Locais e Atrações Próximas">
+    <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+      <span class="w-2 h-6 bg-emerald-600 rounded-full inline-block"></span>
+      Atrações e Pontos de Interesse Próximos
+    </h2>
     {% if atracoes_proximas and atracoes_proximas | length > 0 %}
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         {% for atr in atracoes_proximas %}
-          <div class="p-4 rounded-lg border border-slate-200 bg-white">
-            <h3 class="font-bold text-slate-900 text-base mb-1">
+          <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-white hover:border-slate-300 transition-all">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">
               {% if atr.slug %}
                 <a href="/ribeirao-preto/pontos-turisticos/{{ atr.slug }}.html" class="text-blue-700 hover:underline">{{ atr.nome }}</a>
               {% else %}
                 {{ atr.nome }}
               {% endif %}
             </h3>
-            <p class="text-xs text-slate-500 mb-2">Distância a pé: {{ atr.distancia }} (~{{ atr.tempo_caminhada }})</p>
-            <p class="text-sm text-slate-600">{{ atr.descricao }}</p>
+            <p class="text-xs text-amber-700 font-medium mb-1.5">A pé: {{ atr.distancia }} (~{{ atr.tempo_caminhada }})</p>
+            <p class="text-xs text-slate-600 leading-relaxed">{{ atr.descricao }}</p>
           </div>
         {% endfor %}
       </div>
     {% endif %}
     {% if secoes.atracoes_proximas %}
-      <div class="text-slate-700 leading-relaxed text-sm">
+      <div class="text-slate-700 leading-relaxed text-sm pt-2">
         {{ secoes.atracoes_proximas | safe }}
       </div>
     {% endif %}
   </section>
+  {% endif %}
 
-  <!-- 6. Roteiros que Incluem -->
-  <section class="mb-8">
-    <h2 class="text-2xl font-bold text-slate-900 mb-4">Roteiros Temáticos que Incluem esta Parada</h2>
-    <div class="text-slate-700 leading-relaxed space-y-4">
-      {{ secoes.roteiros | safe if secoes.roteiros else '<p class="text-slate-600 text-sm">Este ponto integra o circuito histórico e cultural de Ribeirão Preto.</p>' }}
+  <!-- 7. Roteiros que Incluem -->
+  <section class="bg-white border border-slate-200/90 rounded-2xl p-6 md:p-8 shadow-xs mb-8">
+    <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+      <span class="w-2 h-6 bg-purple-600 rounded-full inline-block"></span>
+      Roteiros Temáticos que Incluem esta Parada
+    </h2>
+    <div class="text-slate-700 leading-relaxed space-y-4 text-sm">
+      {% if secoes.roteiros %}
+        {{ secoes.roteiros | safe }}
+      {% else %}
+        <p class="text-slate-600">Este ponto integra o circuito histórico e cultural de Ribeirão Preto.</p>
+      {% endif %}
     </div>
   </section>
 
-  <!-- 7. Seções Extras Dinâmicas (complementares às 6 fixas: igrejas, teatros, museus, prédios) -->
+  <!-- 8. Seções Extras Dinâmicas -->
   {% if secoes_extras %}
     {% for sec in secoes_extras %}
       {% if sec.titulo and sec.conteudo %}
-      <section class="mb-8">
-        <h2 class="text-2xl font-bold text-slate-900 mb-4">{{ sec.titulo }}</h2>
-        <div class="text-slate-700 leading-relaxed space-y-4">
+      <section class="bg-white border border-slate-200/90 rounded-2xl p-6 md:p-8 shadow-xs mb-8">
+        <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-4">{{ sec.titulo }}</h2>
+        <div class="text-slate-700 leading-relaxed space-y-4 text-sm">
           {{ sec.conteudo | safe }}
         </div>
       </section>
