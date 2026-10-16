@@ -1,356 +1,383 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ribeirão Vivo | O Portal de Mobilidade, Bairros e Vida de Ribeirão Preto</title>
-    <meta name="description" content="Guia completo de Ribeirão Preto - SP. 113 linhas de ônibus com mapas interativos e horários em tempo real, 30 pontos turísticos, 10 bairros históricos e serviços públicos.">
-    <link rel="canonical" href="https://infohausti.com.br/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ribeirão Preto | Ribeirão Viva</title>
+  <meta name="description" content="A cidade em um clique: ônibus, turismo, bairros, serviços e dados de Ribeirão Preto - SP. 113 linhas, 30 pontos turísticos, 10 bairros e 185 páginas verificadas.">
+  <meta name="keywords" content="ribeirao preto, ribeirao viva, portal ribeirao preto, onibus ribeirao preto, turismo ribeirao preto, bairros ribeirao preto, servicos ribeirao preto">
+  <link rel="canonical" href="https://infohausti.com.br/ribeirao-preto/index.html">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://infohausti.com.br/">
-    <meta property="og:title" content="Ribeirão Vivo | A Cidade Digital em Suas Mãos">
-    <meta property="og:description" content="113 linhas de ônibus com horários e mapas, pontos turísticos, bairros e serviços essenciais de Ribeirão Preto.">
-    <meta property="og:image" content="https://infohausti.com.br/assets/img/og-image.jpg">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png">
+  <!-- Trilha de Auditoria Editorial -->
+  <!-- TRILHA DE AUDITORIA: autor="Leonardo A. Macedo", revisor="Leonardo A. Macedo", publicado="2026-10-06", atualizado="2026-10-06", proxima_revisao="2027-10-06", versao="1.0.0" -->
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        rp: {
-                            blue: '#1a15f0',
-                            orange: '#ff6600',
-                            dark: '#0f172a',
-                            light: '#f8fafc',
-                            card: '#ffffff'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .adsense-box {
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            border: 2px dashed #cbd5e1;
-        }
-    </style>
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Ribeirão Preto">
+  <meta property="og:description" content="A cidade em um clique: ônibus, turismo, bairros, serviços e dados de Ribeirão Preto - SP. 113 linhas, 30 pontos turísticos, 10 bairros e 185 páginas verificadas.">
+  <meta property="og:url" content="https://infohausti.com.br/ribeirao-preto/index.html">
+  <meta property="og:site_name" content="Ribeirão Viva">
+  
+  <meta property="article:published_time" content="2026-10-06">
+  <meta property="article:modified_time" content="2026-10-06">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ribeirão Preto">
+  <meta name="twitter:description" content="A cidade em um clique: ônibus, turismo, bairros, serviços e dados de Ribeirão Preto - SP. 113 linhas, 30 pontos turísticos, 10 bairros e 185 páginas verificadas.">
+  
+
+  <!-- CSS Base & Tailwind -->
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Schema.org JSON-LD -->
+  
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://infohausti.com.br/ribeirao-preto/index.html#entity",
+      "name": "Ribeirão Preto",
+      "description": "A cidade em um clique: ônibus, turismo, bairros, serviços e dados de Ribeirão Preto - SP. 113 linhas, 30 pontos turísticos, 10 bairros e 185 páginas verificadas.",
+      "url": "https://infohausti.com.br/ribeirao-preto/index.html",
+      "inLanguage": "pt-BR"
+    }
+  ]
+}
+  </script>
+  
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen">
 
-    <!-- TOP HEADER -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <span class="text-2xl">🏙️</span>
-                <div>
-                    <a href="/" class="text-lg font-black tracking-tight text-slate-900 flex items-center gap-1.5 hover:opacity-90">
-                        RIBEIRÃO <span class="text-blue-600">VIVO</span>
-                        <span class="text-[10px] font-bold uppercase tracking-wider bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full">Portal Digital</span>
-                    </a>
-                </div>
-            </div>
-            <nav class="hidden md:flex items-center gap-5 text-xs font-bold text-slate-600">
-                <a href="/linhas/" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fas fa-bus text-blue-600"></i> Ônibus</a>
-                <a href="/ribeirao-preto/pontos-turisticos/" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fas fa-landmark text-amber-600"></i> Turismo</a>
-                <a href="/bairros/" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fas fa-city text-emerald-600"></i> Bairros</a>
-                <a href="/servicos/" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fas fa-file-lines text-indigo-600"></i> Serviços</a>
-                <a href="/mapa-do-site.html" class="hover:text-blue-600 transition">Mapa do Site</a>
-            </nav>
-            <a href="/anuncie.html" class="text-xs font-bold bg-slate-900 text-white px-3 py-1.5 rounded-lg hover:bg-blue-600 transition shadow-sm">
-                Anunciar
-            </a>
-        </div>
-    </header>
-
-    <!-- BANNER TOPO -->
-    <div class="max-w-5xl mx-auto px-4 mt-3 w-full">
-        <div class="adsense-box rounded-xl p-2.5 text-center flex flex-col items-center justify-center min-h-[60px]">
-            <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Espaço Publicitário • Google AdSense</span>
-            <p class="text-xs text-slate-500 font-medium mt-0.5">Anúncios contextualizados para o público de Ribeirão Preto e Região</p>
-        </div>
+  <!--
+  PARTIAL: skip_link.html
+  VARIÁVEIS UTILIZADAS:
+    - Nenhuma variável obrigatória. Opcionalmente: conteudo-principal
+  DESCRIÇÃO: Link de salto acessível para navegação via teclado (WCAG 2.1 AA).
+-->
+<a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+  <!--
+  PARTIAL: cabecalho.html
+  VARIÁVEIS UTILIZADAS:
+    - base_url: Prefixo ou URL base para links (ex: '' ou '/')
+    - active_nav: Identificador da seção ativa ('home', 'pontos', 'linhas', 'servicos', 'roteiros')
+    - site_name: Nome da marca ('Ribeirão Preto | Cidade Viva')
+  DESCRIÇÃO: Cabeçalho global responsivo com navegação semântica, busca e menu mobile acessível.
+-->
+<header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+  <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+      <span class="w-3 h-3 rounded-full bg-amber-400 animate-pulse" aria-hidden="true"></span>
+      <a href="/" class="font-bold text-lg tracking-tight hover:text-amber-400 transition-colors">
+        Ribeirão Preto <span class="text-amber-400 font-light">| Cidade Viva</span>
+      </a>
     </div>
 
-    <main class="max-w-5xl mx-auto px-4 py-6 flex-1 w-full space-y-8">
+    <!-- Navegação Desktop -->
+    <nav class="hidden md:flex items-center space-x-6 text-sm font-medium" aria-label="Navegação Principal">
+      <a href="/ribeirao-preto/pontos-turisticos/" class="text-slate-300 hover:text-white transition-colors">
+        Pontos Turísticos
+      </a>
+      <span class="opacity-75 cursor-default">
+        Linhas de Ônibus
+      </span>
+      <a href="/servicos/" class="text-slate-300 hover:text-white transition-colors">
+        Serviços
+      </a>
+      <span class="opacity-75 cursor-default">
+        Roteiros
+      </span>
+      <span class="opacity-75 cursor-default">
+        Mapa Geral
+      </span>
+    </nav>
 
-        <!-- HERO SECTION -->
-        <section class="bg-gradient-to-br from-blue-700 via-indigo-800 to-slate-900 rounded-2xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
-            <div class="relative z-10">
-                <span class="inline-block text-xs font-bold bg-white/20 backdrop-blur-md px-3.5 py-1 rounded-full mb-3 text-orange-300">
-                    📍 Mobilidade & Dados Oficiais de Ribeirão Preto
-                </span>
-                <h1 class="text-2xl sm:text-4xl font-black leading-tight tracking-tight">
-                    A cidade em um clique: linhas de ônibus, bairros e patrimônio.
-                </h1>
-                <p class="text-sm sm:text-base text-blue-100 mt-2.5 max-w-2xl leading-relaxed">
-                    Consulte horários e mapas com Leaflet das 113 linhas municipais, conheça a história dos bairros e descubra o que fazer em Ribeirão Preto sem complicação.
-                </p>
+    <!-- Botão Menu Mobile -->
+    <button type="button" class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none" data-menu-toggle aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu de navegação">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
 
-                <!-- BUSCA RÁPIDA -->
-                <div class="mt-6 flex flex-col sm:flex-row gap-2 max-w-2xl">
-                    <div class="relative flex-1">
-                        <i class="fas fa-search absolute left-4 top-3.5 text-slate-400 text-sm"></i>
-                        <input type="text" id="inputBusca" placeholder="Buscar linha (ex: 303, 902), bairro ou teatro..." 
-                               class="w-full pl-11 pr-4 py-3 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 shadow-md">
-                    </div>
-                    <a href="/linhas/" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl text-sm transition shadow-md text-center whitespace-nowrap">
-                        Ver Linhas de Ônibus
-                    </a>
-                </div>
+  <!-- Menu Mobile Desdobrável -->
+  <div id="menu-mobile" class="hidden md:hidden bg-slate-950 border-t border-slate-800 px-4 py-4 space-y-3" data-menu-nav>
+    <a href="/ribeirao-preto/pontos-turisticos/" class="block text-slate-200 hover:text-amber-400 py-1">Pontos Turísticos</a>
+    <span class="opacity-75 cursor-default">Linhas de Ônibus</span>
+    <a href="/servicos/" class="block text-slate-200 hover:text-amber-400 py-1">Serviços</a>
+    <span class="opacity-75 cursor-default">Roteiros</span>
+    <span class="opacity-75 cursor-default">Mapa Geral</span>
+  </div>
+</header>
+  <!--
+  PARTIAL: breadcrumb.html
+  VARIÁVEIS UTILIZADAS:
+    - breadcrumbs: Lista de itens contendo 'nome' e opcionalmente 'url'
+  DESCRIÇÃO: Trilha de navegação semântica com suporte a leitores de tela e microdados.
+-->
 
-                <!-- CARDS DE ESTATÍSTICAS -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8 pt-6 border-t border-white/10">
-                    <div class="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
-                        <span class="text-2xl sm:text-3xl font-black text-orange-400">113</span>
-                        <p class="text-[11px] uppercase tracking-wider text-blue-200 mt-0.5">Linhas de Ônibus</p>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
-                        <span class="text-2xl sm:text-3xl font-black text-amber-300">30</span>
-                        <p class="text-[11px] uppercase tracking-wider text-blue-200 mt-0.5">Pontos Culturais</p>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
-                        <span class="text-2xl sm:text-3xl font-black text-emerald-400">10</span>
-                        <p class="text-[11px] uppercase tracking-wider text-blue-200 mt-0.5">Bairros Mapeados</p>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
-                        <span class="text-2xl sm:text-3xl font-black text-cyan-300">R$ 5,00</span>
-                        <p class="text-[11px] uppercase tracking-wider text-blue-200 mt-0.5">Tarifa Única (120m)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- DESTAQUE MOBILIDADE URBANA -->
-        <section class="space-y-4">
-            <div class="flex items-center justify-between">
-                <div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Transporte Coletivo</span>
-                    <h2 class="text-xl sm:text-2xl font-black text-slate-900">Mobilidade Urbana & Linhas de Ônibus</h2>
-                </div>
-                <a href="/linhas/" class="text-xs sm:text-sm font-bold text-blue-600 hover:text-blue-800 transition flex items-center gap-1">
-                    Ver catálogo completo <i class="fas fa-arrow-right text-xs"></i>
-                </a>
-            </div>
+  <main id="conteudo-principal" class="flex-grow">
+    
 
-            <div class="bg-blue-50 border border-blue-200 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
-                        <i class="fas fa-ticket"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-900 text-sm">Integração Gratuita de 120 Minutos</h4>
-                        <p class="text-xs text-slate-600 mt-0.5">Tarifa vigente de R$ 5,00 com o Cartão Cidadão RP Mobi. Embarque no segundo ônibus sem pagar nova passagem dentro do prazo.</p>
-                    </div>
-                </div>
-                <div class="flex gap-2 w-full sm:w-auto">
-                    <a href="/servicos/tarifa-e-cartao-nosso.html" class="flex-1 sm:flex-none text-center text-xs font-bold bg-white text-blue-700 border border-blue-300 px-3 py-2 rounded-xl hover:bg-blue-100 transition">
-                        Como funciona o cartão
-                    </a>
-                    <a href="/linhas/mapa.html" class="flex-1 sm:flex-none text-center text-xs font-bold bg-blue-600 text-white px-3 py-2 rounded-xl hover:bg-blue-700 transition">
-                        Mapa Geral da Rede
-                    </a>
-                </div>
-            </div>
+    <div class="container mx-auto px-4 max-w-5xl py-8">
+      <article class="prose prose-slate max-w-none">
 
-            <!-- LINHAS MAIS CONSULTADAS COM LEAFLET -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                <a href="/linhas/linha-303-bom-pastor.html" class="bg-white border border-slate-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition group">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="px-2.5 py-0.5 rounded-lg bg-blue-600 text-white font-black text-xs">303</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Radial</span>
-                    </div>
-                    <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition text-sm">Bom Pastor</h3>
-                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Av. das Lágrimas ⇄ Castelo Branco ⇄ Terminal Urbano Central. Mapa interativo com 61 paradas.</p>
-                </a>
-                <a href="/linhas/linha-902-norte-sul-2.html" class="bg-white border border-slate-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition group">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="px-2.5 py-0.5 rounded-lg bg-purple-600 text-white font-black text-xs">902</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Corredor BRT</span>
-                    </div>
-                    <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition text-sm">Norte-Sul 2</h3>
-                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Eixo estrutural Norte-Sul pelos corredores exclusivos com embarque nivelado e alta frequência.</p>
-                </a>
-                <a href="/linhas/linha-103-iguatemi.html" class="bg-white border border-slate-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition group">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="px-2.5 py-0.5 rounded-lg bg-blue-600 text-white font-black text-xs">103</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Convencional</span>
-                    </div>
-                    <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition text-sm">Iguatemi</h3>
-                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Conexão do Centro e eixo Costábile Romano / UNAERP até o Shopping Iguatemi na Zona Sul.</p>
-                </a>
-                <a href="/linhas/linha-207-hospital-das-clinicas.html" class="bg-white border border-slate-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition group">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="px-2.5 py-0.5 rounded-lg bg-emerald-600 text-white font-black text-xs">207</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Hospitalar</span>
-                    </div>
-                    <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition text-sm">Hospital das Clínicas</h3>
-                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Acesso direto ao campus da USP e Hospital das Clínicas (Unidade Campus e Emergência).</p>
-                </a>
-                <a href="/linhas/linha-199-circular-1.html" class="bg-white border border-slate-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition group">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="px-2.5 py-0.5 rounded-lg bg-blue-600 text-white font-black text-xs">199</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Circular</span>
-                    </div>
-                    <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition text-sm">Circular 1</h3>
-                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Anel viário no sentido horário ligando zonas clínicas, centros comerciais e polos de ensino.</p>
-                </a>
-                <a href="/linhas/linha-001-noturno-norte.html" class="bg-white border border-slate-200 rounded-xl p-4 hover:border-blue-500 hover:shadow-md transition group">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="px-2.5 py-0.5 rounded-lg bg-slate-900 text-white font-black text-xs">001</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Corujão</span>
-                    </div>
-                    <h3 class="font-bold text-slate-900 group-hover:text-blue-600 transition text-sm">Noturno Norte</h3>
-                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">Operação de madrugada para trabalhadores de turno e retorno seguro da Zona Norte.</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- SEÇÕES INTEGRADAS: PATRIMÔNIO, BAIRROS E SERVIÇOS -->
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-            <!-- TURISMO E CULTURA -->
-            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
-                <div class="flex items-center gap-2.5">
-                    <span class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg font-bold">🏛️</span>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-base">Turismo & Patrimônio</h3>
-                        <p class="text-xs text-slate-500">30 pontos culturais documentados</p>
-                    </div>
-                </div>
-                <p class="text-xs text-slate-600 leading-relaxed">
-                    História, horários de visitação e como chegar de ônibus aos principais palacetes, museus, praças e parques da cidade.
-                </p>
-                <div class="space-y-1.5 pt-1">
-                    <a href="/ribeirao-preto/pontos-turisticos/teatro-dom-pedro.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
-                        🎭 Theatro Pedro II & Quarteirão Paulista
-                    </a>
-                    <a href="/ribeirao-preto/pontos-turisticos/marp.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
-                        🎨 MARP — Museu de Arte de Ribeirão Preto
-                    </a>
-                    <a href="/ribeirao-preto/pontos-turisticos/biblioteca-sinha-junqueira.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
-                        📖 Biblioteca Sinhá Junqueira (Casarão 1932)
-                    </a>
-                    <a href="/ribeirao-preto/pontos-turisticos/museu-do-cafe.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1">
-                        ☕ Museu do Café & USP
-                    </a>
-                </div>
-                <a href="/ribeirao-preto/pontos-turisticos/" class="block text-xs font-bold text-amber-700 hover:underline pt-2">
-                    Ver todos os 30 pontos culturais →
-                </a>
-            </div>
-
-            <!-- BAIRROS -->
-            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
-                <div class="flex items-center gap-2.5">
-                    <span class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg font-bold">🏘️</span>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-base">Bairros de Ribeirão</h3>
-                        <p class="text-xs text-slate-500">10 bairros históricos e perfis</p>
-                    </div>
-                </div>
-                <p class="text-xs text-slate-600 leading-relaxed">
-                    A identidade territorial da cidade: história da fundação, principais ruas, unidades de saúde (UBS) e linhas que atendem cada região.
-                </p>
-                <div class="space-y-1.5 pt-1">
-                    <a href="/bairros/centro.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
-                        📍 Centro Histórico e Comercial
-                    </a>
-                    <a href="/bairros/campos-eliseos.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
-                        🚂 Campos Elíseos (Tradição e Ferrovia)
-                    </a>
-                    <a href="/bairros/ribeirania.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
-                        🎓 Ribeirânia (UNAERP e Polo de Saúde)
-                    </a>
-                    <a href="/bairros/jardim-botanico.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1">
-                        🌳 Jardim Botânico e Parque Sul
-                    </a>
-                </div>
-                <a href="/bairros/" class="block text-xs font-bold text-emerald-700 hover:underline pt-2">
-                    Explorar os 10 bairros da cidade →
-                </a>
-            </div>
-
-            <!-- SERVIÇOS PÚBLICOS -->
-            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
-                <div class="flex items-center gap-2.5">
-                    <span class="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-lg font-bold">📋</span>
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-base">Serviços Públicos</h3>
-                        <p class="text-xs text-slate-500">Guia de utilidade essencial</p>
-                    </div>
-                </div>
-                <p class="text-xs text-slate-600 leading-relaxed">
-                    Informações práticas do dia a dia municipal: postos de saúde 24h, agendamentos no Poupatempo e telefones de emergência.
-                </p>
-                <div class="space-y-1.5 pt-1">
-                    <a href="/servicos/postos-de-saude-ubs-upa.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
-                        🏥 Postos de Saúde, UBSs e UPAs 24h
-                    </a>
-                    <a href="/servicos/poupatempo-ribeirao-preto.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
-                        🏢 Poupatempo (Novo Shopping)
-                    </a>
-                    <a href="/servicos/tarifa-e-cartao-nosso.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1 border-b border-slate-100">
-                        💳 Cartão Cidadão RP Mobi & Recargas
-                    </a>
-                    <a href="/servicos/telefones-uteis-e-emergencia.html" class="block text-xs font-semibold text-slate-700 hover:text-blue-600 py-1">
-                        📞 Telefones Úteis e Emergência (SAMU, Bombeiros)
-                    </a>
-                </div>
-                <a href="/servicos/" class="block text-xs font-bold text-indigo-700 hover:underline pt-2">
-                    Ver guia completo de serviços →
-                </a>
-            </div>
-
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-12">
-        <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-4 gap-6">
-            <div>
-                <span class="font-black text-white text-sm block mb-2">Ribeirão Vivo</span>
-                <p class="text-slate-400 text-xs leading-relaxed">
-                    Plataforma cívica e independente de dados abertos e mobilidade urbana de Ribeirão Preto - SP.
-                </p>
-            </div>
-            <div>
-                <span class="font-bold text-slate-200 block mb-2">Transporte & Mapas</span>
-                <ul class="space-y-1">
-                    <li><a href="/linhas/" class="hover:text-white transition">Todas as 113 Linhas</a></li>
-                    <li><a href="/linhas/mapa.html" class="hover:text-white transition">Mapa Geral da Rede</a></li>
-                    <li><a href="/servicos/tarifa-e-cartao-nosso.html" class="hover:text-white transition">Regras de Tarifa & Integração</a></li>
-                </ul>
-            </div>
-            <div>
-                <span class="font-bold text-slate-200 block mb-2">Patrimônio & Bairros</span>
-                <ul class="space-y-1">
-                    <li><a href="/ribeirao-preto/pontos-turisticos/" class="hover:text-white transition">Pontos Turísticos</a></li>
-                    <li><a href="/bairros/" class="hover:text-white transition">Bairros de Ribeirão</a></li>
-                    <li><a href="/ribeirao-preto/roteiros/" class="hover:text-white transition">Roteiros Temáticos</a></li>
-                </ul>
-            </div>
-            <div>
-                <span class="font-bold text-slate-200 block mb-2">Institucional</span>
-                <ul class="space-y-1">
-                    <li><a href="/sobre.html" class="hover:text-white transition">Sobre o Projeto</a></li>
-                    <li><a href="/politica-editorial.html" class="hover:text-white transition">Política Editorial</a></li>
-                    <li><a href="/contato.html" class="hover:text-white transition">Fale Conosco / Correções</a></li>
-                    <li><a href="/mapa-do-site.html" class="hover:text-white transition">Mapa do Site Completo</a></li>
-                </ul>
-            </div>
+  <!-- 1. HERO -->
+  <section class="mb-12 not-prose">
+    <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-amber-900 text-white rounded-2xl p-8 md:p-14 shadow-xl">
+      <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-3">Portal Digital da Cidade</p>
+      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">Ribeirão Viva — Portal Digital da Cidade de Ribeirão Preto</h1>
+      <p class="text-lg md:text-xl text-slate-200 leading-relaxed mb-8">A cidade em um clique: ônibus, turismo, bairros, serviços e dados.</p>
+      <a href="#secoes" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold px-6 py-3 rounded-xl transition-colors">
+        Explorar a cidade →
+      </a>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+        <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
+          <p class="text-3xl font-extrabold text-amber-400">113</p>
+          <p class="text-xs text-slate-300 uppercase tracking-wide mt-1">Linhas de ônibus</p>
         </div>
-        <div class="max-w-5xl mx-auto px-4 mt-8 pt-4 border-t border-slate-800 text-center text-slate-500">
-            © 2026 Ribeirão Vivo • Todos os dados operacionais cruzados com fontes oficiais da RP Mobi e Prefeitura de Ribeirão Preto.
+        <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
+          <p class="text-3xl font-extrabold text-amber-400">30</p>
+          <p class="text-xs text-slate-300 uppercase tracking-wide mt-1">Pontos turísticos</p>
         </div>
-    </footer>
+        <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
+          <p class="text-3xl font-extrabold text-amber-400">10</p>
+          <p class="text-xs text-slate-300 uppercase tracking-wide mt-1">Bairros</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10">
+          <p class="text-3xl font-extrabold text-amber-400">185</p>
+          <p class="text-xs text-slate-300 uppercase tracking-wide mt-1">Páginas no portal</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- 2. SEÇÕES PRINCIPAIS -->
+  <section id="secoes" class="mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6">As Portas da Cidade</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose">
+
+      <!-- Mobilidade -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-amber-500 transition-colors">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-xl">🚌</span>
+          <h3 class="text-xl font-bold text-slate-900">Mobilidade Urbana</h3>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4"><strong>113 linhas de ônibus</strong> com itinerário, horários e paradas — todas verificadas factualmente contra o banco oficial RP Mobi.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <a href="/linhas/mapa.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Mapa da rede</a>
+          <a href="/linhas/alteracoes.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Alterações operacionais</a>
+          <a href="/linhas/descontinuadas.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Descontinuadas</a>
+        </div>
+        <a href="/linhas/index.html" class="text-amber-700 text-sm font-bold hover:underline">Ver as 113 linhas →</a>
+      </div>
+
+      <!-- Turismo -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-amber-500 transition-colors">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-xl">🏛️</span>
+          <h3 class="text-xl font-bold text-slate-900">Turismo e Patrimônio</h3>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4"><strong>30 pontos turísticos, históricos e culturais</strong> — igrejas, teatros, museus e prédios com história, horários e telefones verificados.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <a href="/ribeirao-preto/pontos-turisticos/teatro-dom-pedro.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Theatro Pedro II</a>
+          <a href="/ribeirao-preto/pontos-turisticos/catedral-metropolitana.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Catedral</a>
+          <a href="/ribeirao-preto/pontos-turisticos/museu-do-cafe.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Museu do Café</a>
+        </div>
+        <a href="/ribeirao-preto/pontos-turisticos/index.html" class="text-amber-700 text-sm font-bold hover:underline">Explorar os 30 pontos →</a>
+      </div>
+
+      <!-- Bairros -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-amber-500 transition-colors">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-xl">🏘️</span>
+          <h3 class="text-xl font-bold text-slate-900">Bairros</h3>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4"><strong>10 bairros com história, linhas e serviços</strong> — o retrato territorial da cidade com cruzamento completo do transporte e da saúde pública.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <a href="/bairros/centro.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Centro</a>
+          <a href="/bairros/higienopolis.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Higienópolis</a>
+          <a href="/bairros/ribeirania.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Ribeirânia</a>
+        </div>
+        <a href="/bairros/index.html" class="text-amber-700 text-sm font-bold hover:underline">Conhecer os 10 bairros →</a>
+      </div>
+
+      <!-- Serviços -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-amber-500 transition-colors">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-xl">📋</span>
+          <h3 class="text-xl font-bold text-slate-900">Serviços Públicos</h3>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4"><strong>6 serviços públicos essenciais</strong> com dados verificados: tarifa e cartão, saúde, escolas, Poupatempo, rodovias e telefones úteis.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <a href="/servicos/tarifa-e-cartao-nosso.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Tarifa</a>
+          <a href="/servicos/postos-de-saude-ubs-upa.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Saúde</a>
+          <a href="/servicos/matriculas-e-escolas-municipais.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Escolas</a>
+        </div>
+        <a href="/servicos/index.html" class="text-amber-700 text-sm font-bold hover:underline">Ver os 6 serviços →</a>
+      </div>
+
+      <!-- Roteiros -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-amber-500 transition-colors">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-xl">🧭</span>
+          <h3 class="text-xl font-bold text-slate-900">Roteiros Temáticos</h3>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4"><strong>5 roteiros temáticos prontos</strong> — passeios estruturados com transporte integrado, do centro histórico a pé à rota do café.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <a href="/ribeirao-preto/roteiros/centro-historico.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Centro Histórico</a>
+          <a href="/ribeirao-preto/roteiros/rota-do-cafe.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Rota do Café</a>
+          <a href="/ribeirao-preto/roteiros/roteiro-criancas.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Para Crianças</a>
+        </div>
+        <a href="/ribeirao-preto/roteiros/index.html" class="text-amber-700 text-sm font-bold hover:underline">Ver os 5 roteiros →</a>
+      </div>
+
+      <!-- Institucional -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-amber-500 transition-colors">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-xl">ℹ️</span>
+          <h3 class="text-xl font-bold text-slate-900">Índice e Navegação</h3>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4">Todas as <strong>185 páginas do portal</strong> organizadas em um mapa do site único — a forma mais rápida de encontrar qualquer conteúdo.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <a href="/mapa-do-site.html" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 hover:bg-amber-100 text-slate-700 transition-colors">Mapa do site</a>
+        </div>
+        <a href="/mapa-do-site.html" class="text-amber-700 text-sm font-bold hover:underline">Ver todas as páginas →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. MOBILIDADE EM DESTAQUE -->
+  <section class="mb-12 not-prose">
+    <div class="bg-amber-50 border-l-4 border-amber-600 rounded-r-2xl p-6 md:p-8">
+      <h2 class="text-xl md:text-2xl font-bold text-amber-950 mb-3">Ônibus: a espinha dorsal da cidade</h2>
+      <p class="text-amber-900 text-sm leading-relaxed mb-0">A tarifa é de <strong>R$ 5,00</strong>, com <strong>120 minutos de integração</strong> pelo Cartão Cidadão RP Mobi — a segunda viagem dentro do prazo não gera cobrança adicional. As 113 linhas cobrem bairros, distritos e terminais, com grades verificadas por dia útil, sábado e domingo.</p>
+    </div>
+  </section>
+
+  <!-- 4. SOBRE O PROJETO -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">O que é Ribeirão Viva</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">O Ribeirão Viva é a infraestrutura digital cívica, turística e de mobilidade urbana de Ribeirão Preto: um guia público construído com método — cada dado factual publicado passa por verificação contra fontes oficiais ou imprensa local citada, e nenhuma página vai ao ar sem auditoria automática de qualidade.</p>
+    <p class="text-slate-700 leading-relaxed">Um <strong>projeto Satélite Urbano</strong>: orbita a cidade com dados úteis, publicados com responsabilidade — mobilidade verificada, patrimônio documentado, território mapeado.</p>
+    <div class="mt-6 not-prose flex flex-wrap gap-3">
+      <a href="/sobre.html" class="text-sm font-bold text-amber-700 hover:underline">Sobre o projeto →</a>
+      <a href="/politica-editorial.html" class="text-sm font-bold text-amber-700 hover:underline">Política editorial →</a>
+      <a href="/contato.html" class="text-sm font-bold text-amber-700 hover:underline">Fale conosco →</a>
+    </div>
+  </section>
+
+  <!-- 5. CTA FINAL -->
+  <section class="mb-8 not-prose">
+    <div class="bg-slate-900 text-white rounded-2xl p-8 md:p-10 text-center">
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-3">Você tem comércio ou serviço?</h2>
+      <p class="text-slate-300 mb-6 max-w-2xl mx-auto">Anuncie no portal e apareça para quem procura a cidade: turistas planejando visitas, moradores resolvendo o dia a dia e quem chega procurando informação confiável.</p>
+      <a href="/anuncie.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold px-6 py-3 rounded-xl transition-colors">Anuncie no Ribeirão Viva →</a>
+    </div>
+  </section>
+</article>
+    </div>
+  </main>
+
+  <!--
+  PARTIAL: rodape.html
+  VARIÁVEIS UTILIZADAS:
+    - base_url: Prefixo para links internos (ex: '' ou '/')
+    - ano_vigente: Ano de copyright (default: '2026')
+    - email_contato: E-mail para contato e correções (default: 'infohausti@gmail.com')
+  DESCRIÇÃO: Rodapé institucional completo com links legais, transparência editorial e canal de correção.
+-->
+<footer class="bg-slate-950 text-white py-12 border-t border-slate-800 mt-auto">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+      <!-- Coluna 1: Marca & Missão -->
+      <div class="md:col-span-1">
+        <p class="font-bold text-base mb-2">Ribeirão Preto <span class="text-amber-400 font-light">| Cidade Viva</span></p>
+        <p class="text-xs text-slate-400 leading-relaxed mb-4">
+          Infraestrutura digital de utilidade pública, mobilidade urbana e patrimônio cultural de Ribeirão Preto - SP.
+        </p>
+        <p class="text-xs text-slate-500">
+          Dados abertos e curadoria editorial verificada.
+        </p>
+      </div>
+
+      <!-- Coluna 2: Navegação Local -->
+      <div>
+        <h4 class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-3">Navegação</h4>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li><a href="/ribeirao-preto/pontos-turisticos/" class="hover:text-amber-400">Pontos Turísticos</a></li>
+          <li><span class="opacity-75 cursor-default">Linhas de Ônibus</span></li>
+          <li><a href="/servicos/" class="hover:text-amber-400">Serviços Públicos</a></li>
+          <li><span class="opacity-75 cursor-default">Roteiros Temáticos</span></li>
+          <li><span class="opacity-75 cursor-default">Mapa de Transporte</span></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 3: Institucional & Editorial -->
+      <div>
+        <h4 class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-3">Transparência</h4>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li><a href="/sobre.html" class="hover:text-amber-400">Sobre o Projeto</a></li>
+          <li><a href="/equipe.html" class="hover:text-amber-400">Equipe Editorial</a></li>
+          <li><a href="/politica-editorial.html" class="hover:text-amber-400">Política Editorial</a></li>
+          <li><a href="/acessibilidade.html" class="hover:text-amber-400">Acessibilidade</a></li>
+          <li><a href="/contato.html" class="hover:text-amber-400">Fale Conosco</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 4: Legal & Correções -->
+      <div>
+        <h4 class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-3">Legal & Erros</h4>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li><a href="/privacidade.html" class="hover:text-amber-400">Política de Privacidade (LGPD)</a></li>
+          <li><a href="/cookies.html" class="hover:text-amber-400">Política de Cookies</a></li>
+          <li><a href="/termos-de-uso.html" class="hover:text-amber-400">Termos de Uso</a></li>
+          <li><a href="/anuncie.html" class="hover:text-amber-400">Anuncie Aqui</a></li>
+          <li class="pt-2 text-slate-500">
+            Encontrou um erro factual?<br>
+            <a href="mailto:infohausti@gmail.com" class="text-amber-400 hover:underline">
+              infohausti@gmail.com
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Linha de Copyright -->
+    <div class="border-t border-slate-900 pt-6 text-center text-xs text-slate-500">
+      <p>© 2026 Ribeirão Preto — Guia da Cidade Viva. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+  <!--
+  PARTIAL: lgpd_banner.html
+  VARIÁVEIS UTILIZADAS:
+    - base_url: Prefixo para link da política de privacidade (default: '')
+  DESCRIÇÃO: Banner de aviso e consentimento de cookies em conformidade com a LGPD.
+-->
+<aside class="lgpd-banner" data-lgpd-banner role="region" aria-label="Aviso de Privacidade e Cookies">
+  <div class="lgpd-container">
+    <p class="leading-relaxed">
+      Utilizamos cookies essenciais e tecnologias semelhantes para garantir o funcionamento deste portal e analisar o tráfego urbano de forma anônima. Para mais detalhes, consulte nossa
+      <a href="/privacidade.html" class="underline hover:text-amber-400">Política de Privacidade</a>.
+    </p>
+    <div class="lgpd-actions">
+      <button type="button" class="btn-lgpd-accept" data-lgpd-accept>Entendi e Concordo</button>
+    </div>
+  </div>
+</aside>
+
+  <!-- Botão Voltar ao Topo -->
+  <button type="button" class="btn-back-to-top" data-back-to-top aria-label="Voltar ao topo da página">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+
+  <script src="/assets/js/base.js"></script>
 </body>
 </html>
