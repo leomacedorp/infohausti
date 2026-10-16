@@ -109,60 +109,133 @@
 
   <!-- 6. Horários de Partida -->
   <section class="mb-8" aria-label="Dados de Horários e Partidas Programadas">
-    <h2 class="text-2xl font-bold text-slate-900 mb-4">Grade de Horários de Partida</h2>
+    <h2 class="text-2xl font-bold text-slate-900 mb-4">Próximas Partidas e Grade de Horários</h2>
+
+    {% if horarios_tabela %}
+    <!-- Card ao vivo: próximas partidas calculadas pelo relógio do visitante -->
+    <div class="not-prose my-6 bg-slate-900 rounded-2xl p-5 shadow-lg" id="card-proximas">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="font-bold text-white text-lg flex items-center gap-2">
+          <span aria-hidden="true">⏱️</span> Próximas Partidas
+        </h3>
+        <span class="text-xs text-slate-400" id="proximas-tipo-dia">carregando…</span>
+      </div>
+      <div id="proximas-lista" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="col-span-full text-slate-300 text-sm">Consultando o horário do seu aparelho…</div>
+      </div>
+      <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">
+        Horários de partida programados nos terminais, calculados a partir do relógio do seu aparelho. A permanência de um veículo em viagem pode variar conforme condições de tráfego.
+      </p>
+    </div>
+    <script>
+    (function() {
+      var T = {{ horarios_tabela | tojson }};
+      function tipoDia(dt) {
+        var d = dt.getDay();
+        if (d === 0) return 'domingo';
+        if (d === 6) return 'sabado';
+        return 'dias_uteis';
+      }
+      function nomeTipo(t) {
+        return t === 'dias_uteis' ? 'Dias úteis (hoje)' : (t === 'sabado' ? 'Sábado (hoje)' : 'Domingo (hoje)');
+      }
+      function render() {
+        var agora = new Date();
+        var t = tipoDia(agora);
+        var lista = (T && T[t]) || [];
+        var minutosAgora = agora.getHours() * 60 + agora.getMinutes();
+        var proximos = [];
+        for (var i = 0; i < lista.length; i++) {
+          var p = lista[i].split(':');
+          var m = parseInt(p[0], 10) * 60 + parseInt(p[1], 10);
+          if (m >= minutosAgora) { proximos.push(lista[i]); }
+          if (proximos.length >= 4) break;
+        }
+        // fim do dia: mostra as primeiras de amanhã (rotativo)
+        var tipoAmanha = '';
+        if (proximos.length === 0) {
+          var amanha = new Date(agora.getTime() + 86400000);
+          tipoAmanha = tipoDia(amanha);
+          var la = (T && T[tipoAmanha]) || [];
+          proximos = la.slice(0, 4);
+        }
+        var box = document.getElementById('proximas-lista');
+        var html = '';
+        if (proximos.length === 0) {
+          html = '<div class="col-span-full text-slate-300 text-sm">Sem partidas programadas na grade disponível.</div>';
+        } else {
+          for (var j = 0; j < proximos.length; j++) {
+            var destaque = j === 0
+              ? 'bg-amber-400 text-slate-900 font-extrabold text-xl ring-4 ring-amber-400/30 animate-pulse'
+              : 'bg-slate-800 text-white font-bold text-lg';
+            var sufixo = (j === 0 && tipoAmanha === '') ? ' <span class=\"block text-[10px] font-normal opacity-80\">próxima</span>' : '';
+            if (j === 0 && tipoAmanha !== '') {
+              sufixo = ' <span class="block text-[10px] font-normal opacity-80">amanhã</span>';
+            }
+            html += '<div class="' + destaque + ' rounded-xl px-3 py-3 text-center transition-transform hover:scale-105" role="timer">' + proximos[j] + sufixo + '</div>';
+          }
+        }
+        box.innerHTML = html;
+        document.getElementById('proximas-tipo-dia').textContent = (tipoAmanha !== '') ? nomeTipo(tipoAmanha) + ' — virada de dia' : nomeTipo(t);
+      }
+      render();
+      setInterval(render, 60000);
+    })();
+    </script>
+
     <p class="text-slate-700 leading-relaxed mb-4">
       As partidas programadas pela concessionária nos terminais operacionais da linha obedecem aos seguintes intervalos:
     </p>
-    {% if horarios_tabela %}
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-4">
+        {% macro grade_periodos(titulo, badge, lista) %}
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
+          <div class="border-b border-slate-200 pb-2 mb-3">
+            <h3 class="font-bold text-slate-900 text-base flex items-center justify-between">
+              <span>{{ titulo }}</span>
+              <span class="text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-normal">{{ badge }}</span>
+            </h3>
+          </div>
+          <div class="space-y-2">
+            {% set ns = namespace(manha=[], tarde=[], noite=[], resto=[]) %}
+            {% for h in lista %}
+              {% set hh = h[:2] | int %}
+              {% if hh < 12 %}
+                {% set ns.manha = ns.manha + [h] %}
+              {% elif hh < 18 %}
+                {% set ns.tarde = ns.tarde + [h] %}
+              {% else %}
+                {% set ns.noite = ns.noite + [h] %}
+              {% endif %}
+            {% endfor %}
+            {% for rotulo, bloco, cor in [
+              ('🌅 Manhã (até 11h59)', ns.manha, 'bg-amber-50 border-amber-200'),
+              ('☀️ Tarde (12h às 17h59)', ns.tarde, 'bg-sky-50 border-sky-200'),
+              ('🌙 Noite (18h às 23h59)', ns.noite, 'bg-indigo-50 border-indigo-200')
+            ] %}
+              {% if bloco %}
+                <div>
+                  <div class="text-[10px] uppercase tracking-wide text-slate-500 font-semibold mb-1">{{ rotulo }}</div>
+                  <div class="flex flex-wrap gap-1.5 text-xs text-slate-700">
+                    {% for h in bloco %}
+                      <span class="px-2 py-1 {{ cor }} rounded-md font-mono">{{ h }}</span>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+            {% if not ns.manha and not ns.tarde and not ns.noite %}
+              <span class="text-slate-400 italic">Sem partidas cadastradas</span>
+            {% endif %}
+          </div>
+        </div>
+      {% endmacro %}
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-4">
         <!-- Dias Úteis -->
-        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
-          <div class="border-b border-slate-200 pb-2 mb-3">
-            <h3 class="font-bold text-slate-900 text-base flex items-center justify-between">
-              <span>Dias Úteis</span>
-              <span class="text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-normal">Seg a Sex</span>
-            </h3>
-          </div>
-          <div class="flex flex-wrap gap-1.5 text-xs text-slate-700 max-h-56 overflow-y-auto pr-1">
-            {% for h in horarios_tabela.dias_uteis %}
-              <span class="px-2 py-1 bg-slate-50 border border-slate-200 rounded-md font-mono">{{ h }}</span>
-            {% else %}
-              <span class="text-slate-400 italic">Sem partidas cadastradas</span>
-            {% endfor %}
-          </div>
-        </div>
+        {{ grade_periodos('Dias Úteis', 'Seg a Sex', horarios_tabela.dias_uteis) }}
         <!-- Sábados -->
-        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
-          <div class="border-b border-slate-200 pb-2 mb-3">
-            <h3 class="font-bold text-slate-900 text-base flex items-center justify-between">
-              <span>Sábados</span>
-              <span class="text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-normal">Sáb</span>
-            </h3>
-          </div>
-          <div class="flex flex-wrap gap-1.5 text-xs text-slate-700 max-h-56 overflow-y-auto pr-1">
-            {% for h in horarios_tabela.sabado %}
-              <span class="px-2 py-1 bg-slate-50 border border-slate-200 rounded-md font-mono">{{ h }}</span>
-            {% else %}
-              <span class="text-slate-400 italic">Sem partidas cadastradas</span>
-            {% endfor %}
-          </div>
-        </div>
+        {{ grade_periodos('Sábados', 'Sáb', horarios_tabela.sabado) }}
         <!-- Domingos e Feriados -->
-        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
-          <div class="border-b border-slate-200 pb-2 mb-3">
-            <h3 class="font-bold text-slate-900 text-base flex items-center justify-between">
-              <span>Domingos e Feriados</span>
-              <span class="text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-normal">Dom / Fer</span>
-            </h3>
-          </div>
-          <div class="flex flex-wrap gap-1.5 text-xs text-slate-700 max-h-56 overflow-y-auto pr-1">
-            {% for h in horarios_tabela.domingo %}
-              <span class="px-2 py-1 bg-slate-50 border border-slate-200 rounded-md font-mono">{{ h }}</span>
-            {% else %}
-              <span class="text-slate-400 italic">Sem partidas cadastradas</span>
-            {% endfor %}
-          </div>
-        </div>
+        {{ grade_periodos('Domingos e Feriados', 'Dom / Fer', horarios_tabela.domingo) }}
       </div>
     {% endif %}
   </section>
