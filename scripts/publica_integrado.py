@@ -71,8 +71,9 @@ def publicar():
             shutil.copy2(src_file, ROOT_DIR / doc)
             print(f"[+] Arquivo {doc} sincronizado na raiz.")
 
-    # 5. Criar a Home Integrada Oficial (index.html)
-    criar_home_integrada()
+    # 5. Preservar a vitrine comercial da Infohaus TI na raiz (index.html)
+    # A home do portal Ribeirão Vivo permanece em /ribeirao-preto/index.html
+    print(f"[+] Vitrine comercial Infohaus TI preservada na raiz (index.html).")
 
     # 6. Gerar sitemap.xml consolidado
     gerar_sitemap_consolidado()

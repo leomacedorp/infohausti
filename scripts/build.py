@@ -489,16 +489,12 @@ def main():
     if mapa_page:
         ready_pages.append(mapa_page)
 
-    # 9. Sincroniza root index.html a partir de ribeirao-preto/index.html
-    rp_index = DIST_DIR / "ribeirao-preto" / "index.html"
-    root_index = DIST_DIR / "index.html"
-    if rp_index.exists():
-        sync_needed = (not root_index.exists()
-                       or rp_index.read_text(encoding='utf-8')
-                       != root_index.read_text(encoding='utf-8'))
-        if sync_needed:
-            shutil.copy2(rp_index, root_index)
-            print(f"[+] Root dist/index.html sincronizado a partir de {rp_index.relative_to(ROOT_DIR)}")
+    # 9. Preserva e sincroniza a landing comercial da Infohaus TI na raiz de dist/
+    landing_raiz = ROOT_DIR / "index.html"
+    dist_root_index = DIST_DIR / "index.html"
+    if landing_raiz.exists():
+        shutil.copy2(landing_raiz, dist_root_index)
+        print(f"[+] Root dist/index.html sincronizado com a vitrine Infohaus TI da raiz")
 
     # 10. Gera sitemap e índice de busca
     generate_sitemap(ready_pages, config)

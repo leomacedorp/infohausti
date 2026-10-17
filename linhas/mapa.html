@@ -1,497 +1,517 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="h-full">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mapa Geral das Linhas de Ônibus de Ribeirão Preto | RP Mobi | Ribeirão Viva</title>
-  <meta name="description" content="Panorama estrutural da rede de transporte coletivo e principais terminais urbanos de integração em Ribeirão Preto. Informações sobre corredores e conexões.">
-  <meta name="keywords" content="mapa onibus ribeirao preto, malha viaria rp mobi, terminais de onibus ribeirao, corredor brt mapa">
-  <link rel="canonical" href="https://infohausti.com.br/linhas/mapa.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mapa da Rede de Ônibus de Ribeirão Preto | Todas as Linhas Traçadas - Ribeirão Vivo</title>
+    <meta name="description" content="Visualize todas as 113 linhas de ônibus de Ribeirão Preto no mapa interativo. Veja por onde elas passam, onde se cruzam, terminais de integração e filtre por bairros e setores.">
+    <link rel="canonical" href="https://infohausti.com.br/linhas/mapa.html">
 
-  <!-- Trilha de Auditoria Editorial -->
-  <!-- TRILHA DE AUDITORIA: autor="Leonardo A. Macedo", revisor="Leonardo A. Macedo", publicado="2026-10-03", atualizado="2026-10-03", proxima_revisao="2027-04-03", versao="1.0.0" -->
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://infohausti.com.br/linhas/mapa.html">
+    <meta property="og:title" content="Mapa Geral da Rede de Ônibus | Ribeirão Vivo">
+    <meta property="og:description" content="Mapa completo com todas as 113 linhas traçadas de Ribeirão Preto. Descubra onde as linhas se cruzam.">
 
-  <!-- Open Graph / Redes Sociais -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Mapa Geral das Linhas de Ônibus de Ribeirão Preto | RP Mobi">
-  <meta property="og:description" content="Panorama estrutural da rede de transporte coletivo e principais terminais urbanos de integração em Ribeirão Preto. Informações sobre corredores e conexões.">
-  <meta property="og:url" content="https://infohausti.com.br/linhas/mapa.html">
-  <meta property="og:site_name" content="Ribeirão Viva">
-  
-  <meta property="article:published_time" content="2026-10-03">
-  <meta property="article:modified_time" content="2026-10-03">
-
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mapa Geral das Linhas de Ônibus de Ribeirão Preto | RP Mobi">
-  <meta name="twitter:description" content="Panorama estrutural da rede de transporte coletivo e principais terminais urbanos de integração em Ribeirão Preto. Informações sobre corredores e conexões.">
-  
-
-  <!-- CSS Base & Tailwind -->
-  <link rel="stylesheet" href="/assets/css/base.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Schema.org JSON-LD -->
-  
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://infohausti.com.br/linhas/mapa.html#entity",
-      "name": "Mapa Geral das Linhas de Ônibus de Ribeirão Preto | RP Mobi",
-      "description": "Panorama estrutural da rede de transporte coletivo e principais terminais urbanos de integração em Ribeirão Preto. Informações sobre corredores e conexões.",
-      "url": "https://infohausti.com.br/linhas/mapa.html",
-      "inLanguage": "pt-BR"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://infohausti.com.br/linhas/mapa.html#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Início",
-          "item": "/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Mobilidade & Transporte",
-          "item": "/linhas/index.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Mapa da Rede",
-          "item": "/linhas/mapa.html"
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rp: {
+                            blue: '#1a15f0',
+                            orange: '#ff6600',
+                            dark: '#0f172a',
+                            light: '#f8fafc'
+                        }
+                    }
+                }
+            }
         }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://infohausti.com.br/linhas/mapa.html#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Quando o mapa interativo em tempo real será ativado?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "O mapa cartográfico interativo será liberado assim que os arquivos de polylines da malha viária passarem por auditoria de desempenho e compressão vetorial."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Onde consultar os pontos de parada enquanto o mapa geral é processado?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cada página individual de linha de ônibus traz a relação catalogada de suas paradas principais com logradouro e bairro de atendimento."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Como localizar qual ônibus passa perto da minha rua?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Utilize o campo de busca inteligente do Catálogo Geral de Linhas, digitando o nome do bairro ou logradouro desejado."
-          }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        #map {
+            height: 100%;
+            width: 100%;
+            z-index: 10;
         }
-      ]
-    }
-  ]
-}
-  </script>
-  
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .leaflet-popup-content-wrapper {
+            border-radius: 1rem;
+            padding: 4px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen">
+<body class="h-full w-full overflow-hidden flex flex-col font-sans bg-slate-900 text-slate-900 antialiased select-none">
 
-  <!--
-  PARTIAL: skip_link.html
-  VARIÁVEIS UTILIZADAS:
-    - Nenhuma variável obrigatória. Opcionalmente: conteudo-principal
-  DESCRIÇÃO: Link de salto acessível para navegação via teclado (WCAG 2.1 AA).
--->
-<a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
-  <!--
-  PARTIAL: cabecalho.html
-  VARIÁVEIS UTILIZADAS:
-    - base_url: Prefixo ou URL base para links (ex: '' ou '/')
-    - active_nav: Identificador da seção ativa ('home', 'pontos', 'linhas', 'servicos', 'roteiros')
-    - site_name: Nome da marca ('Ribeirão Preto | Cidade Viva')
-  DESCRIÇÃO: Cabeçalho global responsivo com navegação semântica, busca e menu mobile acessível.
--->
-<header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
-  <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-    <div class="flex items-center space-x-3">
-      <span class="w-3 h-3 rounded-full bg-amber-400 animate-pulse" aria-hidden="true"></span>
-      <a href="/" class="font-bold text-lg tracking-tight hover:text-amber-400 transition-colors">
-        Ribeirão Preto <span class="text-amber-400 font-light">| Cidade Viva</span>
-      </a>
-    </div>
-
-    <!-- Navegação Desktop -->
-    <nav class="hidden md:flex items-center space-x-6 text-sm font-medium" aria-label="Navegação Principal">
-      <a href="/ribeirao-preto/pontos-turisticos/" class="text-slate-300 hover:text-white transition-colors">
-        Pontos Turísticos
-      </a>
-      <span class="opacity-75 cursor-default">
-        Linhas de Ônibus
-      </span>
-      <a href="/servicos/" class="text-slate-300 hover:text-white transition-colors">
-        Serviços
-      </a>
-      <span class="opacity-75 cursor-default">
-        Roteiros
-      </span>
-      <span class="opacity-75 cursor-default">
-        Mapa Geral
-      </span>
-    </nav>
-
-    <!-- Botão Menu Mobile -->
-    <button type="button" class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none" data-menu-toggle aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu de navegação">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-  </div>
-
-  <!-- Menu Mobile Desdobrável -->
-  <div id="menu-mobile" class="hidden md:hidden bg-slate-950 border-t border-slate-800 px-4 py-4 space-y-3" data-menu-nav>
-    <a href="/ribeirao-preto/pontos-turisticos/" class="block text-slate-200 hover:text-amber-400 py-1">Pontos Turísticos</a>
-    <span class="opacity-75 cursor-default">Linhas de Ônibus</span>
-    <a href="/servicos/" class="block text-slate-200 hover:text-amber-400 py-1">Serviços</a>
-    <span class="opacity-75 cursor-default">Roteiros</span>
-    <span class="opacity-75 cursor-default">Mapa Geral</span>
-  </div>
-</header>
-  <!--
-  PARTIAL: breadcrumb.html
-  VARIÁVEIS UTILIZADAS:
-    - breadcrumbs: Lista de itens contendo 'nome' e opcionalmente 'url'
-  DESCRIÇÃO: Trilha de navegação semântica com suporte a leitores de tela e microdados.
--->
-
-<nav class="bg-white border-b border-slate-200 py-2.5 text-xs text-slate-500" aria-label="Trilha de Navegação (Breadcrumb)">
-  <div class="container mx-auto px-4 flex flex-wrap items-center gap-2">
-    
-      
-        <a href="/" class="hover:text-blue-600 transition-colors">Início</a>
-        <span class="text-slate-400" aria-hidden="true">/</span>
-      
-    
-      
-        <a href="/linhas/index.html" class="hover:text-blue-600 transition-colors">Mobilidade &amp; Transporte</a>
-        <span class="text-slate-400" aria-hidden="true">/</span>
-      
-    
-      
-        <span class="text-slate-800 font-medium" aria-current="page">Mapa da Rede</span>
-      
-    
-  </div>
-</nav>
-
-
-  <main id="conteudo-principal" class="flex-grow">
-    
-
-    <div class="container mx-auto px-4 max-w-5xl py-8">
-      
-<article class="prose prose-slate max-w-none">
-  <!-- 1. Cabeçalho -->
-  <header class="mb-8 border-b border-slate-200 pb-6">
-    <div class="flex flex-wrap items-center gap-2 mb-3 not-prose">
-      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-900 border border-blue-200">
-        Cartografia & Rede Viária
-      </span>
-      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800">
-        Malha Urbana RP Mobi
-      </span>
-      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
-        Geografia dos 5 Setores
-      </span>
-    </div>
-    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">Mapa Geral da Rede de Transporte Coletivo</h1>
-    <p class="text-lg text-slate-600 leading-relaxed max-w-3xl">Panorama estrutural da rede de transporte coletivo e principais terminais urbanos de integração em Ribeirão Preto. Informações sobre corredores e conexões.</p>
-
-    <!-- Navegação Rápida -->
-    <div class="flex flex-wrap gap-2 mt-6 not-prose">
-      <a href="/linhas/index.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs">
-        &larr; Voltar ao Catálogo de Linhas
-      </a>
-      <a href="/linhas/alteracoes.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs">
-        ⚠️ Alterações e Desvios
-      </a>
-      <a href="/linhas/descontinuadas.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs">
-        📋 Linhas Descontinuadas
-      </a>
-    </div>
-  </header>
-
-  <!-- 2. Box de Aviso Estrutural: Dados Geográficos em Preparação (Sem Leaflet) -->
-  <section class="mb-8 not-prose" aria-label="Aviso de Cartografia em Preparação">
-    <div class="p-8 rounded-2xl border-2 border-dashed border-slate-300 bg-slate-100/70 text-center">
-      <div class="w-16 h-16 rounded-full bg-slate-200 flex items-center justify-center text-3xl mx-auto mb-4">
-        🗺️
-      </div>
-      <h2 class="text-xl font-bold text-slate-900 mb-2">Camada Cartográfica Interativa em Preparação</h2>
-      <p class="text-slate-600 text-sm max-w-2xl mx-auto leading-relaxed mb-6">
-        A renderização das coordenadas geográficas e traçados vetoriais completos no mapa dinâmico está temporariamente em processamento técnico, aguardando a padronização e compressão topológica dos arquivos de malha viária municipal (<code class="bg-slate-200 px-1.5 py-0.5 rounded text-xs text-slate-800">content/dados-fonte/malha/</code>). Esta medida garante que a experiência de navegação mobile permaneça extremamente ágil e sem consumo excessivo de dados móveis do usuário.
-      </p>
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-white border border-slate-300 text-slate-700 shadow-2xs">
-        <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-        <span>Camada de geometria viária em conformidade com o padrão OpenStreetMap</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. Organização Territorial do Transporte Coletivo -->
-  <section class="mb-10">
-    <h2 class="text-2xl font-bold text-slate-900 mb-4">Estrutura Territorial da Malha Viária</h2>
-    <div class="space-y-4 text-slate-700 leading-relaxed">
-      <p>
-        A rede de transporte público coletivo de Ribeirão Preto cobre uma área urbana superior a 650 quilômetros quadrados, integrando mais de 150 bairros residenciais, centros universitários, polos industriais e os distritos de Bonfim Paulista e Cruz das Posses. A circulação é estruturada a partir de um traçado radial-concêntrico, no qual os fluxos periféricos convergem para anéis viários intermediários e para a área central tombada.
-      </p>
-      <p>
-        O modelo de mobilidade é segmentado em cinco zonas operacionais bem delimitadas, permitindo conexões diretas ou transbordos gratuitos em até 120 minutos entre veículos de perfis complementares:
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose mt-6">
-      <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="w-3 h-3 rounded-full bg-blue-500"></span>
-          <h3 class="font-bold text-slate-900 text-base">Eixo Norte & Noroeste</h3>
-        </div>
-        <p class="text-xs text-slate-600 leading-relaxed mb-2">
-          Compreende bairros densamente povoados como Ipiranga, Campos Elíseos, Quintino Facci, Geraldo Correia de Carvalho, Adelino Simioni e Marincek. Conta com ligação expressa pelas avenidas Brasil, Saudade e Mogiana.
-        </p>
-        <span class="text-xs font-semibold text-slate-500">Conexões: Estação de Transferência Norte e Terminal Rodoviário.</span>
-      </div>
-
-      <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-          <h3 class="font-bold text-slate-900 text-base">Eixo Sul & Sudeste</h3>
-        </div>
-        <p class="text-xs text-slate-600 leading-relaxed mb-2">
-          Engloba bairros como Jardim Irajá, Jardim Botânico, Nova Aliança, Jardim Canadá, Vila Virgínia e a expansão do distrito de Bonfim Paulista. Articula-se pelas avenidas Independência, Presidente Vargas, Portugal e Professor João Fiúsa.
-        </p>
-        <span class="text-xs font-semibold text-slate-500">Conexões: Terminais de integração da Zona Sul e centros de compras.</span>
-      </div>
-
-      <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="w-3 h-3 rounded-full bg-amber-500"></span>
-          <h3 class="font-bold text-slate-900 text-base">Eixo Leste & Nordeste</h3>
-        </div>
-        <p class="text-xs text-slate-600 leading-relaxed mb-2">
-          Abrange o Parque Castelo Branco, Jardim Paulista, Lagoinha, Parque dos Bandeirantes e o conjunto habitacional Ribeirão Verde, escoando o tráfego pelas avenidas Castelo Branco, Maria de Jesus Condeixa e Francisco Junqueira.
-        </p>
-        <span class="text-xs font-semibold text-slate-500">Conexões: Terminal Leste (Novo Shopping) e plataformas do Trevo Waldo Adalberto da Silveira.</span>
-      </div>
-
-      <div class="p-5 rounded-xl border border-slate-200 bg-white shadow-2xs">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="w-3 h-3 rounded-full bg-purple-500"></span>
-          <h3 class="font-bold text-slate-900 text-base">Eixo Oeste & Universitário</h3>
-        </div>
-        <p class="text-xs text-slate-600 leading-relaxed mb-2">
-          Integra os bairros tradicionais da Vila Tibério, Sumarezinho, Vila Monte Alegre, Jardim Antártica e o Campus Universitário da USP / Hospital das Clínicas. O escoamento principal ocorre pela Avenida do Café e Rua Coronel Luiz da Cunha.
-        </p>
-        <span class="text-xs font-semibold text-slate-500">Conexões: Plataforma USP e ligação direta com a Estação Central.</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. Classificação Funcional das Modalidades de Linhas -->
-  <section class="mb-10">
-    <h2 class="text-2xl font-bold text-slate-900 mb-4">Hierarquia das Modalidades Operacionais</h2>
-    <div class="space-y-4 text-slate-700 leading-relaxed">
-      <p>
-        Para orientar o deslocamento dos passageiros com clareza, os serviços cadastrados na malha municipal dividem-se em quatro modalidades funcionais distintas, cada uma atendendo a um propósito específico de mobilidade:
-      </p>
-    </div>
-
-    <div class="space-y-3 not-prose mt-4">
-      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
-        <h3 class="font-bold text-slate-900 text-sm mb-1">1. Linhas Troncais Estruturais (Corredores BRT)</h3>
-        <p class="text-xs text-slate-600 leading-relaxed">
-          Circulam em canaletas exclusivas e faixas preferenciais com pavimento rígido, operando veículos de alta capacidade (padron com ar-condicionado e tomadas USB). Conectam os extremos das zonas Norte, Sul, Leste e Oeste ao centro tradicional com paradas abrigadas e semáforos inteligentes sincronizados.
-        </p>
-      </div>
-
-      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
-        <h3 class="font-bold text-slate-900 text-sm mb-1">2. Linhas Radiais Convencionais</h3>
-        <p class="text-xs text-slate-600 leading-relaxed">
-          Trajetos clássicos ponto a ponto que unem diretamente os bairros periféricos ao Terminal Urbano Central (Alameda Dr. Dino Bueno). Garantem o acesso de trabalhadores ao comércio de rua e repartições cívicas sem necessidade de baldeação.
-        </p>
-      </div>
-
-      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
-        <h3 class="font-bold text-slate-900 text-sm mb-1">3. Linhas Perimetrais e Circulares</h3>
-        <p class="text-xs text-slate-600 leading-relaxed">
-          Projetadas para cruzar a cidade tangencialmente, interligando diferentes bairros e polos geradores de viagens (hospitais, shoppings, faculdades e distritos empresariais) sem passar pela região central saturada de trânsito.
-        </p>
-      </div>
-
-      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
-        <h3 class="font-bold text-slate-900 text-sm mb-1">4. Linhas Alimentadoras Locais e Noturnas (Corujão)</h3>
-        <p class="text-xs text-slate-600 leading-relaxed">
-          As alimentadoras operam micro-ônibus e veículos médios no interior de vilas e loteamentos mais distantes, conduzindo os moradores até os terminais de integração. No período da madrugada (das 00h às 05h), a rede noturna (Linhas 001 a 008) assegura o retorno seguro de trabalhadores e estudantes.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. FAQ Estruturado -->
-  <section class="mb-10">
-    <h2 class="text-2xl font-bold text-slate-900 mb-4">Dúvidas sobre o Mapa e Itinerários</h2>
-    <div class="space-y-4 not-prose">
-      
-      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
-        <h3 class="font-bold text-slate-900 text-base mb-1">Quando o mapa interativo em tempo real será ativado?</h3>
-        <p class="text-sm text-slate-700 leading-relaxed">O mapa cartográfico interativo será liberado assim que os arquivos de polylines da malha viária passarem por auditoria de desempenho e compressão vetorial.</p>
-      </div>
-      
-      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
-        <h3 class="font-bold text-slate-900 text-base mb-1">Onde consultar os pontos de parada enquanto o mapa geral é processado?</h3>
-        <p class="text-sm text-slate-700 leading-relaxed">Cada página individual de linha de ônibus traz a relação catalogada de suas paradas principais com logradouro e bairro de atendimento.</p>
-      </div>
-      
-      <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-2xs">
-        <h3 class="font-bold text-slate-900 text-base mb-1">Como localizar qual ônibus passa perto da minha rua?</h3>
-        <p class="text-sm text-slate-700 leading-relaxed">Utilize o campo de busca inteligente do Catálogo Geral de Linhas, digitando o nome do bairro ou logradouro desejado.</p>
-      </div>
-      
-    </div>
-  </section>
-
-  <!-- 6. Rodapé e Fontes -->
-  <footer class="pt-6 border-t border-slate-200 text-xs text-slate-500">
-    <p class="font-semibold text-slate-700 mb-2">Fontes Oficiais Verificadas:</p>
-    <ul class="list-disc list-inside space-y-1">
-      
-      <li>
-        <a href="https://www.rpmobi.com.br" rel="nofollow noopener noreferrer" target="_blank" class="text-slate-600 hover:text-slate-900 underline">
-          RP Mobi — Empresa de Mobilidade Urbana de Ribeirão Preto
-        </a> (Verificado em: 2026-10-03)
-      </li>
-      
-      <li>
-        <a href="https://www.ribeiraopreto.sp.gov.br" rel="nofollow noopener noreferrer" target="_blank" class="text-slate-600 hover:text-slate-900 underline">
-          Prefeitura Municipal de Ribeirão Preto — Programa Ribeirão Mobilidade
-        </a> (Verificado em: 2026-10-03)
-      </li>
-      
-    </ul>
-    <div class="mt-4 pt-4 border-t border-slate-100 flex flex-wrap justify-between items-center text-slate-400">
-      <span>Revisão editorial: Leonardo A. Macedo &bull; Atualizado em 2026-10-03</span>
-      <a href="/politica-editorial.html" class="hover:text-slate-600 underline">Política Editorial e Correções</a>
-    </div>
-  </footer>
-</article>
-
-    </div>
-  </main>
-
-  <!--
-  PARTIAL: rodape.html
-  VARIÁVEIS UTILIZADAS:
-    - base_url: Prefixo para links internos (ex: '' ou '/')
-    - ano_vigente: Ano de copyright (default: '2026')
-    - email_contato: E-mail para contato e correções (default: 'infohausti@gmail.com')
-  DESCRIÇÃO: Rodapé institucional completo com links legais, transparência editorial e canal de correção.
--->
-<footer class="bg-slate-950 text-white py-12 border-t border-slate-800 mt-auto">
-  <div class="container mx-auto px-4 max-w-6xl">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-      <!-- Coluna 1: Marca & Missão -->
-      <div class="md:col-span-1">
-        <p class="font-bold text-base mb-2">Ribeirão Preto <span class="text-amber-400 font-light">| Cidade Viva</span></p>
-        <p class="text-xs text-slate-400 leading-relaxed mb-4">
-          Infraestrutura digital de utilidade pública, mobilidade urbana e patrimônio cultural de Ribeirão Preto - SP.
-        </p>
-        <p class="text-xs text-slate-500">
-          Dados abertos e curadoria editorial verificada.
-        </p>
-      </div>
-
-      <!-- Coluna 2: Navegação Local -->
-      <div>
-        <h4 class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-3">Navegação</h4>
-        <ul class="space-y-2 text-xs text-slate-400">
-          <li><a href="/ribeirao-preto/pontos-turisticos/" class="hover:text-amber-400">Pontos Turísticos</a></li>
-          <li><span class="opacity-75 cursor-default">Linhas de Ônibus</span></li>
-          <li><a href="/servicos/" class="hover:text-amber-400">Serviços Públicos</a></li>
-          <li><span class="opacity-75 cursor-default">Roteiros Temáticos</span></li>
-          <li><span class="opacity-75 cursor-default">Mapa de Transporte</span></li>
-        </ul>
-      </div>
-
-      <!-- Coluna 3: Institucional & Editorial -->
-      <div>
-        <h4 class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-3">Transparência</h4>
-        <ul class="space-y-2 text-xs text-slate-400">
-          <li><a href="/sobre.html" class="hover:text-amber-400">Sobre o Projeto</a></li>
-          <li><a href="/equipe.html" class="hover:text-amber-400">Equipe Editorial</a></li>
-          <li><a href="/politica-editorial.html" class="hover:text-amber-400">Política Editorial</a></li>
-          <li><a href="/acessibilidade.html" class="hover:text-amber-400">Acessibilidade</a></li>
-          <li><a href="/contato.html" class="hover:text-amber-400">Fale Conosco</a></li>
-        </ul>
-      </div>
-
-      <!-- Coluna 4: Legal & Correções -->
-      <div>
-        <h4 class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-3">Legal & Erros</h4>
-        <ul class="space-y-2 text-xs text-slate-400">
-          <li><a href="/privacidade.html" class="hover:text-amber-400">Política de Privacidade (LGPD)</a></li>
-          <li><a href="/cookies.html" class="hover:text-amber-400">Política de Cookies</a></li>
-          <li><a href="/termos-de-uso.html" class="hover:text-amber-400">Termos de Uso</a></li>
-          <li><a href="/anuncie.html" class="hover:text-amber-400">Anuncie Aqui</a></li>
-          <li class="pt-2 text-slate-500">
-            Encontrou um erro factual?<br>
-            <a href="mailto:infohausti@gmail.com" class="text-amber-400 hover:underline">
-              infohausti@gmail.com
+    <!-- BARRA SUPERIOR RESPONSIVA -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 z-30 px-3 sm:px-6 py-2.5 flex items-center justify-between shrink-0 shadow-xs">
+        <div class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-1.5 text-slate-700 hover:text-blue-600 transition font-bold text-xs bg-slate-100 hover:bg-slate-200 px-2.5 py-1.5 rounded-xl">
+                <i class="fas fa-arrow-left"></i>
+                <span class="hidden sm:inline">Lista de Linhas</span>
             </a>
-          </li>
-        </ul>
-      </div>
+            <div class="flex items-center gap-2">
+                <span class="text-xl">🗺️</span>
+                <div>
+                    <h1 class="text-xs sm:text-sm font-black text-slate-900 leading-tight flex items-center gap-1.5">
+                        <span>MAPA DA REDE</span>
+                        <span class="text-[9px] uppercase font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">113 Linhas</span>
+                    </h1>
+                    <p class="text-[10px] text-slate-500 hidden sm:block">Traçados oficiais e cruzamentos em Ribeirão Preto</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <!-- Botão Minha Localização -->
+            <button onclick="localizarUsuario()" class="text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-xl transition flex items-center gap-1.5">
+                <i class="fas fa-crosshairs text-blue-600"></i>
+                <span class="hidden md:inline">Onde Estou</span>
+            </button>
+            <a href="../index.html" class="text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-xl transition shadow-xs">
+                Portal Ribeirão
+            </a>
+        </div>
+    </header>
+
+    <!-- ÁREA PRINCIPAL DO MAPA & PAINEL FLUTUANTE -->
+    <div class="relative flex-1 w-full h-full overflow-hidden">
+
+        <!-- MAPA LEAFLET -->
+        <div id="map"></div>
+
+        <!-- BARRA FLUTUANTE DE FILTROS POR SETOR (TOPO DO MAPA) -->
+        <div class="absolute top-3 left-3 right-3 sm:left-6 sm:right-auto z-20 flex items-center gap-1.5 overflow-x-auto no-scrollbar p-1 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg border border-slate-200/80 max-w-full">
+            <button onclick="filtrarSetor('todos')" id="pill-todos" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-black transition bg-blue-600 text-white shadow-xs">
+                Todas (113)
+            </button>
+            <button onclick="filtrarSetor('troncais')" id="pill-troncais" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-purple-100 hover:text-purple-800 whitespace-nowrap">
+                🟣 Troncais / BRT
+            </button>
+            <button onclick="filtrarSetor('leste')" id="pill-leste" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-blue-100 hover:text-blue-800 whitespace-nowrap">
+                🔵 Zona Leste
+            </button>
+            <button onclick="filtrarSetor('norte')" id="pill-norte" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-blue-100 hover:text-blue-800 whitespace-nowrap">
+                🔷 Zona Norte
+            </button>
+            <button onclick="filtrarSetor('sul')" id="pill-sul" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-emerald-100 hover:text-emerald-800 whitespace-nowrap">
+                🟢 Zona Sul
+            </button>
+            <button onclick="filtrarSetor('oeste')" id="pill-oeste" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-indigo-100 hover:text-indigo-800 whitespace-nowrap">
+                🟣 Zona Oeste
+            </button>
+            <button onclick="filtrarSetor('alimentadoras')" id="pill-alimentadoras" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-orange-100 hover:text-orange-800 whitespace-nowrap">
+                🟠 Alimentadoras
+            </button>
+            <button onclick="filtrarSetor('noturnas')" id="pill-noturnas" class="sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200 whitespace-nowrap">
+                ⚫ Noturnas
+            </button>
+        </div>
+
+        <!-- CAIXA DE BUSCA FLUTUANTE (CANTO SUPERIOR DIREITO) -->
+        <div class="absolute top-16 sm:top-3 right-3 sm:right-6 z-20 w-72 sm:w-80">
+            <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-slate-200 p-2">
+                <div class="relative">
+                    <input type="text" id="inputBuscaLinha" oninput="buscarLinhas(event)" onkeydown="checkEnter(event)" placeholder="Buscar linha (ex: 303, Lagoinha)..." 
+                           autocomplete="off"
+                           class="w-full text-xs px-3 py-2 pl-8 pr-7 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium">
+                    <i class="fas fa-search absolute left-2.5 top-2.5 text-slate-400 text-xs"></i>
+                    <button id="btnClearSearch" onclick="limparSelecao(true)" class="hidden absolute right-2.5 top-2 text-slate-400 hover:text-slate-700 text-xs">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                </div>
+                <!-- LISTA DE SUGESTÕES AUTOCOMPLETE -->
+                <div id="searchSuggestions" class="hidden mt-1.5 max-h-56 overflow-y-auto divide-y divide-slate-100 rounded-xl border border-slate-100 bg-white shadow-lg"></div>
+            </div>
+        </div>
+
+        <!-- CARD FLUTUANTE DE LINHA EM DESTAQUE (INSPECTOR) -->
+        <div id="inspectorCard" class="hidden absolute bottom-5 left-3 right-3 sm:left-6 sm:right-auto sm:w-96 z-20 bg-white/95 backdrop-blur-md rounded-3xl p-5 shadow-2xl border border-slate-200/90 transition-all duration-300">
+            <div class="flex items-start justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <div id="inspBadge" class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex flex-col items-center justify-center font-black shadow-sm shrink-0">
+                        <span id="inspNum" class="text-base leading-none">303</span>
+                        <span class="text-[8px] uppercase tracking-tighter opacity-80">Linha</span>
+                    </div>
+                    <div>
+                        <span id="inspSector" class="text-[10px] font-bold uppercase tracking-wider text-blue-600">Zona Leste</span>
+                        <h3 id="inspName" class="text-sm font-black text-slate-900 leading-tight">Bom Pastor</h3>
+                        <p id="inspTrip" class="text-[11px] text-slate-500 mt-0.5">Av. das Lágrimas ⇄ Centro</p>
+                    </div>
+                </div>
+                <button onclick="limparSelecao()" class="text-slate-400 hover:text-slate-700 p-1">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                <span class="text-slate-500">Tarifa: <strong class="text-slate-800">R$ 5,00</strong></span>
+                <a id="inspLink" href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-3 py-1.5 rounded-xl transition shadow-xs flex items-center gap-1.5 text-xs">
+                    <span>Ver Horários & Paradas</span>
+                    <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- LEGENDA RÁPIDA (CANTO INFERIOR DIREITO) -->
+        <div class="hidden md:block absolute bottom-5 right-6 z-20 bg-white/90 backdrop-blur-md p-3 rounded-2xl border border-slate-200 shadow-lg text-[11px] space-y-1">
+            <span class="font-bold text-slate-700 block mb-1">Legenda da Rede</span>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#9333ea]"></span> <span>Corredores BRT (900)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#1a15f0]"></span> <span>Zona Leste (300/600/700)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#2563eb]"></span> <span>Zona Norte (100/800)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#059669]"></span> <span>Zona Sul (200)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#4f46e5]"></span> <span>Zona Oeste (400/500)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#ea580c]"></span> <span>Alimentadoras (015-095)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-1 rounded bg-[#1e293b]"></span> <span>Noturnas (001-008)</span></div>
+        </div>
+
     </div>
 
-    <!-- Linha de Copyright -->
-    <div class="border-t border-slate-900 pt-6 text-center text-xs text-slate-500">
-      <p>© 2026 Ribeirão Preto — Guia da Cidade Viva. Todos os direitos reservados.</p>
-    </div>
-  </div>
-</footer>
-  <!--
-  PARTIAL: lgpd_banner.html
-  VARIÁVEIS UTILIZADAS:
-    - base_url: Prefixo para link da política de privacidade (default: '')
-  DESCRIÇÃO: Banner de aviso e consentimento de cookies em conformidade com a LGPD.
--->
-<aside class="lgpd-banner" data-lgpd-banner role="region" aria-label="Aviso de Privacidade e Cookies">
-  <div class="lgpd-container">
-    <p class="leading-relaxed">
-      Utilizamos cookies essenciais e tecnologias semelhantes para garantir o funcionamento deste portal e analisar o tráfego urbano de forma anônima. Para mais detalhes, consulte nossa
-      <a href="/privacidade.html" class="underline hover:text-amber-400">Política de Privacidade</a>.
-    </p>
-    <div class="lgpd-actions">
-      <button type="button" class="btn-lgpd-accept" data-lgpd-accept>Entendi e Concordo</button>
-    </div>
-  </div>
-</aside>
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let map;
+        let geojsonLayer;
+        let allFeatures = [];
+        let activeSector = 'todos';
+        let highlightedRoute = null;
+        let userMarker = null;
 
-  <!-- Botão Voltar ao Topo -->
-  <button type="button" class="btn-back-to-top" data-back-to-top aria-label="Voltar ao topo da página">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-    </svg>
-  </button>
+        // Terminais Urbanos de Ribeirão Preto
+        const terminais = [
+            { name: "Terminal Urbano Central", desc: "Plataformas A, B, C, D • Catedral", lat: -21.1755, lng: -47.8152, icon: "🏛️" },
+            { name: "Terminal Rodoviária (Dra. Evangelina)", desc: "Integração Intermunicipal e Urbana", lat: -21.1738, lng: -47.8189, icon: "🚌" },
+            { name: "Terminal Bonfim Paulista", desc: "Conexão dos distritos e condomínios Sul", lat: -21.2858, lng: -47.8130, icon: "🌳" },
+            { name: "Terminal Ribeirão Verde", desc: "Conexão dos bairros da Zona Leste", lat: -21.1275, lng: -47.7423, icon: "🏡" },
+            { name: "Terminal São José", desc: "Polo industrial e alimentadoras Leste", lat: -21.1560, lng: -47.7315, icon: "🏭" }
+        ];
 
-  <script src="/assets/js/base.js"></script>
+        function initMap() {
+            map = L.map('map', {
+                zoomControl: false
+            }).setView([-21.177, -47.810], 12);
+
+            L.control.zoom({ position: 'bottomleft' }).addTo(map);
+
+            // Tiles OpenStreetMap Universais
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Adiciona marcadores de terminais
+            terminais.forEach(t => {
+                const termIcon = L.divIcon({
+                    className: 'custom-term-icon',
+                    html: `<div style="background: white; border: 2px solid #1a15f0; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">${t.icon}</div>`,
+                    iconSize: [32, 32],
+                    iconAnchor: [16, 16]
+                });
+
+                L.marker([t.lat, t.lng], { icon: termIcon }).addTo(map)
+                    .bindPopup(`
+                        <div style="font-size: 12px; line-height: 1.4;">
+                            <strong style="color: #1a15f0; font-size: 13px;">${t.name}</strong><br>
+                            <span style="color: #64748b;">${t.desc}</span>
+                        </div>
+                    `);
+            });
+
+            // Carrega GeoJSON das linhas
+            fetch('dados_linhas_rede.json')
+                .then(res => res.json())
+                .then(data => {
+                    allFeatures = data.features;
+                    renderLines();
+                })
+                .catch(err => console.error("Erro ao carregar dados:", err));
+        }
+
+        function getLineStyle(feature) {
+            const p = feature.properties;
+            const isMatch = highlightedRoute ? (p.short_name === highlightedRoute) : true;
+            const sectorMatch = (activeSector === 'todos') || (p.sector === activeSector);
+
+            if (highlightedRoute) {
+                if (isMatch) {
+                    return {
+                        color: p.color || '#1a15f0',
+                        weight: 6,
+                        opacity: 1.0,
+                        zIndex: 1000
+                    };
+                } else {
+                    return {
+                        color: '#94a3b8',
+                        weight: 1.5,
+                        opacity: 0.15
+                    };
+                }
+            }
+
+            if (!sectorMatch) {
+                return {
+                    color: '#cbd5e1',
+                    weight: 1,
+                    opacity: 0.05
+                };
+            }
+
+            let weight = 2.5;
+            let opacity = 0.65;
+            if (p.sector === 'troncais') {
+                weight = 4;
+                opacity = 0.85;
+            }
+
+            return {
+                color: p.color || '#1a15f0',
+                weight: weight,
+                opacity: opacity
+            };
+        }
+
+        function renderLines() {
+            if (geojsonLayer) {
+                map.removeLayer(geojsonLayer);
+            }
+
+            geojsonLayer = L.geoJSON(allFeatures, {
+                style: getLineStyle,
+                onEachFeature: (feature, layer) => {
+                    const p = feature.properties;
+                    layer.on('click', () => {
+                        destacarLinha(p.short_name, p);
+                    });
+                    layer.on('mouseover', () => {
+                        if (!highlightedRoute) {
+                            layer.setStyle({ weight: 5, opacity: 0.95 });
+                        }
+                    });
+                    layer.on('mouseout', () => {
+                        if (!highlightedRoute) {
+                            geojsonLayer.resetStyle(layer);
+                        }
+                    });
+                }
+            }).addTo(map);
+        }
+
+        function destacarLinha(shortName, props, updateInput = true) {
+            highlightedRoute = shortName;
+            if (updateInput) {
+                document.getElementById('inputBuscaLinha').value = shortName;
+                document.getElementById('btnClearSearch').classList.remove('hidden');
+            }
+
+            renderLines();
+
+            // Mostra o card inspetor
+            const card = document.getElementById('inspectorCard');
+            card.classList.remove('hidden');
+
+            document.getElementById('inspNum').textContent = props.short_name;
+            document.getElementById('inspName').textContent = props.long_name;
+            document.getElementById('inspTrip').textContent = props.trip_name || 'Itinerário Oficial';
+            document.getElementById('inspSector').textContent = props.sector_name;
+            document.getElementById('inspBadge').style.backgroundColor = props.color;
+            document.getElementById('inspLink').href = props.url;
+
+            // Enquadra a linha selecionada
+            const selectedFeatures = allFeatures.filter(f => f.properties.short_name === shortName);
+            if (selectedFeatures.length > 0) {
+                const tempLayer = L.geoJSON(selectedFeatures);
+                map.fitBounds(tempLayer.getBounds(), { padding: [60, 60] });
+            }
+        }
+
+        function selecionarLinha(shortName) {
+            const f = allFeatures.find(item => item.properties.short_name === shortName);
+            if (!f) return;
+            document.getElementById('inputBuscaLinha').value = shortName;
+            document.getElementById('btnClearSearch').classList.remove('hidden');
+            const sug = document.getElementById('searchSuggestions');
+            sug.classList.add('hidden');
+            sug.innerHTML = '';
+            destacarLinha(shortName, f.properties, false);
+        }
+
+        function checkEnter(e) {
+            if (e.key === 'Enter') {
+                const sug = document.getElementById('searchSuggestions');
+                const first = sug.querySelector('[data-route]');
+                if (first) {
+                    selecionarLinha(first.getAttribute('data-route'));
+                }
+            }
+        }
+
+        function limparSelecao(clearInput = true) {
+            highlightedRoute = null;
+            if (clearInput) {
+                document.getElementById('inputBuscaLinha').value = '';
+            }
+            document.getElementById('btnClearSearch').classList.add('hidden');
+            const sug = document.getElementById('searchSuggestions');
+            sug.classList.add('hidden');
+            sug.innerHTML = '';
+            document.getElementById('inspectorCard').classList.add('hidden');
+            renderLines();
+        }
+
+        function filtrarSetor(sectorId) {
+            activeSector = sectorId;
+            highlightedRoute = null;
+            document.getElementById('inspectorCard').classList.add('hidden');
+
+            document.querySelectorAll('.sector-pill').forEach(btn => {
+                btn.className = 'sector-pill px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200 whitespace-nowrap';
+            });
+            const activeBtn = document.getElementById('pill-' + sectorId);
+            if (activeBtn) {
+                activeBtn.className = 'sector-pill px-3 py-1.5 rounded-xl text-xs font-black transition bg-blue-600 text-white shadow-xs whitespace-nowrap';
+            }
+
+            renderLines();
+
+            if (sectorId !== 'todos') {
+                const sectorFeatures = allFeatures.filter(f => f.properties.sector === sectorId);
+                if (sectorFeatures.length > 0) {
+                    const tempLayer = L.geoJSON(sectorFeatures);
+                    map.fitBounds(tempLayer.getBounds(), { padding: [40, 40] });
+                }
+            } else {
+                map.setView([-21.177, -47.810], 12);
+            }
+        }
+
+        function buscarLinhas(e) {
+            const input = document.getElementById('inputBuscaLinha');
+            const val = input.value.trim().toLowerCase();
+            const btnClear = document.getElementById('btnClearSearch');
+            const sug = document.getElementById('searchSuggestions');
+
+            if (!val) {
+                btnClear.classList.add('hidden');
+                sug.classList.add('hidden');
+                sug.innerHTML = '';
+                limparSelecao(false);
+                return;
+            }
+
+            btnClear.classList.remove('hidden');
+
+            // Agrupa linhas únicas
+            const seen = new Set();
+            const uniqueRoutes = [];
+            allFeatures.forEach(f => {
+                const p = f.properties;
+                if (!seen.has(p.short_name)) {
+                    seen.add(p.short_name);
+                    uniqueRoutes.push(p);
+                }
+            });
+
+            const exact = [];
+            const starts = [];
+            const contains = [];
+
+            uniqueRoutes.forEach(p => {
+                const num = p.short_name.toLowerCase();
+                const name = p.long_name.toLowerCase();
+
+                if (num === val) {
+                    exact.push(p);
+                } else if (num.startsWith(val)) {
+                    starts.push(p);
+                } else if (name.includes(val) || num.includes(val)) {
+                    contains.push(p);
+                }
+            });
+
+            const matches = [...exact, ...starts, ...contains].slice(0, 7);
+
+            if (matches.length > 0) {
+                sug.innerHTML = matches.map(p => `
+                    <div onclick="selecionarLinha('${p.short_name}')" data-route="${p.short_name}" class="p-2.5 hover:bg-blue-50 cursor-pointer flex items-center justify-between transition">
+                        <div class="flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg text-white font-bold text-xs flex items-center justify-center shrink-0" style="background-color: ${p.color || '#1a15f0'}">${p.short_name}</span>
+                            <div>
+                                <strong class="text-xs text-slate-800 block">${p.long_name}</strong>
+                                <span class="text-[10px] text-slate-400">${p.sector_name || ''}</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right text-[10px] text-slate-400"></i>
+                    </div>
+                `).join('');
+                sug.classList.remove('hidden');
+
+                // Se houver uma correspondência exata de número (ex: digitou "303")
+                if (exact.length > 0) {
+                    destacarLinha(exact[0].short_name, exact[0], false);
+                }
+            } else {
+                sug.innerHTML = '<div class="p-3 text-xs text-slate-400 text-center">Nenhuma linha encontrada</div>';
+                sug.classList.remove('hidden');
+            }
+        }
+
+        // Fecha sugestões ao clicar fora
+        document.addEventListener('click', (e) => {
+            const searchBox = document.getElementById('inputBuscaLinha')?.closest('.bg-white\/95');
+            if (searchBox && !searchBox.contains(e.target)) {
+                document.getElementById('searchSuggestions')?.classList.add('hidden');
+            }
+        });
+
+        function localizarUsuario() {
+            if (!navigator.geolocation) {
+                alert("Geolocalização não suportada neste navegador.");
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(pos => {
+                const lat = pos.coords.latitude;
+                const lng = pos.coords.longitude;
+
+                if (userMarker) {
+                    map.removeLayer(userMarker);
+                }
+
+                userMarker = L.circleMarker([lat, lng], {
+                    radius: 9,
+                    fillColor: '#3b82f6',
+                    color: '#ffffff',
+                    weight: 3,
+                    opacity: 1,
+                    fillOpacity: 0.9
+                }).addTo(map);
+
+                userMarker.bindPopup("<strong>Você está aqui!</strong><br>Veja as linhas de ônibus que passam pelas ruas ao redor.").openPopup();
+                map.setView([lat, lng], 15);
+            }, () => {
+                alert("Não foi possível obter sua localização. Verifique as permissões de GPS.");
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initMap);
+    </script>
 </body>
 </html>
