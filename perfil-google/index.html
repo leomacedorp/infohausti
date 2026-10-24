@@ -24,6 +24,11 @@
 <!-- Favicon -->
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
+<!-- Fonts: JetBrains Mono & Plus Jakarta Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <!-- Schema: LocalBusiness -->
 <script type="application/ld+json">
 {
@@ -105,10 +110,10 @@
 <style>
   :root{
     --bg:#05070F;
-    --bg-soft:#0A1020;
-    --bg-dark:#02040A;
-    --bg-card:rgba(10, 16, 32, 0.75);
-    --bg-card-hover:rgba(18, 30, 52, 0.9);
+    --bg-soft:rgba(10, 16, 32, 0.45);
+    --bg-dark:rgba(2, 4, 10, 0.55);
+    --bg-card:rgba(10, 16, 32, 0.65);
+    --bg-card-hover:rgba(18, 30, 52, 0.85);
     --text:#f1f5f9;
     --text-strong:#ffffff;
     --muted:#94a3b8;
@@ -139,27 +144,23 @@
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{
     margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     font-size:17px;
     line-height:1.65;
     color:var(--text);
     background:var(--bg);
     -webkit-font-smoothing:antialiased;
     padding-bottom:88px;
-    background-image:
-      radial-gradient(900px 420px at 85% 0, rgba(34, 211, 238, 0.12), transparent 60%),
-      radial-gradient(ellipse 60% 40% at 50% 100%, rgba(34, 197, 94, 0.04), transparent 70%);
-    background-attachment:fixed;
   }
   @media(min-width:768px){body{padding-bottom:0}}
 
   /* Layout */
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-  .wrap-narrow{max-width:780px;margin:0 auto;padding:0 20px}
-  section{padding:48px 0;position:relative}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px;position:relative;z-index:2}
+  .wrap-narrow{max-width:780px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
+  section{padding:48px 0;position:relative;z-index:1}
   @media(min-width:768px){section{padding:64px 0}}
-  section.alt{background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  section.dark{background:var(--bg-dark);color:#f1f5f9}
+  section.alt{background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  section.dark{background:var(--bg-dark);color:#f1f5f9;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
   section.dark h2,section.dark h3,section.dark p,section.dark li{color:#e2e8f0}
   section.dark .muted{color:#cbd5e1}
 
@@ -468,6 +469,7 @@
   .final-cta{
     background:var(--bg-dark);color:#f1f5f9;padding:64px 0;
     text-align:center;border-top:1px solid var(--border);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   }
   .final-cta h2{color:#fff}
   .final-cta p{color:#cbd5e1;font-size:17px;max-width:560px;margin-left:auto;margin-right:auto}
@@ -479,7 +481,7 @@
   .final-cta .cta-note strong{color:#fff}
 
   /* Footer */
-  footer{padding:32px 0;background:#020306;border-top:1px solid var(--border);font-size:14px;color:var(--muted)}
+  footer{padding:32px 0;background:rgba(2, 4, 10, 0.7);border-top:1px solid var(--border);font-size:14px;color:var(--muted);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
   footer .wrap{text-align:center}
   footer p{margin:0 0 8px;font-size:14px}
   footer .brand-line{font-weight:700;color:#fff;margin-bottom:6px}
@@ -530,7 +532,7 @@
 <!-- CANVAS INTERATIVO: Circuito Eletrônico de Fundo (PCB Glow) -->
 <canvas id="pcbCanvas" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0"></canvas>
 <!-- Overlay Gradiente Suave: Garante Leitura e Contraste Impecáveis -->
-<div style="position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 211, 238, 0.08), transparent 70%), linear-gradient(180deg, rgba(5,7,15,0.5) 0%, rgba(5,7,15,0.8) 50%, rgba(5,7,15,0.96) 100%)"></div>
+<div style="position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 211, 238, 0.12), transparent 70%), linear-gradient(180deg, rgba(5,7,15,0.2) 0%, rgba(5,7,15,0.45) 50%, rgba(5,7,15,0.65) 100%)"></div>
 
 <!-- Top bar -->
 <header class="topbar">
@@ -1133,19 +1135,19 @@
                 ctx.lineTo(this.points[i].x, this.points[i].y);
             }
 
-            ctx.strokeStyle = 'rgba(0, 240, 255, 0.08)';
-            ctx.lineWidth = 1.2;
+            ctx.strokeStyle = 'rgba(0, 240, 255, 0.14)';
+            ctx.lineWidth = 1.3;
             ctx.stroke();
 
             for (let p of this.points) {
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 240, 255, 0.2)';
+                ctx.arc(p.x, p.y, 2.2, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 240, 255, 0.3)';
                 ctx.fill();
 
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, 0.8, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 240, 255, 0.7)';
+                ctx.arc(p.x, p.y, 1.0, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 240, 255, 0.85)';
                 ctx.fill();
             }
         }
@@ -1211,7 +1213,7 @@
             }
 
             ctx.strokeStyle = this.color;
-            ctx.lineWidth = 1.8;
+            ctx.lineWidth = 2.0;
             ctx.shadowColor = '#00f0ff';
             ctx.shadowBlur = 8;
             ctx.stroke();
@@ -1219,10 +1221,10 @@
 
             const head = this.history[this.history.length - 1];
             ctx.beginPath();
-            ctx.arc(head.x, head.y, 2, 0, Math.PI * 2);
+            ctx.arc(head.x, head.y, 2.4, 0, Math.PI * 2);
             ctx.fillStyle = '#ffffff';
-            ctx.shadowColor = '#ffffff';
-            ctx.shadowBlur = 6;
+            ctx.shadowColor = '#00f0ff';
+            ctx.shadowBlur = 8;
             ctx.fill();
             ctx.shadowBlur = 0;
         }
@@ -1236,13 +1238,13 @@
         reset() {
             this.x = Math.floor(Math.random() * (width / GRID_SIZE)) * GRID_SIZE;
             this.y = -Math.random() * 200;
-            this.speed = 1.0 + Math.random() * 1.6;
-            this.length = Math.floor(Math.random() * 7) + 5;
+            this.speed = 1.1 + Math.random() * 1.8;
+            this.length = Math.floor(Math.random() * 8) + 6;
             this.chars = [];
             for (let i = 0; i < this.length; i++) {
                 this.chars.push(Math.random() > 0.5 ? '1' : '0');
             }
-            this.opacity = 0.08 + Math.random() * 0.12;
+            this.opacity = 0.18 + Math.random() * 0.22;
         }
 
         update() {
@@ -1257,14 +1259,22 @@
         }
 
         draw() {
-            ctx.font = '10px "JetBrains Mono", monospace';
+            ctx.font = '11px "JetBrains Mono", monospace';
             for (let i = 0; i < this.chars.length; i++) {
-                const charY = this.y - i * 14;
+                const charY = this.y - i * 15;
                 if (charY < -10 || charY > height + 10) continue;
 
                 const isHead = (i === 0);
-                ctx.fillStyle = isHead ? `rgba(255, 255, 255, ${this.opacity * 1.8})` : `rgba(0, 240, 255, ${this.opacity * (1 - i / this.length)})`;
-                ctx.fillText(this.chars[i], this.x, charY);
+                if (isHead) {
+                    ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(1, this.opacity * 2.5)})`;
+                    ctx.shadowColor = '#00f0ff';
+                    ctx.shadowBlur = 6;
+                    ctx.fillText(this.chars[i], this.x, charY);
+                    ctx.shadowBlur = 0;
+                } else {
+                    ctx.fillStyle = `rgba(0, 240, 255, ${this.opacity * (1 - (i / this.length) * 0.7)})`;
+                    ctx.fillText(this.chars[i], this.x, charY);
+                }
             }
         }
     }
@@ -1282,12 +1292,12 @@
             ctx.fillStyle = 'rgba(7, 11, 20, 0.6)';
             ctx.fillRect(this.x, this.y, this.w, this.h);
 
-            ctx.strokeStyle = 'rgba(0, 240, 255, 0.18)';
+            ctx.strokeStyle = 'rgba(0, 240, 255, 0.25)';
             ctx.lineWidth = 1;
             ctx.strokeRect(this.x, this.y, this.w, this.h);
 
             const pinSpacing = 12;
-            ctx.strokeStyle = 'rgba(0, 240, 255, 0.25)';
+            ctx.strokeStyle = 'rgba(0, 240, 255, 0.35)';
             for (let py = this.y + 10; py < this.y + this.h - 8; py += pinSpacing) {
                 ctx.beginPath();
                 ctx.moveTo(this.x - 5, py);
@@ -1301,7 +1311,7 @@
             }
 
             ctx.font = '9px "JetBrains Mono", monospace';
-            ctx.fillStyle = 'rgba(0, 240, 255, 0.45)';
+            ctx.fillStyle = 'rgba(0, 240, 255, 0.6)';
             ctx.fillText(this.label, this.x + 8, this.y + this.h / 2 + 3);
         }
     }
@@ -1312,7 +1322,7 @@
         binaryStreams = [];
         microchips = [];
 
-        const numTraces = Math.floor(width < 768 ? 12 : 24);
+        const numTraces = Math.floor(width < 768 ? 14 : 26);
         for (let i = 0; i < numTraces; i++) {
             const startX = Math.floor(Math.random() * (width / GRID_SIZE)) * GRID_SIZE;
             const startY = Math.floor(Math.random() * (height / GRID_SIZE)) * GRID_SIZE;
@@ -1326,14 +1336,14 @@
             }
         }
 
-        const numStreams = Math.floor(width < 768 ? 6 : 16);
+        const numStreams = Math.floor(width < 768 ? 12 : 24);
         for (let i = 0; i < numStreams; i++) {
             binaryStreams.push(new BinaryStream());
         }
 
         if (width >= 1024) {
-            microchips.push(new Microchip(width * 0.08, height * 0.35, 90, 56, 'IH-PERFIL'));
-            microchips.push(new Microchip(width * 0.86, height * 0.72, 96, 60, 'GOOGLE-MAPS'));
+            microchips.push(new Microchip(width * 0.08, height * 0.35, 96, 56, 'IH-PERFIL'));
+            microchips.push(new Microchip(width * 0.86, height * 0.72, 102, 60, 'GOOGLE-MAPS'));
         }
     }
 
